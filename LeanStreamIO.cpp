@@ -11,9 +11,16 @@ extern "C" size_t _write(size_t fd, const char * data, size_t count) {
                 Serial.begin(115200);
             Serial.write(data, count);
             written_count = count;
-            //break;
+            break;
         case 2: // WiFi logger
-            //logging_server.sendAll(PacketFactory::createLogPacket(count, data));
+            logging_server.sendPacket(PacketFactory::createLogPacket(count, data));
+            break;
+        case 3: // Serial + WiFi
+            logging_server.sendPacket(PacketFactory::createLogPacket(count, data));
+            if(!Serial) // Check if serial exists
+                Serial.begin(115200);
+            Serial.write(data, count);
+            written_count = count;
             break;
         default:
             return -1; // Error for unsupported fd

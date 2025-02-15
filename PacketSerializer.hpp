@@ -3,7 +3,7 @@
 
 #include "PacketTypes.hpp"
 
-
+/*
 const size_t MAX_PACKET_LENGTH = sizeof(Packet);
 
 class PacketSerializer {
@@ -12,6 +12,7 @@ public:
     memcpy(buffer, &packet, MAX_PACKET_LENGTH);
   }
 };
+*/
 
 class PacketDeserializer {
 public:

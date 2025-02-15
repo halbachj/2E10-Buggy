@@ -34,6 +34,10 @@ void MotorDriver::pwmOverride(int pwm) {
   analogWrite(this->pins.pulse, pwm);
 }
 
+int MotorDriver::getSpeed() {
+  return this->measured_speed;
+}
+
 void MotorDriver::update(unsigned int dt) {
 
   

@@ -28,7 +28,9 @@ private:
   const unsigned short triggerPulseLength = 10; //10us trigger pulse;
 
   const int trigger_interval = 10; //ms
-  volatile int echoDuration = 0; 
+  volatile int echoDuration = 0;
+  unsigned short detectionRange = 0;
+
   
   volatile unsigned long startTime;
   unsigned long last_trigger = 0;
@@ -38,6 +40,8 @@ public:
   UltrasonicSensor(const UltrasonicSensorPinGroup& pinout);
   
   float getReading();
+  void setDetectionRange(unsigned short range);
+  bool objectDetected();
   void update();
 
   void ISR_UltrasonicEcho();

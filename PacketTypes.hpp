@@ -57,5 +57,6 @@ struct Packet {
   PacketContent content;
 };
 
+const size_t MAX_PACKET_LENGTH = sizeof(Packet);
 
 #endif //PACKET_TYPES_HPP

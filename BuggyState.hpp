@@ -55,15 +55,21 @@ private:
  * as calibration data. The state is then changed to idle and the buggy waits for commands.
  */
 class CalibrationState : public BuggyState {
-public:
-    static CalibrationState& instance() {
-        static CalibrationState instance;
-        return instance;
-    }
+private:
+  bool leftOnLine = false, rightOnLine = false;
+  unsigned int leftMax = 0, leftMin = 0, rightMax = 0, rightMin = 0;
+  unsigned short leftCrossed = 0, rightCrossed = 0;
+  unsigned int upperBoudary = 768, lowerBundary = 255;
 
-    void enter(Buggy& buggy) override;
-    void update(Buggy& buggy, unsigned int dt) override;
-    void exit(Buggy& buggy) override;
+public:
+  static CalibrationState& instance() {
+      static CalibrationState instance;
+      return instance;
+  }
+  
+  void enter(Buggy& buggy) override;
+  void update(Buggy& buggy, unsigned int dt) override;
+  void exit(Buggy& buggy) override;
 
 private:
     CalibrationState() = default;  // Private constructor for singleton pattern

@@ -35,6 +35,7 @@ public:
 	void update(unsigned int dt);
   void pwmOverride(int pwm);
   void setSpeed(int speed);
+  int getSpeed();
   
   void ISR_encoder_trigger();
 };

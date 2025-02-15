@@ -33,11 +33,22 @@ void Buggy::handlePacket(Packet packet) {
   }
 }
 
+void Buggy::sendStatusPacket() {
+  this->server.sendPacket(
+    PacketFactory::createStatusPacket(
+      this->objectDetected,
+      this->ultrasonicSensor.getReading(),
+      this->leftMotor.getSpeed(),
+      this->rightMotor.getSpeed()
+    )
+  );
+}
+
 void Buggy::update(unsigned int dt) {
   Packet packet = this->server.update();
   if (!packet.type) this->handlePacket(packet);
   this->currentState->update(*this, dt);
-  this->server.sendAll(PacketFactory::createStatusPacket(false, 0.0f, 0, 0));
+  //this->sendStatusPacket();
 }
 
 void Buggy::setState(BuggyState& newState) {

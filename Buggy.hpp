@@ -39,6 +39,8 @@ private:
   LineFollower& lineFollower;
 
   BuggyState* currentState;
+
+  bool objectDetected = false;
   
 public:
 
@@ -54,6 +56,7 @@ public:
 
   void handlePacket(Packet packet);
   void handleCommand(CommandPacket command);
+  void sendStatusPacket();
 
   friend class TcpServer;
   friend class BuggyState;

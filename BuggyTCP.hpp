@@ -25,10 +25,7 @@ public:
   TcpServer(int port=1234);
   void setup();
   Packet update();
-  void sendPacket(Packet packet);
-  void sendAll(Packet packet);
-  void sendAll(const char* data);
-  void sendAll(const char* data, size_t count);
+  void sendPacket(const Packet packet);
 };
 
 #endif //BUGGY_TCP_HPP

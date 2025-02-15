@@ -30,14 +30,16 @@ void UltrasonicSensor::update() {
   }
 }
 
+
+void UltrasonicSensor::setDetectionRange(unsigned short range) {
+  this->detectionRange = range;
+}
+
+
+bool UltrasonicSensor::objectDetected() {
+  return this->getReading() < this->detectionRange;
+}
+
 float UltrasonicSensor::getReading() {
-    
-    return echoDuration / 58.3;
-    /*else 
-    {
-        // Manually trigger ultrasonic sensor and measure using polling
-        trigger();  // Send pulse
-        long duration = pulseIn(pinout.echo, HIGH); // Blocking call
-        return duration / 58.0;
-    }*/
+  return echoDuration / 58.3;
 }

@@ -14,34 +14,9 @@ void TcpServer::setup() {
   server.begin();
 }
 
-void TcpServer::sendAll(const Packet packet) {
-  char buffer[MAX_PACKET_LENGTH] = {0};
-  /*this->server.println("PACKET TYPE" + String(packet.type));
-  this->server.println("PACKET CONTENT" + String(packet.content.logPacket.message));
-  this->server.println("BUFFER SIZE: " + String(MAX_PACKET_LENGTH));
-  for (const auto e : buffer) {
-    this->server.println(String(int(e)));
-  }
-  
-  this->server.println("SERIALIZED PACKET");
-  for (const auto e : buffer) {
-    this->server.println(String(int(e)));
-  }*/
-  PacketSerializer::serializePacket(packet, buffer);
-  this->server.write(buffer, sizeof(packet));
-}
-
-void TcpServer::sendAll(const char* data, size_t count) {
-  this->server.write(data, count);
-}
-
-void TcpServer::sendAll(const char* data) {
-  this->server.write(data);
-}
-
-
-void TcpServer::sendPacket(Packet packet) {
-  //this->server.write(PacketSerializer::serializePacket(packet), sizeof(packet));
+void TcpServer::sendPacket(const Packet packet) {
+  uint8_t buffer[MAX_PACKET_LENGTH] = {0}; // Initialize buffer to 0
+  this->server.write((uint8_t*)&packet, sizeof(packet)); // Cast to uint8_t pointer to access the byte data of the struct itself
 }
 
 Packet TcpServer::update() {
