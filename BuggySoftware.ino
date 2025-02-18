@@ -1,4 +1,11 @@
+/**
+ * @file BuggySoftware.ino
+ * @author Johannes Halbach
+ * @brief This is the main entry point for the Buggy software. @see setup @see loop
+ */
+
 #include "Arduino.h"
+#include "Timer1.hpp"
 #include "PinSetup.hpp"
 #include "Logger.hpp"
 #include "Buggy.hpp"
@@ -37,30 +44,30 @@ namespace mcu {
  *
  */
 
-// MOTOR PINOUT
+/// MOTOR PINPUTS
 const MotorPinGroup leftMotorPinout = {6,7,5,2};
 const MotorPinGroup rightMotorPinout = {10,12,11,3};
 
-// IR SENSORS
+/// IR SENSORS
 PIN_TYPE leftIrSensorPin = A1;
 PIN_TYPE rightIrSensorPin = A0;
 
-// ULTRASONIC SENSOR
-const UltrasonicSensorPinGroup ultrasnoicSensorPinout = {9,8};
+/// ULTRASONIC SENSOR
+const UltrasonicSensorPinGroup ultrasonicSensorPinout = {9,8};
 
-// PID CONSTANTS
-const PIDConstants leftMotorPID = {0.05f, 0.00f, 0.00f};
+/// PID CONSTANTS
+const PIDConstants leftMotorPID = {0.005f, 0.00f, 0.00f};
 const PIDConstants rightMotorPID = {0.05f, 0.00f, 0.00f};
 const PIDConstants lineFollowerPID = {1.0f, 0.0f, 0.0f};
 
-// INSTANCES
+/// INSTANCES
 MotorDriver leftMotor(leftMotorPinout, leftMotorPID);
 MotorDriver rightMotor(rightMotorPinout, rightMotorPID);
 
 IrSensor leftIrSensor(leftIrSensorPin);
 IrSensor rightIrSensor(rightIrSensorPin);
 
-UltrasonicSensor ultrasonicSensor(ultrasnoicSensorPinout);
+UltrasonicSensor ultrasonicSensor(ultrasonicSensorPinout);
 
 BuggyWiFi wifi;
 TcpServer server = TcpServer();
@@ -68,7 +75,6 @@ TcpServer logging_server = TcpServer(44);
 
 LineFollower lineFollower(leftMotor, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID);
 
-// INITIALIZE BUGGY
 Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, wifi, server, lineFollower);
 
 // ISR
@@ -76,7 +82,11 @@ void ISR_left_motor();
 void ISR_right_motor();
 void ISR_ultrasonic_echo();
 
-
+/**
+ * @brief Setup method used for setting up the Arduino when it is started.
+ * @details This sets up all the communication services as well. Besides 
+ * the basic pin setup this includes the WiFi, Serial and TCP server.
+ */
 void setup() {
   Serial.begin(115200);
   while(!Serial);
@@ -90,14 +100,14 @@ void setup() {
   setupMotorPins(rightMotorPinout);
 
   // ULTRASONIC PINS
-  setupUltrasonicPins(ultrasnoicSensorPinout);
+  setupUltrasonicPins(ultrasonicSensorPinout);
 
   // Attatch motor interrupts
-  attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, FALLING);
-  attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, FALLING);
+  attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, CHANGE);
 
   // Attatch Ultrasonic interrupt
-  attachInterrupt(digitalPinToInterrupt(ultrasnoicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE);
   
   // SETUP WIFI
   wifi.wifi_checks();
@@ -106,13 +116,22 @@ void setup() {
   server.setup();
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
-  //buggy.setState(IdleState::instance());
+  buggy.setState(LineFollowingState::instance());
+  leftMotor.setSpeed(800);
+  leftMotor.forward();
 }
 
 unsigned long start_time, end_time, first_time = millis();
 unsigned int dt = 10;
 
-// MAIN LOOP
+/**
+ * @brief Main loop of the arduino. Called as often ass possible.
+ * @details This function is used to update all members of the buggy
+ * as often as possible. This method will call the Buggy update method
+ * which intern updates the necessary components of the buggy dependent
+ * on the state. The function also keeps track of execution time in ms,
+ * which is passed onto the subsequent update functions if they need it.
+ */
 void loop() {
   start_time = millis();
   wifi.update();
@@ -122,15 +141,26 @@ void loop() {
 }
 
 
-// ISR IMPLEMENTATIONS
+/**
+ * @brief Interrupt service routine for the left motor.
+ * @todo rewrite using Timer1 instead of millis. 
+ */
 void ISR_left_motor() {
   leftMotor.ISR_encoder_trigger();
 }
 
+/**
+ * @brief Interrupt service routine for the right motor.
+ * @todo rewrite using Timer1 instead of millis. 
+ */
 void ISR_right_motor() {
   rightMotor.ISR_encoder_trigger();
 }
 
+/**
+ * @brief Interrupt service routine for the Ultrasonic sensor.
+ * @todo rewrite using Timer1 instead of millis
+ */
 void ISR_ultrasonic_echo() {
   ultrasonicSensor.ISR_UltrasonicEcho();
 }

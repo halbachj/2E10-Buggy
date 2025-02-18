@@ -52,7 +52,7 @@ void MotorDriver::update(unsigned int dt) {
   int measurement_dt = this->current_encoder_measurement - this->last_encoder_measurement;
   interrupts();
   this->measured_speed = (this->degPerTick * 1000) / (measurement_dt);
-  if (this->last_encoder_measurement + measurement_dt * 2 > millis()) this->measured_speed = 0; // there should have been an encoder pulse by now...
+  if (this->last_encoder_measurement + measurement_dt*2 < millis()) this->measured_speed = 0; // there should have been an encoder pulse by now...
   
   mcu::logger <<String(this->measured_speed).c_str() << ",";
   mcu::logger << String(this->set_speed).c_str() << ",";

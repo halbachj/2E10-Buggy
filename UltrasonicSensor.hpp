@@ -29,7 +29,7 @@ private:
 
   const int trigger_interval = 10; //ms
   volatile int echoDuration = 0;
-  unsigned short detectionRange = 0;
+  unsigned short detectionRange = 20;
 
   
   volatile unsigned long startTime;

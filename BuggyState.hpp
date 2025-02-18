@@ -5,13 +5,15 @@
 
 class Buggy;  // Forward declaration
 
-/*
- * The Buggy State class is an abstract class that represents the abstract state the buggy can be in.
+/**
+ * @class BuggyState
+ *
+ * @brief The Buggy State class is an abstract class that represents the abstract state the buggy can be in.
  * From here all Buggy States are inherited e.g. IdleState or CalibrationState.
  * On state transition the different methods are called. First the exit method when the state is exited
  * and then the enter method when the state is entered. The update method is called on every update,
  * meaning as often as possible.
- */
+ **/
 
 class BuggyState {
 public:
@@ -25,12 +27,13 @@ public:
  *   BUGGY STATES
  */
 
-/*
- * IDLE STATE
- * The idle state represents a state in which the buggy operates normaly but is not driving. Can be compared to a stopped state.
+/**
+ * @class IdleState
+ * 
+ * @brief The idle state represents a state in which the buggy operates normaly but is not driving. Can be compared to a stopped state.
  * In the idle state normal communication with the buggy is possible and the buggy can be resumed when prompted to start.
  * This state is reached whenever the buggy detects an obstacle and brakes, or when the buggy crashes by loosing the line or something similar.
- */
+ **/
 class IdleState : public BuggyState {
 public:
     static IdleState& instance() {
@@ -48,12 +51,13 @@ private:
 
 
 
-/*
- * CALIBRATION STATE
- * The calibration state of the buggy is the first state it enters after being placed on the track. The buggy will perform a full rotation
+/**
+ * @class CalibrationState
+ *
+ * @brief The calibration state of the buggy is the first state it enters after being placed on the track. The buggy will perform a full rotation
  * an collect as many datapoints as possible from the IR sensors. On exit these calibration values are set in the corresponding IR sensors
  * as calibration data. The state is then changed to idle and the buggy waits for commands.
- */
+ **/
 class CalibrationState : public BuggyState {
 private:
   bool leftOnLine = false, rightOnLine = false;
@@ -75,9 +79,10 @@ private:
     CalibrationState() = default;  // Private constructor for singleton pattern
 };
 
-/*
- * LINE FOLLOWING STATE
- * In the Line following state the buggy is trying to follow the line using the IR sensors. The buggy also checks for obstacles 
+/**
+ * @class LineFollowingState
+ *
+ * @brief In the Line following state the buggy is trying to follow the line using the IR sensors. The buggy also checks for obstacles 
  * in the way and brakes when it detects any. The buggy also reports neccessarry information back to the ground station through the 
  * TCP server.
  */

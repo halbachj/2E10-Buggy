@@ -15,8 +15,10 @@ void TcpServer::setup() {
 }
 
 void TcpServer::sendPacket(const Packet packet) {
-  uint8_t buffer[MAX_PACKET_LENGTH] = {0}; // Initialize buffer to 0
-  this->server.write((uint8_t*)&packet, sizeof(packet)); // Cast to uint8_t pointer to access the byte data of the struct itself
+  char buffer[MAX_PACKET_LENGTH] = {0}; // Initialize buffer to 0
+  PacketSerializer::serializePacket(packet, buffer);
+  this->server.write(buffer, sizeof(packet)); // Cast to uint8_t pointer to access the byte data of the struct itself
+  //this->server.write((uint8_t*)&packet, sizeof(packet)); // Cast to uint8_t pointer to access the byte data of the struct itself
 }
 
 Packet TcpServer::update() {

@@ -19,7 +19,7 @@ private:
   //unsigned long prevDegrees = 0;
 
 
-  const unsigned short ticks = 4;                 // encoder ticks per rotations
+  const unsigned short ticks = 8;                 // encoder ticks per rotations
   const unsigned short degPerTick = 360/ticks;    // ratio of degrees per tick
 
 public:
