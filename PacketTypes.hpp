@@ -33,7 +33,7 @@ struct StatusPacket {
  * COMMAND PACKET
  */
 enum CommandType {
-  STOP,
+  STOP = 0,
   START
 };
 

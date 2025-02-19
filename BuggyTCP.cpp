@@ -24,6 +24,7 @@ void TcpServer::sendPacket(const Packet packet) {
 Packet TcpServer::update() {
   WiFiClient client = this->server.available();   // listen for incoming clients
   Packet packet;
+  packet.type = PacketType(0); // Will initialize packet type to an invalid packet that can be detected
   if (client) {
     delayMicroseconds(10);            // This is required for the Arduino Nano RP2040 Connect
     //mcu::logger << "CLIENT CONNECTED" << mcu::LeanStreamIO::endl;
@@ -32,7 +33,8 @@ Packet TcpServer::update() {
       client.readBytes(this->input_buffer, MAX_PACKET_LENGTH);
       mcu::logger << "PACKAGE RECIEVED - DESERIALIZING" << mcu::LeanStreamIO::endl;
       // deserialize packet
-      packet = PacketDeserializer::deserializePacket(this->input_buffer);
+      memcpy(&packet, this->input_buffer, MAX_PACKET_LENGTH);
+      //packet = PacketDeserializer::deserializePacket(this->input_buffer);
       mcu::logger << "DESERIALIZED" << mcu::LeanStreamIO::endl << "PACKET: " << String(packet.type).c_str() << mcu::LeanStreamIO::endl;
     }
   }

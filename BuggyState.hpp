@@ -50,6 +50,24 @@ private:
 };
 
 
+class ObjectDetectedState : public BuggyState {
+public:
+
+    static ObjectDetectedState& instance() {
+        static ObjectDetectedState instance;
+        return instance;
+    }
+
+
+    void enter(Buggy& buggy) override;
+    void update(Buggy& buggy, unsigned int dt) override;
+    void exit(Buggy& buggy) override;
+
+private:
+    ObjectDetectedState() = default;  // Private constructor for singleton pattern
+};
+
+
 
 /**
  * @class CalibrationState

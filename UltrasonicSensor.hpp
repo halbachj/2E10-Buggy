@@ -32,7 +32,7 @@ private:
   unsigned short detectionRange = 20;
 
   
-  volatile unsigned long startTime;
+  volatile unsigned long startTime, endTime;
   unsigned long last_trigger = 0;
 
   void trigger();

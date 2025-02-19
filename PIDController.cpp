@@ -1,14 +1,16 @@
 #include "PIDController.hpp"
 #include "Arduino.h"
+#include "Timer1.hpp"
 
 PIDController::PIDController(const PIDConstants& constants): constants(constants) {
-  this->prevTime = millis();
+  this->prevTime = BuggyTimer1::counter;
 }
 
-float PIDController::update(float error) {
+float PIDController::update(float error, float dt) {
   float p, i, d;
-  unsigned long currTime = millis(); 
-  float dt = (currTime - this->prevTime) / 1000.0; // Convert ms to s
+  unsigned long currTime = BuggyTimer1::counter; 
+  
+  //float dt = (currTime - this->prevTime) / 2000.0; // Convert 1/2ms to s
 
   if (dt <= 0) dt = 1e-3; // Prevent division by zero, assume minimal dt
 

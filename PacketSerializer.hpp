@@ -18,20 +18,6 @@ public:
   static Packet deserializePacket(char buffer[MAX_PACKET_LENGTH]) {
     PacketType type = PacketType(buffer[0]);
     Packet packet;
-    packet.type = type;
-    switch (type) {
-      case PacketType::COMMAND:
-        CommandPacket command;
-        memcpy(&command, buffer, MAX_PACKET_LENGTH);
-        packet.content.commandPacket = command;
-        break;
-      
-      // NO use cases (Why would you send a log or status packet to the buggy???)
-      case PacketType::LOG:
-      case PacketType::STATUS:
-      default:
-        break;
-    }
 
     return packet;
   }

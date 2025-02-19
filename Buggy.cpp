@@ -8,6 +8,7 @@ Buggy::Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSe
 }
 
 void Buggy::handleCommand(CommandPacket command) {
+  mcu::logger << String(command.type).c_str() << mcu::LeanStreamIO::endl;
   switch (command.type) {
     case CommandType::START:
       mcu::logger << "START COMMAND" << mcu::LeanStreamIO::endl;
@@ -28,8 +29,6 @@ void Buggy::handlePacket(Packet packet) {
       mcu::logger << "RECIEVED COMMAND PACKET" << mcu::LeanStreamIO::endl;
       this->handleCommand(packet.content.commandPacket);
       break;
-    default:
-      break;
   }
 }
 
@@ -46,9 +45,9 @@ void Buggy::sendStatusPacket() {
 
 void Buggy::update(unsigned int dt) {
   Packet packet = this->server.update();
-  if (!packet.type) this->handlePacket(packet);
-  this->currentState->update(*this, dt);
+  if (packet.type) this->handlePacket(packet);
   this->sendStatusPacket();
+  this->currentState->update(*this, dt);
 }
 
 void Buggy::setState(BuggyState& newState) {

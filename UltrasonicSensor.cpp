@@ -19,14 +19,14 @@ void UltrasonicSensor::ISR_UltrasonicEcho() {
     if (digitalRead(pinout.echo_pin)) {
         this->startTime = micros();  // Echo started
     } else {
-        this->echoDuration = micros() - startTime;  // Echo ended
+        this->endTime = micros();  // Echo ended
     }
 }
 
 void UltrasonicSensor::update() {
-  if(millis() - this->last_trigger > this->trigger_interval ) {
+  if(millis() - this->endTime > this->trigger_interval ) {
+    this->echoDuration = this->endTime - this->startTime;
     this->trigger();
-    this->last_trigger = millis();
   }
 }
 

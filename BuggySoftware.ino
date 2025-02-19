@@ -56,7 +56,8 @@ PIN_TYPE rightIrSensorPin = A0;
 const UltrasonicSensorPinGroup ultrasonicSensorPinout = {9,8};
 
 /// PID CONSTANTS
-const PIDConstants leftMotorPID = {0.005f, 0.00f, 0.00f};
+const PIDConstants leftMotorPID = {0.015625f, 0.00f, 0.7f};
+//const PIDConstants leftMotorPID = {0.015625f, 0.00f, 0.015625f};
 const PIDConstants rightMotorPID = {0.05f, 0.00f, 0.00f};
 const PIDConstants lineFollowerPID = {1.0f, 0.0f, 0.0f};
 
@@ -91,6 +92,9 @@ void setup() {
   Serial.begin(115200);
   while(!Serial);
   mcu::logger << "INIT Start" << mcu::LeanStreamIO::endl;
+
+  // start Timer 1
+  BuggyTimer1::begin();
   
   // PIN SETUP
   pinMode(LED_BUILTIN, OUTPUT); // WiFi LED
@@ -117,12 +121,17 @@ void setup() {
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
   buggy.setState(LineFollowingState::instance());
-  leftMotor.setSpeed(800);
+  //leftMotor.setSpeed(1000);
   leftMotor.forward();
+  rightMotor.forward();
 }
 
 unsigned long start_time, end_time, first_time = millis();
 unsigned int dt = 10;
+unsigned long time_start = millis();
+bool on = false;
+
+uint8_t loop_duration = 5; //ms at least
 
 /**
  * @brief Main loop of the arduino. Called as often ass possible.
@@ -134,10 +143,22 @@ unsigned int dt = 10;
  */
 void loop() {
   start_time = millis();
+  /*leftMotor.update(dt);
+  if(millis() - time_start > 5*1000) {
+    on = !on;
+    if (on)
+      leftMotor.setSpeed(1000);
+    else
+      leftMotor.setSpeed(0);
+    
+    time_start = millis();
+  }*/
   wifi.update();
   buggy.update(dt);
+  //mcu::logger << String(micros()).c_str() << " - " << String(Timer1::agt_time_ms).c_str() << mcu::LeanStreamIO::endl;
   end_time = millis();
   dt = end_time - start_time;
+  //delay(max(0, loop_duration - dt));
 }
 
 

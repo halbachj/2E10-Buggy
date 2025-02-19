@@ -99,6 +99,7 @@ public:
   friend class TcpServer;
   friend class BuggyState;
   friend class IdleState;
+  friend class ObjectDetectedState;
   friend class CalibrationState;
   friend class LineFollowingState;
   

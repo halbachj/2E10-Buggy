@@ -14,15 +14,32 @@ void IdleState::enter(Buggy& buggy) {
 
 void IdleState::update(Buggy& buggy, unsigned int dt) {
   buggy.ultrasonicSensor.update();
+}
+
+void IdleState::exit(Buggy& buggy) {
+  // Cleanup logic before leaving idle state
+}
+
+/*
+ * OBJECT DETECTED
+ */
+
+void ObjectDetectedState::enter(Buggy& buggy) {
+  // Setup logic when entering idle state
+  buggy.leftMotor.pwmOverride(0);
+  buggy.rightMotor.pwmOverride(0);
+}
+
+void ObjectDetectedState::update(Buggy& buggy, unsigned int dt) {
+  buggy.ultrasonicSensor.update();
   float distance = buggy.ultrasonicSensor.getReading();
-  //mcu::logger << String(distance).c_str() << mcu::LeanStreamIO::endl;
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (!buggy.objectDetected) { 
     buggy.setState(LineFollowingState::instance());
   }
 }
 
-void IdleState::exit(Buggy& buggy) {
+void ObjectDetectedState::exit(Buggy& buggy) {
   // Cleanup logic before leaving idle state
 }
 
@@ -104,11 +121,11 @@ void LineFollowingState::update(Buggy& buggy, unsigned int dt) {
 
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) {
-    buggy.setState(IdleState::instance());
+    buggy.setState(ObjectDetectedState::instance());
   }
 
-  buggy.leftMotor.update(dt);
-  buggy.rightMotor.update(dt);
+  //buggy.leftMotor.update(dt);
+  //buggy.rightMotor.update(dt);
 }
 
 void LineFollowingState::exit(Buggy& buggy) {
