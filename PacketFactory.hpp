@@ -6,8 +6,8 @@
 
 class PacketFactory {
 public:
-  static Packet createStatusPacket(bool objectDetected, float distance, int leftMotorSpeed, int rightMotorSpeed) {
-    StatusPacket status = {objectDetected, distance, leftMotorSpeed, rightMotorSpeed};
+  static Packet createStatusPacket(bool objectDetected, float distance, int leftMotorSpeed, int rightMotorSpeed, float leftMotorDistanceTraveled, float rightMotorDistanceTraveled, int leftIrSensorValue, int rightIrSensorValue) {
+    StatusPacket status = {objectDetected, distance, leftMotorSpeed, rightMotorSpeed, leftMotorDistanceTraveled, rightMotorDistanceTraveled, leftIrSensorValue, rightIrSensorValue};
     Packet packet = {PacketType::STATUS, status};
     return packet;
   }

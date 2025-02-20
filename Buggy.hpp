@@ -68,9 +68,9 @@ public:
   /**
   * @brief update is called during every loop. This calls the state machine update to update whatever state the buggy is in
   * 
-  * @param dt is the time passed since las call in ms
+  * @param dt is the time loop duration of the last loop in s
   **/
-  void update(unsigned int dt);
+  void update(double dt);
 
   /**
   * @brief Changes the state of the buggy. This will call the necessary exit and enter methods of the state @see BuggyState.hpp

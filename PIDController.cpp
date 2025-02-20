@@ -6,7 +6,7 @@ PIDController::PIDController(const PIDConstants& constants): constants(constants
   this->prevTime = BuggyTimer1::counter;
 }
 
-float PIDController::update(float error, float dt) {
+float PIDController::update(float error, double dt) {
   float p, i, d;
   unsigned long currTime = BuggyTimer1::counter; 
   

@@ -33,7 +33,7 @@ public:
   /*
    * Update method is called with an error term and returns a correction term to be applied to the driver
    */
-  float update(float error);
+  float update(float error, double dt);
 };
 
 

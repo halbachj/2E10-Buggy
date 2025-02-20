@@ -12,7 +12,7 @@ void IdleState::enter(Buggy& buggy) {
   buggy.rightMotor.pwmOverride(0);
 }
 
-void IdleState::update(Buggy& buggy, unsigned int dt) {
+void IdleState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
 }
 
@@ -26,11 +26,13 @@ void IdleState::exit(Buggy& buggy) {
 
 void ObjectDetectedState::enter(Buggy& buggy) {
   // Setup logic when entering idle state
-  buggy.leftMotor.pwmOverride(0);
-  buggy.rightMotor.pwmOverride(0);
+  this->left_old_pwm = buggy.leftMotor.getSpeed();
+  this->right_old_pwm = buggy.rightMotor.getSpeed();
+  buggy.leftMotor.setSpeed(0);
+  buggy.rightMotor.setSpeed(0);
 }
 
-void ObjectDetectedState::update(Buggy& buggy, unsigned int dt) {
+void ObjectDetectedState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
   float distance = buggy.ultrasonicSensor.getReading();
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
@@ -41,6 +43,8 @@ void ObjectDetectedState::update(Buggy& buggy, unsigned int dt) {
 
 void ObjectDetectedState::exit(Buggy& buggy) {
   // Cleanup logic before leaving idle state
+  buggy.leftMotor.setSpeed(this->left_old_pwm);
+  buggy.rightMotor.setSpeed(this->right_old_pwm);
 }
 
 
@@ -60,7 +64,7 @@ void CalibrationState::enter(Buggy& buggy) {
   buggy.rightMotor.setSpeed(600);
 }
 
-void CalibrationState::update(Buggy& buggy, unsigned int dt) {
+void CalibrationState::update(Buggy& buggy, double dt) {
   unsigned int leftReading, rightReading;
   leftReading = buggy.leftIrSensor.getManualReading();
   rightReading = buggy.rightIrSensor.getManualReading();
@@ -115,17 +119,17 @@ void LineFollowingState::enter(Buggy& buggy) {
   // Setup logic when entering idle state
 }
 
-void LineFollowingState::update(Buggy& buggy, unsigned int dt) {
+void LineFollowingState::update(Buggy& buggy, double dt) {
   buggy.lineFollower.update();
   buggy.ultrasonicSensor.update();
+
+  buggy.leftMotor.update(dt);
+  buggy.rightMotor.update(dt);
 
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) {
     buggy.setState(ObjectDetectedState::instance());
   }
-
-  //buggy.leftMotor.update(dt);
-  //buggy.rightMotor.update(dt);
 }
 
 void LineFollowingState::exit(Buggy& buggy) {

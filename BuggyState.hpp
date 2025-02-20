@@ -18,7 +18,7 @@ class Buggy;  // Forward declaration
 class BuggyState {
 public:
     virtual void enter(Buggy& buggy) = 0;
-    virtual void update(Buggy& buggy, unsigned int dt) = 0;
+    virtual void update(Buggy& buggy, double dt) = 0;
     virtual void exit(Buggy& buggy) = 0;
     virtual ~BuggyState() = default;
 };
@@ -42,7 +42,7 @@ public:
     }
 
     void enter(Buggy& buggy) override;
-    void update(Buggy& buggy, unsigned int dt) override;
+    void update(Buggy& buggy, double dt) override;
     void exit(Buggy& buggy) override;
 
 private:
@@ -51,6 +51,9 @@ private:
 
 
 class ObjectDetectedState : public BuggyState {
+private:
+    int left_old_pwm = 0, right_old_pwm = 0;
+
 public:
 
     static ObjectDetectedState& instance() {
@@ -60,7 +63,7 @@ public:
 
 
     void enter(Buggy& buggy) override;
-    void update(Buggy& buggy, unsigned int dt) override;
+    void update(Buggy& buggy, double dt) override;
     void exit(Buggy& buggy) override;
 
 private:
@@ -90,7 +93,7 @@ public:
   }
   
   void enter(Buggy& buggy) override;
-  void update(Buggy& buggy, unsigned int dt) override;
+  void update(Buggy& buggy, double dt) override;
   void exit(Buggy& buggy) override;
 
 private:
@@ -113,7 +116,7 @@ public:
     }
 
     void enter(Buggy& buggy) override;
-    void update(Buggy& buggy, unsigned int dt) override;
+    void update(Buggy& buggy, double dt) override;
     void exit(Buggy& buggy) override;
 
 private:

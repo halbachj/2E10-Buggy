@@ -15,7 +15,7 @@
 #define VERSION 1.1
 
 namespace mcu {
-  LeanStreamIO logger(3); // File descriptor 1 for Serial. Change to 2 for tcp
+LeanStreamIO logger(3);  // File descriptor 1 for Serial. Change to 2 for tcp
 }
 //using LogLevel = mcu::Logger::LogLevel;
 
@@ -45,21 +45,22 @@ namespace mcu {
  */
 
 /// MOTOR PINPUTS
-const MotorPinGroup leftMotorPinout = {6,7,5,2};
-const MotorPinGroup rightMotorPinout = {10,12,11,3};
+const MotorPinGroup leftMotorPinout = { 6, 7, 5, 2 };
+const MotorPinGroup rightMotorPinout = { 10, 12, 11, 3 };
 
 /// IR SENSORS
 PIN_TYPE leftIrSensorPin = A1;
 PIN_TYPE rightIrSensorPin = A0;
 
 /// ULTRASONIC SENSOR
-const UltrasonicSensorPinGroup ultrasonicSensorPinout = {9,8};
+const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
 
 /// PID CONSTANTS
-const PIDConstants leftMotorPID = {0.015625f, 0.00f, 0.7f};
+const PIDConstants leftMotorPID = { 0.05f, 1.0, 0.0f };
 //const PIDConstants leftMotorPID = {0.015625f, 0.00f, 0.015625f};
-const PIDConstants rightMotorPID = {0.05f, 0.00f, 0.00f};
-const PIDConstants lineFollowerPID = {1.0f, 0.0f, 0.0f};
+//const PIDConstants rightMotorPID = { 0.05f, 0.00f, 0.00f };
+const PIDConstants rightMotorPID = {0.04f, 1.0f, 0.00f};
+const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
 
 /// INSTANCES
 MotorDriver leftMotor(leftMotorPinout, leftMotorPID);
@@ -90,14 +91,15 @@ void ISR_ultrasonic_echo();
  */
 void setup() {
   Serial.begin(115200);
-  while(!Serial);
+  while (!Serial)
+    ;
   mcu::logger << "INIT Start" << mcu::LeanStreamIO::endl;
 
   // start Timer 1
   BuggyTimer1::begin();
-  
+
   // PIN SETUP
-  pinMode(LED_BUILTIN, OUTPUT); // WiFi LED
+  pinMode(LED_BUILTIN, OUTPUT);  // WiFi LED
 
   // MOTOR PINS
   setupMotorPins(leftMotorPinout);
@@ -112,7 +114,7 @@ void setup() {
 
   // Attatch Ultrasonic interrupt
   attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE);
-  
+
   // SETUP WIFI
   wifi.wifi_checks();
   wifi.setup_ap();
@@ -124,14 +126,12 @@ void setup() {
   //leftMotor.setSpeed(1000);
   leftMotor.forward();
   rightMotor.forward();
+  //rightMotor.setSpeed(1000);
 }
 
-unsigned long start_time, end_time, first_time = millis();
-unsigned int dt = 10;
-unsigned long time_start = millis();
-bool on = false;
-
-uint8_t loop_duration = 5; //ms at least
+unsigned long start_time, end_time;
+double dt = 0.01;           //s so 10ms
+uint8_t loop_duration = 5;  //ms at least
 
 /**
  * @brief Main loop of the arduino. Called as often ass possible.
@@ -142,23 +142,14 @@ uint8_t loop_duration = 5; //ms at least
  * which is passed onto the subsequent update functions if they need it.
  */
 void loop() {
-  start_time = millis();
-  /*leftMotor.update(dt);
-  if(millis() - time_start > 5*1000) {
-    on = !on;
-    if (on)
-      leftMotor.setSpeed(1000);
-    else
-      leftMotor.setSpeed(0);
-    
-    time_start = millis();
-  }*/
+  start_time = micros();
   wifi.update();
   buggy.update(dt);
-  //mcu::logger << String(micros()).c_str() << " - " << String(Timer1::agt_time_ms).c_str() << mcu::LeanStreamIO::endl;
-  end_time = millis();
-  dt = end_time - start_time;
-  //delay(max(0, loop_duration - dt));
+  //leftMotor.update(dt);
+  //rightMotor.update(dt);
+  end_time = micros();
+  dt = (end_time - start_time) / 1000000;
+  delay(max(0, loop_duration - dt));
 }
 
 

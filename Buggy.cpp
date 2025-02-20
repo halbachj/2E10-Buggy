@@ -38,12 +38,16 @@ void Buggy::sendStatusPacket() {
       this->ultrasonicSensor.objectDetected(),
       this->ultrasonicSensor.getReading(),
       this->leftMotor.getSpeed(),
-      this->rightMotor.getSpeed()
+      this->rightMotor.getSpeed(),
+      this->leftMotor.getDistanceTraveled(),
+      this->rightMotor.getDistanceTraveled(),
+      this->leftIrSensor.getManualReading(),
+      this->rightIrSensor.getManualReading()
     )
   );
 }
 
-void Buggy::update(unsigned int dt) {
+void Buggy::update(double dt) {
   Packet packet = this->server.update();
   if (packet.type) this->handlePacket(packet);
   this->sendStatusPacket();

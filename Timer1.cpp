@@ -5,10 +5,13 @@ namespace BuggyTimer1 {
 
   volatile uint32_t counter = 0; 
 
+  static void ISR_Timer1(timer_callback_args_t __attribute((unused))* p_args) {
+    counter++;
+  }
+
   void begin() {
     
     //Setup to tick every 0.5 ms
-
 	  const uint32_t clock_freq_Hz = R_FSP_SystemClockHzGet(FSP_PRIV_CLOCK_PCLKB);
 	  const uint32_t period = clock_freq_Hz / ((1 << TIMER_SOURCE_DIV_16) * 1000UL);
 	  

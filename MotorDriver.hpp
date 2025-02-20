@@ -10,17 +10,19 @@ private:
 	const MotorPinGroup& pins;
   PIDController controller;
 
-	unsigned int set_speed = 0;
-	unsigned int measured_speed = 0;
-  int pwm_cycle = 0;
-	volatile unsigned long last_encoder_measurement = millis();
-	volatile unsigned long current_encoder_measurement = millis();
-  //volatile unsigned long degrees = 0;
-  //unsigned long prevDegrees = 0;
-
-
   const unsigned short ticks = 8;                 // encoder ticks per rotations
   const unsigned short degPerTick = 360/ticks;    // ratio of degrees per tick
+
+  const float wheelCircumference = 0.025 * 2.54 * 3.1415926; // Wheel Circumference in m
+
+	unsigned int set_speed = 0;
+	unsigned int measured_speed = 0;
+
+	volatile unsigned long last_encoder_measurement = millis();
+	volatile unsigned long current_encoder_measurement = millis();
+  volatile unsigned long degrees = 0;
+
+  unsigned int applied_pwm = 0;
 
 public:
 	MotorDriver(const MotorPinGroup& pinGroup, const PIDConstants& constants);
@@ -32,9 +34,11 @@ public:
 
   void forward();
   void backward();
-	void update(unsigned int dt);
+	void update(double dt);
   void pwmOverride(int pwm);
   void setSpeed(int speed);
+  int getPWM();
+  float getDistanceTraveled();
   int getSpeed();
   
   void ISR_encoder_trigger();

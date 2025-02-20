@@ -26,6 +26,10 @@ struct StatusPacket {
   float objectDistance;
   int leftMotorSpeed;
   int rightMotorSpeed;
+  float leftMotorDistanceTraveled;
+  float rightMotorDistanceTraveled;
+  int leftIrSensorValue;
+  int rightIrSensorValue;
 };
 
 
