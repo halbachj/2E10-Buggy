@@ -149,7 +149,7 @@ void loop() {
   //rightMotor.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
-  delay(max(0, loop_duration - dt));
+  //delay(max(0, loop_duration - dt));
 }
 
 
