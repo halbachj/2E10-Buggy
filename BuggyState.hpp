@@ -124,4 +124,21 @@ private:
 };
 
 
+class DrivingStraightState : public BuggyState {
+public:
+    static DrivingStraightState& instance() {
+        static DrivingStraightState instance;
+        return instance;
+    }
+
+    void enter(Buggy& buggy) override;
+    void update(Buggy& buggy, double dt) override;
+    void exit(Buggy& buggy) override;
+
+private:
+    DrivingStraightState() = default;  // Private constructor for singleton pattern
+};
+
+
+
 #endif //BUGGY_STATE

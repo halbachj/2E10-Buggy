@@ -122,8 +122,8 @@ void setup() {
   server.setup();
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
-  buggy.setState(LineFollowingState::instance());
-  //leftMotor.setSpeed(1000);
+  buggy.setState(DrivingStraightState::instance());
+  leftMotor.setSpeed(1000);
   leftMotor.forward();
   rightMotor.forward();
   //rightMotor.setSpeed(1000);
@@ -131,7 +131,7 @@ void setup() {
 
 unsigned long start_time, end_time;
 double dt = 0.01;           //s so 10ms
-uint8_t loop_duration = 5;  //ms at least
+uint8_t loop_duration = 5e-6;  //ms at least
 
 /**
  * @brief Main loop of the arduino. Called as often ass possible.
@@ -145,11 +145,9 @@ void loop() {
   start_time = micros();
   wifi.update();
   buggy.update(dt);
-  //leftMotor.update(dt);
-  //rightMotor.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
-  //delay(max(0, loop_duration - dt));
+  delay(max(0, loop_duration - dt));
 }
 
 

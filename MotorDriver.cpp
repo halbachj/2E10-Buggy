@@ -10,10 +10,6 @@ MotorDriver::MotorDriver(const MotorPinGroup& pins, const PIDConstants& constant
   this->forward();
 }
 
-MotorDriver::~MotorDriver() {
-  
-}
-
 void MotorDriver::ISR_encoder_trigger() {
   this->degrees += 45;
   this->last_encoder_measurement = this->current_encoder_measurement;
@@ -65,6 +61,9 @@ void MotorDriver::update(double dt) {
   // measurement dt is 3000 increments per ms therefore divide by 3000 to get ms
 
   this->measured_speed = (this->degPerTick * 2 * 1000UL) / float(measurement_diff);
+  this->filter.push(this->measured_speed);
+  this->measured_speed = this->filter.getMean();
+
   
   if (this->last_encoder_measurement + measurement_diff * 3 < BuggyTimer1::counter) this->measured_speed = 0; // there should have been an encoder pulse by now...
   

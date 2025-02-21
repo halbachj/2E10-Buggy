@@ -135,3 +135,23 @@ void LineFollowingState::update(Buggy& buggy, double dt) {
 void LineFollowingState::exit(Buggy& buggy) {
   // Cleanup logic before leaving idle state
 }
+
+
+/*
+ * JUST STRAIGHT DRIVING
+ */
+
+void DrivingStraightState::enter(Buggy& buggy) {
+  // Setup logic when entering idle state
+}
+
+void DrivingStraightState::update(Buggy& buggy, double dt) {
+  buggy.ultrasonicSensor.update();
+
+  buggy.leftMotor.update(dt);
+  buggy.rightMotor.update(dt);
+}
+
+void DrivingStraightState::exit(Buggy& buggy) {
+  // Cleanup logic before leaving idle state
+}
