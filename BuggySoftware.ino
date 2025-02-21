@@ -143,10 +143,11 @@ uint8_t loop_duration = 5;  //ms at least
  */
 void loop() {
   start_time = micros();
-  wifi.update();
+  //wifi.update();
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
+  //mcu::logger << String(end_time-start_time).c_str() << mcu::LeanStreamIO::endl;
   //delay(max(0, loop_duration - dt));
 }
 

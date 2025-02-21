@@ -28,7 +28,7 @@ Packet TcpServer::update() {
   if (client) {
     delayMicroseconds(10);            // This is required for the Arduino Nano RP2040 Connect
     //mcu::logger << "CLIENT CONNECTED" << mcu::LeanStreamIO::endl;
-    if (client.available()) {
+    if (client.available() >= 72) {
       mcu::logger << "RECIEVED PACKAGE" << mcu::LeanStreamIO::endl;
       client.readBytes(this->input_buffer, MAX_PACKET_LENGTH);
       mcu::logger << "PACKAGE RECIEVED - DESERIALIZING" << mcu::LeanStreamIO::endl;
