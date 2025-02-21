@@ -10,17 +10,19 @@ void LineFollower::update() {
   leftReading = this->leftSensor.getManualReading();
   rightReading = this->rightSensor.getManualReading();
 
-  int err = leftReading - RightReading;
+  int err = leftReading - rightReading;
 
   if (abs(err) <= 200) {   // pretty much on the line. Do nothing
+    this->leftMotor.pwmOverride(this->target_speed);
+    this->rightMotor.pwmOverride(this->target_speed);
     return;
   }
 
   if (err > 200) {
-    this->leftMotor.pwmOverride(set_speed);
+    this->leftMotor.pwmOverride(this->target_speed);
     this->rightMotor.pwmOverride(0);
   } else if (err < 200){
     this->leftMotor.pwmOverride(0);
-    this->rightMotor.pwmOverride(set_speed);
+    this->rightMotor.pwmOverride(this->target_speed);
   }
 }

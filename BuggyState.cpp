@@ -28,8 +28,8 @@ void ObjectDetectedState::enter(Buggy& buggy) {
   // Setup logic when entering idle state
   this->left_old_pwm = buggy.leftMotor.getSpeed();
   this->right_old_pwm = buggy.rightMotor.getSpeed();
-  buggy.leftMotor.setSpeed(0);
-  buggy.rightMotor.setSpeed(0);
+  buggy.leftMotor.pwmOverride(0);
+  buggy.rightMotor.pwmOverride(0);
 }
 
 void ObjectDetectedState::update(Buggy& buggy, double dt) {
@@ -43,8 +43,6 @@ void ObjectDetectedState::update(Buggy& buggy, double dt) {
 
 void ObjectDetectedState::exit(Buggy& buggy) {
   // Cleanup logic before leaving idle state
-  buggy.leftMotor.setSpeed(this->left_old_pwm);
-  buggy.rightMotor.setSpeed(this->right_old_pwm);
 }
 
 
@@ -123,8 +121,8 @@ void LineFollowingState::update(Buggy& buggy, double dt) {
   buggy.lineFollower.update();
   buggy.ultrasonicSensor.update();
 
-  buggy.leftMotor.update(dt);
-  buggy.rightMotor.update(dt);
+  //buggy.leftMotor.update(dt);
+  //buggy.rightMotor.update(dt);
 
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) {
