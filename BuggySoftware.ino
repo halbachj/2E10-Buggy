@@ -91,8 +91,7 @@ void ISR_ultrasonic_echo();
  */
 void setup() {
   Serial.begin(115200);
-  while (!Serial)
-    ;
+  //while (!Serial) yield();
   mcu::logger << "INIT Start" << mcu::LeanStreamIO::endl;
 
   // start Timer 1

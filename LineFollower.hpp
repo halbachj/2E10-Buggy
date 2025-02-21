@@ -24,7 +24,7 @@ private:
 
   PIDController controller; // Initialize the PID with the right coefficients
 
-  int target_speed = 170; // 130
+  int target_speed = 160; // 130
   
 public:
 
