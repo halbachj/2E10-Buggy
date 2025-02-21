@@ -4,19 +4,18 @@
 #include "Arduino.h"
 
 
-template<typename T>
+template<typename T, size_t N>
 class MovingMeanFilter {
 private:
-  const size_t size;
-  T buffer[size];
-  size_t index;
+  T buffer[N];
+  size_t index = 0;
 
 public:
-  MovingMeanFilter(const size_t size);
+  MovingMeanFilter() = default;
 
   void push(T element);
   double getMean();
-}
+};
 
 
 

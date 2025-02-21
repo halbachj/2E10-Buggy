@@ -1,20 +1,18 @@
 #include "MoveMeanFilter.hpp"
 
-MovingMeanFilter::MovingMeanFilter(const size_t size): size(size) {
 
-}
-
-
-template<typename T>
+template<typename T, size_t N>
 void MovingMeanFilter::push(T value) {
-  this->index %= this->size;
+  this->index %= N;
   this->buffer[this->index] = value;
 }
 
+
+template<typename T, size_t N>
 float MovingMeanFilter::getMean() {
   double sum = 0;
-  for (int i=0; i<this->size; i++) {
+  for (int i=0; i<N; i++) {
     sum += this->buffer[i];
   }
-  return sum/this->size;
+  return sum/N;
 }
