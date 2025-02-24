@@ -23,13 +23,13 @@ jobs:
       - name: Generate Documentation using Doxygen Action
         uses: mattnotmitt/doxygen-action@v1.9.5
         with:
-          doxyfile_path: doc/Doxyfile
+          doxyfile-path: doc/Doxyfile
 
       - name: Upload Documentation Artifact
         uses: actions/upload-artifact@v4
         with:
           name: doxygen-docs
-          path: docs/html
+          path: doc/html
 
   deploy:
     needs: generate-docs
@@ -44,10 +44,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: doxygen-docs
-          path: docs/html
+          path: doc/html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/html
+          publish_dir: doc/html
