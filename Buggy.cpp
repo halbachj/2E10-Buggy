@@ -23,12 +23,23 @@ void Buggy::handleCommand(CommandPacket command) {
   }
 }
 
+void Buggy::handleControlPacket(ControlPacket control) {
+  float leftSpeed, rightSpeed;
+  leftSpeed = control.y * control.x;
+  rightSPeed = control.y * control.x;
+  this->leftMotor.setSpeed(leftSpeed);
+  this->rightMotor.setSpeed(rightSpeed);
+}
+
 void Buggy::handlePacket(Packet packet) {
   switch (packet.type) {
     case PacketType::COMMAND:
       mcu::logger << "RECIEVED COMMAND PACKET" << mcu::LeanStreamIO::endl;
       this->handleCommand(packet.content.commandPacket);
       break;
+    case PacketType::CONTROL:
+      mcu::logger << "RECEIVED CONTROL PACKET" << mcu::LeanStreamIO::endl;
+      this->handleControlPacket(packet.content.controlPacket);
   }
 }
 

@@ -11,8 +11,8 @@ private:
 	const MotorPinGroup& pins;
   PIDController controller;
 
-  const size_t filter_window = 200;
-  MoveMeanFilter<int, filter_window> filter<int, filter_window>();
+  static const size_t filter_window = 200;
+  MoveMeanFilter<int, filter_window> filter = MoveMeanFilter<int, filter_window>();
 
   const unsigned short ticks = 8;                 // encoder ticks per rotations
   const unsigned short degPerTick = 360/ticks;    // ratio of degrees per tick
@@ -30,7 +30,7 @@ private:
 
 public:
 	MotorDriver(const MotorPinGroup& pinGroup, const PIDConstants& constants);
-	~MotorDriver();
+	~MotorDriver() = default;
 
 	// Disable copying of this class
 	MotorDriver(const MotorDriver& other) = delete;

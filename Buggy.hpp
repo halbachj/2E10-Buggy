@@ -92,6 +92,12 @@ public:
   **/
   void handleCommand(CommandPacket command);
   /**
+   * @brief handles the control packet for remote controlling the buggy
+   *
+   * @param control the control packet with the control inputs
+   */
+  void handleControlPacket(ControlPacket control);
+  /**
   * @brief Sends a status packet to the ground station.
   **/
   void sendStatusPacket();

@@ -5,16 +5,26 @@
 
 
 template<typename T, size_t N>
-class MovingMeanFilter {
+class MoveMeanFilter {
 private:
   T buffer[N];
   size_t index = 0;
 
 public:
-  MovingMeanFilter() = default;
+  MoveMeanFilter() = default;
 
-  void push(T element);
-  double getMean();
+  void push(T value) {
+    this->index %= N;
+    this->buffer[this->index] = value;
+  }
+
+  double getMean() {
+    double sum = 0;
+    for (int i=0; i<N; i++) {
+      sum += this->buffer[i];
+    }
+    return sum/N;
+  }
 };
 
 

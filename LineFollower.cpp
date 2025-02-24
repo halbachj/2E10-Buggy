@@ -14,7 +14,7 @@ void LineFollower::update() {
   if (per_err < 0.20) per_err = 0;
   if (per_err > 0.50) per_err = 1.0; 
 
-  int set_speed = this->target_speed * (1 - 1.1 * per_err);
+  int set_speed = this->target_speed * (1 - 2 * per_err);
   set_speed = constrain(set_speed, 0, 1000);
 
   if (error < 0) {

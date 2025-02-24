@@ -55,9 +55,9 @@ void MotorDriver::update(double dt) {
   interrupts();
 
   mcu::logger <<String(micros()).c_str() << ",";
-  mcu::logger <<String(this->current_encoder_measurement).c_str() << ",";
-  mcu::logger <<String(this->last_encoder_measurement).c_str() << ",";
-  mcu::logger <<String(measurement_diff).c_str() << ",";
+  //mcu::logger <<String(this->current_encoder_measurement).c_str() << ",";
+  //mcu::logger <<String(this->last_encoder_measurement).c_str() << ",";
+  //mcu::logger <<String(measurement_diff).c_str() << ",";
   // measurement dt is 3000 increments per ms therefore divide by 3000 to get ms
 
   this->measured_speed = (this->degPerTick * 2 * 1000UL) / float(measurement_diff);

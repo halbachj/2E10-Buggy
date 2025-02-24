@@ -56,10 +56,10 @@ PIN_TYPE rightIrSensorPin = A0;
 const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
 
 /// PID CONSTANTS
-const PIDConstants leftMotorPID = { 0.05f, 1.0, 0.0f };
+const PIDConstants leftMotorPID = { 0.07f, 1.0, 0.0f };
 //const PIDConstants leftMotorPID = {0.015625f, 0.00f, 0.015625f};
 //const PIDConstants rightMotorPID = { 0.05f, 0.00f, 0.00f };
-const PIDConstants rightMotorPID = {0.04f, 1.0f, 0.00f};
+const PIDConstants rightMotorPID = {0.055f, 1.0f, 0.0f};
 const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
 
 /// INSTANCES
@@ -122,11 +122,9 @@ void setup() {
   server.setup();
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
-  buggy.setState(DrivingStraightState::instance());
-  leftMotor.setSpeed(1000);
+  buggy.setState(LineFollowingState::instance());
   leftMotor.forward();
   rightMotor.forward();
-  //rightMotor.setSpeed(1000);
 }
 
 unsigned long start_time, end_time;

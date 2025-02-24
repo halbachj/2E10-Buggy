@@ -6,6 +6,7 @@ enum PacketType {
   STATUS = 1, // Start at 1. Empty package will hold 0 here and can be detected
   LOG,
   COMMAND,
+  CONTROL,   // USED FOR REMOTE CONTROL
 };
 
 /*
@@ -46,6 +47,16 @@ struct CommandPacket {
   uint16_t data;
 };
 
+/*
+ * CONTROL PACKET
+ */
+
+struct ControlPacket {
+  int x;
+  int y;
+}
+
+
 
 /*
  * PACKET CONTAINER
@@ -54,6 +65,7 @@ union PacketContent {
   StatusPacket statusPacket;
   CommandPacket commandPacket;
   LogPacket logPacket;
+  COntrolPacket controlPacket;
 };
 
 struct Packet {
