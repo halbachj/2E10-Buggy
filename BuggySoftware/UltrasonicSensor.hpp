@@ -27,7 +27,7 @@ private:
   const UltrasonicSensorPinGroup& pinout;
   const unsigned short triggerPulseLength = 10; //10us trigger pulse;
 
-  const int trigger_interval = 10; //ms
+  const int trigger_interval = 20; //ms
   volatile int echoDuration = 0;
   unsigned short detectionRange = 20;
 

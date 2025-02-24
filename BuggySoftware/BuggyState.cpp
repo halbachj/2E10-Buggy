@@ -7,7 +7,7 @@
  */
 
 void IdleState::enter(Buggy& buggy) {
-  // Setup logic when entering idle state
+  // Setup logic when entering idle sta10te
   buggy.leftMotor.pwmOverride(0);
   buggy.rightMotor.pwmOverride(0);
 }
