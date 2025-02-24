@@ -25,11 +25,11 @@ jobs:
         with:
           doxyfile-path: doc/Doxyfile
 
-      #- name: Upload Documentation Artifact
-        #  uses: actions/upload-artifact@v4
-        #with:
-          #name: doxygen-docs
-          #path: doc/html
+      - name: Upload Documentation Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: doxygen-docs
+          path: doc/html
 
   deploy:
     needs: generate-docs
