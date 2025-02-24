@@ -21,15 +21,15 @@ jobs:
           submodules: 'recursive'
 
       - name: Generate Documentation using Doxygen Action
-        uses: mattnotmitt/doxygen-action@v1.9.5
+        uses: mattnotmitt/doxygen-action@1.12.0
         with:
           doxyfile-path: doc/Doxyfile
 
-      - name: Upload Documentation Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: doxygen-docs
-          path: doc/html
+      #- name: Upload Documentation Artifact
+        #  uses: actions/upload-artifact@v4
+        #with:
+          #name: doxygen-docs
+          #path: doc/html
 
   deploy:
     needs: generate-docs
