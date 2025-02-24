@@ -23,7 +23,7 @@ jobs:
       - name: Generate Documentation using Doxygen Action
         uses: mattnotmitt/doxygen-action@v1.9.5
         with:
-          doxyfile_path: Doxyfile
+          doxyfile_path: doc/Doxyfile
 
       - name: Upload Documentation Artifact
         uses: actions/upload-artifact@v4
