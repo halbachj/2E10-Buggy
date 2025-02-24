@@ -54,7 +54,7 @@ struct CommandPacket {
 struct ControlPacket {
   int x;
   int y;
-}
+};
 
 
 
@@ -65,7 +65,7 @@ union PacketContent {
   StatusPacket statusPacket;
   CommandPacket commandPacket;
   LogPacket logPacket;
-  COntrolPacket controlPacket;
+  ControlPacket controlPacket;
 };
 
 struct Packet {

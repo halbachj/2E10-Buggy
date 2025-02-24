@@ -54,7 +54,7 @@ void MotorDriver::update(double dt) {
   measurement_diff = this->current_encoder_measurement - this->last_encoder_measurement;
   interrupts();
 
-  mcu::logger <<String(micros()).c_str() << ",";
+  //mcu::logger <<String(micros()).c_str() << ",";
   //mcu::logger <<String(this->current_encoder_measurement).c_str() << ",";
   //mcu::logger <<String(this->last_encoder_measurement).c_str() << ",";
   //mcu::logger <<String(measurement_diff).c_str() << ",";
@@ -67,15 +67,15 @@ void MotorDriver::update(double dt) {
   
   if (this->last_encoder_measurement + measurement_diff * 3 < BuggyTimer1::counter) this->measured_speed = 0; // there should have been an encoder pulse by now...
   
-  mcu::logger <<String(this->measured_speed).c_str() << ",";
-  mcu::logger << String(this->set_speed).c_str() << ",";
+  //mcu::logger <<String(this->measured_speed).c_str() << ",";
+  //mcu::logger << String(this->set_speed).c_str() << ",";
 
   error = float(this->set_speed) - float(this->measured_speed);
 
-  mcu::logger << String(error).c_str() << ",";
+  //mcu::logger << String(error).c_str() << ",";
 
   correction = this->controller.update(error, dt);
-  mcu::logger << String(correction).c_str() << ",";
+  //mcu::logger << String(correction).c_str() << ",";
 
   //mcu::logger << String(this->pwm_cycle).c_str() << ",";
 
@@ -84,7 +84,7 @@ void MotorDriver::update(double dt) {
 
 
 
-  mcu::logger << mcu::LeanStreamIO::endl;
+  //mcu::logger << mcu::LeanStreamIO::endl;
 
   // Change direction if pwm is negative and not already running backwards
   /*

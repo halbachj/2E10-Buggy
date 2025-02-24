@@ -26,7 +26,9 @@ void Buggy::handleCommand(CommandPacket command) {
 void Buggy::handleControlPacket(ControlPacket control) {
   float leftSpeed, rightSpeed;
   leftSpeed = control.y * control.x;
-  rightSPeed = control.y * control.x;
+  rightSpeed = control.y * control.x;
+  mcu::logger << String(leftSpeed).c_str() << mcu::LeanStreamIO::endl;
+  mcu::logger << String(rightSpeed).c_str() << mcu::LeanStreamIO::endl;
   this->leftMotor.setSpeed(leftSpeed);
   this->rightMotor.setSpeed(rightSpeed);
 }

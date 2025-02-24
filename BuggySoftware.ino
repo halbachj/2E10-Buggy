@@ -122,7 +122,7 @@ void setup() {
   server.setup();
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
-  buggy.setState(LineFollowingState::instance());
+  buggy.setState(DrivingStraightState::instance());
   leftMotor.forward();
   rightMotor.forward();
 }
