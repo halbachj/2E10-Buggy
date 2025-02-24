@@ -1,0 +1,53 @@
+name: Generate Doxygen Docs
+
+on:
+  push:
+    branches:
+      - main
+      - feat-doxygen
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: Generate Documentation using Doxygen Action
+        uses: mattnotmitt/doxygen-action@1.12.0
+        with:
+          doxyfile-path: doc/Doxyfile
+
+      - name: Upload Documentation Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: doxygen-docs
+          path: doc/out/html
+
+  deploy:
+    needs: generate-docs
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Documentation Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: doxygen-docs
+          path: doc/html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: doc/html
