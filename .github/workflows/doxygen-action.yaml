@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: doxygen-docs
-          path: doc/html
+          path: doc/out/html
 
   deploy:
     needs: generate-docs
