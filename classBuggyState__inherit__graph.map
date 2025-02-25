@@ -1,0 +1,11 @@
+<map id="BuggyState" name="BuggyState">
+<area shape="rect" id="Node000001" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in...." alt="" coords="202,5,327,131"/>
+<area shape="rect" id="Node000002" href="$classCalibrationState.html" title="The calibration state of the buggy is the first state it enters after being placed on the track...." alt="" coords="5,179,124,304"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,134,126,191,122,187,190,130"/>
+<area shape="rect" id="Node000003" href="$classIdleState.html" title="The idle state represents a state in which the buggy operates normaly but is not driving...." alt="" coords="149,179,242,304"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,144,223,179,218,177,232,142"/>
+<area shape="rect" id="Node000004" href="$classLineFollowingState.html" title="In the Line following state the buggy is trying to follow the line using the IR sensors...." alt="" coords="267,179,404,304"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="298,142,312,177,307,179,293,144"/>
+<area shape="rect" id="Node000005" href="$classObjectDetectedState.html" title=" " alt="" coords="429,179,578,304"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="340,120,430,184,427,189,337,124"/>
+</map>

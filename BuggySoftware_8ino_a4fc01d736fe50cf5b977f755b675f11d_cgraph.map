@@ -1,0 +1,9 @@
+<map id="setup" name="setup">
+<area shape="rect" id="Node000001" title="Setup method used for setting up the Arduino when it is started." alt="" coords="5,55,64,80"/>
+<area shape="rect" id="Node000002" href="$BuggySoftware_8ino.html#aa049bc36f8e2fe01e8e7431e6778d06c" title="Interrupt service routine for the left motor." alt="" coords="129,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,55,111,39,133,32,135,37,113,45,65,60"/>
+<area shape="rect" id="Node000003" href="$BuggySoftware_8ino.html#ace7f8018c5bdd5f8fb2c9aaf3faf3707" title="Interrupt service routine for the right motor." alt="" coords="125,55,251,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="64,65,110,65,110,70,64,70"/>
+<area shape="rect" id="Node000004" href="$BuggySoftware_8ino.html#a52afa6bae247dce85d27f6695866c425" title="Interrupt service routine for the Ultrasonic sensor." alt="" coords="112,104,264,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="65,74,136,97,134,102,64,79"/>
+</map>
