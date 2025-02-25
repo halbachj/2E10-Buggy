@@ -22,4 +22,3 @@ jobs:
           config_file: docs/Doxyfile
           branch: gh-pages
           folder: docs/html
-          config_file: Doxyfile
