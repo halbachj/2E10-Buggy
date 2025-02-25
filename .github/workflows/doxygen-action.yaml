@@ -11,43 +11,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-docs:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
-
-      - name: Generate Documentation using Doxygen Action
-        uses: mattnotmitt/doxygen-action@1.12.0
-        with:
-          doxyfile-path: doc/Doxyfile
-
-      - name: Upload Documentation Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: doxygen-docs
-          path: doc/out/html
-
   deploy:
-    needs: generate-docs
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Download Documentation Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: doxygen-docs
-          path: doc/html
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: doc/html
+          config_file: docs/Doxyfile
+          branch: gh-pages
+          folder: docs/out/html
+          doxygen_version: 1.13.2
