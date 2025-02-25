@@ -34,10 +34,9 @@ void ObjectDetectedState::enter(Buggy& buggy) {
 
 void ObjectDetectedState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
-  float distance = buggy.ultrasonicSensor.getReading();
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (!buggy.objectDetected) { 
-    buggy.setState(LineFollowingState::instance());
+    buggy.setState(DrivingStraightState::instance());
   }
 }
 
@@ -148,8 +147,13 @@ void DrivingStraightState::enter(Buggy& buggy) {
 void DrivingStraightState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
 
-  buggy.leftMotor.update(dt);
-  buggy.rightMotor.update(dt);
+
+  /*buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
+  if (buggy.objectDetected) { 
+    buggy.setState(ObjectDetectedState::instance());
+  }*/
+  //buggy.leftMotor.update(dt);
+  //buggy.rightMotor.update(dt);
 }
 
 void DrivingStraightState::exit(Buggy& buggy) {

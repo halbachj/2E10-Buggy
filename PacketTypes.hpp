@@ -47,13 +47,13 @@ struct CommandPacket {
   uint16_t data;
 };
 
+
 /*
  * CONTROL PACKET
  */
-
 struct ControlPacket {
-  int x;
-  int y;
+  float x;
+  float y;
 };
 
 
@@ -73,6 +73,7 @@ struct Packet {
   PacketContent content;
 };
 
-//const size_t MAX_PACKET_LENGTH = sizeof(Packet);
+
+const size_t MAX_PACKET_LENGTH = sizeof(Packet);
 
 #endif //PACKET_TYPES_HPP
