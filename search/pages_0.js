@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buggy_0',['Buggy',['../index.html',1,'']]]
+  ['2e10_20buggy_0',['2E10 - Buggy',['../index.html',1,'']]]
 ];

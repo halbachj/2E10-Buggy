@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['tcpserver_0',['TcpServer',['../classTcpServer.html',1,'']]],
-  ['timer1_2ehpp_1',['Timer1.hpp',['../Timer1_8hpp.html',1,'']]],
-  ['todo_20list_2',['Todo List',['../todo.html',1,'']]]
+  ['sendstatuspacket_0',['sendStatusPacket',['../classBuggy.html#a69ac0c77c795b4a80addeaa4dada009e',1,'Buggy']]],
+  ['setstate_1',['setState',['../classBuggy.html#a6ec6b72a75e112f777e8c6754a70012b',1,'Buggy']]],
+  ['setup_2',['setup',['../BuggySoftware_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'BuggySoftware.ino']]],
+  ['statuspacket_3',['StatusPacket',['../structStatusPacket.html',1,'']]]
 ];

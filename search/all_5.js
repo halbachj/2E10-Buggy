@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['franco_20ortuno_20conor_20quinn_20johannes_20halbach_0',['Built by Cristina Franco Ortuno, Conor Quinn, Johannes Halbach',['../index.html#autotoc_md2',1,'']]]
+  ['engineering_20project_0',['A Trinity College Dublin Engineering project',['../index.html#autotoc_md1',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['objectdetectedstate_0',['ObjectDetectedState',['../classObjectDetectedState.html',1,'']]],
-  ['ortuno_20conor_20quinn_20johannes_20halbach_1',['Built by Cristina Franco Ortuno, Conor Quinn, Johannes Halbach',['../index.html#autotoc_md2',1,'']]]
+  ['motordriver_0',['MotorDriver',['../classMotorDriver.html',1,'']]],
+  ['motorpingroup_1',['MotorPinGroup',['../structMotorPinGroup.html',1,'']]]
 ];
