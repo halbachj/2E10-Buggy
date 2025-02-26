@@ -1,6 +1,11 @@
+# 2E10 - Buggy
+### A Trinity College Dublin Engineering project
 
-![Banner](https://www.github.com/halbachj/2E10-Buggy/img/BuggyBanner.png)
+<div class="title_screenshot">
 
+![Project Banner](img/BuggyBanner.png)
+
+</div>
 
 ## Authors
 
