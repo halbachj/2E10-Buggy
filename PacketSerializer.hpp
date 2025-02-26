@@ -5,7 +5,7 @@
 
 
 //const size_t MAX_PACKET_LENGTH = sizeof(Packet);
-/*
+
 class PacketSerializer {
 public:
   static void serializePacket(Packet packet, char buffer[MAX_PACKET_LENGTH]) {
@@ -22,7 +22,7 @@ public:
     return packet;
   }
 };
-*/
+
 
 
 #endif  //PACKET_SERIALIZER_HPP

@@ -27,15 +27,22 @@ void Buggy::handleControlPacket(ControlPacket control) {
   int max_speed = 255;
   float leftSpeed, rightSpeed, set_speed;
 
-  set_speed = max_speed * control.y;
-  leftSpeed = max_speed * (-1*control.y) * (1+control.x);
+  set_speed = max_speed * -1 * control.y;
+  if (set_speed < 0) {
+    this->leftMotor.backward();
+    this->rightMotor.backward();
+  }else {
+    this->leftMotor.forward();
+    this->rightMotor.forward();
+  }
 
-  rightSpeed = max_speed * (-1*control.y) * (1-control.x);
+  leftSpeed = set_speed * (control.x+1);
+  rightSpeed = set_speed * (control.x-1);
 
   mcu::logger << String(leftSpeed).c_str() << mcu::LeanStreamIO::endl;
   mcu::logger << String(rightSpeed).c_str() << mcu::LeanStreamIO::endl;
-  this->leftMotor.pwmOverride(leftSpeed);
-  this->rightMotor.pwmOverride(rightSpeed);
+  this->leftMotor.pwmOverride(abs(leftSpeed));
+  this->rightMotor.pwmOverride(abs(rightSpeed));
 }
 
 void Buggy::handlePacket(Packet packet) {

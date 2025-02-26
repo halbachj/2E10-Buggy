@@ -46,7 +46,7 @@ LeanStreamIO logger(3);  // File descriptor 1 for Serial. Change to 2 for tcp
 
 /// MOTOR PINPUTS
 const MotorPinGroup leftMotorPinout = { 6, 7, 5, 2 };
-const MotorPinGroup rightMotorPinout = { 10, 12, 11, 3 };
+const MotorPinGroup rightMotorPinout = { 10, 11, 12, 3 };
 
 /// IR SENSORS
 PIN_TYPE leftIrSensorPin = A1;
