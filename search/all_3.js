@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['handlecommand_0',['handleCommand',['../classBuggy.html#a1207f60e091c8934c31dc04d05da715c',1,'Buggy']]],
-  ['handlepacket_1',['handlePacket',['../classBuggy.html#a5ecfce732e816d7e6087ce5e04c1e4cf',1,'Buggy']]]
+  ['calibrationstate_0',['CalibrationState',['../classCalibrationState.html',1,'']]],
+  ['commandpacket_1',['CommandPacket',['../structCommandPacket.html',1,'']]],
+  ['conor_20quinn_20johannes_20halbach_2',['Built by Cristina Franco Ortuno, Conor Quinn, Johannes Halbach',['../index.html#autotoc_md2',1,'']]],
+  ['cristina_20franco_20ortuno_20conor_20quinn_20johannes_20halbach_3',['Built by Cristina Franco Ortuno, Conor Quinn, Johannes Halbach',['../index.html#autotoc_md2',1,'']]]
 ];

@@ -25,7 +25,12 @@
 var NAVTREE =
 [
   [ "Buggy", "index.html", [
-    [ "2E10-Buggy", "index.html", null ],
+    [ "2E10 Buggy", "index.html#autotoc_md1", [
+      [ "Authors", "index.html#autotoc_md0", [
+        [ "Built by Cristina Franco Ortuno, Conor Quinn, Johannes Halbach", "index.html#autotoc_md2", null ]
+      ] ],
+      [ "Documentation", "index.html#autotoc_md3", null ]
+    ] ],
     [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
