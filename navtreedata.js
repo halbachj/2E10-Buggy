@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Buggy", "index.html", [
-    [ "2E10-Buggy", "md_README.html", null ],
+    [ "2E10-Buggy", "index.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
