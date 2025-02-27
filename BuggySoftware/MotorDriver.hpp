@@ -13,7 +13,7 @@ private:
   const unsigned short ticks = 8;                 // encoder ticks per rotations
   const unsigned short degPerTick = 360/ticks;    // ratio of degrees per tick
 
-  const float wheelCircumference = 0.025 * 2.54 * 3.1415926; // Wheel Circumference in m
+  const float wheelCircumference = 0.025 * 2.54 * 3.1415926 * 0.125; // Wheel Circumference in m (I changed it to 1/8)
 
 	unsigned int set_speed = 0;
 	unsigned int measured_speed = 0;
@@ -37,6 +37,7 @@ public:
 	void update(double dt);
   void pwmOverride(int pwm);
   void setSpeed(int speed);
+  void resetDistance();
   int getPWM();
   float getDistanceTraveled();
   int getSpeed();

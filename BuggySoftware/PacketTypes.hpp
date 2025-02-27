@@ -38,7 +38,8 @@ struct StatusPacket {
  */
 enum CommandType {
   STOP = 0,
-  START
+  START,
+  RESET_DISTANCE
 };
 
 struct CommandPacket {

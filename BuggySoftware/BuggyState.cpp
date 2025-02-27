@@ -7,9 +7,10 @@
  */
 
 void IdleState::enter(Buggy& buggy) {
-  // Setup logic when entering idle sta10te
+  // Setup logic when entering idle state
   buggy.leftMotor.pwmOverride(0);
   buggy.rightMotor.pwmOverride(0);
+  buggy.ledMatrix.setMode(STOPPED);
 }
 
 void IdleState::update(Buggy& buggy, double dt) {
@@ -30,6 +31,7 @@ void ObjectDetectedState::enter(Buggy& buggy) {
   this->right_old_pwm = buggy.rightMotor.getSpeed();
   buggy.leftMotor.pwmOverride(0);
   buggy.rightMotor.pwmOverride(0);
+  buggy.ledMatrix.setMode(OBSTACLE_DETECTED);
 }
 
 void ObjectDetectedState::update(Buggy& buggy, double dt) {
@@ -115,6 +117,7 @@ void CalibrationState::exit(Buggy& buggy) {
 
 void LineFollowingState::enter(Buggy& buggy) {
   // Setup logic when entering idle state
+  buggy.ledMatrix.setMode(LINE_FOLLOWING);
 }
 
 void LineFollowingState::update(Buggy& buggy, double dt) {

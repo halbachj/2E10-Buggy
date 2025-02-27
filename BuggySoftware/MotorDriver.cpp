@@ -39,7 +39,7 @@ void MotorDriver::pwmOverride(int pwm) {
 }
 
 float MotorDriver::getDistanceTraveled() {
-  return (this->degrees / 360) * this->wheelCircumference;
+  return (this->degrees / 45) * this->wheelCircumference;
 }
 
 int MotorDriver::getPWM() {
@@ -50,9 +50,15 @@ int MotorDriver::getSpeed() {
   return this->measured_speed;
 }
 
+void MotorDriver::resetDistance()
+{
+  this->degrees = 0;
+}
+
 void MotorDriver::update(double dt) {
   int measurement_diff, pwm;
   float error, correction;
+
 
   noInterrupts();
   measurement_diff = this->current_encoder_measurement - this->last_encoder_measurement;
@@ -86,6 +92,7 @@ void MotorDriver::update(double dt) {
 
 
   mcu::logger << mcu::LeanStreamIO::endl;
+
 
   // Change direction if pwm is negative and not already running backwards
   /*
