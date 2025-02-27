@@ -141,7 +141,7 @@ uint8_t loop_duration = 5e-6;  //ms at least
  */
 void loop() {
   start_time = micros();
-  wifi.update();
+  //wifi.update();
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
