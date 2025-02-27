@@ -60,7 +60,8 @@ void Buggy::update(double dt) {
 }
 
 void Buggy::setState(BuggyState& newState) {
-  this->currentState->exit(*this);
+  this->currentState->exit(*this, &newState);
+  BuggyState* oldState = this->currentState;
   this->currentState = &newState;
-  this->currentState->enter(*this);
+  this->currentState->enter(*this, oldState);
 }

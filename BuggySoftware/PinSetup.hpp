@@ -4,33 +4,37 @@
 #include "helpers.hpp"
 #include <Arduino.h>
 
-/*
- * MOTOR PINS
- * Each motor has two direction pins, one speed pin and one encoder pin
- * 
- * setupMotorPins takes a MotorPinGroup and does the required setup for the pins
+/**
+ * @struct MotorPinGroup
+ * @brief Represents a set of motor control pins.
  */
 struct MotorPinGroup {
-  PIN_TYPE dir_a = 0;
-  PIN_TYPE dir_b = 0;
-  PIN_TYPE pulse = 0;
-  PIN_TYPE encoder = 0;
+    PIN_TYPE dir_a = 0;   ///< Direction pin A.
+    PIN_TYPE dir_b = 0;   ///< Direction pin B.
+    PIN_TYPE pulse = 0;   ///< PWM pulse pin.
+    PIN_TYPE encoder = 0; ///< Encoder signal pin.
 };
 
+/**
+ * @brief Configures the motor control pins.
+ * @param group The MotorPinGroup containing the pin assignments.
+ */
 void setupMotorPins(const MotorPinGroup& group);
 
 
-/*
- * ULTRANSONIC SENSOR PINS
- * The ultrasonic sensor has two pins. One pin triggers the echo pulse and the returns the range as a pulse
- * setupUltrasnoicPins takes a Ultrasonic pin group and does the required setup for the pins;
+/**
+ * @struct UltrasonicSensorPinGroup
+ * @brief Represents a set of ultrasonic sensor control pins.
  */
+struct UltrasonicSensorPinGroup {
+    PIN_TYPE trig_pin = 0; ///< Trigger pin for the ultrasonic sensor.
+    PIN_TYPE echo_pin = 0; ///< Echo pin for the ultrasonic sensor.
+};
 
- struct UltrasonicSensorPinGroup {
-  PIN_TYPE trig_pin = 0;
-  PIN_TYPE echo_pin = 0;
- };
-
+/**
+ * @brief Configures the ultrasonic sensor control pins.
+ * @param group The UltrasonicSensorPinGroup containing the pin assignments.
+ */
 void setupUltrasonicPins(const UltrasonicSensorPinGroup& group);
 
 #endif //BUGGY_PIN_SETUP_HPP

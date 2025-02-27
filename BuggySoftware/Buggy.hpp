@@ -77,6 +77,8 @@ public:
 
   /**
   * @brief Changes the state of the buggy. This will call the necessary exit and enter methods of the state @see BuggyState.hpp
+  * @details It will pass along the old states to those enter and exit methods so that the States can keep track of which state was entered before.
+  * as an example @see ObjectDetectedHandlerState.
   *
   * @param newState reference to the state to change to
   **/
@@ -104,6 +106,7 @@ public:
   friend class IdleState;
   friend class ObjectDetectedState;
   friend class CalibrationState;
+  friend class ObjectDetectedHandlerState;
   friend class LineFollowingState;
   
 };

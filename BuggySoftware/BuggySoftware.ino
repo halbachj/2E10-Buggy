@@ -16,7 +16,7 @@
 #define VERSION 1.4
 
 namespace mcu {
-LeanStreamIO logger(3);  // File descriptor 1 for Serial. Change to 2 for tcp
+LeanStreamIO logger(3);  /// Sets up the stream based logging. File descriptor 1 for Serial. Change to 2 for tcp
 }
 //using LogLevel = mcu::Logger::LogLevel;
 
@@ -128,10 +128,8 @@ void setup() {
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
   buggy.setState(LineFollowingState::instance());
-  //leftMotor.setSpeed(1000);
   leftMotor.forward();
   rightMotor.forward();
-  //rightMotor.setSpeed(1000);
 }
 
 unsigned long start_time, end_time;
@@ -152,7 +150,6 @@ void loop() {
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
-
 
   //mcu::logger << String(end_time-start_time).c_str() << mcu::LeanStreamIO::endl;
   //delay(max(0, loop_duration - dt));

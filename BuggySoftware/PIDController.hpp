@@ -1,18 +1,19 @@
 #ifndef PID_CONTROLLER_HPP
 #define PID_CONTROLLER_HPP
 
-/*
- * PID CONSTANTS STRUCT
- * This struct stores the PID constants in a neat way
+/**
+ * @struct PIDConstants
+ * @brief This struct stores the PID constants in a neat way
  */
 struct PIDConstants {
   const float Kp, Ki, Kd;  // Coefficient values
 };
 
 
-/*
- * PID CONTROLLER CLASS
- * The PID Controller class handles the necessary calculations associated with a PID controller.
+/**
+ * @class PIDController
+ * @brief The PID Controller class handles the necessary calculations associated with a PID controller.
+ *
  * It does not hanlde any control whatsoever and the obtained correaction values have to be applied 
  * by the associated driver itself.
  * Usage: 
@@ -29,9 +30,15 @@ private:
   float accumulated_error = 0;
   const float integralMax = 100.0;   // Example anti-windup limit
 public:
+  /**
+   * @brief Contstuct the PIDController using the PIDConstants.
+   *
+   * @param constants the PIDConstants used for the PIDController.
   PIDController(const PIDConstants& constants);
-  /*
-   * Update method is called with an error term and returns a correction term to be applied to the driver
+  /**
+   * @brief Update method is called with an error term and returns a correction term to be applied to the driver
+   *
+   * @returns the correction that needs to be applied to the actuator
    */
   float update(float error, double dt);
 };
