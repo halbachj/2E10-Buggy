@@ -11,6 +11,7 @@
 #include "UltrasonicSensor.hpp"
 #include "PacketFactory.hpp"
 #include "LeanStreamIO.hpp"
+#include "Matrix.hpp"
 
 class BuggyState;
 
@@ -34,6 +35,8 @@ private:
   IrSensor& rightIrSensor;
 
   UltrasonicSensor& ultrasonicSensor;
+
+  Matrix ledMatrix;
 
   BuggyWiFi& wifi;
   TcpServer& server;

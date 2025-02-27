@@ -11,8 +11,9 @@
 #include "Buggy.hpp"
 #include "PIDController.hpp"
 #include "PacketFactory.hpp"
+#include "Matrix.hpp"
 
-#define VERSION 1.1
+#define VERSION 1.4
 
 namespace mcu {
 LeanStreamIO logger(3);  // File descriptor 1 for Serial. Change to 2 for tcp
@@ -54,6 +55,9 @@ PIN_TYPE rightIrSensorPin = A0;
 
 /// ULTRASONIC SENSOR
 const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
+
+///LED MATRIX
+Matrix ledMatrix;
 
 /// PID CONSTANTS
 const PIDConstants leftMotorPID = { 0.05f, 1.0, 0.0f };
@@ -107,6 +111,8 @@ void setup() {
   // ULTRASONIC PINS
   setupUltrasonicPins(ultrasonicSensorPinout);
 
+  // LED MATRIX
+  ledMatrix.begin();
   // Attatch motor interrupts
   attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, CHANGE);
   attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, CHANGE);
@@ -146,6 +152,8 @@ void loop() {
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
+
+
   //mcu::logger << String(end_time-start_time).c_str() << mcu::LeanStreamIO::endl;
   //delay(max(0, loop_duration - dt));
 }

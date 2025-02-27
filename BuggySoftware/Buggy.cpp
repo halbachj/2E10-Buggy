@@ -8,19 +8,24 @@ Buggy::Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSe
 }
 
 void Buggy::handleCommand(CommandPacket command) {
-  mcu::logger << String(command.type).c_str() << mcu::LeanStreamIO::endl;
-  switch (command.type) {
-    case CommandType::START:
-      mcu::logger << "START COMMAND" << mcu::LeanStreamIO::endl;
-      this->setState(LineFollowingState::instance());
-      break;
-    case CommandType::STOP:
-      this->setState(IdleState::instance());
-      mcu::logger << "STOP COMMAND" << mcu::LeanStreamIO::endl;
-      break;
-    default:
-      break;
-  }
+    mcu::logger << String(command.type).c_str() << mcu::LeanStreamIO::endl;
+    switch (command.type) {
+        case CommandType::START:
+            mcu::logger << "START COMMAND" << mcu::LeanStreamIO::endl;
+            this->setState(LineFollowingState::instance());
+            break;
+        case CommandType::STOP:
+            this->setState(IdleState::instance());
+            mcu::logger << "STOP COMMAND" << mcu::LeanStreamIO::endl;
+            break;
+        case CommandType::RESET_DISTANCE: // New case for resetting distance
+            leftMotor.resetDistance();
+            rightMotor.resetDistance();
+            mcu::logger << "DISTANCE RESET" << mcu::LeanStreamIO::endl;
+            break;
+        default:
+            break;
+    }
 }
 
 void Buggy::handlePacket(Packet packet) {
