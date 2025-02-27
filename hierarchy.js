@@ -5,9 +5,11 @@ var hierarchy =
       [ "CalibrationState", "classCalibrationState.html", null ],
       [ "IdleState", "classIdleState.html", null ],
       [ "LineFollowingState", "classLineFollowingState.html", null ],
+      [ "ObjectDetectedHandlerState", "classObjectDetectedHandlerState.html", null ],
       [ "ObjectDetectedState", "classObjectDetectedState.html", null ]
     ] ],
     [ "BuggyWiFi", "classBuggyWiFi.html", null ],
+    [ "BuggyWifi", "classBuggyWifi.html", null ],
     [ "CommandPacket", "structCommandPacket.html", null ],
     [ "IrSensor", "classIrSensor.html", null ],
     [ "mcu::LeanStreamIO", "classmcu_1_1LeanStreamIO.html", null ],

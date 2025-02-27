@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Handles ultrasonic sensor operations, including triggering and measuring distance.">
 <polygon fill="#999999" stroke="transparent" points="123,-124 0,-124 0,0 123,0 123,-124"/>
 <text text-anchor="start" x="20.5" y="-112" font-family="Helvetica,sans-Serif" font-size="10.00">UltrasonicSensor</text>
 <text text-anchor="start" x="60" y="-97" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>

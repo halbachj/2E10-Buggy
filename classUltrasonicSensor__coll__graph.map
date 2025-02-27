@@ -1,3 +1,3 @@
 <map id="UltrasonicSensor" name="UltrasonicSensor">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,169,171"/>
+<area shape="rect" id="Node000001" title="Handles ultrasonic sensor operations, including triggering and measuring distance." alt="" coords="5,5,169,171"/>
 </map>

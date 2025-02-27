@@ -113,86 +113,92 @@ $(function(){initNavTree('PacketTypes_8hpp_source.html',''); initResizable(true)
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PACKET_TYPES_HPP</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PACKET_TYPES_HPP</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">enum</span> PacketType {</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>  STATUS = 1, <span class="comment">// Start at 1. Empty package will hold 0 here and can be detected</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  LOG,</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  COMMAND,</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * LOG PACKET</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">const</span> <span class="keywordtype">short</span> MAX_MESSAGE_LENGTH = 64;</div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structLogPacket.html">   15</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structLogPacket.html">LogPacket</a> {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keywordtype">short</span> count;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keywordtype">char</span> message[MAX_MESSAGE_LENGTH];</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">enum</span> PacketType {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">// Start at one so empty packages can be detected with 0 as the Packet type</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    STATUS = 1, </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    LOG,        </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    COMMAND     </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>};</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">const</span> <span class="keywordtype">short</span> MAX_MESSAGE_LENGTH = 64; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structLogPacket.html">   25</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structLogPacket.html">LogPacket</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">short</span> count;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">char</span> message[MAX_MESSAGE_LENGTH];</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
 </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * STATUS PACKET</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structStatusPacket.html">   24</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structStatusPacket.html">StatusPacket</a> {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordtype">bool</span> objectDetected;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">float</span> objectDistance;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">int</span> leftMotorSpeed;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keywordtype">int</span> rightMotorSpeed;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordtype">float</span> leftMotorDistanceTraveled;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordtype">float</span> rightMotorDistanceTraveled;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordtype">int</span> leftIrSensorValue;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keywordtype">int</span> rightIrSensorValue;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structStatusPacket.html">   35</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structStatusPacket.html">StatusPacket</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structStatusPacket.html#a6f7c9a1e0fbc1715b6733f7c1f506403">   36</a></span>  <span class="keywordtype">bool</span> <a class="code hl_variable" href="structStatusPacket.html#a6f7c9a1e0fbc1715b6733f7c1f506403">objectDetected</a>;              </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structStatusPacket.html#a2043e9841084e1a03ca103ee7e66d785">   37</a></span>  <span class="keywordtype">float</span> <a class="code hl_variable" href="structStatusPacket.html#a2043e9841084e1a03ca103ee7e66d785">objectDistance</a>;             </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structStatusPacket.html#afd93f5a16ab8a64d2bf38280533b7404">   38</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structStatusPacket.html#afd93f5a16ab8a64d2bf38280533b7404">leftMotorSpeed</a>;               </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structStatusPacket.html#a0f75bb6f37ad104b188fc2d88abc8447">   39</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structStatusPacket.html#a0f75bb6f37ad104b188fc2d88abc8447">rightMotorSpeed</a>;              </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structStatusPacket.html#a2b9f7669db4776b5fa1efdeba7b5eaae">   40</a></span>  <span class="keywordtype">float</span> <a class="code hl_variable" href="structStatusPacket.html#a2b9f7669db4776b5fa1efdeba7b5eaae">leftMotorDistanceTraveled</a>;  </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structStatusPacket.html#acd1adb48867d21bbdb53bd5a45c5c3d5">   41</a></span>  <span class="keywordtype">float</span> <a class="code hl_variable" href="structStatusPacket.html#acd1adb48867d21bbdb53bd5a45c5c3d5">rightMotorDistanceTraveled</a>; </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structStatusPacket.html#a88f40c2464e0635a5333fdf7a21a03da">   42</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structStatusPacket.html#a88f40c2464e0635a5333fdf7a21a03da">leftIrSensorValue</a>;            </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structStatusPacket.html#a8ae8e73eab1200e304441d19a22195ba">   43</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structStatusPacket.html#a8ae8e73eab1200e304441d19a22195ba">rightIrSensorValue</a>;           </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
 </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * COMMAND PACKET</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">enum</span> CommandType {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  STOP = 0,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  START,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  RESET_DISTANCE</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structCommandPacket.html">   45</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structCommandPacket.html">CommandPacket</a> {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  CommandType type;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  uint16_t data;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">enum</span> CommandType {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  STOP = 0,        </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  START,           </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  RESET_DISTANCE   </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structCommandPacket.html">   61</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structCommandPacket.html">CommandPacket</a> {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">   62</a></span>  CommandType <a class="code hl_variable" href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">type</a>;   </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structCommandPacket.html#a13070f393d954043664468c73d13431a">   63</a></span>  uint16_t <a class="code hl_variable" href="structCommandPacket.html#a13070f393d954043664468c73d13431a">data</a>;      </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * PACKET CONTAINER</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="unionPacketContent.html">   54</a></span><span class="keyword">union </span><a class="code hl_union" href="unionPacketContent.html">PacketContent</a> {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_struct" href="structStatusPacket.html">StatusPacket</a> statusPacket;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <a class="code hl_struct" href="structCommandPacket.html">CommandPacket</a> commandPacket;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <a class="code hl_struct" href="structLogPacket.html">LogPacket</a> logPacket;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="};">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="unionPacketContent.html">   71</a></span><span class="keyword">union </span><a class="code hl_union" href="unionPacketContent.html">PacketContent</a> {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">   72</a></span>  <a class="code hl_struct" href="structStatusPacket.html">StatusPacket</a> <a class="code hl_variable" href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">statusPacket</a>;    </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">   73</a></span>  <a class="code hl_struct" href="structCommandPacket.html">CommandPacket</a> <a class="code hl_variable" href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">commandPacket</a>;  </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">   74</a></span>  <a class="code hl_struct" href="structLogPacket.html">LogPacket</a> <a class="code hl_variable" href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">logPacket</a>;          </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structPacket.html">   60</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structPacket.html">Packet</a> {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  PacketType type;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <a class="code hl_union" href="unionPacketContent.html">PacketContent</a> content;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="};">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="structPacket.html">   82</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structPacket.html">Packet</a> {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">   83</a></span>  PacketType <a class="code hl_variable" href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">type</a>;        </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">   84</a></span>  <a class="code hl_union" href="unionPacketContent.html">PacketContent</a> <a class="code hl_variable" href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">content</a>;  </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
 </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">//const size_t MAX_PACKET_LENGTH = sizeof(Packet);</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif </span><span class="comment">//PACKET_TYPES_HPP</span></div>
-<div class="ttc" id="astructCommandPacket_html"><div class="ttname"><a href="structCommandPacket.html">CommandPacket</a></div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:45</div></div>
-<div class="ttc" id="astructLogPacket_html"><div class="ttname"><a href="structLogPacket.html">LogPacket</a></div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:15</div></div>
-<div class="ttc" id="astructPacket_html"><div class="ttname"><a href="structPacket.html">Packet</a></div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:60</div></div>
-<div class="ttc" id="astructStatusPacket_html"><div class="ttname"><a href="structStatusPacket.html">StatusPacket</a></div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:24</div></div>
-<div class="ttc" id="aunionPacketContent_html"><div class="ttname"><a href="unionPacketContent.html">PacketContent</a></div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:54</div></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">//const size_t MAX_PACKET_LENGTH = sizeof(Packet);</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif </span><span class="comment">//PACKET_TYPES_HPP</span></div>
+<div class="ttc" id="astructCommandPacket_html"><div class="ttname"><a href="structCommandPacket.html">CommandPacket</a></div><div class="ttdoc">Represents a command packet for controlling the system.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:61</div></div>
+<div class="ttc" id="astructCommandPacket_html_a13070f393d954043664468c73d13431a"><div class="ttname"><a href="structCommandPacket.html#a13070f393d954043664468c73d13431a">CommandPacket::data</a></div><div class="ttdeci">uint16_t data</div><div class="ttdoc">Additional command data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:63</div></div>
+<div class="ttc" id="astructCommandPacket_html_ade1a30d81817db21e272708145c38544"><div class="ttname"><a href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">CommandPacket::type</a></div><div class="ttdeci">CommandType type</div><div class="ttdoc">Type of command.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:62</div></div>
+<div class="ttc" id="astructLogPacket_html"><div class="ttname"><a href="structLogPacket.html">LogPacket</a></div><div class="ttdoc">Represents a log message packet.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:25</div></div>
+<div class="ttc" id="astructPacket_html"><div class="ttname"><a href="structPacket.html">Packet</a></div><div class="ttdoc">Represents a generic packet containing different types of information.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:82</div></div>
+<div class="ttc" id="astructPacket_html_a5615e0173e5361428d7f50418695e4e4"><div class="ttname"><a href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">Packet::content</a></div><div class="ttdeci">PacketContent content</div><div class="ttdoc">Packet content.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:84</div></div>
+<div class="ttc" id="astructPacket_html_aebbae2cef32f967d0bbcabbe41dae6bf"><div class="ttname"><a href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">Packet::type</a></div><div class="ttdeci">PacketType type</div><div class="ttdoc">Type of the packet.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:83</div></div>
+<div class="ttc" id="astructStatusPacket_html"><div class="ttname"><a href="structStatusPacket.html">StatusPacket</a></div><div class="ttdoc">Represents a status update packet containing sensor and motor data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:35</div></div>
+<div class="ttc" id="astructStatusPacket_html_a0f75bb6f37ad104b188fc2d88abc8447"><div class="ttname"><a href="structStatusPacket.html#a0f75bb6f37ad104b188fc2d88abc8447">StatusPacket::rightMotorSpeed</a></div><div class="ttdeci">int rightMotorSpeed</div><div class="ttdoc">Speed of the right motor.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:39</div></div>
+<div class="ttc" id="astructStatusPacket_html_a2043e9841084e1a03ca103ee7e66d785"><div class="ttname"><a href="structStatusPacket.html#a2043e9841084e1a03ca103ee7e66d785">StatusPacket::objectDistance</a></div><div class="ttdeci">float objectDistance</div><div class="ttdoc">Distance to the detected object.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:37</div></div>
+<div class="ttc" id="astructStatusPacket_html_a2b9f7669db4776b5fa1efdeba7b5eaae"><div class="ttname"><a href="structStatusPacket.html#a2b9f7669db4776b5fa1efdeba7b5eaae">StatusPacket::leftMotorDistanceTraveled</a></div><div class="ttdeci">float leftMotorDistanceTraveled</div><div class="ttdoc">Distance traveled by the left motor.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:40</div></div>
+<div class="ttc" id="astructStatusPacket_html_a6f7c9a1e0fbc1715b6733f7c1f506403"><div class="ttname"><a href="structStatusPacket.html#a6f7c9a1e0fbc1715b6733f7c1f506403">StatusPacket::objectDetected</a></div><div class="ttdeci">bool objectDetected</div><div class="ttdoc">Indicates if an object is detected.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:36</div></div>
+<div class="ttc" id="astructStatusPacket_html_a88f40c2464e0635a5333fdf7a21a03da"><div class="ttname"><a href="structStatusPacket.html#a88f40c2464e0635a5333fdf7a21a03da">StatusPacket::leftIrSensorValue</a></div><div class="ttdeci">int leftIrSensorValue</div><div class="ttdoc">IR sensor reading on the left side.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:42</div></div>
+<div class="ttc" id="astructStatusPacket_html_a8ae8e73eab1200e304441d19a22195ba"><div class="ttname"><a href="structStatusPacket.html#a8ae8e73eab1200e304441d19a22195ba">StatusPacket::rightIrSensorValue</a></div><div class="ttdeci">int rightIrSensorValue</div><div class="ttdoc">IR sensor reading on the right side.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:43</div></div>
+<div class="ttc" id="astructStatusPacket_html_acd1adb48867d21bbdb53bd5a45c5c3d5"><div class="ttname"><a href="structStatusPacket.html#acd1adb48867d21bbdb53bd5a45c5c3d5">StatusPacket::rightMotorDistanceTraveled</a></div><div class="ttdeci">float rightMotorDistanceTraveled</div><div class="ttdoc">Distance traveled by the right motor.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:41</div></div>
+<div class="ttc" id="astructStatusPacket_html_afd93f5a16ab8a64d2bf38280533b7404"><div class="ttname"><a href="structStatusPacket.html#afd93f5a16ab8a64d2bf38280533b7404">StatusPacket::leftMotorSpeed</a></div><div class="ttdeci">int leftMotorSpeed</div><div class="ttdoc">Speed of the left motor.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:38</div></div>
+<div class="ttc" id="aunionPacketContent_html"><div class="ttname"><a href="unionPacketContent.html">PacketContent</a></div><div class="ttdoc">Union containing different packet types.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:71</div></div>
+<div class="ttc" id="aunionPacketContent_html_a377d6250f3b5a99c348a40bafe139380"><div class="ttname"><a href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">PacketContent::statusPacket</a></div><div class="ttdeci">StatusPacket statusPacket</div><div class="ttdoc">Status packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:72</div></div>
+<div class="ttc" id="aunionPacketContent_html_a83c80bc70debb3ff136687fd652b29d7"><div class="ttname"><a href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">PacketContent::logPacket</a></div><div class="ttdeci">LogPacket logPacket</div><div class="ttdoc">Log packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:74</div></div>
+<div class="ttc" id="aunionPacketContent_html_af58114f9e58ee35e67e9e116d9eaa7f3"><div class="ttname"><a href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">PacketContent::commandPacket</a></div><div class="ttdeci">CommandPacket commandPacket</div><div class="ttdoc">Command packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:73</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

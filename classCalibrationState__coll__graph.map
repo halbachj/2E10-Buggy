@@ -1,5 +1,5 @@
 <map id="CalibrationState" name="CalibrationState">
 <area shape="rect" id="Node000001" title="The calibration state of the buggy is the first state it enters after being placed on the track...." alt="" coords="9,179,127,304"/>
-<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in...." alt="" coords="5,5,131,131"/>
+<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="5,5,131,131"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,145,71,178,65,178,65,145"/>
 </map>

@@ -114,6 +114,11 @@ $(function(){initNavTree('classLineFollower.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">LineFollower Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The line follower class is a helper class that allows for easy control of the buggy.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="LineFollower_8hpp_source.html">LineFollower.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for LineFollower:</div>
 <div class="dyncontent">
@@ -122,13 +127,66 @@ Collaboration diagram for LineFollower:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5d768334facabfd1e4ca28456abd77df" id="r_a5d768334facabfd1e4ca28456abd77df"><td class="memItemLeft" align="right" valign="top"><a id="a5d768334facabfd1e4ca28456abd77df" name="a5d768334facabfd1e4ca28456abd77df"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LineFollower</b> (<a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;leftMotor, <a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;rightMotor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;leftSensor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;rightSensor, const <a class="el" href="structPIDConstants.html">PIDConstants</a> &amp;constants)</td></tr>
+<tr class="memitem:a5d768334facabfd1e4ca28456abd77df" id="r_a5d768334facabfd1e4ca28456abd77df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d768334facabfd1e4ca28456abd77df">LineFollower</a> (<a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;leftMotor, <a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;rightMotor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;leftSensor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;rightSensor, const <a class="el" href="structPIDConstants.html">PIDConstants</a> &amp;constants)</td></tr>
+<tr class="memdesc:a5d768334facabfd1e4ca28456abd77df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the line Follower.  <br /></td></tr>
 <tr class="separator:a5d768334facabfd1e4ca28456abd77df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dce7ba6d1bfe31118ae1860adb6f99d" id="r_a7dce7ba6d1bfe31118ae1860adb6f99d"><td class="memItemLeft" align="right" valign="top"><a id="a7dce7ba6d1bfe31118ae1860adb6f99d" name="a7dce7ba6d1bfe31118ae1860adb6f99d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memdesc:a7dce7ba6d1bfe31118ae1860adb6f99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will read and adapt the motors each call. Needs to be called inside of loop to be useful. <br /></td></tr>
 <tr class="separator:a7dce7ba6d1bfe31118ae1860adb6f99d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The line follower class is a helper class that allows for easy control of the buggy. </p>
+<p>It holds both motors ans sensors and the PID controller for easy access. On update the line follower class will poll the IR sensors calculate the error and turn based on the calculated error. It also has PID capabilites for future PID based turning. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5d768334facabfd1e4ca28456abd77df" name="a5d768334facabfd1e4ca28456abd77df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d768334facabfd1e4ca28456abd77df">&#9670;&#160;</a></span>LineFollower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LineFollower::LineFollower </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>leftMotor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rightMotor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIrSensor.html">IrSensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>leftSensor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIrSensor.html">IrSensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rightSensor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structPIDConstants.html">PIDConstants</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>constants</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct the line Follower. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leftMoror</td><td>the left motor driver </td></tr>
+    <tr><td class="paramname">rightMotor</td><td>the right motor driver </td></tr>
+    <tr><td class="paramname">leftIrSensot</td><td>the left <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> </td></tr>
+    <tr><td class="paramname">leftIrSensot</td><td>the right <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> </td></tr>
+    <tr><td class="paramname">constants</td><td>PID constants for the PID based turning </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>BuggySoftware/<a class="el" href="LineFollower_8hpp_source.html">LineFollower.hpp</a></li>
 <li>BuggySoftware/<b>LineFollower.cpp</b></li>

@@ -133,12 +133,12 @@ Collaboration diagram for LineFollowingState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a78f9f9af3e970f7a1c750e2ac7681edb" id="r_a78f9f9af3e970f7a1c750e2ac7681edb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78f9f9af3e970f7a1c750e2ac7681edb">enter</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy) override</td></tr>
-<tr class="separator:a78f9f9af3e970f7a1c750e2ac7681edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ca25946167ec437a9763dfe1236ad25" id="r_a6ca25946167ec437a9763dfe1236ad25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ca25946167ec437a9763dfe1236ad25">enter</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState) override</td></tr>
+<tr class="separator:a6ca25946167ec437a9763dfe1236ad25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abde9f0b05a6a941f272c089b40b6ed3a" id="r_abde9f0b05a6a941f272c089b40b6ed3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abde9f0b05a6a941f272c089b40b6ed3a">update</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, double dt) override</td></tr>
 <tr class="separator:abde9f0b05a6a941f272c089b40b6ed3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa25d571f324e6b45ac740ed2acc3b497" id="r_aa25d571f324e6b45ac740ed2acc3b497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa25d571f324e6b45ac740ed2acc3b497">exit</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy) override</td></tr>
-<tr class="separator:aa25d571f324e6b45ac740ed2acc3b497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04242f00bdeb2a445fbdef647843d052" id="r_a04242f00bdeb2a445fbdef647843d052"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04242f00bdeb2a445fbdef647843d052">exit</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState) override</td></tr>
+<tr class="separator:a04242f00bdeb2a445fbdef647843d052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -149,8 +149,8 @@ static <a class="el" href="classLineFollowingState.html">LineFollowingState</a> 
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>In the Line following state the buggy is trying to follow the line using the IR sensors. The buggy also checks for obstacles in the way and brakes when it detects any. The buggy also reports neccessarry information back to the ground station through the TCP server. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a78f9f9af3e970f7a1c750e2ac7681edb" name="a78f9f9af3e970f7a1c750e2ac7681edb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78f9f9af3e970f7a1c750e2ac7681edb">&#9670;&#160;</a></span>enter()</h2>
+<a id="a6ca25946167ec437a9763dfe1236ad25" name="a6ca25946167ec437a9763dfe1236ad25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ca25946167ec437a9763dfe1236ad25">&#9670;&#160;</a></span>enter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,8 +161,12 @@ static <a class="el" href="classLineFollowingState.html">LineFollowingState</a> 
         <tr>
           <td class="memname">void LineFollowingState::enter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classBuggyState.html">BuggyState</a> *</td>          <td class="paramname"><span class="paramname"><em>oldState</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -176,8 +180,8 @@ static <a class="el" href="classLineFollowingState.html">LineFollowingState</a> 
 
 </div>
 </div>
-<a id="aa25d571f324e6b45ac740ed2acc3b497" name="aa25d571f324e6b45ac740ed2acc3b497"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa25d571f324e6b45ac740ed2acc3b497">&#9670;&#160;</a></span>exit()</h2>
+<a id="a04242f00bdeb2a445fbdef647843d052" name="a04242f00bdeb2a445fbdef647843d052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04242f00bdeb2a445fbdef647843d052">&#9670;&#160;</a></span>exit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,8 +192,12 @@ static <a class="el" href="classLineFollowingState.html">LineFollowingState</a> 
         <tr>
           <td class="memname">void LineFollowingState::exit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classBuggyState.html">BuggyState</a> *</td>          <td class="paramname"><span class="paramname"><em>oldState</em></span>&#160;)</td>
         </tr>
       </table>
   </td>

@@ -1,5 +1,5 @@
 <map id="LineFollowingState" name="LineFollowingState">
 <area shape="rect" id="Node000001" title="In the Line following state the buggy is trying to follow the line using the IR sensors...." alt="" coords="5,179,143,304"/>
-<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in...." alt="" coords="11,5,137,131"/>
+<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="11,5,137,131"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,145,77,178,71,178,71,145"/>
 </map>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="The TCP server class provides functionality for setting up and managing a basic TCP server using Wi&#45;F...">
 <polygon fill="#999999" stroke="transparent" points="84,-94 0,-94 0,0 84,0 84,-94"/>
 <text text-anchor="start" x="18" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">TcpServer</text>
 <text text-anchor="start" x="40" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>

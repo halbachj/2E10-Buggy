@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Factory class for creating different types of packets.">
 <polygon fill="#999999" stroke="transparent" points="122,-64 0,-64 0,0 122,0 122,-64"/>
 <text text-anchor="start" x="27.5" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">PacketFactory</text>
 <text text-anchor="start" x="59" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>

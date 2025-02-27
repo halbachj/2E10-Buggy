@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="This struct stores the PID constants in a neat way.">
 <polygon fill="#999999" stroke="transparent" points="76,-79 0,-79 0,0 76,0 76,-79"/>
 <text text-anchor="start" x="5" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">PIDConstants</text>
 <text text-anchor="start" x="14.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>

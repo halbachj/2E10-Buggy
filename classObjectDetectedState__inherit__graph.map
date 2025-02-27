@@ -1,5 +1,5 @@
 <map id="ObjectDetectedState" name="ObjectDetectedState">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,179,155,304"/>
-<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in...." alt="" coords="17,5,143,131"/>
+<area shape="rect" id="Node000001" title="The state the Buggy enters when an object is detected during driving." alt="" coords="5,179,155,304"/>
+<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="17,5,143,131"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,145,83,178,77,178,77,145"/>
 </map>

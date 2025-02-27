@@ -133,12 +133,12 @@ Collaboration diagram for CalibrationState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a099e61a180c36a889b6c01a95538c3c2" id="r_a099e61a180c36a889b6c01a95538c3c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a099e61a180c36a889b6c01a95538c3c2">enter</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy) override</td></tr>
-<tr class="separator:a099e61a180c36a889b6c01a95538c3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2010fb5337c22b4e7ff923c44555628" id="r_ac2010fb5337c22b4e7ff923c44555628"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2010fb5337c22b4e7ff923c44555628">enter</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState) override</td></tr>
+<tr class="separator:ac2010fb5337c22b4e7ff923c44555628"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90ad94c5c7a21f824042ad0845611d1b" id="r_a90ad94c5c7a21f824042ad0845611d1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90ad94c5c7a21f824042ad0845611d1b">update</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, double dt) override</td></tr>
 <tr class="separator:a90ad94c5c7a21f824042ad0845611d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81036fce248c1b1246ca4c5ee3dd0605" id="r_a81036fce248c1b1246ca4c5ee3dd0605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81036fce248c1b1246ca4c5ee3dd0605">exit</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy) override</td></tr>
-<tr class="separator:a81036fce248c1b1246ca4c5ee3dd0605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320984f6f0950178c00d1f4f4d3989c8" id="r_a320984f6f0950178c00d1f4f4d3989c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a320984f6f0950178c00d1f4f4d3989c8">exit</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState) override</td></tr>
+<tr class="separator:a320984f6f0950178c00d1f4f4d3989c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -149,8 +149,8 @@ static <a class="el" href="classCalibrationState.html">CalibrationState</a> &amp
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The calibration state of the buggy is the first state it enters after being placed on the track. The buggy will perform a full rotation an collect as many datapoints as possible from the IR sensors. On exit these calibration values are set in the corresponding IR sensors as calibration data. The state is then changed to idle and the buggy waits for commands. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a099e61a180c36a889b6c01a95538c3c2" name="a099e61a180c36a889b6c01a95538c3c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a099e61a180c36a889b6c01a95538c3c2">&#9670;&#160;</a></span>enter()</h2>
+<a id="ac2010fb5337c22b4e7ff923c44555628" name="ac2010fb5337c22b4e7ff923c44555628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2010fb5337c22b4e7ff923c44555628">&#9670;&#160;</a></span>enter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,8 +161,12 @@ static <a class="el" href="classCalibrationState.html">CalibrationState</a> &amp
         <tr>
           <td class="memname">void CalibrationState::enter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classBuggyState.html">BuggyState</a> *</td>          <td class="paramname"><span class="paramname"><em>oldState</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -176,8 +180,8 @@ static <a class="el" href="classCalibrationState.html">CalibrationState</a> &amp
 
 </div>
 </div>
-<a id="a81036fce248c1b1246ca4c5ee3dd0605" name="a81036fce248c1b1246ca4c5ee3dd0605"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81036fce248c1b1246ca4c5ee3dd0605">&#9670;&#160;</a></span>exit()</h2>
+<a id="a320984f6f0950178c00d1f4f4d3989c8" name="a320984f6f0950178c00d1f4f4d3989c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320984f6f0950178c00d1f4f4d3989c8">&#9670;&#160;</a></span>exit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,8 +192,12 @@ static <a class="el" href="classCalibrationState.html">CalibrationState</a> &amp
         <tr>
           <td class="memname">void CalibrationState::exit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classBuggyState.html">BuggyState</a> *</td>          <td class="paramname"><span class="paramname"><em>oldState</em></span>&#160;)</td>
         </tr>
       </table>
   </td>

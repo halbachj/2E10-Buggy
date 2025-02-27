@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['handlecommand_0',['handleCommand',['../classBuggy.html#a1207f60e091c8934c31dc04d05da715c',1,'Buggy']]],
-  ['handlepacket_1',['handlePacket',['../classBuggy.html#a5ecfce732e816d7e6087ce5e04c1e4cf',1,'Buggy']]]
+  ['createlogpacket_0',['createLogPacket',['../classPacketFactory.html#a19e658487db5220f16ee103deeb7b9be',1,'PacketFactory']]],
+  ['createstatuspacket_1',['createStatusPacket',['../classPacketFactory.html#a27759b44a17b7c9550541de15dac7016',1,'PacketFactory']]]
 ];

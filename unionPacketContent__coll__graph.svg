@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Union containing different packet types.">
 <polygon fill="#999999" stroke="transparent" points="261.5,-49 181.5,-49 181.5,0 261.5,0 261.5,-49"/>
 <text text-anchor="start" x="186.5" y="-36.5" font-family="Helvetica,sans-Serif" font-size="10.00">PacketContent</text>
 <text text-anchor="start" x="219.5" y="-21.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
@@ -36,7 +36,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="structStatusPacket.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="structStatusPacket.html" target="_top" xlink:title="Represents a status update packet containing sensor and motor data.">
 <polygon fill="white" stroke="transparent" points="157,-250 0,-250 0,-96 157,-96 157,-250"/>
 <text text-anchor="start" x="47.5" y="-238" font-family="Helvetica,sans-Serif" font-size="10.00">StatusPacket</text>
 <text text-anchor="start" x="4.5" y="-223" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -56,10 +56,10 @@
 <text text-anchor="start" x="4.5" y="-118" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="17.5" y="-118" font-family="Helvetica,sans-Serif" font-size="10.00">rightIrSensorValue</text>
 <text text-anchor="start" x="77" y="-103" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="0.5,-233 0.5,-233 157.5,-233 157.5,-233 0.5,-233"/>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="0.5,-113 0.5,-113 15.5,-113 15.5,-113 0.5,-113"/>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="15.5,-113 15.5,-113 157.5,-113 157.5,-113 15.5,-113"/>
-<polygon fill="none" stroke="#bfbfbf" points="0,-96 0,-250 157,-250 157,-96 0,-96"/>
+<polygon fill="#666666" stroke="#666666" points="0.5,-233 0.5,-233 157.5,-233 157.5,-233 0.5,-233"/>
+<polygon fill="#666666" stroke="#666666" points="0.5,-113 0.5,-113 15.5,-113 15.5,-113 0.5,-113"/>
+<polygon fill="#666666" stroke="#666666" points="15.5,-113 15.5,-113 157.5,-113 157.5,-113 15.5,-113"/>
+<polygon fill="none" stroke="#666666" points="0,-96 0,-250 157,-250 157,-96 0,-96"/>
 </a>
 </g>
 </g>
@@ -76,7 +76,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="structCommandPacket.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="structCommandPacket.html" target="_top" xlink:title="Represents a command packet for controlling the system.">
 <polygon fill="white" stroke="transparent" points="267.5,-205 175.5,-205 175.5,-141 267.5,-141 267.5,-205"/>
 <text text-anchor="start" x="180.5" y="-193" font-family="Helvetica,sans-Serif" font-size="10.00">CommandPacket</text>
 <text text-anchor="start" x="191.5" y="-178" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -84,10 +84,10 @@
 <text text-anchor="start" x="191.5" y="-163" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="216.5" y="-163" font-family="Helvetica,sans-Serif" font-size="10.00">data</text>
 <text text-anchor="start" x="219.5" y="-148" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="175.5,-188 175.5,-188 267.5,-188 267.5,-188 175.5,-188"/>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="175.5,-158 175.5,-158 214.5,-158 214.5,-158 175.5,-158"/>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="214.5,-158 214.5,-158 267.5,-158 267.5,-158 214.5,-158"/>
-<polygon fill="none" stroke="#bfbfbf" points="175.5,-141 175.5,-205 267.5,-205 267.5,-141 175.5,-141"/>
+<polygon fill="#666666" stroke="#666666" points="175.5,-188 175.5,-188 267.5,-188 267.5,-188 175.5,-188"/>
+<polygon fill="#666666" stroke="#666666" points="175.5,-158 175.5,-158 214.5,-158 214.5,-158 175.5,-158"/>
+<polygon fill="#666666" stroke="#666666" points="214.5,-158 214.5,-158 267.5,-158 267.5,-158 214.5,-158"/>
+<polygon fill="none" stroke="#666666" points="175.5,-141 175.5,-205 267.5,-205 267.5,-141 175.5,-141"/>
 </a>
 </g>
 </g>
@@ -104,7 +104,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="structLogPacket.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="structLogPacket.html" target="_top" xlink:title="Represents a log message packet.">
 <polygon fill="white" stroke="transparent" points="369.5,-205 303.5,-205 303.5,-141 369.5,-141 369.5,-205"/>
 <text text-anchor="start" x="312" y="-193" font-family="Helvetica,sans-Serif" font-size="10.00">LogPacket</text>
 <text text-anchor="start" x="307.5" y="-178" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
@@ -112,10 +112,10 @@
 <text text-anchor="start" x="307.5" y="-163" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>
 <text text-anchor="start" x="320.5" y="-163" font-family="Helvetica,sans-Serif" font-size="10.00">message</text>
 <text text-anchor="start" x="334.5" y="-148" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="303.5,-188 303.5,-188 369.5,-188 369.5,-188 303.5,-188"/>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="303.5,-158 303.5,-158 318.5,-158 318.5,-158 303.5,-158"/>
-<polygon fill="#bfbfbf" stroke="#bfbfbf" points="318.5,-158 318.5,-158 369.5,-158 369.5,-158 318.5,-158"/>
-<polygon fill="none" stroke="#bfbfbf" points="303.5,-141 303.5,-205 369.5,-205 369.5,-141 303.5,-141"/>
+<polygon fill="#666666" stroke="#666666" points="303.5,-188 303.5,-188 369.5,-188 369.5,-188 303.5,-188"/>
+<polygon fill="#666666" stroke="#666666" points="303.5,-158 303.5,-158 318.5,-158 318.5,-158 303.5,-158"/>
+<polygon fill="#666666" stroke="#666666" points="318.5,-158 318.5,-158 369.5,-158 369.5,-158 318.5,-158"/>
+<polygon fill="none" stroke="#666666" points="303.5,-141 303.5,-205 369.5,-205 369.5,-141 303.5,-141"/>
 </a>
 </g>
 </g>

@@ -1,0 +1,5 @@
+<map id="MotorDriver::MotorDriver" name="MotorDriver::MotorDriver">
+<area shape="rect" id="Node000001" title="Constructs a MotorDriver object." alt="" coords="5,5,192,31"/>
+<area shape="rect" id="Node000002" href="$classMotorDriver.html#a642e4601a6a33c2d94155e5084ba6844" title="Sets the motor direction to forward by writing to the H&#45;Bridge." alt="" coords="240,5,399,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,15,226,15,226,21,192,21"/>
+</map>

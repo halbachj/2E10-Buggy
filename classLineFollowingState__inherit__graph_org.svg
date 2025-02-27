@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classBuggyState.html" target="_top" xlink:title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in....">
+<g id="a_Node000002"><a xlink:href="classBuggyState.html" target="_top" xlink:title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in.">
 <polygon fill="white" stroke="transparent" points="98.5,-224 4.5,-224 4.5,-130 98.5,-130 98.5,-224"/>
 <text text-anchor="start" x="23" y="-212" font-family="Helvetica,sans-Serif" font-size="10.00">BuggyState</text>
 <text text-anchor="start" x="49.5" y="-197" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>

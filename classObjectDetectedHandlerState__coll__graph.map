@@ -1,0 +1,5 @@
+<map id="ObjectDetectedHandlerState" name="ObjectDetectedHandlerState">
+<area shape="rect" id="Node000001" title="This state is entered before the buggy goes into ObjectDetectedState. It is used to save the previous..." alt="" coords="5,179,205,304"/>
+<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="43,5,168,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,145,108,178,103,178,103,145"/>
+</map>

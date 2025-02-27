@@ -114,6 +114,11 @@ $(function(){initNavTree('classUltrasonicSensor.html',''); initResizable(true); 
   <div class="headertitle"><div class="title">UltrasonicSensor Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles ultrasonic sensor operations, including triggering and measuring distance.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="UltrasonicSensor_8hpp_source.html">UltrasonicSensor.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for UltrasonicSensor:</div>
 <div class="dyncontent">
@@ -122,25 +127,126 @@ Collaboration diagram for UltrasonicSensor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a191f27e844aebdbd97852d7f0c79dcfb" id="r_a191f27e844aebdbd97852d7f0c79dcfb"><td class="memItemLeft" align="right" valign="top"><a id="a191f27e844aebdbd97852d7f0c79dcfb" name="a191f27e844aebdbd97852d7f0c79dcfb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>UltrasonicSensor</b> (const <a class="el" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a> &amp;pinout)</td></tr>
+<tr class="memitem:a191f27e844aebdbd97852d7f0c79dcfb" id="r_a191f27e844aebdbd97852d7f0c79dcfb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a191f27e844aebdbd97852d7f0c79dcfb">UltrasonicSensor</a> (const <a class="el" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a> &amp;pinout)</td></tr>
+<tr class="memdesc:a191f27e844aebdbd97852d7f0c79dcfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classUltrasonicSensor.html" title="Handles ultrasonic sensor operations, including triggering and measuring distance.">UltrasonicSensor</a> object with the given pin configuration.  <br /></td></tr>
 <tr class="separator:a191f27e844aebdbd97852d7f0c79dcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ff55927d6f2a55754bc8a46f9808768" id="r_a4ff55927d6f2a55754bc8a46f9808768"><td class="memItemLeft" align="right" valign="top"><a id="a4ff55927d6f2a55754bc8a46f9808768" name="a4ff55927d6f2a55754bc8a46f9808768"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getReading</b> ()</td></tr>
+<tr class="memitem:a4ff55927d6f2a55754bc8a46f9808768" id="r_a4ff55927d6f2a55754bc8a46f9808768"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ff55927d6f2a55754bc8a46f9808768">getReading</a> ()</td></tr>
+<tr class="memdesc:a4ff55927d6f2a55754bc8a46f9808768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the latest distance measurement from the sensor.  <br /></td></tr>
 <tr class="separator:a4ff55927d6f2a55754bc8a46f9808768"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17d97791899bca44be932d2c6fb27cd5" id="r_a17d97791899bca44be932d2c6fb27cd5"><td class="memItemLeft" align="right" valign="top"><a id="a17d97791899bca44be932d2c6fb27cd5" name="a17d97791899bca44be932d2c6fb27cd5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDetectionRange</b> (unsigned short range)</td></tr>
+<tr class="memitem:a17d97791899bca44be932d2c6fb27cd5" id="r_a17d97791899bca44be932d2c6fb27cd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17d97791899bca44be932d2c6fb27cd5">setDetectionRange</a> (unsigned short range)</td></tr>
+<tr class="memdesc:a17d97791899bca44be932d2c6fb27cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the detection range for object detection.  <br /></td></tr>
 <tr class="separator:a17d97791899bca44be932d2c6fb27cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a701e361512df87d1200d50d2e9e6bc19" id="r_a701e361512df87d1200d50d2e9e6bc19"><td class="memItemLeft" align="right" valign="top"><a id="a701e361512df87d1200d50d2e9e6bc19" name="a701e361512df87d1200d50d2e9e6bc19"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>objectDetected</b> ()</td></tr>
+<tr class="memitem:a701e361512df87d1200d50d2e9e6bc19" id="r_a701e361512df87d1200d50d2e9e6bc19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a701e361512df87d1200d50d2e9e6bc19">objectDetected</a> ()</td></tr>
+<tr class="memdesc:a701e361512df87d1200d50d2e9e6bc19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if an object is detected within the set range.  <br /></td></tr>
 <tr class="separator:a701e361512df87d1200d50d2e9e6bc19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd2ef36cfe1e44b04d9c83c40abbed63" id="r_acd2ef36cfe1e44b04d9c83c40abbed63"><td class="memItemLeft" align="right" valign="top"><a id="acd2ef36cfe1e44b04d9c83c40abbed63" name="acd2ef36cfe1e44b04d9c83c40abbed63"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memdesc:acd2ef36cfe1e44b04d9c83c40abbed63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the sensor state, including triggering new measurements if necessary. <br /></td></tr>
 <tr class="separator:acd2ef36cfe1e44b04d9c83c40abbed63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa93f6e4d84fee3908deaeaf146bac713" id="r_aa93f6e4d84fee3908deaeaf146bac713"><td class="memItemLeft" align="right" valign="top"><a id="aa93f6e4d84fee3908deaeaf146bac713" name="aa93f6e4d84fee3908deaeaf146bac713"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ISR_UltrasonicEcho</b> ()</td></tr>
+<tr class="memdesc:aa93f6e4d84fee3908deaeaf146bac713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt Service Routine for handling ultrasonic echo signal. <br /></td></tr>
 <tr class="separator:aa93f6e4d84fee3908deaeaf146bac713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles ultrasonic sensor operations, including triggering and measuring distance. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a191f27e844aebdbd97852d7f0c79dcfb" name="a191f27e844aebdbd97852d7f0c79dcfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a191f27e844aebdbd97852d7f0c79dcfb">&#9670;&#160;</a></span>UltrasonicSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UltrasonicSensor::UltrasonicSensor </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pinout</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs an <a class="el" href="classUltrasonicSensor.html" title="Handles ultrasonic sensor operations, including triggering and measuring distance.">UltrasonicSensor</a> object with the given pin configuration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pinout</td><td>The pin configuration for the sensor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4ff55927d6f2a55754bc8a46f9808768" name="a4ff55927d6f2a55754bc8a46f9808768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ff55927d6f2a55754bc8a46f9808768">&#9670;&#160;</a></span>getReading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float UltrasonicSensor::getReading </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the latest distance measurement from the sensor. </p>
+<dl class="section return"><dt>Returns</dt><dd>Measured distance in centimeters. </dd></dl>
+
+</div>
+</div>
+<a id="a701e361512df87d1200d50d2e9e6bc19" name="a701e361512df87d1200d50d2e9e6bc19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a701e361512df87d1200d50d2e9e6bc19">&#9670;&#160;</a></span>objectDetected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UltrasonicSensor::objectDetected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if an object is detected within the set range. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if an object is detected, false otherwise. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classUltrasonicSensor_a701e361512df87d1200d50d2e9e6bc19_cgraph.svg" width="454" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a17d97791899bca44be932d2c6fb27cd5" name="a17d97791899bca44be932d2c6fb27cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17d97791899bca44be932d2c6fb27cd5">&#9670;&#160;</a></span>setDetectionRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UltrasonicSensor::setDetectionRange </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the detection range for object detection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>Detection range in centimeters. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>BuggySoftware/<a class="el" href="UltrasonicSensor_8hpp_source.html">UltrasonicSensor.hpp</a></li>
 <li>BuggySoftware/<b>UltrasonicSensor.cpp</b></li>

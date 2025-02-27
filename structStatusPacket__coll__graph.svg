@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Represents a status update packet containing sensor and motor data.">
 <polygon fill="#999999" stroke="transparent" points="157,-154 0,-154 0,0 157,0 157,-154"/>
 <text text-anchor="start" x="47.5" y="-142" font-family="Helvetica,sans-Serif" font-size="10.00">StatusPacket</text>
 <text text-anchor="start" x="4.5" y="-127" font-family="Helvetica,sans-Serif" font-size="10.00">+</text>

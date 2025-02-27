@@ -114,6 +114,11 @@ $(function(){initNavTree('structStatusPacket.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">StatusPacket Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a status update packet containing sensor and motor data.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="PacketTypes_8hpp_source.html">PacketTypes.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for StatusPacket:</div>
 <div class="dyncontent">
@@ -124,30 +129,40 @@ Collaboration diagram for StatusPacket:</div>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a6f7c9a1e0fbc1715b6733f7c1f506403" id="r_a6f7c9a1e0fbc1715b6733f7c1f506403"><td class="memItemLeft" align="right" valign="top"><a id="a6f7c9a1e0fbc1715b6733f7c1f506403" name="a6f7c9a1e0fbc1715b6733f7c1f506403"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>objectDetected</b></td></tr>
+<tr class="memdesc:a6f7c9a1e0fbc1715b6733f7c1f506403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if an object is detected. <br /></td></tr>
 <tr class="separator:a6f7c9a1e0fbc1715b6733f7c1f506403"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2043e9841084e1a03ca103ee7e66d785" id="r_a2043e9841084e1a03ca103ee7e66d785"><td class="memItemLeft" align="right" valign="top"><a id="a2043e9841084e1a03ca103ee7e66d785" name="a2043e9841084e1a03ca103ee7e66d785"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>objectDistance</b></td></tr>
+<tr class="memdesc:a2043e9841084e1a03ca103ee7e66d785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance to the detected object. <br /></td></tr>
 <tr class="separator:a2043e9841084e1a03ca103ee7e66d785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd93f5a16ab8a64d2bf38280533b7404" id="r_afd93f5a16ab8a64d2bf38280533b7404"><td class="memItemLeft" align="right" valign="top"><a id="afd93f5a16ab8a64d2bf38280533b7404" name="afd93f5a16ab8a64d2bf38280533b7404"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>leftMotorSpeed</b></td></tr>
+<tr class="memdesc:afd93f5a16ab8a64d2bf38280533b7404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of the left motor. <br /></td></tr>
 <tr class="separator:afd93f5a16ab8a64d2bf38280533b7404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f75bb6f37ad104b188fc2d88abc8447" id="r_a0f75bb6f37ad104b188fc2d88abc8447"><td class="memItemLeft" align="right" valign="top"><a id="a0f75bb6f37ad104b188fc2d88abc8447" name="a0f75bb6f37ad104b188fc2d88abc8447"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>rightMotorSpeed</b></td></tr>
+<tr class="memdesc:a0f75bb6f37ad104b188fc2d88abc8447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of the right motor. <br /></td></tr>
 <tr class="separator:a0f75bb6f37ad104b188fc2d88abc8447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b9f7669db4776b5fa1efdeba7b5eaae" id="r_a2b9f7669db4776b5fa1efdeba7b5eaae"><td class="memItemLeft" align="right" valign="top"><a id="a2b9f7669db4776b5fa1efdeba7b5eaae" name="a2b9f7669db4776b5fa1efdeba7b5eaae"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>leftMotorDistanceTraveled</b></td></tr>
+<tr class="memdesc:a2b9f7669db4776b5fa1efdeba7b5eaae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance traveled by the left motor. <br /></td></tr>
 <tr class="separator:a2b9f7669db4776b5fa1efdeba7b5eaae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd1adb48867d21bbdb53bd5a45c5c3d5" id="r_acd1adb48867d21bbdb53bd5a45c5c3d5"><td class="memItemLeft" align="right" valign="top"><a id="acd1adb48867d21bbdb53bd5a45c5c3d5" name="acd1adb48867d21bbdb53bd5a45c5c3d5"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>rightMotorDistanceTraveled</b></td></tr>
+<tr class="memdesc:acd1adb48867d21bbdb53bd5a45c5c3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance traveled by the right motor. <br /></td></tr>
 <tr class="separator:acd1adb48867d21bbdb53bd5a45c5c3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88f40c2464e0635a5333fdf7a21a03da" id="r_a88f40c2464e0635a5333fdf7a21a03da"><td class="memItemLeft" align="right" valign="top"><a id="a88f40c2464e0635a5333fdf7a21a03da" name="a88f40c2464e0635a5333fdf7a21a03da"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>leftIrSensorValue</b></td></tr>
+<tr class="memdesc:a88f40c2464e0635a5333fdf7a21a03da"><td class="mdescLeft">&#160;</td><td class="mdescRight">IR sensor reading on the left side. <br /></td></tr>
 <tr class="separator:a88f40c2464e0635a5333fdf7a21a03da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ae8e73eab1200e304441d19a22195ba" id="r_a8ae8e73eab1200e304441d19a22195ba"><td class="memItemLeft" align="right" valign="top"><a id="a8ae8e73eab1200e304441d19a22195ba" name="a8ae8e73eab1200e304441d19a22195ba"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>rightIrSensorValue</b></td></tr>
+<tr class="memdesc:a8ae8e73eab1200e304441d19a22195ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">IR sensor reading on the right side. <br /></td></tr>
 <tr class="separator:a8ae8e73eab1200e304441d19a22195ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a status update packet containing sensor and motor data. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>BuggySoftware/<a class="el" href="PacketTypes_8hpp_source.html">PacketTypes.hpp</a></li>
 </ul>
 </div><!-- contents -->

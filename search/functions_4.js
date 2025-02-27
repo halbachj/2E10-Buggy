@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['sendstatuspacket_0',['sendStatusPacket',['../classBuggy.html#a69ac0c77c795b4a80addeaa4dada009e',1,'Buggy']]],
-  ['setstate_1',['setState',['../classBuggy.html#a6ec6b72a75e112f777e8c6754a70012b',1,'Buggy']]],
-  ['setup_2',['setup',['../BuggySoftware_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'BuggySoftware.ino']]]
+  ['handlecommand_0',['handleCommand',['../classBuggy.html#a1207f60e091c8934c31dc04d05da715c',1,'Buggy']]],
+  ['handlepacket_1',['handlePacket',['../classBuggy.html#a5ecfce732e816d7e6087ce5e04c1e4cf',1,'Buggy']]]
 ];

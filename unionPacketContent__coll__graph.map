@@ -1,9 +1,9 @@
 <map id="PacketContent" name="PacketContent">
-<area shape="rect" id="Node000001" title=" " alt="" coords="247,273,354,339"/>
-<area shape="rect" id="Node000002" href="$structStatusPacket.html" title=" " alt="" coords="5,5,215,211"/>
+<area shape="rect" id="Node000001" title="Union containing different packet types." alt="" coords="247,273,354,339"/>
+<area shape="rect" id="Node000002" href="$structStatusPacket.html" title="Represents a status update packet containing sensor and motor data." alt="" coords="5,5,215,211"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,209,200,247,234,272,231,277,196,251,163,213"/>
-<area shape="rect" id="Node000003" href="$structCommandPacket.html" title=" " alt="" coords="239,65,362,151"/>
+<area shape="rect" id="Node000003" href="$structCommandPacket.html" title="Represents a command packet for controlling the system." alt="" coords="239,65,362,151"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="303,151,303,257,298,257,298,151"/>
-<area shape="rect" id="Node000004" href="$structLogPacket.html" title=" " alt="" coords="410,65,498,151"/>
+<area shape="rect" id="Node000004" href="$structLogPacket.html" title="Represents a log message packet." alt="" coords="410,65,498,151"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="458,151,450,202,441,228,427,251,401,274,371,290,368,285,398,269,423,248,436,225,445,200,452,151"/>
 </map>

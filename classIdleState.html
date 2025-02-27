@@ -116,7 +116,7 @@ $(function(){initNavTree('classIdleState.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>The idle state represents a state in which the buggy operates normaly but is not driving. Can be compared to a stopped state. In the idle state normal communication with the buggy is possible and the buggy can be resumed when prompted to start. This state is reached whenever the buggy detects an obstacle and brakes, or when the buggy crashes by loosing the line or something similar.  
+<p>The idle state represents a state in which the buggy operates normaly but is not driving.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="BuggyState_8hpp_source.html">BuggyState.hpp</a>&gt;</code></p>
@@ -133,12 +133,12 @@ Collaboration diagram for IdleState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1ee536be85dfe0ff8c1cfb6f844be943" id="r_a1ee536be85dfe0ff8c1cfb6f844be943"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ee536be85dfe0ff8c1cfb6f844be943">enter</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy) override</td></tr>
-<tr class="separator:a1ee536be85dfe0ff8c1cfb6f844be943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add546246cb8279031e6e5b85d75411b6" id="r_add546246cb8279031e6e5b85d75411b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add546246cb8279031e6e5b85d75411b6">enter</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState) override</td></tr>
+<tr class="separator:add546246cb8279031e6e5b85d75411b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad43c257981aa3cbe7ca32498d6821cf9" id="r_ad43c257981aa3cbe7ca32498d6821cf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad43c257981aa3cbe7ca32498d6821cf9">update</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, double dt) override</td></tr>
 <tr class="separator:ad43c257981aa3cbe7ca32498d6821cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a942960ccf9e20c1d8ee309f87551523a" id="r_a942960ccf9e20c1d8ee309f87551523a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a942960ccf9e20c1d8ee309f87551523a">exit</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy) override</td></tr>
-<tr class="separator:a942960ccf9e20c1d8ee309f87551523a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e6f1bef0e738e0684a2118fcc67302" id="r_a00e6f1bef0e738e0684a2118fcc67302"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00e6f1bef0e738e0684a2118fcc67302">exit</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState) override</td></tr>
+<tr class="separator:a00e6f1bef0e738e0684a2118fcc67302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -147,10 +147,11 @@ static <a class="el" href="classIdleState.html">IdleState</a> &amp;&#160;</td><t
 <tr class="separator:a122f48a6567c7f2b11fc0ca15b689d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The idle state represents a state in which the buggy operates normaly but is not driving. Can be compared to a stopped state. In the idle state normal communication with the buggy is possible and the buggy can be resumed when prompted to start. This state is reached whenever the buggy detects an obstacle and brakes, or when the buggy crashes by loosing the line or something similar. </p>
+<div class="textblock"><p>The idle state represents a state in which the buggy operates normaly but is not driving. </p>
+<p>Can be compared to a stopped state. In the idle state normal communication with the buggy is possible and the buggy can be resumed when prompted to start. This state is reached whenever the buggy detects an obstacle and brakes, or when the buggy crashes by loosing the line or something similar. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1ee536be85dfe0ff8c1cfb6f844be943" name="a1ee536be85dfe0ff8c1cfb6f844be943"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ee536be85dfe0ff8c1cfb6f844be943">&#9670;&#160;</a></span>enter()</h2>
+<a id="add546246cb8279031e6e5b85d75411b6" name="add546246cb8279031e6e5b85d75411b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add546246cb8279031e6e5b85d75411b6">&#9670;&#160;</a></span>enter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,8 +162,12 @@ static <a class="el" href="classIdleState.html">IdleState</a> &amp;&#160;</td><t
         <tr>
           <td class="memname">void IdleState::enter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classBuggyState.html">BuggyState</a> *</td>          <td class="paramname"><span class="paramname"><em>oldState</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -176,8 +181,8 @@ static <a class="el" href="classIdleState.html">IdleState</a> &amp;&#160;</td><t
 
 </div>
 </div>
-<a id="a942960ccf9e20c1d8ee309f87551523a" name="a942960ccf9e20c1d8ee309f87551523a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a942960ccf9e20c1d8ee309f87551523a">&#9670;&#160;</a></span>exit()</h2>
+<a id="a00e6f1bef0e738e0684a2118fcc67302" name="a00e6f1bef0e738e0684a2118fcc67302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e6f1bef0e738e0684a2118fcc67302">&#9670;&#160;</a></span>exit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,8 +193,12 @@ static <a class="el" href="classIdleState.html">IdleState</a> &amp;&#160;</td><t
         <tr>
           <td class="memname">void IdleState::exit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classBuggyState.html">BuggyState</a> *</td>          <td class="paramname"><span class="paramname"><em>oldState</em></span>&#160;)</td>
         </tr>
       </table>
   </td>

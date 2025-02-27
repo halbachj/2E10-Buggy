@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['halbach_0',['Built by Cristina Franco Ortuno, Conor Quinn, Johannes Halbach',['../index.html#autotoc_md4',1,'']]],
-  ['handlecommand_1',['handleCommand',['../classBuggy.html#a1207f60e091c8934c31dc04d05da715c',1,'Buggy']]],
-  ['handlepacket_2',['handlePacket',['../classBuggy.html#a5ecfce732e816d7e6087ce5e04c1e4cf',1,'Buggy']]]
+  ['getdistancetraveled_0',['getDistanceTraveled',['../classMotorDriver.html#a1ce9faff1a4e7fd5f4fb832473f6a5ab',1,'MotorDriver']]],
+  ['getmanualreading_1',['getManualReading',['../classIrSensor.html#a48d54bc804f23ec8b220c8b01b07e475',1,'IrSensor']]],
+  ['getpwm_2',['getPWM',['../classMotorDriver.html#a5087fa6f2876c112bbdd189067aea961',1,'MotorDriver']]],
+  ['getreading_3',['getReading',['../classIrSensor.html#aca94e373cfaf6e0633979ba83ed3749b',1,'IrSensor::getReading()'],['../classUltrasonicSensor.html#a4ff55927d6f2a55754bc8a46f9808768',1,'UltrasonicSensor::getReading()']]],
+  ['getspeed_4',['getSpeed',['../classMotorDriver.html#ab6d644296d8c9e4fedebe5f734767d6f',1,'MotorDriver']]]
 ];

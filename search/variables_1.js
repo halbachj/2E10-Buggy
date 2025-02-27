@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['ultrasonicsensorpinout_0',['ultrasonicSensorPinout',['../BuggySoftware_8ino.html#a878b1081f8e6eb287d4510bb20b8d5ad',1,'BuggySoftware.ino']]]
+  ['data_0',['data',['../structCommandPacket.html#a13070f393d954043664468c73d13431a',1,'CommandPacket']]],
+  ['dir_5fa_1',['dir_a',['../structMotorPinGroup.html#a2332bc7f3ddcbf353cc0b7bc7b7a0a52',1,'MotorPinGroup']]],
+  ['dir_5fb_2',['dir_b',['../structMotorPinGroup.html#ad9cc2f9d4afa77f3a6c623b040a47c28',1,'MotorPinGroup']]]
 ];

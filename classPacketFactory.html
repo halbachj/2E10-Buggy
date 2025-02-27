@@ -114,6 +114,11 @@ $(function(){initNavTree('classPacketFactory.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">PacketFactory Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Factory class for creating different types of packets.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="PacketFactory_8hpp_source.html">PacketFactory.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for PacketFactory:</div>
 <div class="dyncontent">
@@ -122,13 +127,131 @@ Collaboration diagram for PacketFactory:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a27759b44a17b7c9550541de15dac7016" id="r_a27759b44a17b7c9550541de15dac7016"><td class="memItemLeft" align="right" valign="top"><a id="a27759b44a17b7c9550541de15dac7016" name="a27759b44a17b7c9550541de15dac7016"></a>
-static <a class="el" href="structPacket.html">Packet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>createStatusPacket</b> (bool objectDetected, float distance, int leftMotorSpeed, int rightMotorSpeed, float leftMotorDistanceTraveled, float rightMotorDistanceTraveled, int leftIrSensorValue, int rightIrSensorValue)</td></tr>
+<tr class="memitem:a27759b44a17b7c9550541de15dac7016" id="r_a27759b44a17b7c9550541de15dac7016"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPacket.html">Packet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27759b44a17b7c9550541de15dac7016">createStatusPacket</a> (bool objectDetected, float distance, int leftMotorSpeed, int rightMotorSpeed, float leftMotorDistanceTraveled, float rightMotorDistanceTraveled, int leftIrSensorValue, int rightIrSensorValue)</td></tr>
+<tr class="memdesc:a27759b44a17b7c9550541de15dac7016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a status packet containing sensor and motor data.  <br /></td></tr>
 <tr class="separator:a27759b44a17b7c9550541de15dac7016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19e658487db5220f16ee103deeb7b9be" id="r_a19e658487db5220f16ee103deeb7b9be"><td class="memItemLeft" align="right" valign="top"><a id="a19e658487db5220f16ee103deeb7b9be" name="a19e658487db5220f16ee103deeb7b9be"></a>
-static <a class="el" href="structPacket.html">Packet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>createLogPacket</b> (short count, const char *message)</td></tr>
+<tr class="memitem:a19e658487db5220f16ee103deeb7b9be" id="r_a19e658487db5220f16ee103deeb7b9be"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPacket.html">Packet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19e658487db5220f16ee103deeb7b9be">createLogPacket</a> (short count, const char *message)</td></tr>
+<tr class="memdesc:a19e658487db5220f16ee103deeb7b9be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a log packet containing a log message.  <br /></td></tr>
 <tr class="separator:a19e658487db5220f16ee103deeb7b9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Factory class for creating different types of packets. </p>
+<p>Provides static methods to generate status and log packets used in communication. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a19e658487db5220f16ee103deeb7b9be" name="a19e658487db5220f16ee103deeb7b9be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19e658487db5220f16ee103deeb7b9be">&#9670;&#160;</a></span>createLogPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structPacket.html">Packet</a> PacketFactory::createLogPacket </td>
+          <td>(</td>
+          <td class="paramtype">short</td>          <td class="paramname"><span class="paramname"><em>count</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>message</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a log packet containing a log message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Number of times this message has been logged. </td></tr>
+    <tr><td class="paramname">message</td><td>Log message content. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structPacket.html" title="Represents a generic packet containing different types of information.">Packet</a> object containing the log message. </dd></dl>
+
+</div>
+</div>
+<a id="a27759b44a17b7c9550541de15dac7016" name="a27759b44a17b7c9550541de15dac7016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27759b44a17b7c9550541de15dac7016">&#9670;&#160;</a></span>createStatusPacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structPacket.html">Packet</a> PacketFactory::createStatusPacket </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>objectDetected</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>distance</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>leftMotorSpeed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>rightMotorSpeed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>leftMotorDistanceTraveled</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>rightMotorDistanceTraveled</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>leftIrSensorValue</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>rightIrSensorValue</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a status packet containing sensor and motor data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objectDetected</td><td>Boolean indicating if an object is detected. </td></tr>
+    <tr><td class="paramname">distance</td><td>Distance to the detected object. </td></tr>
+    <tr><td class="paramname">leftMotorSpeed</td><td>Speed of the left motor. </td></tr>
+    <tr><td class="paramname">rightMotorSpeed</td><td>Speed of the right motor. </td></tr>
+    <tr><td class="paramname">leftMotorDistanceTraveled</td><td>Distance traveled by the left motor. </td></tr>
+    <tr><td class="paramname">rightMotorDistanceTraveled</td><td>Distance traveled by the right motor. </td></tr>
+    <tr><td class="paramname">leftIrSensorValue</td><td>IR sensor reading on the left side. </td></tr>
+    <tr><td class="paramname">rightIrSensorValue</td><td>IR sensor reading on the right side. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structPacket.html" title="Represents a generic packet containing different types of information.">Packet</a> object containing the status information. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>BuggySoftware/<a class="el" href="PacketFactory_8hpp_source.html">PacketFactory.hpp</a></li>
 </ul>

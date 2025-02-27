@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="The state the Buggy enters when an object is detected during driving.">
 <polygon fill="#999999" stroke="transparent" points="112,-94 0,-94 0,0 112,0 112,-94"/>
 <text text-anchor="start" x="5" y="-82" font-family="Helvetica,sans-Serif" font-size="10.00">ObjectDetectedState</text>
 <text text-anchor="start" x="54" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
@@ -43,7 +43,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classBuggyState.html" target="_top" xlink:title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in....">
+<g id="a_Node000002"><a xlink:href="classBuggyState.html" target="_top" xlink:title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in.">
 <polygon fill="white" stroke="transparent" points="103,-224 9,-224 9,-130 103,-130 103,-224"/>
 <text text-anchor="start" x="27.5" y="-212" font-family="Helvetica,sans-Serif" font-size="10.00">BuggyState</text>
 <text text-anchor="start" x="54" y="-197" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>

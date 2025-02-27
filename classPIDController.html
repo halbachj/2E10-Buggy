@@ -114,21 +114,58 @@ $(function(){initNavTree('classPIDController.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">PIDController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The PID Controller class handles the necessary calculations associated with a PID controller.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="PIDController_8hpp_source.html">PIDController.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for PIDController:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPIDController__coll__graph.svg" width="136" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPIDController__coll__graph.svg" width="111" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a78426c39ee21ef2c07a8390b4044e2bf" id="r_a78426c39ee21ef2c07a8390b4044e2bf"><td class="memItemLeft" align="right" valign="top"><a id="a78426c39ee21ef2c07a8390b4044e2bf" name="a78426c39ee21ef2c07a8390b4044e2bf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PIDController</b> (const <a class="el" href="structPIDConstants.html">PIDConstants</a> &amp;constants)</td></tr>
-<tr class="separator:a78426c39ee21ef2c07a8390b4044e2bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abec0db5d7339fc8df0433a93970cb0f7" id="r_abec0db5d7339fc8df0433a93970cb0f7"><td class="memItemLeft" align="right" valign="top"><a id="abec0db5d7339fc8df0433a93970cb0f7" name="abec0db5d7339fc8df0433a93970cb0f7"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (float error, double dt)</td></tr>
+<tr class="memitem:abec0db5d7339fc8df0433a93970cb0f7" id="r_abec0db5d7339fc8df0433a93970cb0f7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abec0db5d7339fc8df0433a93970cb0f7">update</a> (float error, double dt)</td></tr>
+<tr class="memdesc:abec0db5d7339fc8df0433a93970cb0f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contstuct the <a class="el" href="classPIDController.html" title="The PID Controller class handles the necessary calculations associated with a PID controller.">PIDController</a> using the <a class="el" href="structPIDConstants.html" title="This struct stores the PID constants in a neat way.">PIDConstants</a>.  <br /></td></tr>
 <tr class="separator:abec0db5d7339fc8df0433a93970cb0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The PID Controller class handles the necessary calculations associated with a PID controller. </p>
+<p>It does not hanlde any control whatsoever and the obtained correaction values have to be applied by the associated driver itself. Usage: Initialize with known Kp Ki Kd values as coefficients Call update with the error term Use result as the correction term to apply to the driver e.g. change the PWM signal </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abec0db5d7339fc8df0433a93970cb0f7" name="abec0db5d7339fc8df0433a93970cb0f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abec0db5d7339fc8df0433a93970cb0f7">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PIDController::update </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>error</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Contstuct the <a class="el" href="classPIDController.html" title="The PID Controller class handles the necessary calculations associated with a PID controller.">PIDController</a> using the <a class="el" href="structPIDConstants.html" title="This struct stores the PID constants in a neat way.">PIDConstants</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constants</td><td>the <a class="el" href="structPIDConstants.html" title="This struct stores the PID constants in a neat way.">PIDConstants</a> used for the <a class="el" href="classPIDController.html" title="The PID Controller class handles the necessary calculations associated with a PID controller.">PIDController</a>. <a class="el" href="classPIDController.html" title="The PID Controller class handles the necessary calculations associated with a PID controller.">PIDController(const PIDConstants&amp; constants)</a>; /**</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Update method is called with an error term and returns a correction term to be applied to the driver</p>
+<dl class="section return"><dt>Returns</dt><dd>the correction that needs to be applied to the actuator </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>BuggySoftware/<a class="el" href="PIDController_8hpp_source.html">PIDController.hpp</a></li>
 <li>BuggySoftware/<b>PIDController.cpp</b></li>

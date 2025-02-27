@@ -116,43 +116,37 @@ $(function(){initNavTree('PinSetup_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;helpers.hpp&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * MOTOR PINS</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * Each motor has two direction pins, one speed pin and one encoder pin</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * setupMotorPins takes a MotorPinGroup and does the required setup for the pins</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structMotorPinGroup.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structMotorPinGroup.html">MotorPinGroup</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  PIN_TYPE dir_a = 0;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  PIN_TYPE dir_b = 0;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  PIN_TYPE pulse = 0;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  PIN_TYPE encoder = 0;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structMotorPinGroup.html">   11</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structMotorPinGroup.html">MotorPinGroup</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structMotorPinGroup.html#a2332bc7f3ddcbf353cc0b7bc7b7a0a52">   12</a></span>    PIN_TYPE <a class="code hl_variable" href="structMotorPinGroup.html#a2332bc7f3ddcbf353cc0b7bc7b7a0a52">dir_a</a> = 0;   </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structMotorPinGroup.html#ad9cc2f9d4afa77f3a6c623b040a47c28">   13</a></span>    PIN_TYPE <a class="code hl_variable" href="structMotorPinGroup.html#ad9cc2f9d4afa77f3a6c623b040a47c28">dir_b</a> = 0;   </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structMotorPinGroup.html#a8d553894ea19ecd8cc6c238c15620f9d">   14</a></span>    PIN_TYPE <a class="code hl_variable" href="structMotorPinGroup.html#a8d553894ea19ecd8cc6c238c15620f9d">pulse</a> = 0;   </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structMotorPinGroup.html#a7ac222ee51ca6e54f58668e3472d6c54">   15</a></span>    PIN_TYPE <a class="code hl_variable" href="structMotorPinGroup.html#a7ac222ee51ca6e54f58668e3472d6c54">encoder</a> = 0; </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
 </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> setupMotorPins(<span class="keyword">const</span> <a class="code hl_struct" href="structMotorPinGroup.html">MotorPinGroup</a>&amp; group);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * ULTRANSONIC SENSOR PINS</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * The ultrasonic sensor has two pins. One pin triggers the echo pulse and the returns the range as a pulse</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * setupUltrasnoicPins takes a Ultrasonic pin group and does the required setup for the pins;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> setupMotorPins(<span class="keyword">const</span> <a class="code hl_struct" href="structMotorPinGroup.html">MotorPinGroup</a>&amp; group);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structUltrasonicSensorPinGroup.html">   29</a></span> <span class="keyword">struct </span><a class="code hl_struct" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a> {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  PIN_TYPE trig_pin = 0;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  PIN_TYPE echo_pin = 0;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> };</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structUltrasonicSensorPinGroup.html">   29</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structUltrasonicSensorPinGroup.html#aefdfabf22af35f38f6380acddeb72302">   30</a></span>    PIN_TYPE <a class="code hl_variable" href="structUltrasonicSensorPinGroup.html#aefdfabf22af35f38f6380acddeb72302">trig_pin</a> = 0; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structUltrasonicSensorPinGroup.html#a46dd553a5f717793a878ce7b815d594e">   31</a></span>    PIN_TYPE <a class="code hl_variable" href="structUltrasonicSensorPinGroup.html#a46dd553a5f717793a878ce7b815d594e">echo_pin</a> = 0; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
 </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">void</span> setupUltrasonicPins(<span class="keyword">const</span> <a class="code hl_struct" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a>&amp; group);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">//BUGGY_PIN_SETUP_HPP</span></div>
-<div class="ttc" id="astructMotorPinGroup_html"><div class="ttname"><a href="structMotorPinGroup.html">MotorPinGroup</a></div><div class="ttdef"><b>Definition</b> PinSetup.hpp:13</div></div>
-<div class="ttc" id="astructUltrasonicSensorPinGroup_html"><div class="ttname"><a href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a></div><div class="ttdef"><b>Definition</b> PinSetup.hpp:29</div></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">void</span> setupUltrasonicPins(<span class="keyword">const</span> <a class="code hl_struct" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a>&amp; group);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif </span><span class="comment">//BUGGY_PIN_SETUP_HPP</span></div>
+<div class="ttc" id="astructMotorPinGroup_html"><div class="ttname"><a href="structMotorPinGroup.html">MotorPinGroup</a></div><div class="ttdoc">Represents a set of motor control pins.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:11</div></div>
+<div class="ttc" id="astructMotorPinGroup_html_a2332bc7f3ddcbf353cc0b7bc7b7a0a52"><div class="ttname"><a href="structMotorPinGroup.html#a2332bc7f3ddcbf353cc0b7bc7b7a0a52">MotorPinGroup::dir_a</a></div><div class="ttdeci">PIN_TYPE dir_a</div><div class="ttdoc">Direction pin A.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:12</div></div>
+<div class="ttc" id="astructMotorPinGroup_html_a7ac222ee51ca6e54f58668e3472d6c54"><div class="ttname"><a href="structMotorPinGroup.html#a7ac222ee51ca6e54f58668e3472d6c54">MotorPinGroup::encoder</a></div><div class="ttdeci">PIN_TYPE encoder</div><div class="ttdoc">Encoder signal pin.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:15</div></div>
+<div class="ttc" id="astructMotorPinGroup_html_a8d553894ea19ecd8cc6c238c15620f9d"><div class="ttname"><a href="structMotorPinGroup.html#a8d553894ea19ecd8cc6c238c15620f9d">MotorPinGroup::pulse</a></div><div class="ttdeci">PIN_TYPE pulse</div><div class="ttdoc">PWM pulse pin.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:14</div></div>
+<div class="ttc" id="astructMotorPinGroup_html_ad9cc2f9d4afa77f3a6c623b040a47c28"><div class="ttname"><a href="structMotorPinGroup.html#ad9cc2f9d4afa77f3a6c623b040a47c28">MotorPinGroup::dir_b</a></div><div class="ttdeci">PIN_TYPE dir_b</div><div class="ttdoc">Direction pin B.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:13</div></div>
+<div class="ttc" id="astructUltrasonicSensorPinGroup_html"><div class="ttname"><a href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a></div><div class="ttdoc">Represents a set of ultrasonic sensor control pins.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:29</div></div>
+<div class="ttc" id="astructUltrasonicSensorPinGroup_html_a46dd553a5f717793a878ce7b815d594e"><div class="ttname"><a href="structUltrasonicSensorPinGroup.html#a46dd553a5f717793a878ce7b815d594e">UltrasonicSensorPinGroup::echo_pin</a></div><div class="ttdeci">PIN_TYPE echo_pin</div><div class="ttdoc">Echo pin for the ultrasonic sensor.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:31</div></div>
+<div class="ttc" id="astructUltrasonicSensorPinGroup_html_aefdfabf22af35f38f6380acddeb72302"><div class="ttname"><a href="structUltrasonicSensorPinGroup.html#aefdfabf22af35f38f6380acddeb72302">UltrasonicSensorPinGroup::trig_pin</a></div><div class="ttdeci">PIN_TYPE trig_pin</div><div class="ttdoc">Trigger pin for the ultrasonic sensor.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
