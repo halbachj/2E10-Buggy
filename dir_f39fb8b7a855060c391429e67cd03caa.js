@@ -10,6 +10,7 @@ var dir_f39fb8b7a855060c391429e67cd03caa =
     [ "LeanStreamIO.hpp", "LeanStreamIO_8hpp_source.html", null ],
     [ "LineFollower.hpp", "LineFollower_8hpp_source.html", null ],
     [ "Logger.hpp", "Logger_8hpp_source.html", null ],
+    [ "Matrix.hpp", "Matrix_8hpp_source.html", null ],
     [ "MotorDriver.hpp", "MotorDriver_8hpp_source.html", null ],
     [ "PacketFactory.hpp", "PacketFactory_8hpp_source.html", null ],
     [ "PacketSerializer.hpp", "PacketSerializer_8hpp_source.html", null ],

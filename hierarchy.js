@@ -14,6 +14,7 @@ var hierarchy =
     [ "LineFollower", "classLineFollower.html", null ],
     [ "mcu::Logger", "classmcu_1_1Logger.html", null ],
     [ "LogPacket", "structLogPacket.html", null ],
+    [ "Matrix", "classMatrix.html", null ],
     [ "MotorDriver", "classMotorDriver.html", null ],
     [ "MotorPinGroup", "structMotorPinGroup.html", null ],
     [ "Packet", "structPacket.html", null ],

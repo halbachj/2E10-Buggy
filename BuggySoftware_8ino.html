@@ -125,6 +125,7 @@ $(function(){initNavTree('BuggySoftware_8ino.html',''); initResizable(true); });
 <code>#include &quot;Buggy.hpp&quot;</code><br />
 <code>#include &quot;PIDController.hpp&quot;</code><br />
 <code>#include &quot;PacketFactory.hpp&quot;</code><br />
+<code>#include &quot;Matrix.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for BuggySoftware.ino:</div>
 <div class="dyncontent">
@@ -134,7 +135,7 @@ Include dependency graph for BuggySoftware.ino:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a1c6d5de492ac61ad29aec7aa9a436bbf" id="r_a1c6d5de492ac61ad29aec7aa9a436bbf"><td class="memItemLeft" align="right" valign="top"><a id="a1c6d5de492ac61ad29aec7aa9a436bbf" name="a1c6d5de492ac61ad29aec7aa9a436bbf"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>VERSION</b>&#160;&#160;&#160;1.1</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>VERSION</b>&#160;&#160;&#160;1.4</td></tr>
 <tr class="separator:a1c6d5de492ac61ad29aec7aa9a436bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -178,6 +179,10 @@ PIN_TYPE&#160;</td><td class="memItemRight" valign="bottom"><b>rightIrSensorPin<
 const <a class="el" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ultrasonicSensorPinout</b> = { 9, 8 }</td></tr>
 <tr class="memdesc:a878b1081f8e6eb287d4510bb20b8d5ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">ULTRASONIC SENSOR. <br /></td></tr>
 <tr class="separator:a878b1081f8e6eb287d4510bb20b8d5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097013634b0ac91d3b8dfc7a692fb4e8" id="r_a097013634b0ac91d3b8dfc7a692fb4e8"><td class="memItemLeft" align="right" valign="top"><a id="a097013634b0ac91d3b8dfc7a692fb4e8" name="a097013634b0ac91d3b8dfc7a692fb4e8"></a>
+<a class="el" href="classMatrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ledMatrix</b></td></tr>
+<tr class="memdesc:a097013634b0ac91d3b8dfc7a692fb4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED MATRIX. <br /></td></tr>
+<tr class="separator:a097013634b0ac91d3b8dfc7a692fb4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a358d734f43830cdd6834d1116a956ecf" id="r_a358d734f43830cdd6834d1116a956ecf"><td class="memItemLeft" align="right" valign="top"><a id="a358d734f43830cdd6834d1116a956ecf" name="a358d734f43830cdd6834d1116a956ecf"></a>
 const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>leftMotorPID</b> = { 0.05f, 1.0, 0.0f }</td></tr>
 <tr class="memdesc:a358d734f43830cdd6834d1116a956ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">PID CONSTANTS. <br /></td></tr>

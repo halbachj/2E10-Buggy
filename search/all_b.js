@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['motordriver_0',['MotorDriver',['../classMotorDriver.html',1,'']]],
-  ['motorpingroup_1',['MotorPinGroup',['../structMotorPinGroup.html',1,'']]]
+  ['matrix_0',['Matrix',['../classMatrix.html',1,'']]],
+  ['motordriver_1',['MotorDriver',['../classMotorDriver.html',1,'']]],
+  ['motorpingroup_2',['MotorPinGroup',['../structMotorPinGroup.html',1,'']]]
 ];

@@ -14,6 +14,7 @@ var annotated_dup =
     [ "LineFollower", "classLineFollower.html", null ],
     [ "LineFollowingState", "classLineFollowingState.html", null ],
     [ "LogPacket", "structLogPacket.html", null ],
+    [ "Matrix", "classMatrix.html", null ],
     [ "MotorDriver", "classMotorDriver.html", null ],
     [ "MotorPinGroup", "structMotorPinGroup.html", null ],
     [ "ObjectDetectedState", "classObjectDetectedState.html", null ],
