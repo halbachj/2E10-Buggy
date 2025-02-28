@@ -1,7 +1,6 @@
 #ifndef BUGGY_WIFI_HPP
 #define BUGGY_WIFI_HPP
 
-#include "helpers.hpp"
 #include "WiFiS3.h"
 #include "secrets.h"
 
@@ -20,10 +19,10 @@ private:
   const char* pass = SECRET_PASS;
   int status = WL_IDLE_STATUS;
 
-  PIN_TYPE wifi_led = LED_BUILTIN; // Builtin LED pin 13
+  const pin_size_t  wifi_led = LED_BUILTIN; // Builtin LED pin 13
 
 public:
-  BuggyWiFi() = deafult;
+  BuggyWiFi() = default;
   /**
    * @brief Sets up the access point. Needs to be called during setup
    */

@@ -1,7 +1,6 @@
 #ifndef BUGGY_PIN_SETUP_HPP
 #define BUGGY_PIN_SETUP_HPP
 
-#include "helpers.hpp"
 #include <Arduino.h>
 
 /**
@@ -9,10 +8,10 @@
  * @brief Represents a set of motor control pins.
  */
 struct MotorPinGroup {
-    PIN_TYPE dir_a = 0;   ///< Direction pin A.
-    PIN_TYPE dir_b = 0;   ///< Direction pin B.
-    PIN_TYPE pulse = 0;   ///< PWM pulse pin.
-    PIN_TYPE encoder = 0; ///< Encoder signal pin.
+    const pin_size_t dir_a = 0;   ///< Direction pin A.
+    const pin_size_t dir_b = 0;   ///< Direction pin B.
+    const pin_size_t pulse = 0;   ///< PWM pulse pin.
+    const pin_size_t encoder = 0; ///< Encoder signal pin.
 };
 
 /**
@@ -27,8 +26,8 @@ void setupMotorPins(const MotorPinGroup& group);
  * @brief Represents a set of ultrasonic sensor control pins.
  */
 struct UltrasonicSensorPinGroup {
-    PIN_TYPE trig_pin = 0; ///< Trigger pin for the ultrasonic sensor.
-    PIN_TYPE echo_pin = 0; ///< Echo pin for the ultrasonic sensor.
+    const pin_size_t trig_pin = 0; ///< Trigger pin for the ultrasonic sensor.
+    const pin_size_t echo_pin = 0; ///< Echo pin for the ultrasonic sensor.
 };
 
 /**

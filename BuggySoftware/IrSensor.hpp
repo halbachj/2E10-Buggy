@@ -1,8 +1,7 @@
 #ifndef IR_SENSOR_HPP
 #define IR_SENSOR_HPP
 
-#include "helpers.hpp"
-
+#include "Arduino.h"
 
 /**
  * @class IrSensor
@@ -16,7 +15,7 @@
 
 class IrSensor {
 private:
-  PIN_TYPE input_pin;
+  const pin_size_t input_pin;
   int min=0, max=1023;
 public:
   /**
@@ -24,7 +23,7 @@ public:
    *
    * @param input_pin is the pin used as the input pin for the IrSensor on the Arduino
    */
-  IrSensor(PIN_TYPE input_pin);
+  IrSensor(const pin_size_t input_pin);
   /**
    * @brief Will set the calibration range of the IrSensor.
    *

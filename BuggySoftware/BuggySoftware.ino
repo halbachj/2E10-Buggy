@@ -20,6 +20,7 @@ LeanStreamIO logger(3);  /// Sets up the stream based logging. File descriptor 1
 }
 //using LogLevel = mcu::Logger::LogLevel;
 
+/// @todo Write a scheduler service to delegate reoccuring tasks at specific intervals.
 
 /*
  * IMPORTANT TOP SECRET RESEARCH RESULTS XD
@@ -50,8 +51,8 @@ const MotorPinGroup leftMotorPinout = { 6, 7, 5, 2 };
 const MotorPinGroup rightMotorPinout = { 10, 12, 11, 3 };
 
 /// IR SENSORS
-PIN_TYPE leftIrSensorPin = A1;
-PIN_TYPE rightIrSensorPin = A0;
+const pin_size_t leftIrSensorPin = A1;
+const pin_size_t rightIrSensorPin = A0;
 
 /// ULTRASONIC SENSOR
 const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
@@ -102,34 +103,36 @@ void setup() {
   BuggyTimer1::begin();
 
   // PIN SETUP
-  pinMode(LED_BUILTIN, OUTPUT);  // WiFi LED
+  pinMode(LED_BUILTIN, OUTPUT);  /// @todo Make this part of the WiFi class
+  
 
   // MOTOR PINS
-  setupMotorPins(leftMotorPinout);
-  setupMotorPins(rightMotorPinout);
+  setupMotorPins(leftMotorPinout);  /// @todo make this part of MotorDriver begin
+  setupMotorPins(rightMotorPinout); /// @todo make this part of MotorDriver begin
 
   // ULTRASONIC PINS
-  setupUltrasonicPins(ultrasonicSensorPinout);
+  setupUltrasonicPins(ultrasonicSensorPinout); /// @todo make this part of UltrasonicSensor begin
 
   // LED MATRIX
-  ledMatrix.begin();
+  ledMatrix.begin(); /// @todo make this part of the matrix class
   // Attatch motor interrupts
-  attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, CHANGE);   /// @todo make this part of MotorDriver begin
+  attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, CHANGE); /// @todo make this part of MotorDriver begin
 
   // Attatch Ultrasonic interrupt
-  attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE); /// @todo make this part of UltrasonicSensor begin
 
   // SETUP WIFI
-  wifi.wifi_checks();
-  wifi.setup_ap();
-  wifi.printWiFiStatus();
-  server.setup();
+  wifi.wifi_checks(); /// @todo make this part of BuggyWiFi begin
+  wifi.setup_ap();    /// @todo make this part of BuggyWiFi begin
+  wifi.printWiFiStatus(); /// @todo make this part of BuggyWiFi begin
+  server.setup();         /// @todo rename this to server.begin
+
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
-  buggy.setState(LineFollowingState::instance());
-  leftMotor.forward();
-  rightMotor.forward();
+  buggy.setState(LineFollowingState::instance());  /// @todo either remove this from the buggy constructor or remove it here
+  leftMotor.forward();  /// @todo either remove this from the constructor or remove it here 
+  rightMotor.forward(); /// @todo either remove this from the constructor or remove it here
 }
 
 unsigned long start_time, end_time;
@@ -146,7 +149,6 @@ uint8_t loop_duration = 5;  //ms at least
  */
 void loop() {
   start_time = micros();
-  //wifi.update();
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
@@ -158,7 +160,6 @@ void loop() {
 
 /**
  * @brief Interrupt service routine for the left motor.
- * @todo rewrite using Timer1 instead of millis. 
  */
 void ISR_left_motor() {
   leftMotor.ISR_encoder_trigger();
@@ -166,7 +167,6 @@ void ISR_left_motor() {
 
 /**
  * @brief Interrupt service routine for the right motor.
- * @todo rewrite using Timer1 instead of millis. 
  */
 void ISR_right_motor() {
   rightMotor.ISR_encoder_trigger();
@@ -174,7 +174,6 @@ void ISR_right_motor() {
 
 /**
  * @brief Interrupt service routine for the Ultrasonic sensor.
- * @todo rewrite using Timer1 instead of millis
  */
 void ISR_ultrasonic_echo() {
   ultrasonicSensor.ISR_UltrasonicEcho();

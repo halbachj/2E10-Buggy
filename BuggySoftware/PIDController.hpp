@@ -34,6 +34,7 @@ public:
    * @brief Contstuct the PIDController using the PIDConstants.
    *
    * @param constants the PIDConstants used for the PIDController.
+   */
   PIDController(const PIDConstants& constants);
   /**
    * @brief Update method is called with an error term and returns a correction term to be applied to the driver

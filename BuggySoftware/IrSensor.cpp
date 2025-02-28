@@ -1,7 +1,6 @@
 #include "IrSensor.hpp"
-#include "Arduino.h"
 
-IrSensor::IrSensor(PIN_TYPE input_pin): input_pin(input_pin) {
+IrSensor::IrSensor(const pin_size_t input_pin): input_pin(input_pin) {
 
 }
 
