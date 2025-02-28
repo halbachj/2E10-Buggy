@@ -114,29 +114,28 @@ $(function(){initNavTree('IrSensor_8hpp_source.html',''); initResizable(true); }
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef IR_SENSOR_HPP</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define IR_SENSOR_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;helpers.hpp&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classIrSensor.html">   17</a></span><span class="keyword">class </span><a class="code hl_function" href="classIrSensor.html#a8b5b22e210c4a16d7fda1f318ca1b507">IrSensor</a> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  PIN_TYPE input_pin;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">int</span> min=0, max=1023;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <a class="code hl_function" href="classIrSensor.html#a8b5b22e210c4a16d7fda1f318ca1b507">IrSensor</a>(PIN_TYPE input_pin);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classIrSensor.html#afae8bb53eee8d95ab680bb1bdaac8fd8">setCalibrationRange</a>(<span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classIrSensor.html#aca94e373cfaf6e0633979ba83ed3749b">getReading</a>();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classIrSensor.html#a48d54bc804f23ec8b220c8b01b07e475">getManualReading</a>();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Arduino.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classIrSensor.html">   16</a></span><span class="keyword">class </span><a class="code hl_function" href="classIrSensor.html#a234dccd93e3cd11f66f8b5cf0a5588a4">IrSensor</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">const</span> pin_size_t input_pin;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordtype">int</span> min=0, max=1023;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <a class="code hl_function" href="classIrSensor.html#a234dccd93e3cd11f66f8b5cf0a5588a4">IrSensor</a>(<span class="keyword">const</span> pin_size_t input_pin);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classIrSensor.html#afae8bb53eee8d95ab680bb1bdaac8fd8">setCalibrationRange</a>(<span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classIrSensor.html#aca94e373cfaf6e0633979ba83ed3749b">getReading</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classIrSensor.html#a48d54bc804f23ec8b220c8b01b07e475">getManualReading</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
 </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif </span><span class="comment">//IR_SENSOR_HPP</span></div>
-<div class="ttc" id="aclassIrSensor_html_a48d54bc804f23ec8b220c8b01b07e475"><div class="ttname"><a href="classIrSensor.html#a48d54bc804f23ec8b220c8b01b07e475">IrSensor::getManualReading</a></div><div class="ttdeci">int getManualReading()</div><div class="ttdoc">Takes a raw manual reading straight from the sensor.</div><div class="ttdef"><b>Definition</b> IrSensor.cpp:18</div></div>
-<div class="ttc" id="aclassIrSensor_html_a8b5b22e210c4a16d7fda1f318ca1b507"><div class="ttname"><a href="classIrSensor.html#a8b5b22e210c4a16d7fda1f318ca1b507">IrSensor::IrSensor</a></div><div class="ttdeci">IrSensor(PIN_TYPE input_pin)</div><div class="ttdoc">Will construct the IrSensor using the Pins.</div><div class="ttdef"><b>Definition</b> IrSensor.cpp:4</div></div>
-<div class="ttc" id="aclassIrSensor_html_aca94e373cfaf6e0633979ba83ed3749b"><div class="ttname"><a href="classIrSensor.html#aca94e373cfaf6e0633979ba83ed3749b">IrSensor::getReading</a></div><div class="ttdeci">int getReading()</div><div class="ttdoc">Takes a calibrated reading mapped by the calibration range.</div><div class="ttdef"><b>Definition</b> IrSensor.cpp:13</div></div>
-<div class="ttc" id="aclassIrSensor_html_afae8bb53eee8d95ab680bb1bdaac8fd8"><div class="ttname"><a href="classIrSensor.html#afae8bb53eee8d95ab680bb1bdaac8fd8">IrSensor::setCalibrationRange</a></div><div class="ttdeci">void setCalibrationRange(int min, int max)</div><div class="ttdoc">Will set the calibration range of the IrSensor.</div><div class="ttdef"><b>Definition</b> IrSensor.cpp:8</div></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif </span><span class="comment">//IR_SENSOR_HPP</span></div>
+<div class="ttc" id="aclassIrSensor_html_a234dccd93e3cd11f66f8b5cf0a5588a4"><div class="ttname"><a href="classIrSensor.html#a234dccd93e3cd11f66f8b5cf0a5588a4">IrSensor::IrSensor</a></div><div class="ttdeci">IrSensor(const pin_size_t input_pin)</div><div class="ttdoc">Will construct the IrSensor using the Pins.</div><div class="ttdef"><b>Definition</b> IrSensor.cpp:3</div></div>
+<div class="ttc" id="aclassIrSensor_html_a48d54bc804f23ec8b220c8b01b07e475"><div class="ttname"><a href="classIrSensor.html#a48d54bc804f23ec8b220c8b01b07e475">IrSensor::getManualReading</a></div><div class="ttdeci">int getManualReading()</div><div class="ttdoc">Takes a raw manual reading straight from the sensor.</div><div class="ttdef"><b>Definition</b> IrSensor.cpp:17</div></div>
+<div class="ttc" id="aclassIrSensor_html_aca94e373cfaf6e0633979ba83ed3749b"><div class="ttname"><a href="classIrSensor.html#aca94e373cfaf6e0633979ba83ed3749b">IrSensor::getReading</a></div><div class="ttdeci">int getReading()</div><div class="ttdoc">Takes a calibrated reading mapped by the calibration range.</div><div class="ttdef"><b>Definition</b> IrSensor.cpp:12</div></div>
+<div class="ttc" id="aclassIrSensor_html_afae8bb53eee8d95ab680bb1bdaac8fd8"><div class="ttname"><a href="classIrSensor.html#afae8bb53eee8d95ab680bb1bdaac8fd8">IrSensor::setCalibrationRange</a></div><div class="ttdeci">void setCalibrationRange(int min, int max)</div><div class="ttdoc">Will set the calibration range of the IrSensor.</div><div class="ttdef"><b>Definition</b> IrSensor.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

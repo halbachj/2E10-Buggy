@@ -5,7 +5,6 @@ var dir_f39fb8b7a855060c391429e67cd03caa =
     [ "BuggyState.hpp", "BuggyState_8hpp_source.html", null ],
     [ "BuggyTCP.hpp", "BuggyTCP_8hpp_source.html", null ],
     [ "BuggyWifi.hpp", "BuggyWifi_8hpp_source.html", null ],
-    [ "helpers.hpp", "helpers_8hpp_source.html", null ],
     [ "IrSensor.hpp", "IrSensor_8hpp_source.html", null ],
     [ "LeanStreamIO.hpp", "LeanStreamIO_8hpp_source.html", null ],
     [ "LineFollower.hpp", "LineFollower_8hpp_source.html", null ],

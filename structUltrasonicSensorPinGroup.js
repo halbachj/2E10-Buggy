@@ -1,5 +1,5 @@
 var structUltrasonicSensorPinGroup =
 [
-    [ "echo_pin", "structUltrasonicSensorPinGroup.html#a46dd553a5f717793a878ce7b815d594e", null ],
-    [ "trig_pin", "structUltrasonicSensorPinGroup.html#aefdfabf22af35f38f6380acddeb72302", null ]
+    [ "echo_pin", "structUltrasonicSensorPinGroup.html#a14adb9ec5c9ad8d3e3836569954191e0", null ],
+    [ "trig_pin", "structUltrasonicSensorPinGroup.html#a8004f12429fc206dc9d879b84b88d4b0", null ]
 ];

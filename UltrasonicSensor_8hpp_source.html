@@ -115,46 +115,45 @@ $(function(){initNavTree('UltrasonicSensor_8hpp_source.html',''); initResizable(
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ULTRASONIC_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Arduino.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;helpers.hpp&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;PinSetup.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classUltrasonicSensor.html">   13</a></span><span class="keyword">class </span><a class="code hl_function" href="classUltrasonicSensor.html#a191f27e844aebdbd97852d7f0c79dcfb">UltrasonicSensor</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a>&amp; pinout; </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> triggerPulseLength = 10; </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> trigger_interval = 20; </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">volatile</span> <span class="keywordtype">int</span> echoDuration = 0; </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> detectionRange = 20; </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> startTime, endTime; </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> last_trigger = 0; </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordtype">void</span> trigger();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_function" href="classUltrasonicSensor.html#a191f27e844aebdbd97852d7f0c79dcfb">UltrasonicSensor</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a>&amp; pinout);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordtype">float</span> <a class="code hl_function" href="classUltrasonicSensor.html#a4ff55927d6f2a55754bc8a46f9808768">getReading</a>();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classUltrasonicSensor.html#a17d97791899bca44be932d2c6fb27cd5">setDetectionRange</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> range);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classUltrasonicSensor.html#a701e361512df87d1200d50d2e9e6bc19">objectDetected</a>();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classUltrasonicSensor.html#acd2ef36cfe1e44b04d9c83c40abbed63">update</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classUltrasonicSensor.html#aa93f6e4d84fee3908deaeaf146bac713">ISR_UltrasonicEcho</a>();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;PinSetup.hpp&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classUltrasonicSensor.html">   12</a></span><span class="keyword">class </span><a class="code hl_function" href="classUltrasonicSensor.html#a191f27e844aebdbd97852d7f0c79dcfb">UltrasonicSensor</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a>&amp; pinout; </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> triggerPulseLength = 10; </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> trigger_interval = 20; </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">volatile</span> <span class="keywordtype">int</span> echoDuration = 0; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> detectionRange = 20; </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> startTime, endTime; </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> last_trigger = 0; </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordtype">void</span> trigger();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <a class="code hl_function" href="classUltrasonicSensor.html#a191f27e844aebdbd97852d7f0c79dcfb">UltrasonicSensor</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a>&amp; pinout);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordtype">float</span> <a class="code hl_function" href="classUltrasonicSensor.html#a4ff55927d6f2a55754bc8a46f9808768">getReading</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classUltrasonicSensor.html#a17d97791899bca44be932d2c6fb27cd5">setDetectionRange</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> range);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classUltrasonicSensor.html#a701e361512df87d1200d50d2e9e6bc19">objectDetected</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classUltrasonicSensor.html#acd2ef36cfe1e44b04d9c83c40abbed63">update</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classUltrasonicSensor.html#aa93f6e4d84fee3908deaeaf146bac713">ISR_UltrasonicEcho</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
 </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">//ULTRASONIC_HPP</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif </span><span class="comment">//ULTRASONIC_HPP</span></div>
 <div class="ttc" id="aclassUltrasonicSensor_html_a17d97791899bca44be932d2c6fb27cd5"><div class="ttname"><a href="classUltrasonicSensor.html#a17d97791899bca44be932d2c6fb27cd5">UltrasonicSensor::setDetectionRange</a></div><div class="ttdeci">void setDetectionRange(unsigned short range)</div><div class="ttdoc">Sets the detection range for object detection.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:34</div></div>
 <div class="ttc" id="aclassUltrasonicSensor_html_a191f27e844aebdbd97852d7f0c79dcfb"><div class="ttname"><a href="classUltrasonicSensor.html#a191f27e844aebdbd97852d7f0c79dcfb">UltrasonicSensor::UltrasonicSensor</a></div><div class="ttdeci">UltrasonicSensor(const UltrasonicSensorPinGroup &amp;pinout)</div><div class="ttdoc">Constructs an UltrasonicSensor object with the given pin configuration.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:4</div></div>
 <div class="ttc" id="aclassUltrasonicSensor_html_a4ff55927d6f2a55754bc8a46f9808768"><div class="ttname"><a href="classUltrasonicSensor.html#a4ff55927d6f2a55754bc8a46f9808768">UltrasonicSensor::getReading</a></div><div class="ttdeci">float getReading()</div><div class="ttdoc">Gets the latest distance measurement from the sensor.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:43</div></div>
 <div class="ttc" id="aclassUltrasonicSensor_html_a701e361512df87d1200d50d2e9e6bc19"><div class="ttname"><a href="classUltrasonicSensor.html#a701e361512df87d1200d50d2e9e6bc19">UltrasonicSensor::objectDetected</a></div><div class="ttdeci">bool objectDetected()</div><div class="ttdoc">Checks if an object is detected within the set range.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:39</div></div>
 <div class="ttc" id="aclassUltrasonicSensor_html_aa93f6e4d84fee3908deaeaf146bac713"><div class="ttname"><a href="classUltrasonicSensor.html#aa93f6e4d84fee3908deaeaf146bac713">UltrasonicSensor::ISR_UltrasonicEcho</a></div><div class="ttdeci">void ISR_UltrasonicEcho()</div><div class="ttdoc">Interrupt Service Routine for handling ultrasonic echo signal.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:17</div></div>
 <div class="ttc" id="aclassUltrasonicSensor_html_acd2ef36cfe1e44b04d9c83c40abbed63"><div class="ttname"><a href="classUltrasonicSensor.html#acd2ef36cfe1e44b04d9c83c40abbed63">UltrasonicSensor::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Updates the sensor state, including triggering new measurements if necessary.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:26</div></div>
-<div class="ttc" id="astructUltrasonicSensorPinGroup_html"><div class="ttname"><a href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a></div><div class="ttdoc">Represents a set of ultrasonic sensor control pins.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:29</div></div>
+<div class="ttc" id="astructUltrasonicSensorPinGroup_html"><div class="ttname"><a href="structUltrasonicSensorPinGroup.html">UltrasonicSensorPinGroup</a></div><div class="ttdoc">Represents a set of ultrasonic sensor control pins.</div><div class="ttdef"><b>Definition</b> PinSetup.hpp:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
