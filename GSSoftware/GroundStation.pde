@@ -1,3 +1,12 @@
+/**
+ * @file GroundStation.pde
+ * @author Conor Quinn & Cristina Franco Ortuno
+ * @brief This is the Processing software running
+ * on the ground station computer to control the buggy.
+ *
+ */
+
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import processing.net.*;
@@ -60,6 +69,12 @@ int[][] warningPattern = {
     {0,0,0,1,0,0,0,0,1,0,0,0}
 };
 
+
+/**
+ * @brief This is the setup method. Similar to the Arduino setup mehod.
+ * 
+ * In here the environment for processing is set up, like the window and the buttons.
+ */
 void setup() {
   size(600, 500);
   
@@ -98,6 +113,9 @@ void setup() {
   initializeMatrix(); // Default matrix values
 }
 
+/**
+ * @brief The draw method is called every frame. This corresponds to the loop method in Arduino.
+ */
 void draw() {
   background(200);
   
