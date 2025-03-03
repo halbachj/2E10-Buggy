@@ -103,36 +103,36 @@ void setup() {
   BuggyTimer1::begin();
 
   // PIN SETUP
-  pinMode(LED_BUILTIN, OUTPUT);  /// @todo Make this part of the WiFi class
+  pinMode(LED_BUILTIN, OUTPUT);  ///< @todo Make this part of the WiFi class
   
 
   // MOTOR PINS
-  setupMotorPins(leftMotorPinout);  /// @todo make this part of MotorDriver begin
-  setupMotorPins(rightMotorPinout); /// @todo make this part of MotorDriver begin
+  setupMotorPins(leftMotorPinout);  ///< @todo make this part of MotorDriver begin
+  setupMotorPins(rightMotorPinout); ///< @todo make this part of MotorDriver begin
 
   // ULTRASONIC PINS
-  setupUltrasonicPins(ultrasonicSensorPinout); /// @todo make this part of UltrasonicSensor begin
+  setupUltrasonicPins(ultrasonicSensorPinout); ///< @todo make this part of UltrasonicSensor begin
 
   // LED MATRIX
-  ledMatrix.begin(); /// @todo make this part of the matrix class
+  ledMatrix.begin(); ///< @todo make this part of the matrix class
   // Attatch motor interrupts
-  attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, CHANGE);   /// @todo make this part of MotorDriver begin
-  attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, CHANGE); /// @todo make this part of MotorDriver begin
+  attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, CHANGE);   ///< @todo make this part of MotorDriver begin
+  attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, CHANGE); ///< @todo make this part of MotorDriver begin
 
   // Attatch Ultrasonic interrupt
-  attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE); /// @todo make this part of UltrasonicSensor begin
+  attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE); ///< @todo make this part of UltrasonicSensor begin
 
   // SETUP WIFI
-  wifi.wifi_checks(); /// @todo make this part of BuggyWiFi begin
-  wifi.setup_ap();    /// @todo make this part of BuggyWiFi begin
-  wifi.printWiFiStatus(); /// @todo make this part of BuggyWiFi begin
-  server.setup();         /// @todo rename this to server.begin
+  wifi.wifi_checks(); ///< @todo make this part of BuggyWiFi begin
+  wifi.setup_ap();    ///< @todo make this part of BuggyWiFi begin
+  wifi.printWiFiStatus(); ///< @todo make this part of BuggyWiFi begin
+  server.setup();         ///< @todo rename this to server.begin
 
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
-  buggy.setState(LineFollowingState::instance());  /// @todo either remove this from the buggy constructor or remove it here
-  leftMotor.forward();  /// @todo either remove this from the constructor or remove it here 
-  rightMotor.forward(); /// @todo either remove this from the constructor or remove it here
+  buggy.setState(LineFollowingState::instance());  ///< @todo either remove this from the buggy constructor or remove it here
+  leftMotor.forward();  ///< @todo either remove this from the constructor or remove it here 
+  rightMotor.forward(); ///< @todo either remove this from the constructor or remove it here
 }
 
 unsigned long start_time, end_time;
