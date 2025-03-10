@@ -18,6 +18,10 @@ private:
   const pin_size_t input_pin;
   int min=0, max=1023;
 public:
+  IrSensor(PIN_TYPE input_pin);
+  void setCalibrationRange(int min, int max);
+  int getReading();
+public:
   /**
    * @brief Will construct the IrSensor using the Pins.
    *

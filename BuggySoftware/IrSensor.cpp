@@ -1,8 +1,7 @@
 #include "IrSensor.hpp"
+#include "Arduino.h"
 
-IrSensor::IrSensor(const pin_size_t input_pin): input_pin(input_pin) {
-
-}
+IrSensor::IrSensor(const pin_size_t input_pin): input_pin(input_pin) {}
 
 void IrSensor::setCalibrationRange(int min, int max) {
   this->min=min;

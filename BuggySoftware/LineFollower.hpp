@@ -5,7 +5,6 @@
 #include "IrSensor.hpp"
 #include "PIDController.hpp"
 
-
 /**
  * @class LineFollower
  * @brief The line follower class is a helper class that allows for easy control of the buggy.

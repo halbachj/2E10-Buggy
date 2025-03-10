@@ -3,7 +3,6 @@
 
 #include "PacketTypes.hpp"
 
-
 const size_t MAX_PACKET_LENGTH = sizeof(Packet);
 
 class PacketSerializer {

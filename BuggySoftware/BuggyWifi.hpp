@@ -18,7 +18,6 @@ private:
   const char* ssid = SECRET_SSID;
   const char* pass = SECRET_PASS;
   int status = WL_IDLE_STATUS;
-
   const pin_size_t  wifi_led = LED_BUILTIN; // Builtin LED pin 13
 
 public:

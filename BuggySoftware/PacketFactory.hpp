@@ -39,7 +39,6 @@ public:
     LogPacket log = {count, ""};
     strncpy(log.message, message, MAX_MESSAGE_LENGTH);
     log.message[MAX_MESSAGE_LENGTH-1] = '\0'; // Ensure null termination in case message is too long
-
     Packet packet;
     packet.type = PacketType::LOG;
     packet.content.logPacket = log;
