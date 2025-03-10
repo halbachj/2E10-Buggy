@@ -1,0 +1,25 @@
+name: Generate Doxygen Docs
+
+on:
+  push:
+    branches:
+      - main
+      - feat-doxygen
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          config_file: docs/Doxyfile
+          branch: gh-pages
+          folder: docs/out/html
+          doxygen_version: 1.13.2

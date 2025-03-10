@@ -6,22 +6,23 @@ LineFollower::LineFollower(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSe
 }
 
 void LineFollower::update() {
-  float error = this->leftSensor.getManualReading() - this->rightSensor.getManualReading();
-  float per_err = (abs(error) / 1023);
+  int leftReading, rightReading;
+  leftReading = this->leftSensor.getManualReading();
+  rightReading = this->rightSensor.getManualReading();
 
+  int err = leftReading - rightReading;
 
-  // Dead band
-  if (per_err < 0.20) per_err = 0;
-  if (per_err > 0.50) per_err = 1.0; 
+  if (abs(err) <= 200) {   // pretty much on the line. Do nothing
+    this->leftMotor.pwmOverride(this->target_speed);
+    this->rightMotor.pwmOverride(this->target_speed);
+    return;
+  }
 
-  int set_speed = this->target_speed * (1 - 2 * per_err);
-  set_speed = constrain(set_speed, 0, 1000);
-
-  if (error < 0) {
-    //this->leftMotor.pwmOverride(round(set_speed));
-    this->leftMotor.setSpeed(set_speed);
-  } else {
-    //this->rightMotor.pwmOverride(round(set_speed*0.80));
-    this->rightMotor.setSpeed(set_speed);
+  if (err > 200) {
+    this->leftMotor.pwmOverride(this->target_speed);
+    this->rightMotor.pwmOverride(0);
+  } else if (err < 200){
+    this->leftMotor.pwmOverride(0);
+    this->rightMotor.pwmOverride(this->target_speed);
   }
 }

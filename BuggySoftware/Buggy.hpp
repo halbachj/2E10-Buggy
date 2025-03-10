@@ -11,6 +11,7 @@
 #include "UltrasonicSensor.hpp"
 #include "PacketFactory.hpp"
 #include "LeanStreamIO.hpp"
+#include "Matrix.hpp"
 
 class BuggyState;
 
@@ -35,6 +36,7 @@ private:
 
   UltrasonicSensor& ultrasonicSensor;
 
+  Matrix ledMatrix;
   BuggyWiFi& wifi;
   TcpServer& server;
 
@@ -74,6 +76,8 @@ public:
 
   /**
   * @brief Changes the state of the buggy. This will call the necessary exit and enter methods of the state @see BuggyState.hpp
+  * @details It will pass along the old states to those enter and exit methods so that the States can keep track of which state was entered before.
+  * as an example @see ObjectDetectedHandlerState.
   *
   * @param newState reference to the state to change to
   **/
@@ -109,7 +113,8 @@ public:
   friend class CalibrationState;
   friend class LineFollowingState;
   friend class DrivingStraightState;
-  
+  friend class ObjectDetectedHandlerState;
+  friend class LineFollowingState;
 };
 
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>189</x>
+      <y>0</y>
+      <w>783</w>
+      <h>1179</h>
+    </coordinates>
+    <panel_attributes>title=Buggy sequence diagram
+obj=Ground Station ~a
+obj=Arduino ~b 
+obj=Buggy Hardware ~c
+
+combinedFragment=setup~fga b c; combinedFragment=setup~fge a a;
+on=b; on=a
+b-&gt;&gt;&gt;c: Setup pins;on=c;
+off=c
+b-&gt;&gt;&gt;c: Setup WiFi AP; on=c
+off=c
+off=b; off=a
+--=fga;--=fge;
+
+
+
+combinedFragment= draw~fgb a a; combinedFragment=loop~fgc b c; 
+on=b; on=a;
+a-&gt;&gt;&gt;b :send Command packet
+on=c
+c-&gt;&gt;&gt;b :motor encoder interrupt; on=b
+off=b; off=c;
+
+on=c;
+c-&gt;&gt;&gt;b :ultrasonic echo interrupt; on=b
+off=b; off=c
+
+b-&gt;&gt;&gt;b + :change state
+on=b
+off=b
+b-&gt;&gt;&gt;a : send Status packet
+combinedFragment=stateDependent~fgd b c;
+b-&gt;&gt;&gt;b + :update State
+on=b
+b-&gt;&gt;&gt;c: read IR sensors; on=c;
+off=c;
+b-&gt;&gt;&gt;c: update motor driver; on=c;
+off=c;
+b-&gt;&gt;&gt;c: read Ultrasnoic sensor; on=c;
+off=c;
+b-&gt;&gt;&gt;b +:change State; off=b
+--=fgd;
+
+
+
+off=b
+--=fgb; --=fgc;
+off=a
+destroy=a;destroy=b;destroy=c;
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

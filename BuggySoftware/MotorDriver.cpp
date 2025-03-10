@@ -10,6 +10,8 @@ MotorDriver::MotorDriver(const MotorPinGroup& pins, const PIDConstants& constant
   this->forward();
 }
 
+MotorDriver::~MotorDriver() {}
+
 void MotorDriver::ISR_encoder_trigger() {
   this->degrees += 45;
   this->last_encoder_measurement = this->current_encoder_measurement;
@@ -35,7 +37,7 @@ void MotorDriver::pwmOverride(int pwm) {
 }
 
 float MotorDriver::getDistanceTraveled() {
-  return (this->degrees / 360) * this->wheelCircumference;
+  return (this->degrees / 45) * this->wheelCircumference;
 }
 
 int MotorDriver::getPWM() {
@@ -46,10 +48,15 @@ int MotorDriver::getSpeed() {
   return this->measured_speed;
 }
 
+void MotorDriver::resetDistance()
+{
+  this->degrees = 0;
+}
+
 void MotorDriver::update(double dt) {
   int measurement_diff, pwm;
   float error, correction;
-
+  
   noInterrupts();
   measurement_diff = this->current_encoder_measurement - this->last_encoder_measurement;
   interrupts();
@@ -81,8 +88,6 @@ void MotorDriver::update(double dt) {
 
   pwm = constrain(round(correction), 0, 255);
   analogWrite(this->pins.pulse, abs(pwm));
-
-
 
   //mcu::logger << mcu::LeanStreamIO::endl;
 

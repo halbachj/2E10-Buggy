@@ -1,10 +1,9 @@
 #ifndef PACKET_SERIALIZER_HPP
 #define PACKET_SERIALIZER_HPP
 
-//#include "PacketTypes.hpp"
+#include "PacketTypes.hpp"
 
-
-//const size_t MAX_PACKET_LENGTH = sizeof(Packet);
+const size_t MAX_PACKET_LENGTH = sizeof(Packet);
 
 class PacketSerializer {
 public:

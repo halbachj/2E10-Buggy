@@ -6,17 +6,19 @@
  * IDLE STATE LOGIC
  */
 
-void IdleState::enter(Buggy& buggy) {
+void IdleState::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
   buggy.leftMotor.pwmOverride(0);
   buggy.rightMotor.pwmOverride(0);
+  buggy.ledMatrix.setMode(STOPPED);
+
 }
 
 void IdleState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
 }
 
-void IdleState::exit(Buggy& buggy) {
+void IdleState::exit(Buggy& buggy, BuggyState* oldState) {
   // Cleanup logic before leaving idle state
 }
 
@@ -24,26 +26,44 @@ void IdleState::exit(Buggy& buggy) {
  * OBJECT DETECTED
  */
 
-void ObjectDetectedState::enter(Buggy& buggy) {
+
+void ObjectDetectedState::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
   this->left_old_pwm = buggy.leftMotor.getSpeed();
   this->right_old_pwm = buggy.rightMotor.getSpeed();
-  buggy.leftMotor.setSpeed(0);
-  buggy.rightMotor.setSpeed(0);
+  buggy.leftMotor.pwmOverride(0);
+  buggy.rightMotor.pwmOverride(0);
+  buggy.ledMatrix.setMode(OBSTACLE_DETECTED);
 }
 
 void ObjectDetectedState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
+  float distance = buggy.ultrasonicSensor.getReading();
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (!buggy.objectDetected) { 
-    buggy.setState(DrivingStraightState::instance());
+    buggy.setState(ObjectDetectedHandlerState::instance());
   }
 }
 
-void ObjectDetectedState::exit(Buggy& buggy) {
+void ObjectDetectedState::exit(Buggy& buggy, BuggyState* oldState) {
   // Cleanup logic before leaving idle state
-  buggy.leftMotor.setSpeed(this->left_old_pwm);
-  buggy.rightMotor.setSpeed(this->right_old_pwm);
+}
+
+
+/*
+ * OBJECT DETECTED STATE HANDLER
+ */
+
+void ObjectDetectedHandlerState::enter(Buggy& buggy, BuggyState* oldState) {
+  this->oldState = oldState;
+}
+
+void ObjectDetectedHandlerState::update(Buggy& buggy, double dt) {
+  buggy.setState(ObjectDetectedState::instance());
+}
+
+void ObjectDetectedHandlerState::exit(Buggy& buggy, BuggyState* oldState) {
+  buggy.setState(*this->oldState);
 }
 
 
@@ -51,7 +71,7 @@ void ObjectDetectedState::exit(Buggy& buggy) {
  * CALIBRATION STATE LOGIC
  */
 
-void CalibrationState::enter(Buggy& buggy) {
+void CalibrationState::enter(Buggy& buggy, BuggyState* oldState) {
   this->leftMax = buggy.leftIrSensor.getManualReading();
   this->leftMin = this->leftMax;
   this->rightMax = buggy.leftIrSensor.getManualReading();
@@ -99,7 +119,8 @@ void CalibrationState::update(Buggy& buggy, double dt) {
   }
 }
 
-void CalibrationState::exit(Buggy& buggy) {
+
+void CalibrationState::exit(Buggy& buggy, BuggyState* oldState) {
   // Set IrSensor min and max values
   buggy.leftMotor.forward();
   buggy.rightMotor.forward();
@@ -114,14 +135,14 @@ void CalibrationState::exit(Buggy& buggy) {
  * LINE FOLLOWING STATE LOGIC
  */
 
-void LineFollowingState::enter(Buggy& buggy) {
+void LineFollowingState::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
+  buggy.ledMatrix.setMode(LINE_FOLLOWING);
 }
 
 void LineFollowingState::update(Buggy& buggy, double dt) {
   buggy.lineFollower.update();
   buggy.ultrasonicSensor.update();
-
   buggy.leftMotor.update(dt);
   buggy.rightMotor.update(dt);
 
@@ -157,5 +178,15 @@ void DrivingStraightState::update(Buggy& buggy, double dt) {
 }
 
 void DrivingStraightState::exit(Buggy& buggy) {
+  //buggy.leftMotor.update(dt);
+  //buggy.rightMotor.update(dt);
+
+  buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
+  if (buggy.objectDetected) {
+    buggy.setState(ObjectDetectedHandlerState::instance());
+  }
+}
+
+void LineFollowingState::exit(Buggy& buggy, BuggyState* oldState) {
   // Cleanup logic before leaving idle state
 }

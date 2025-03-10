@@ -11,14 +11,16 @@
 #include "Buggy.hpp"
 #include "PIDController.hpp"
 #include "PacketFactory.hpp"
+#include "Matrix.hpp"
 
-#define VERSION 1.1
+#define VERSION 1.4
 
 namespace mcu {
-LeanStreamIO logger(3);  // File descriptor 1 for Serial. Change to 2 for tcp
+LeanStreamIO logger(3);  /// Sets up the stream based logging. File descriptor 1 for Serial. Change to 2 for tcp
 }
 //using LogLevel = mcu::Logger::LogLevel;
 
+/// @todo Write a scheduler service to delegate reoccuring tasks at specific intervals.
 
 /*
  * IMPORTANT TOP SECRET RESEARCH RESULTS XD
@@ -49,17 +51,21 @@ const MotorPinGroup leftMotorPinout = { 6, 7, 5, 2 };
 const MotorPinGroup rightMotorPinout = { 10, 11, 12, 3 };
 
 /// IR SENSORS
-PIN_TYPE leftIrSensorPin = A1;
-PIN_TYPE rightIrSensorPin = A0;
+const pin_size_t leftIrSensorPin = A1;
+const pin_size_t rightIrSensorPin = A0;
 
 /// ULTRASONIC SENSOR
 const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
+
+///LED MATRIX
+Matrix ledMatrix;
 
 /// PID CONSTANTS
 const PIDConstants leftMotorPID = { 0.07f, 1.0, 0.0f };
 //const PIDConstants leftMotorPID = {0.015625f, 0.00f, 0.015625f};
 //const PIDConstants rightMotorPID = { 0.05f, 0.00f, 0.00f };
 const PIDConstants rightMotorPID = {0.055f, 1.0f, 0.0f};
+
 const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
 
 /// INSTANCES
@@ -91,8 +97,7 @@ void ISR_ultrasonic_echo();
  */
 void setup() {
   Serial.begin(115200);
-  while (!Serial)
-    ;
+  while (!Serial) yield();
   mcu::logger << "INIT Start" << mcu::LeanStreamIO::endl;
 
   // start Timer 1
@@ -115,6 +120,9 @@ void setup() {
   // Attatch Ultrasonic interrupt
   attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE);
 
+  // LED MATRIX
+  ledMatrix.begin(); ///< @todo make this part of the matrix class
+  
   // SETUP WIFI
   wifi.wifi_checks();
   wifi.setup_ap();
@@ -146,6 +154,10 @@ void loop() {
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
   delay(max(0, loop_duration - dt));
+
+  //mcu::logger << String(end_time-start_time).c_str() << mcu::LeanStreamIO::endl;
+  //delay(max(0, loop_duration - dt));
+
 }
 
 
@@ -159,7 +171,6 @@ void ISR_left_motor() {
 
 /**
  * @brief Interrupt service routine for the right motor.
- * @todo rewrite using Timer1 instead of millis. 
  */
 void ISR_right_motor() {
   rightMotor.ISR_encoder_trigger();
@@ -167,7 +178,6 @@ void ISR_right_motor() {
 
 /**
  * @brief Interrupt service routine for the Ultrasonic sensor.
- * @todo rewrite using Timer1 instead of millis
  */
 void ISR_ultrasonic_echo() {
   ultrasonicSensor.ISR_UltrasonicEcho();

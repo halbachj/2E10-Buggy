@@ -9,7 +9,7 @@ class Buggy;  // Forward declaration
  * @class BuggyState
  *
  * @brief The Buggy State class is an abstract class that represents the abstract state the buggy can be in.
- * From here all Buggy States are inherited e.g. IdleState or CalibrationState.
+ * @details From here all Buggy States are inherited e.g. IdleState or CalibrationState.
  * On state transition the different methods are called. First the exit method when the state is exited
  * and then the enter method when the state is entered. The update method is called on every update,
  * meaning as often as possible.
@@ -17,9 +17,9 @@ class Buggy;  // Forward declaration
 
 class BuggyState {
 public:
-    virtual void enter(Buggy& buggy) = 0;
+    virtual void enter(Buggy& buggy, BuggyState* oldState) = 0;
     virtual void update(Buggy& buggy, double dt) = 0;
-    virtual void exit(Buggy& buggy) = 0;
+    virtual void exit(Buggy& buggy, BuggyState* newState) = 0;
     virtual ~BuggyState() = default;
 };
 
@@ -30,9 +30,10 @@ public:
 /**
  * @class IdleState
  * 
- * @brief The idle state represents a state in which the buggy operates normaly but is not driving. Can be compared to a stopped state.
- * In the idle state normal communication with the buggy is possible and the buggy can be resumed when prompted to start.
- * This state is reached whenever the buggy detects an obstacle and brakes, or when the buggy crashes by loosing the line or something similar.
+ * @brief The idle state represents a state in which the buggy operates normaly but is not driving.
+ * @details Can be compared to a stopped state. In the idle state normal communication with the buggy
+ * is possible and the buggy can be resumed when prompted to start. This state is reached whenever
+ * the buggy detects an obstacle and brakes, or when the buggy crashes by loosing the line or something similar.
  **/
 class IdleState : public BuggyState {
 public:
@@ -41,14 +42,22 @@ public:
         return instance;
     }
 
-    void enter(Buggy& buggy) override;
+    void enter(Buggy& buggy, BuggyState* oldState) override;
     void update(Buggy& buggy, double dt) override;
-    void exit(Buggy& buggy) override;
+    void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
     IdleState() = default;  // Private constructor for singleton pattern
 };
 
+
+/**
+ * @class ObjectDetectedState
+ * 
+ * @brief The state the Buggy enters when an object is detected during driving
+ * @details Compared to the IdleState the buggy updates the ultrasonic sensor and 
+ * resumes operation when the object is removed.
+ **/
 
 class ObjectDetectedState : public BuggyState {
 private:
@@ -61,16 +70,41 @@ public:
         return instance;
     }
 
-
-    void enter(Buggy& buggy) override;
+    void enter(Buggy& buggy, BuggyState* oldState) override;
     void update(Buggy& buggy, double dt) override;
-    void exit(Buggy& buggy) override;
+    void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
     ObjectDetectedState() = default;  // Private constructor for singleton pattern
 };
 
 
+/**
+ * @class ObjectDetectedHandlerState
+ * 
+ * @brief This state is entered before the buggy goes into ObjectDetectedState. It is used to save the previous state and return back to it.
+ * @details Whenever this state is entered it will save the current state and enter ObjectDetectedState. When ObjectDetectedState is left,
+ * this state is entered again and the old previous state is resumed. Almost like a stack based machine.
+ **/
+class ObjectDetectedHandlerState : public BuggyState {
+private:
+  BuggyState* oldState;
+
+public:
+
+    static ObjectDetectedHandlerState& instance() {
+        static ObjectDetectedHandlerState instance;
+        return instance;
+    }
+
+
+    void enter(Buggy& buggy, BuggyState* oldState) override;
+    void update(Buggy& buggy, double dt) override;
+    void exit(Buggy& buggy, BuggyState* oldState) override;
+
+private:
+    ObjectDetectedHandlerState() = default;  // Private constructor for singleton pattern
+};
 
 /**
  * @class CalibrationState
@@ -92,9 +126,9 @@ public:
       return instance;
   }
   
-  void enter(Buggy& buggy) override;
+  void enter(Buggy& buggy, BuggyState* oldState) override;
   void update(Buggy& buggy, double dt) override;
-  void exit(Buggy& buggy) override;
+  void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
     CalibrationState() = default;  // Private constructor for singleton pattern
@@ -115,14 +149,13 @@ public:
         return instance;
     }
 
-    void enter(Buggy& buggy) override;
+    void enter(Buggy& buggy, BuggyState* oldState) override;
     void update(Buggy& buggy, double dt) override;
-    void exit(Buggy& buggy) override;
-
+    void exit(Buggy& buggy, BuggyState* oldState) override;
+  
 private:
     LineFollowingState() = default;  // Private constructor for singleton pattern
 };
-
 
 class DrivingStraightState : public BuggyState {
 public:
@@ -138,7 +171,5 @@ public:
 private:
     DrivingStraightState() = default;  // Private constructor for singleton pattern
 };
-
-
 
 #endif //BUGGY_STATE
