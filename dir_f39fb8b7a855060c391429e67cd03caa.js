@@ -5,11 +5,10 @@ var dir_f39fb8b7a855060c391429e67cd03caa =
     [ "BuggyState.hpp", "BuggyState_8hpp_source.html", null ],
     [ "BuggyTCP.hpp", "BuggyTCP_8hpp_source.html", null ],
     [ "BuggyWifi.hpp", "BuggyWifi_8hpp_source.html", null ],
+    [ "EmbeddedLogger.hpp", "EmbeddedLogger_8hpp.html", "EmbeddedLogger_8hpp" ],
     [ "helpers.hpp", "helpers_8hpp_source.html", null ],
     [ "IrSensor.hpp", "IrSensor_8hpp_source.html", null ],
-    [ "LeanStreamIO.hpp", "LeanStreamIO_8hpp_source.html", null ],
     [ "LineFollower.hpp", "LineFollower_8hpp_source.html", null ],
-    [ "Logger.hpp", "Logger_8hpp_source.html", null ],
     [ "Matrix.hpp", "Matrix_8hpp_source.html", null ],
     [ "MotorDriver.hpp", "MotorDriver_8hpp_source.html", null ],
     [ "MoveMeanFilter.hpp", "MoveMeanFilter_8hpp_source.html", null ],
@@ -19,6 +18,9 @@ var dir_f39fb8b7a855060c391429e67cd03caa =
     [ "PIDController.hpp", "PIDController_8hpp_source.html", null ],
     [ "PinSetup.hpp", "PinSetup_8hpp_source.html", null ],
     [ "secrets.h", "secrets_8h_source.html", null ],
+    [ "SerialLogger.hpp", "SerialLogger_8hpp_source.html", null ],
+    [ "SerialWirelessLogger.hpp", "SerialWirelessLogger_8hpp_source.html", null ],
     [ "Timer1.hpp", "Timer1_8hpp.html", null ],
-    [ "UltrasonicSensor.hpp", "UltrasonicSensor_8hpp_source.html", null ]
+    [ "UltrasonicSensor.hpp", "UltrasonicSensor_8hpp_source.html", null ],
+    [ "WirelessLogger.hpp", "WirelessLogger_8hpp_source.html", null ]
 ];

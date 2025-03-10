@@ -1,0 +1,7 @@
+<map id="EmbeddedLogger::WirelessLogger" name="EmbeddedLogger::WirelessLogger">
+<area shape="rect" id="Node000001" title=" " alt="" coords="24,139,215,239"/>
+<area shape="rect" id="Node000003" href="$classEmbeddedLogger_1_1SerialWirelessLogger.html" title=" " alt="" coords="5,287,233,387"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,252,122,286,117,286,117,252"/>
+<area shape="rect" id="Node000002" href="$classEmbeddedLogger_1_1ILogTarget.html" title=" " alt="" coords="18,5,221,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,104,122,138,117,138,117,104"/>
+</map>

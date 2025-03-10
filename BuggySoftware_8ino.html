@@ -121,7 +121,8 @@ $(function(){initNavTree('BuggySoftware_8ino.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;Arduino.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="Timer1_8hpp_source.html">Timer1.hpp</a>&quot;</code><br />
 <code>#include &quot;PinSetup.hpp&quot;</code><br />
-<code>#include &quot;Logger.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="EmbeddedLogger_8hpp_source.html">EmbeddedLogger.hpp</a>&quot;</code><br />
+<code>#include &quot;SerialWirelessLogger.hpp&quot;</code><br />
 <code>#include &quot;Buggy.hpp&quot;</code><br />
 <code>#include &quot;PIDController.hpp&quot;</code><br />
 <code>#include &quot;PacketFactory.hpp&quot;</code><br />
@@ -160,9 +161,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ISR_ultrasonic_echo</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa8f0d88443984192f50488a202942637" id="r_aa8f0d88443984192f50488a202942637"><td class="memItemLeft" align="right" valign="top"><a id="aa8f0d88443984192f50488a202942637" name="aa8f0d88443984192f50488a202942637"></a>
-<a class="el" href="classmcu_1_1LeanStreamIO.html">LeanStreamIO</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mcu::logger</b> (3)</td></tr>
-<tr class="separator:aa8f0d88443984192f50488a202942637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa630fdc6a214c7c8d50f8712df90a0df" id="r_aa630fdc6a214c7c8d50f8712df90a0df"><td class="memItemLeft" align="right" valign="top"><a id="aa630fdc6a214c7c8d50f8712df90a0df" name="aa630fdc6a214c7c8d50f8712df90a0df"></a>
+<a class="el" href="classTcpServer.html">TcpServer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>logging_server</b> = <a class="el" href="classTcpServer.html">TcpServer</a>(44)</td></tr>
+<tr class="separator:aa630fdc6a214c7c8d50f8712df90a0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19a854266f320301b6e2cd7fa4cc4919" id="r_a19a854266f320301b6e2cd7fa4cc4919"><td class="memItemLeft" align="right" valign="top"><a id="a19a854266f320301b6e2cd7fa4cc4919" name="a19a854266f320301b6e2cd7fa4cc4919"></a>
+<a class="el" href="classEmbeddedLogger_1_1SerialLogger.html">SerialLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EmbeddedLogger::target</b> = <a class="el" href="classEmbeddedLogger_1_1SerialLogger.html">SerialLogger</a>()</td></tr>
+<tr class="separator:a19a854266f320301b6e2cd7fa4cc4919"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45a600971962c1bece48f05997535af0" id="r_a45a600971962c1bece48f05997535af0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structMotorPinGroup.html">MotorPinGroup</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45a600971962c1bece48f05997535af0">leftMotorPinout</a> = { 6, 7, 5, 2 }</td></tr>
 <tr class="memdesc:a45a600971962c1bece48f05997535af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">MOTOR PINPUTS.  <br /></td></tr>
 <tr class="separator:a45a600971962c1bece48f05997535af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,9 +220,6 @@ const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><t
 <tr class="memitem:abc01a43d495ca4ebe04e3ab413ecba70" id="r_abc01a43d495ca4ebe04e3ab413ecba70"><td class="memItemLeft" align="right" valign="top"><a id="abc01a43d495ca4ebe04e3ab413ecba70" name="abc01a43d495ca4ebe04e3ab413ecba70"></a>
 <a class="el" href="classTcpServer.html">TcpServer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>server</b> = <a class="el" href="classTcpServer.html">TcpServer</a>()</td></tr>
 <tr class="separator:abc01a43d495ca4ebe04e3ab413ecba70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa630fdc6a214c7c8d50f8712df90a0df" id="r_aa630fdc6a214c7c8d50f8712df90a0df"><td class="memItemLeft" align="right" valign="top"><a id="aa630fdc6a214c7c8d50f8712df90a0df" name="aa630fdc6a214c7c8d50f8712df90a0df"></a>
-<a class="el" href="classTcpServer.html">TcpServer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>logging_server</b> = <a class="el" href="classTcpServer.html">TcpServer</a>(44)</td></tr>
-<tr class="separator:aa630fdc6a214c7c8d50f8712df90a0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8a9e9a7a77a2751e33d810ede6cc5a0" id="r_ad8a9e9a7a77a2751e33d810ede6cc5a0"><td class="memItemLeft" align="right" valign="top"><a id="ad8a9e9a7a77a2751e33d810ede6cc5a0" name="ad8a9e9a7a77a2751e33d810ede6cc5a0"></a>
 <a class="el" href="classLineFollower.html">LineFollower</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lineFollower</b> (<a class="el" href="#ae331786b5d511eb0af20bef336c22311">leftMotor</a>, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID)</td></tr>
 <tr class="separator:ad8a9e9a7a77a2751e33d810ede6cc5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -237,6 +238,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>dt</b> = 0.01</td><
 <tr class="memitem:aa5ce924acd918d6043f4a1f761ff5dd1" id="r_aa5ce924acd918d6043f4a1f761ff5dd1"><td class="memItemLeft" align="right" valign="top"><a id="aa5ce924acd918d6043f4a1f761ff5dd1" name="aa5ce924acd918d6043f4a1f761ff5dd1"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>loop_duration</b> = 5e-6</td></tr>
 <tr class="separator:aa5ce924acd918d6043f4a1f761ff5dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a895852cf285da2f8d9a7273028655700" id="r_a895852cf285da2f8d9a7273028655700"><td class="memItemLeft" align="right" valign="top"><a id="a895852cf285da2f8d9a7273028655700" name="a895852cf285da2f8d9a7273028655700"></a>
+Logger&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b></td></tr>
+<tr class="separator:a895852cf285da2f8d9a7273028655700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the main entry point for the <a class="el" href="classBuggy.html" title="The Buggy class contains all relevant peripherals mounted on the buggy, as well as some helper classe...">Buggy</a> software. </p>
@@ -261,7 +265,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>loop_duration</b> 
 </div><div class="memdoc">
 
 <p>Interrupt service routine for the left motor. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo</a></b></dt><dd>rewrite using Timer1 instead of millis. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo</a></b></dt><dd>rewrite using Timer1 instead of millis. </dd></dl>
 
 </div>
 </div>
@@ -303,6 +307,10 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>loop_duration</b> 
 <p>Setup method used for setting up the Arduino when it is started. </p>
 <p>This sets up all the communication services as well. Besides the basic pin setup this includes the WiFi, Serial and TCP server. </p>
 <p>&lt; </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo</a></b></dt><dd>make this part of the matrix class </dd></dl>
+<p>&lt; </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo</a></b></dt><dd>make this part of <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> begin </dd></dl>
+<p>&lt; </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo</a></b></dt><dd>make this part of <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> begin </dd></dl>
+<p>&lt; </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo</a></b></dt><dd>make this part of <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> begin </dd></dl>
+<p>&lt; </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo</a></b></dt><dd>rename this to server.begin </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

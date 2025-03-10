@@ -1,8 +1,11 @@
 var annotated_dup =
 [
-    [ "mcu", null, [
-      [ "LeanStreamIO", "classmcu_1_1LeanStreamIO.html", null ],
-      [ "Logger", "classmcu_1_1Logger.html", null ]
+    [ "EmbeddedLogger", null, [
+      [ "ILogTarget", "classEmbeddedLogger_1_1ILogTarget.html", null ],
+      [ "Logger", "classEmbeddedLogger_1_1Logger.html", "classEmbeddedLogger_1_1Logger" ],
+      [ "SerialLogger", "classEmbeddedLogger_1_1SerialLogger.html", null ],
+      [ "SerialWirelessLogger", "classEmbeddedLogger_1_1SerialWirelessLogger.html", null ],
+      [ "WirelessLogger", "classEmbeddedLogger_1_1WirelessLogger.html", null ]
     ] ],
     [ "Buggy", "classBuggy.html", "classBuggy" ],
     [ "BuggyState", "classBuggyState.html", null ],

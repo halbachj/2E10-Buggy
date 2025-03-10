@@ -12,10 +12,17 @@ var hierarchy =
     [ "BuggyWiFi", "classBuggyWiFi.html", null ],
     [ "BuggyWifi", "classBuggyWifi.html", null ],
     [ "CommandPacket", "structCommandPacket.html", null ],
+    [ "EmbeddedLogger::ILogTarget", "classEmbeddedLogger_1_1ILogTarget.html", [
+      [ "EmbeddedLogger::SerialLogger", "classEmbeddedLogger_1_1SerialLogger.html", [
+        [ "EmbeddedLogger::SerialWirelessLogger", "classEmbeddedLogger_1_1SerialWirelessLogger.html", null ]
+      ] ],
+      [ "EmbeddedLogger::WirelessLogger", "classEmbeddedLogger_1_1WirelessLogger.html", [
+        [ "EmbeddedLogger::SerialWirelessLogger", "classEmbeddedLogger_1_1SerialWirelessLogger.html", null ]
+      ] ]
+    ] ],
     [ "IrSensor", "classIrSensor.html", null ],
-    [ "mcu::LeanStreamIO", "classmcu_1_1LeanStreamIO.html", null ],
     [ "LineFollower", "classLineFollower.html", null ],
-    [ "mcu::Logger", "classmcu_1_1Logger.html", null ],
+    [ "EmbeddedLogger::Logger", "classEmbeddedLogger_1_1Logger.html", null ],
     [ "LogPacket", "structLogPacket.html", null ],
     [ "Matrix", "classMatrix.html", null ],
     [ "MotorDriver", "classMotorDriver.html", null ],
@@ -28,6 +35,7 @@ var hierarchy =
     [ "PacketSerializer", "classPacketSerializer.html", null ],
     [ "PIDConstants", "structPIDConstants.html", null ],
     [ "PIDController", "classPIDController.html", null ],
+    [ "EmbeddedLogger::Logger::Precision", "structEmbeddedLogger_1_1Logger_1_1Precision.html", null ],
     [ "StatusPacket", "structStatusPacket.html", null ],
     [ "TcpServer", "classTcpServer.html", null ],
     [ "UltrasonicSensor", "classUltrasonicSensor.html", null ],

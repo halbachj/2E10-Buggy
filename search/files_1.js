@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['groundstation_2epde_0',['GroundStation.pde',['../GroundStation_8pde.html',1,'']]]
+  ['embeddedlogger_2ehpp_0',['EmbeddedLogger.hpp',['../EmbeddedLogger_8hpp.html',1,'']]]
 ];

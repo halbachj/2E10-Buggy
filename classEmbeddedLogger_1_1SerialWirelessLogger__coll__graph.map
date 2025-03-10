@@ -1,0 +1,10 @@
+<map id="EmbeddedLogger::SerialWirelessLogger" name="EmbeddedLogger::SerialWirelessLogger">
+<area shape="rect" id="Node000001" title=" " alt="" coords="113,287,341,387"/>
+<area shape="rect" id="Node000002" href="$classEmbeddedLogger_1_1SerialLogger.html" title=" " alt="" coords="5,146,221,231"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,241,191,285,186,288,152,244"/>
+<area shape="rect" id="Node000003" href="$classEmbeddedLogger_1_1ILogTarget.html" title=" " alt="" coords="125,5,328,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,103,149,148,145,144,182,100"/>
+<area shape="rect" id="Node000004" href="$classEmbeddedLogger_1_1WirelessLogger.html" title=" " alt="" coords="246,139,437,239"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="272,99,303,136,298,140,268,103"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="297,251,267,288,263,285,292,248"/>
+</map>
