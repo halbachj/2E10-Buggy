@@ -128,21 +128,12 @@ Collaboration diagram for DrivingStraightState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af33721d742d8ed276cb62bd92848459c" id="r_af33721d742d8ed276cb62bd92848459c"><td class="memItemLeft" align="right" valign="top"><a id="af33721d742d8ed276cb62bd92848459c" name="af33721d742d8ed276cb62bd92848459c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>enter</b> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy) override</td></tr>
-<tr class="separator:af33721d742d8ed276cb62bd92848459c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54b2cd411558baeebeceff66478bd210" id="r_a54b2cd411558baeebeceff66478bd210"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54b2cd411558baeebeceff66478bd210">enter</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState) override</td></tr>
+<tr class="separator:a54b2cd411558baeebeceff66478bd210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad20fa0c2f8914979f1596839a9ebb624" id="r_ad20fa0c2f8914979f1596839a9ebb624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad20fa0c2f8914979f1596839a9ebb624">update</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, double dt) override</td></tr>
 <tr class="separator:ad20fa0c2f8914979f1596839a9ebb624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1302a6c900fab8038045c5559f17478" id="r_ae1302a6c900fab8038045c5559f17478"><td class="memItemLeft" align="right" valign="top"><a id="ae1302a6c900fab8038045c5559f17478" name="ae1302a6c900fab8038045c5559f17478"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>exit</b> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy) override</td></tr>
-<tr class="separator:ae1302a6c900fab8038045c5559f17478"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classBuggyState"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classBuggyState')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classBuggyState.html">BuggyState</a></td></tr>
-<tr class="memitem:aeb0c482777a2b56043587b6325513186 inherit pub_methods_classBuggyState" id="r_aeb0c482777a2b56043587b6325513186"><td class="memItemLeft" align="right" valign="top">
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>enter</b> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState)=0</td></tr>
-<tr class="separator:aeb0c482777a2b56043587b6325513186 inherit pub_methods_classBuggyState"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f83abb4b37ca8cb8adf195fa352a685 inherit pub_methods_classBuggyState" id="r_a9f83abb4b37ca8cb8adf195fa352a685"><td class="memItemLeft" align="right" valign="top">
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>exit</b> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *newState)=0</td></tr>
-<tr class="separator:a9f83abb4b37ca8cb8adf195fa352a685 inherit pub_methods_classBuggyState"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f60564c67cff719d16ea5501c189471" id="r_a8f60564c67cff719d16ea5501c189471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f60564c67cff719d16ea5501c189471">exit</a> (<a class="el" href="classBuggy.html">Buggy</a> &amp;buggy, <a class="el" href="classBuggyState.html">BuggyState</a> *oldState) override</td></tr>
+<tr class="separator:a8f60564c67cff719d16ea5501c189471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -151,6 +142,68 @@ static <a class="el" href="classDrivingStraightState.html">DrivingStraightState<
 <tr class="separator:a92637f9192f78e826752844dbd3ef6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a54b2cd411558baeebeceff66478bd210" name="a54b2cd411558baeebeceff66478bd210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b2cd411558baeebeceff66478bd210">&#9670;&#160;</a></span>enter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrivingStraightState::enter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classBuggyState.html">BuggyState</a> *</td>          <td class="paramname"><span class="paramname"><em>oldState</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classBuggyState.html">BuggyState</a>.</p>
+
+</div>
+</div>
+<a id="a8f60564c67cff719d16ea5501c189471" name="a8f60564c67cff719d16ea5501c189471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f60564c67cff719d16ea5501c189471">&#9670;&#160;</a></span>exit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DrivingStraightState::exit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBuggy.html">Buggy</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buggy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classBuggyState.html">BuggyState</a> *</td>          <td class="paramname"><span class="paramname"><em>oldState</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classBuggyState.html">BuggyState</a>.</p>
+
+</div>
+</div>
 <a id="ad20fa0c2f8914979f1596839a9ebb624" name="ad20fa0c2f8914979f1596839a9ebb624"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad20fa0c2f8914979f1596839a9ebb624">&#9670;&#160;</a></span>update()</h2>
 

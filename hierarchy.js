@@ -12,6 +12,7 @@ var hierarchy =
     [ "BuggyWiFi", "classBuggyWiFi.html", null ],
     [ "BuggyWifi", "classBuggyWifi.html", null ],
     [ "CommandPacket", "structCommandPacket.html", null ],
+    [ "ControlPacket", "structControlPacket.html", null ],
     [ "EmbeddedLogger::ILogTarget", "classEmbeddedLogger_1_1ILogTarget.html", [
       [ "EmbeddedLogger::SerialLogger", "classEmbeddedLogger_1_1SerialLogger.html", [
         [ "EmbeddedLogger::SerialWirelessLogger", "classEmbeddedLogger_1_1SerialWirelessLogger.html", null ]

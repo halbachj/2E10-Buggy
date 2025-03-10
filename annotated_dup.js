@@ -13,6 +13,7 @@ var annotated_dup =
     [ "BuggyWifi", "classBuggyWifi.html", null ],
     [ "CalibrationState", "classCalibrationState.html", null ],
     [ "CommandPacket", "structCommandPacket.html", "structCommandPacket" ],
+    [ "ControlPacket", "structControlPacket.html", null ],
     [ "DrivingStraightState", "classDrivingStraightState.html", null ],
     [ "IdleState", "classIdleState.html", null ],
     [ "IrSensor", "classIrSensor.html", "classIrSensor" ],
