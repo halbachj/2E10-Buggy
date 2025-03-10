@@ -1,7 +1,9 @@
 <map id="Buggy::handlePacket" name="Buggy::handlePacket">
-<area shape="rect" id="Node000001" title="handles an incoming packet in the context of the buggy." alt="" coords="5,5,161,31"/>
-<area shape="rect" id="Node000002" href="$classBuggy.html#a1207f60e091c8934c31dc04d05da715c" title="decodes the CommandPacket and applies the command to the buggy." alt="" coords="209,5,391,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,15,195,15,195,21,162,21"/>
-<area shape="rect" id="Node000003" href="$classBuggy.html#a6ec6b72a75e112f777e8c6754a70012b" title="Changes the state of the buggy. This will call the necessary exit and enter methods of the state." alt="" coords="439,5,563,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="391,15,425,15,425,21,391,21"/>
+<area shape="rect" id="Node000001" title="handles an incoming packet in the context of the buggy." alt="" coords="5,31,161,56"/>
+<area shape="rect" id="Node000002" href="$classBuggy.html#a1207f60e091c8934c31dc04d05da715c" title="decodes the CommandPacket and applies the command to the buggy." alt="" coords="220,5,401,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,32,206,27,207,32,162,37"/>
+<area shape="rect" id="Node000004" href="$classBuggy.html#a4d76df8fa8e6229177dbd4a306cbbe5b" title="handles the control packet for remote controlling the buggy" alt="" coords="209,55,412,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,49,196,53,195,58,161,54"/>
+<area shape="rect" id="Node000003" href="$classBuggy.html#a6ec6b72a75e112f777e8c6754a70012b" title="Changes the state of the buggy. This will call the necessary exit and enter methods of the state." alt="" coords="460,5,584,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,15,446,15,446,21,402,21"/>
 </map>

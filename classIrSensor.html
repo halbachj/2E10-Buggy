@@ -122,11 +122,20 @@ $(function(){initNavTree('classIrSensor.html',''); initResizable(true); });
 <div class="dynheader">
 Collaboration diagram for IrSensor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classIrSensor__coll__graph.svg" width="182" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classIrSensor__coll__graph.svg" width="182" height="196"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a8b5b22e210c4a16d7fda1f318ca1b507" id="r_a8b5b22e210c4a16d7fda1f318ca1b507"><td class="memItemLeft" align="right" valign="top"><a id="a8b5b22e210c4a16d7fda1f318ca1b507" name="a8b5b22e210c4a16d7fda1f318ca1b507"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IrSensor</b> (PIN_TYPE input_pin)</td></tr>
+<tr class="separator:a8b5b22e210c4a16d7fda1f318ca1b507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae8bb53eee8d95ab680bb1bdaac8fd8" id="r_afae8bb53eee8d95ab680bb1bdaac8fd8"><td class="memItemLeft" align="right" valign="top"><a id="afae8bb53eee8d95ab680bb1bdaac8fd8" name="afae8bb53eee8d95ab680bb1bdaac8fd8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCalibrationRange</b> (int min, int max)</td></tr>
+<tr class="separator:afae8bb53eee8d95ab680bb1bdaac8fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca94e373cfaf6e0633979ba83ed3749b" id="r_aca94e373cfaf6e0633979ba83ed3749b"><td class="memItemLeft" align="right" valign="top"><a id="aca94e373cfaf6e0633979ba83ed3749b" name="aca94e373cfaf6e0633979ba83ed3749b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getReading</b> ()</td></tr>
+<tr class="separator:aca94e373cfaf6e0633979ba83ed3749b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a234dccd93e3cd11f66f8b5cf0a5588a4" id="r_a234dccd93e3cd11f66f8b5cf0a5588a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a234dccd93e3cd11f66f8b5cf0a5588a4">IrSensor</a> (const pin_size_t input_pin)</td></tr>
 <tr class="memdesc:a234dccd93e3cd11f66f8b5cf0a5588a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will construct the <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> using the Pins.  <br /></td></tr>
 <tr class="separator:a234dccd93e3cd11f66f8b5cf0a5588a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,7 +151,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The IR sensor class provides an interface for reading data from an infrared sensor. </p>
-<p>It allows for easy calibration of the sensor range and provides methods to read values from the sensor. The sensor reading can be fetched either automatically with the <code><a class="el" href="#aca94e373cfaf6e0633979ba83ed3749b" title="Takes a calibrated reading mapped by the calibration range.">getReading()</a></code> method or manually using the <code><a class="el" href="#a48d54bc804f23ec8b220c8b01b07e475" title="Takes a raw manual reading straight from the sensor.">getManualReading()</a></code> method. The class also supports calibrating the sensor's minimum and maximum values using the <code><a class="el" href="#afae8bb53eee8d95ab680bb1bdaac8fd8" title="Will set the calibration range of the IrSensor.">setCalibrationRange()</a></code> method. </p>
+<p>It allows for easy calibration of the sensor range and provides methods to read values from the sensor. The sensor reading can be fetched either automatically with the <code>getReading()</code> method or manually using the <code><a class="el" href="#a48d54bc804f23ec8b220c8b01b07e475" title="Takes a raw manual reading straight from the sensor.">getManualReading()</a></code> method. The class also supports calibrating the sensor's minimum and maximum values using the <code>setCalibrationRange()</code> method. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a234dccd93e3cd11f66f8b5cf0a5588a4" name="a234dccd93e3cd11f66f8b5cf0a5588a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a234dccd93e3cd11f66f8b5cf0a5588a4">&#9670;&#160;</a></span>IrSensor()</h2>
@@ -207,11 +216,6 @@ Public Member Functions</h2></td></tr>
 
 <p>Takes a calibrated reading mapped by the calibration range. </p>
 <dl class="section return"><dt>Returns</dt><dd>the calibrated rading </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classIrSensor_aca94e373cfaf6e0633979ba83ed3749b_cgraph.svg" width="422" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

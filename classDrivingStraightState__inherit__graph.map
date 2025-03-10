@@ -1,0 +1,5 @@
+<map id="DrivingStraightState" name="DrivingStraightState">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,179,152,304"/>
+<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="16,5,141,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,145,81,178,76,178,76,145"/>
+</map>

@@ -3,6 +3,7 @@ var hierarchy =
     [ "Buggy", "classBuggy.html", null ],
     [ "BuggyState", "classBuggyState.html", [
       [ "CalibrationState", "classCalibrationState.html", null ],
+      [ "DrivingStraightState", "classDrivingStraightState.html", null ],
       [ "IdleState", "classIdleState.html", null ],
       [ "LineFollowingState", "classLineFollowingState.html", null ],
       [ "ObjectDetectedHandlerState", "classObjectDetectedHandlerState.html", null ],
@@ -19,6 +20,7 @@ var hierarchy =
     [ "Matrix", "classMatrix.html", null ],
     [ "MotorDriver", "classMotorDriver.html", null ],
     [ "MotorPinGroup", "structMotorPinGroup.html", null ],
+    [ "MoveMeanFilter< T, N >", "classMoveMeanFilter.html", null ],
     [ "Packet", "structPacket.html", null ],
     [ "PacketContent", "unionPacketContent.html", null ],
     [ "PacketDeserializer", "classPacketDeserializer.html", null ],

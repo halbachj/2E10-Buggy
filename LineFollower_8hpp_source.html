@@ -117,30 +117,29 @@ $(function(){initNavTree('LineFollower_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;MotorDriver.hpp&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;IrSensor.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;PIDController.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classLineFollower.html">   16</a></span><span class="keyword">class </span><a class="code hl_function" href="classLineFollower.html#a5d768334facabfd1e4ca28456abd77df">LineFollower</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <a class="code hl_class" href="classIrSensor.html">IrSensor</a>&amp; leftSensor;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <a class="code hl_class" href="classIrSensor.html">IrSensor</a>&amp; rightSensor;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <a class="code hl_class" href="classMotorDriver.html">MotorDriver</a>&amp; leftMotor;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <a class="code hl_class" href="classMotorDriver.html">MotorDriver</a>&amp; rightMotor;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <a class="code hl_class" href="classPIDController.html">PIDController</a> controller; <span class="comment">// Initialize the PID with the right coefficients</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">int</span> target_speed = 160; <span class="comment">// 130</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <a class="code hl_function" href="classLineFollower.html#a5d768334facabfd1e4ca28456abd77df">LineFollower</a>(<a class="code hl_class" href="classMotorDriver.html">MotorDriver</a>&amp; leftMotor, <a class="code hl_class" href="classMotorDriver.html">MotorDriver</a>&amp; rightMotor, <a class="code hl_class" href="classIrSensor.html">IrSensor</a>&amp; leftSensor, <a class="code hl_class" href="classIrSensor.html">IrSensor</a>&amp; rightSensor, <span class="keyword">const</span> <a class="code hl_struct" href="structPIDConstants.html">PIDConstants</a>&amp; constants); </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classLineFollower.html#a7dce7ba6d1bfe31118ae1860adb6f99d">update</a>();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classLineFollower.html">   15</a></span><span class="keyword">class </span><a class="code hl_function" href="classLineFollower.html#a5d768334facabfd1e4ca28456abd77df">LineFollower</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <a class="code hl_class" href="classIrSensor.html">IrSensor</a>&amp; leftSensor;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <a class="code hl_class" href="classIrSensor.html">IrSensor</a>&amp; rightSensor;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_class" href="classMotorDriver.html">MotorDriver</a>&amp; leftMotor;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <a class="code hl_class" href="classMotorDriver.html">MotorDriver</a>&amp; rightMotor;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_class" href="classPIDController.html">PIDController</a> controller; <span class="comment">// Initialize the PID with the right coefficients</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordtype">int</span> target_speed = 160; <span class="comment">// 130</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_function" href="classLineFollower.html#a5d768334facabfd1e4ca28456abd77df">LineFollower</a>(<a class="code hl_class" href="classMotorDriver.html">MotorDriver</a>&amp; leftMotor, <a class="code hl_class" href="classMotorDriver.html">MotorDriver</a>&amp; rightMotor, <a class="code hl_class" href="classIrSensor.html">IrSensor</a>&amp; leftSensor, <a class="code hl_class" href="classIrSensor.html">IrSensor</a>&amp; rightSensor, <span class="keyword">const</span> <a class="code hl_struct" href="structPIDConstants.html">PIDConstants</a>&amp; constants); </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classLineFollower.html#a7dce7ba6d1bfe31118ae1860adb6f99d">update</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
 </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif </span><span class="comment">// LINE_FOLLOWER_HPP</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">// LINE_FOLLOWER_HPP</span></div>
 <div class="ttc" id="aclassIrSensor_html"><div class="ttname"><a href="classIrSensor.html">IrSensor</a></div><div class="ttdoc">The IR sensor class provides an interface for reading data from an infrared sensor.</div><div class="ttdef"><b>Definition</b> IrSensor.hpp:16</div></div>
 <div class="ttc" id="aclassLineFollower_html_a5d768334facabfd1e4ca28456abd77df"><div class="ttname"><a href="classLineFollower.html#a5d768334facabfd1e4ca28456abd77df">LineFollower::LineFollower</a></div><div class="ttdeci">LineFollower(MotorDriver &amp;leftMotor, MotorDriver &amp;rightMotor, IrSensor &amp;leftSensor, IrSensor &amp;rightSensor, const PIDConstants &amp;constants)</div><div class="ttdoc">Construct the line Follower.</div><div class="ttdef"><b>Definition</b> LineFollower.cpp:4</div></div>
 <div class="ttc" id="aclassLineFollower_html_a7dce7ba6d1bfe31118ae1860adb6f99d"><div class="ttname"><a href="classLineFollower.html#a7dce7ba6d1bfe31118ae1860adb6f99d">LineFollower::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Will read and adapt the motors each call. Needs to be called inside of loop to be useful.</div><div class="ttdef"><b>Definition</b> LineFollower.cpp:8</div></div>

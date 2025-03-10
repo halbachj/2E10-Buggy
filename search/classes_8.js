@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tcpserver_0',['TcpServer',['../classTcpServer.html',1,'']]]
+  ['statuspacket_0',['StatusPacket',['../structStatusPacket.html',1,'']]]
 ];
