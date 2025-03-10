@@ -10,7 +10,7 @@
 #include "BuggyState.hpp"
 #include "UltrasonicSensor.hpp"
 #include "PacketFactory.hpp"
-#include "LeanStreamIO.hpp"
+#include "EmbeddedLogger.hpp"
 #include "Matrix.hpp"
 
 class BuggyState;

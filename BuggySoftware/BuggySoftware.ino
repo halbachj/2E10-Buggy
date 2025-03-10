@@ -7,7 +7,8 @@
 #include "Arduino.h"
 #include "Timer1.hpp"
 #include "PinSetup.hpp"
-#include "Logger.hpp"
+#include "EmbeddedLogger.hpp"
+#include "SerialWirelessLogger.hpp"
 #include "Buggy.hpp"
 #include "PIDController.hpp"
 #include "PacketFactory.hpp"
@@ -15,10 +16,15 @@
 
 #define VERSION 1.4
 
-namespace mcu {
-LeanStreamIO logger(3);  /// Sets up the stream based logging. File descriptor 1 for Serial. Change to 2 for tcp
+TcpServer logging_server = TcpServer(44);
+
+namespace EmbeddedLogger {
+  //SerialWirelessLogger target = SerialWirelessLogger(logging_server);
+  SerialLogger target = SerialLogger();
+  Logger logger(&target);
 }
-//using LogLevel = mcu::Logger::LogLevel;
+
+using EmbeddedLogger::logger;
 
 /// @todo Write a scheduler service to delegate reoccuring tasks at specific intervals.
 
@@ -79,7 +85,6 @@ UltrasonicSensor ultrasonicSensor(ultrasonicSensorPinout);
 
 BuggyWiFi wifi;
 TcpServer server = TcpServer();
-TcpServer logging_server = TcpServer(44);
 
 LineFollower lineFollower(leftMotor, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID);
 
@@ -124,11 +129,12 @@ void setup() {
   ledMatrix.begin(); ///< @todo make this part of the matrix class
   
   // SETUP WIFI
-  wifi.wifi_checks();
-  wifi.setup_ap();
-  wifi.printWiFiStatus();
-  server.setup();
-  mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
+  wifi.wifi_checks(); ///< @todo make this part of BuggyWiFi begin
+  wifi.setup_ap();    ///< @todo make this part of BuggyWiFi begin
+  wifi.printWiFiStatus(); ///< @todo make this part of BuggyWiFi begin
+  server.setup();         ///< @todo rename this to server.begin
+
+  logger << "INIT Done" << EmbeddedLogger::endl;
 
   buggy.setState(DrivingStraightState::instance());
   leftMotor.forward();

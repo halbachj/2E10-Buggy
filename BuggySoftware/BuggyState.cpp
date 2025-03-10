@@ -1,6 +1,7 @@
 #include "BuggyState.hpp"
-#include "Logger.hpp"
+#include "EmbeddedLogger.hpp"
 
+using EmbeddedLogger::logger;
 
 /*
  * IDLE STATE LOGIC
@@ -39,6 +40,7 @@ void ObjectDetectedState::enter(Buggy& buggy, BuggyState* oldState) {
 void ObjectDetectedState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
   float distance = buggy.ultrasonicSensor.getReading();
+  //logger << distance << EmbeddedLogger::endl;
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (!buggy.objectDetected) { 
     buggy.setState(ObjectDetectedHandlerState::instance());

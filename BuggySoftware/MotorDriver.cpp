@@ -1,10 +1,11 @@
 #include "MotorDriver.hpp"
 #include "math.h"
-#include "Logger.hpp"
+#include "EmbeddedLogger.hpp"
 #include "Timer1.hpp"
 
 // Measured max speed is 1496 deg/s - 4.15 rps
 
+using EmbeddedLogger::logger;
 
 MotorDriver::MotorDriver(const MotorPinGroup& pins, const PIDConstants& constants) : pins(pins), controller(constants) {
   this->forward();
@@ -84,12 +85,10 @@ void MotorDriver::update(double dt) {
   correction = this->controller.update(error, dt);
   //mcu::logger << String(correction).c_str() << ",";
 
-  //mcu::logger << String(this->pwm_cycle).c_str() << ",";
+  //logger << String(this->pwm_cycle).c_str() << ",";
 
   pwm = constrain(round(correction), 0, 255);
   analogWrite(this->pins.pulse, abs(pwm));
-
-  //mcu::logger << mcu::LeanStreamIO::endl;
 
   // Change direction if pwm is negative and not already running backwards
   /*

@@ -1,5 +1,5 @@
 #include "LineFollower.hpp"
-#include "LeanStreamIO.hpp"
+#include "EmbeddedLogger.hpp"
 
 LineFollower::LineFollower(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftSensor, IrSensor& rightSensor, const PIDConstants& constants)
   : leftMotor(leftMotor), rightMotor(rightMotor), leftSensor(leftSensor), rightSensor(rightSensor), controller(constants) {
