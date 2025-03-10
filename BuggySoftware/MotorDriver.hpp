@@ -3,7 +3,7 @@
 
 #include "PinSetup.hpp"
 #include "PIDController.hpp"
-#include <Arduino.h>
+#include "MoveMeanFilter.hpp"
 
 /**
  * @class MotorDriver
@@ -17,7 +17,9 @@ class MotorDriver {
 private:
 	const MotorPinGroup& pins;
   PIDController controller;
-
+  
+  static const size_t filter_window = 200;
+  MoveMeanFilter<int, filter_window> filter = MoveMeanFilter<int, filter_window>();
   const unsigned short ticks = 8;                 // encoder ticks per rotations
   const unsigned short degPerTick = 360/ticks;    // ratio of degrees per tick
 
@@ -33,7 +35,6 @@ private:
   unsigned int applied_pwm = 0;
 
 public:
-
   /**
    * @brief Constructs a MotorDriver object.
    * @param pinGroup Reference to the motor pin configuration.

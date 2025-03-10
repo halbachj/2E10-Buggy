@@ -28,12 +28,37 @@ void Buggy::handleCommand(CommandPacket command) {
     }
 }
 
+void Buggy::handleControlPacket(ControlPacket control) {
+  int max_speed = 255;
+  float leftSpeed, rightSpeed, set_speed;
+
+  set_speed = max_speed * -1 * control.y;
+  if (set_speed < 0) {
+    this->leftMotor.backward();
+    this->rightMotor.backward();
+  }else {
+    this->leftMotor.forward();
+    this->rightMotor.forward();
+  }
+
+  leftSpeed = set_speed * (control.x+1);
+  rightSpeed = set_speed * (control.x-1);
+
+  mcu::logger << String(leftSpeed).c_str() << mcu::LeanStreamIO::endl;
+  mcu::logger << String(rightSpeed).c_str() << mcu::LeanStreamIO::endl;
+  this->leftMotor.pwmOverride(abs(leftSpeed));
+  this->rightMotor.pwmOverride(abs(rightSpeed));
+}
+
 void Buggy::handlePacket(Packet packet) {
   switch (packet.type) {
     case PacketType::COMMAND:
       mcu::logger << "RECIEVED COMMAND PACKET" << mcu::LeanStreamIO::endl;
       this->handleCommand(packet.content.commandPacket);
       break;
+    case PacketType::CONTROL:
+      mcu::logger << "RECEIVED CONTROL PACKET" << mcu::LeanStreamIO::endl;
+      this->handleControlPacket(packet.content.controlPacket);
   }
 }
 

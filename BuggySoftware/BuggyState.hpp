@@ -58,6 +58,7 @@ private:
  * @details Compared to the IdleState the buggy updates the ultrasonic sensor and 
  * resumes operation when the object is removed.
  **/
+
 class ObjectDetectedState : public BuggyState {
 private:
     int left_old_pwm = 0, right_old_pwm = 0;
@@ -68,7 +69,6 @@ public:
         static ObjectDetectedState instance;
         return instance;
     }
-
 
     void enter(Buggy& buggy, BuggyState* oldState) override;
     void update(Buggy& buggy, double dt) override;
@@ -105,7 +105,6 @@ public:
 private:
     ObjectDetectedHandlerState() = default;  // Private constructor for singleton pattern
 };
-
 
 /**
  * @class CalibrationState
@@ -153,10 +152,24 @@ public:
     void enter(Buggy& buggy, BuggyState* oldState) override;
     void update(Buggy& buggy, double dt) override;
     void exit(Buggy& buggy, BuggyState* oldState) override;
-
+  
 private:
     LineFollowingState() = default;  // Private constructor for singleton pattern
 };
 
+class DrivingStraightState : public BuggyState {
+public:
+    static DrivingStraightState& instance() {
+        static DrivingStraightState instance;
+        return instance;
+    }
+
+    void enter(Buggy& buggy) override;
+    void update(Buggy& buggy, double dt) override;
+    void exit(Buggy& buggy) override;
+
+private:
+    DrivingStraightState() = default;  // Private constructor for singleton pattern
+};
 
 #endif //BUGGY_STATE

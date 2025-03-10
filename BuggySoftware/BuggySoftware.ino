@@ -48,7 +48,7 @@ LeanStreamIO logger(3);  /// Sets up the stream based logging. File descriptor 1
 
 /// MOTOR PINPUTS
 const MotorPinGroup leftMotorPinout = { 6, 7, 5, 2 };
-const MotorPinGroup rightMotorPinout = { 10, 12, 11, 3 };
+const MotorPinGroup rightMotorPinout = { 10, 11, 12, 3 };
 
 /// IR SENSORS
 const pin_size_t leftIrSensorPin = A1;
@@ -61,10 +61,11 @@ const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
 Matrix ledMatrix;
 
 /// PID CONSTANTS
-const PIDConstants leftMotorPID = { 0.05f, 1.0, 0.0f };
+const PIDConstants leftMotorPID = { 0.07f, 1.0, 0.0f };
 //const PIDConstants leftMotorPID = {0.015625f, 0.00f, 0.015625f};
 //const PIDConstants rightMotorPID = { 0.05f, 0.00f, 0.00f };
-const PIDConstants rightMotorPID = {0.04f, 1.0f, 0.00f};
+const PIDConstants rightMotorPID = {0.055f, 1.0f, 0.0f};
+
 const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
 
 /// INSTANCES
@@ -96,48 +97,47 @@ void ISR_ultrasonic_echo();
  */
 void setup() {
   Serial.begin(115200);
-  //while (!Serial) yield();
+  while (!Serial) yield();
   mcu::logger << "INIT Start" << mcu::LeanStreamIO::endl;
 
   // start Timer 1
   BuggyTimer1::begin();
 
   // PIN SETUP
-  pinMode(LED_BUILTIN, OUTPUT);  ///< @todo Make this part of the WiFi class
-  
+  pinMode(LED_BUILTIN, OUTPUT);  // WiFi LED
 
   // MOTOR PINS
-  setupMotorPins(leftMotorPinout);  ///< @todo make this part of MotorDriver begin
-  setupMotorPins(rightMotorPinout); ///< @todo make this part of MotorDriver begin
+  setupMotorPins(leftMotorPinout);
+  setupMotorPins(rightMotorPinout);
 
   // ULTRASONIC PINS
-  setupUltrasonicPins(ultrasonicSensorPinout); ///< @todo make this part of UltrasonicSensor begin
+  setupUltrasonicPins(ultrasonicSensorPinout);
+
+  // Attatch motor interrupts
+  attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, CHANGE);
+
+  // Attatch Ultrasonic interrupt
+  attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE);
 
   // LED MATRIX
   ledMatrix.begin(); ///< @todo make this part of the matrix class
-  // Attatch motor interrupts
-  attachInterrupt(digitalPinToInterrupt(leftMotorPinout.encoder), ISR_left_motor, CHANGE);   ///< @todo make this part of MotorDriver begin
-  attachInterrupt(digitalPinToInterrupt(rightMotorPinout.encoder), ISR_right_motor, CHANGE); ///< @todo make this part of MotorDriver begin
-
-  // Attatch Ultrasonic interrupt
-  attachInterrupt(digitalPinToInterrupt(ultrasonicSensorPinout.echo_pin), ISR_ultrasonic_echo, CHANGE); ///< @todo make this part of UltrasonicSensor begin
-
+  
   // SETUP WIFI
-  wifi.wifi_checks(); ///< @todo make this part of BuggyWiFi begin
-  wifi.setup_ap();    ///< @todo make this part of BuggyWiFi begin
-  wifi.printWiFiStatus(); ///< @todo make this part of BuggyWiFi begin
-  server.setup();         ///< @todo rename this to server.begin
-
+  wifi.wifi_checks();
+  wifi.setup_ap();
+  wifi.printWiFiStatus();
+  server.setup();
   mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
 
-  buggy.setState(LineFollowingState::instance());  ///< @todo either remove this from the buggy constructor or remove it here
-  leftMotor.forward();  ///< @todo either remove this from the constructor or remove it here 
-  rightMotor.forward(); ///< @todo either remove this from the constructor or remove it here
+  buggy.setState(DrivingStraightState::instance());
+  leftMotor.forward();
+  rightMotor.forward();
 }
 
 unsigned long start_time, end_time;
 double dt = 0.01;           //s so 10ms
-uint8_t loop_duration = 5;  //ms at least
+uint8_t loop_duration = 5e-6;  //ms at least
 
 /**
  * @brief Main loop of the arduino. Called as often ass possible.
@@ -149,17 +149,21 @@ uint8_t loop_duration = 5;  //ms at least
  */
 void loop() {
   start_time = micros();
+  //wifi.update();
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
+  delay(max(0, loop_duration - dt));
 
   //mcu::logger << String(end_time-start_time).c_str() << mcu::LeanStreamIO::endl;
   //delay(max(0, loop_duration - dt));
+
 }
 
 
 /**
  * @brief Interrupt service routine for the left motor.
+ * @todo rewrite using Timer1 instead of millis. 
  */
 void ISR_left_motor() {
   leftMotor.ISR_encoder_trigger();

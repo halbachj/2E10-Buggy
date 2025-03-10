@@ -11,6 +11,7 @@ void IdleState::enter(Buggy& buggy, BuggyState* oldState) {
   buggy.leftMotor.pwmOverride(0);
   buggy.rightMotor.pwmOverride(0);
   buggy.ledMatrix.setMode(STOPPED);
+
 }
 
 void IdleState::update(Buggy& buggy, double dt) {
@@ -24,6 +25,7 @@ void IdleState::exit(Buggy& buggy, BuggyState* oldState) {
 /*
  * OBJECT DETECTED
  */
+
 
 void ObjectDetectedState::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
@@ -117,6 +119,7 @@ void CalibrationState::update(Buggy& buggy, double dt) {
   }
 }
 
+
 void CalibrationState::exit(Buggy& buggy, BuggyState* oldState) {
   // Set IrSensor min and max values
   buggy.leftMotor.forward();
@@ -140,7 +143,41 @@ void LineFollowingState::enter(Buggy& buggy, BuggyState* oldState) {
 void LineFollowingState::update(Buggy& buggy, double dt) {
   buggy.lineFollower.update();
   buggy.ultrasonicSensor.update();
+  buggy.leftMotor.update(dt);
+  buggy.rightMotor.update(dt);
 
+  buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
+  if (buggy.objectDetected) {
+    buggy.setState(ObjectDetectedState::instance());
+  }
+}
+
+void LineFollowingState::exit(Buggy& buggy) {
+  // Cleanup logic before leaving idle state
+}
+
+
+/*
+ * JUST STRAIGHT DRIVING
+ */
+
+void DrivingStraightState::enter(Buggy& buggy) {
+  // Setup logic when entering idle state
+}
+
+void DrivingStraightState::update(Buggy& buggy, double dt) {
+  buggy.ultrasonicSensor.update();
+
+
+  /*buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
+  if (buggy.objectDetected) { 
+    buggy.setState(ObjectDetectedState::instance());
+  }*/
+  //buggy.leftMotor.update(dt);
+  //buggy.rightMotor.update(dt);
+}
+
+void DrivingStraightState::exit(Buggy& buggy) {
   //buggy.leftMotor.update(dt);
   //buggy.rightMotor.update(dt);
 

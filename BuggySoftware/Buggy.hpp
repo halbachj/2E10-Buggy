@@ -37,7 +37,6 @@ private:
   UltrasonicSensor& ultrasonicSensor;
 
   Matrix ledMatrix;
-
   BuggyWiFi& wifi;
   TcpServer& server;
 
@@ -97,6 +96,12 @@ public:
   **/
   void handleCommand(CommandPacket command);
   /**
+   * @brief handles the control packet for remote controlling the buggy
+   *
+   * @param control the control packet with the control inputs
+   */
+  void handleControlPacket(ControlPacket control);
+  /**
   * @brief Sends a status packet to the ground station.
   **/
   void sendStatusPacket();
@@ -106,9 +111,10 @@ public:
   friend class IdleState;
   friend class ObjectDetectedState;
   friend class CalibrationState;
+  friend class LineFollowingState;
+  friend class DrivingStraightState;
   friend class ObjectDetectedHandlerState;
   friend class LineFollowingState;
-  
 };
 
 
