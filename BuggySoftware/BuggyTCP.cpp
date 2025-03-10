@@ -1,7 +1,7 @@
 #include "BuggyTCP.hpp"
-#include "Logger.hpp"
+#include "EmbeddedLogger.hpp"
 
-using LogLevel = mcu::Logger::LogLevel;
+using EmbeddedLogger::logger;
 
 
 TcpServer::TcpServer(int port): server(port), serverPort(port) {
@@ -10,7 +10,7 @@ TcpServer::TcpServer(int port): server(port), serverPort(port) {
 
 void TcpServer::setup() {
   if (setupDone) return;
-  mcu::logger << "Starting Tcp Server" << mcu::LeanStreamIO::endl;
+  logger << "Starting Tcp Server" << EmbeddedLogger::endl;
   server.begin();
 }
 
@@ -27,15 +27,15 @@ Packet TcpServer::update() {
   packet.type = PacketType(0); // Will initialize packet type to an invalid packet that can be detected
   if (client) {
     delayMicroseconds(10);            // This is required for the Arduino Nano RP2040 Connect
-    //mcu::logger << "CLIENT CONNECTED" << mcu::LeanStreamIO::endl;
+    //logger << "CLIENT CONNECTED" << EmbeddedLogger::endl;
     if (client.available() >= 72) {
-      mcu::logger << "RECIEVED PACKAGE" << mcu::LeanStreamIO::endl;
+      logger << "RECIEVED PACKAGE" << EmbeddedLogger::endl;
       client.readBytes(this->input_buffer, MAX_PACKET_LENGTH);
-      mcu::logger << "PACKAGE RECIEVED - DESERIALIZING" << mcu::LeanStreamIO::endl;
+      logger << "PACKAGE RECIEVED - DESERIALIZING" << EmbeddedLogger::endl;
       // deserialize packet
       memcpy(&packet, this->input_buffer, MAX_PACKET_LENGTH);
       //packet = PacketDeserializer::deserializePacket(this->input_buffer);
-      mcu::logger << "DESERIALIZED" << mcu::LeanStreamIO::endl << "PACKET: " << String(packet.type).c_str() << mcu::LeanStreamIO::endl;
+      logger << "DESERIALIZED" << EmbeddedLogger::endl << "PACKET: " << String(packet.type).c_str() << EmbeddedLogger::endl;
     }
   }
   return packet;

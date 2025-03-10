@@ -1,10 +1,11 @@
 #include "MotorDriver.hpp"
 #include "math.h"
-#include "Logger.hpp"
+#include "EmbeddedLogger.hpp"
 #include "Timer1.hpp"
 
 // Measured max speed is 1496 deg/s - 4.15 rps
 
+using EmbeddedLogger::logger;
 
 MotorDriver::MotorDriver(const MotorPinGroup& pins, const PIDConstants& constants) : pins(pins), controller(constants) {
   this->forward();
@@ -64,34 +65,31 @@ void MotorDriver::update(double dt) {
   measurement_diff = this->current_encoder_measurement - this->last_encoder_measurement;
   interrupts();
 
-  mcu::logger <<String(micros()).c_str() << ",";
-  mcu::logger <<String(this->current_encoder_measurement).c_str() << ",";
-  mcu::logger <<String(this->last_encoder_measurement).c_str() << ",";
-  mcu::logger <<String(measurement_diff).c_str() << ",";
+  logger <<String(micros()).c_str() << ",";
+  logger <<String(this->current_encoder_measurement).c_str() << ",";
+  logger <<String(this->last_encoder_measurement).c_str() << ",";
+  logger <<String(measurement_diff).c_str() << ",";
   // measurement dt is 3000 increments per ms therefore divide by 3000 to get ms
 
   this->measured_speed = (this->degPerTick * 2 * 1000UL) / float(measurement_diff);
   
   if (this->last_encoder_measurement + measurement_diff * 3 < BuggyTimer1::counter) this->measured_speed = 0; // there should have been an encoder pulse by now...
   
-  mcu::logger <<String(this->measured_speed).c_str() << ",";
-  mcu::logger << String(this->set_speed).c_str() << ",";
+  logger <<String(this->measured_speed).c_str() << ",";
+  logger << String(this->set_speed).c_str() << ",";
 
   error = float(this->set_speed) - float(this->measured_speed);
 
-  mcu::logger << String(error).c_str() << ",";
+  logger << String(error).c_str() << ",";
 
   correction = this->controller.update(error, dt);
-  mcu::logger << String(correction).c_str() << ",";
+  logger << String(correction).c_str() << ",";
 
-  //mcu::logger << String(this->pwm_cycle).c_str() << ",";
+  //logger << String(this->pwm_cycle).c_str() << ",";
 
   pwm = constrain(round(correction), 0, 255);
   analogWrite(this->pins.pulse, abs(pwm));
 
-
-
-  mcu::logger << mcu::LeanStreamIO::endl;
 
 
   // Change direction if pwm is negative and not already running backwards

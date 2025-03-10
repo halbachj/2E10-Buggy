@@ -7,7 +7,8 @@
 #include "Arduino.h"
 #include "Timer1.hpp"
 #include "PinSetup.hpp"
-#include "Logger.hpp"
+#include "EmbeddedLogger.hpp"
+#include "SerialWirelessLogger.hpp"
 #include "Buggy.hpp"
 #include "PIDController.hpp"
 #include "PacketFactory.hpp"
@@ -15,10 +16,15 @@
 
 #define VERSION 1.4
 
-namespace mcu {
-LeanStreamIO logger(3);  /// Sets up the stream based logging. File descriptor 1 for Serial. Change to 2 for tcp
+TcpServer logging_server = TcpServer(44);
+
+namespace EmbeddedLogger {
+  //SerialWirelessLogger target = SerialWirelessLogger(logging_server);
+  SerialLogger target = SerialLogger();
+  Logger logger(&target);
 }
-//using LogLevel = mcu::Logger::LogLevel;
+
+using EmbeddedLogger::logger;
 
 /// @todo Write a scheduler service to delegate reoccuring tasks at specific intervals.
 
@@ -78,7 +84,6 @@ UltrasonicSensor ultrasonicSensor(ultrasonicSensorPinout);
 
 BuggyWiFi wifi;
 TcpServer server = TcpServer();
-TcpServer logging_server = TcpServer(44);
 
 LineFollower lineFollower(leftMotor, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID);
 
@@ -97,7 +102,7 @@ void ISR_ultrasonic_echo();
 void setup() {
   Serial.begin(115200);
   //while (!Serial) yield();
-  mcu::logger << "INIT Start" << mcu::LeanStreamIO::endl;
+  logger << "INIT Start" << EmbeddedLogger::endl;
 
   // start Timer 1
   BuggyTimer1::begin();
@@ -128,7 +133,7 @@ void setup() {
   wifi.printWiFiStatus(); ///< @todo make this part of BuggyWiFi begin
   server.setup();         ///< @todo rename this to server.begin
 
-  mcu::logger << "INIT Done" << mcu::LeanStreamIO::endl;
+  logger << "INIT Done" << EmbeddedLogger::endl;
 
   buggy.setState(LineFollowingState::instance());  ///< @todo either remove this from the buggy constructor or remove it here
   leftMotor.forward();  ///< @todo either remove this from the constructor or remove it here 

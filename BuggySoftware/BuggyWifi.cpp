@@ -1,23 +1,23 @@
 #include "BuggyWifi.hpp"
-#include "Logger.hpp"
+#include "EmbeddedLogger.hpp"
 
-using LogLevel = mcu::Logger::LogLevel;
+using EmbeddedLogger::logger;
 
 void BuggyWiFi::printWiFiStatus() {
   // print the SSID of the network you're attached to:
-  mcu::logger << "SSID: " << WiFi.SSID() << mcu::LeanStreamIO::endl;
+  logger << "SSID: " << WiFi.SSID() << EmbeddedLogger::endl;
   // print your WiFi shield's IP address:
-  mcu::logger << "IP Address: " << String("lool").c_str() << mcu::LeanStreamIO::endl;
+  logger << "IP Address: " << String("lool").c_str() << EmbeddedLogger::endl;
   Serial.println(WiFi.localIP());
 }
 
 void BuggyWiFi::setup_ap() {
   // WiFi.config(IPAddress(192,48,56,2)); // Change the IP
   // print the network name (SSID);
-  mcu::logger << "Creating access point named: " << ssid << mcu::LeanStreamIO::endl;
+  logger << "Creating access point named: " << ssid << EmbeddedLogger::endl;
   status = WiFi.beginAP(ssid, pass);
   if (status != WL_AP_LISTENING) {
-    mcu::logger << "Creating access point failed" << mcu::LeanStreamIO::endl;
+    logger << "Creating access point failed" << EmbeddedLogger::endl;
     while (true);
   }
 }
@@ -25,13 +25,13 @@ void BuggyWiFi::setup_ap() {
 void BuggyWiFi::wifi_checks() {
   // check for the WiFi module:
   if (WiFi.status() == WL_NO_MODULE) {
-    mcu::logger << "Communication with WiFi module failed!" << mcu::LeanStreamIO::endl;
+    logger << "Communication with WiFi module failed!" << EmbeddedLogger::endl;
     // don't continue
     while (true);
   }
   String fv = WiFi.firmwareVersion();
   if (fv < WIFI_FIRMWARE_LATEST_VERSION) {
-    mcu::logger << "Please upgrade the firmware" << mcu::LeanStreamIO::endl;
+    logger << "Please upgrade the firmware" << EmbeddedLogger::endl;
   }
 }
 
@@ -43,10 +43,10 @@ void BuggyWiFi::update() {
 
     if (this->status == WL_AP_CONNECTED) {
       // a device has connected to the AP
-      mcu::logger << "Device connected to AP" << mcu::LeanStreamIO::endl;
+      logger << "Device connected to AP" << EmbeddedLogger::endl;
     } else {
       // a device has disconnected from the AP, and we are back in listening mode
-      mcu::logger << "Device disconnected from AP" << mcu::LeanStreamIO::endl;
+      logger << "Device disconnected from AP" << EmbeddedLogger::endl;
     }
   }
 }
