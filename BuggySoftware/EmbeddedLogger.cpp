@@ -1,33 +1,4 @@
 #include "EmbeddedLogger.hpp"
-//#include <Arduino.h>
-
-/*
-extern TcpServer logging_server;
-extern "C" size_t _write(size_t fd, const char * data, size_t count) {
-    size_t written_count = 0;
-    switch (fd) {
-        case 1: // Serial
-            if(!Serial) // Check if serial exists
-                Serial.begin(115200);
-            Serial.write(data, count);
-            written_count = count;
-            break;
-        case 2: // WiFi logger
-            logging_server.sendPacket(PacketFactory::createLogPacket(count, data));
-            break;
-        case 3: // Serial + WiFi
-            logging_server.sendPacket(PacketFactory::createLogPacket(count, data));
-            if(!Serial) // Check if serial exists
-                Serial.begin(115200);
-            Serial.write(data, count);
-            written_count = count;
-            break;
-        default:
-            return -1; // Error for unsupported fd
-    }
-
-    return count;
-}*/
 
 namespace EmbeddedLogger {
 
@@ -134,6 +105,11 @@ Logger& Logger::operator<<(int32_t num) {
     return *this;
 }
 
+Logger& Logger::operator<<(int num) {
+    this->operator<<((int32_t)num);
+    return *this;
+}
+
 Logger& Logger::operator<<(uint32_t num) {
     if (numFormat == NumFormat::FMT_HEX) appendHex(num);
     else if (numFormat == NumFormat::FMT_BINARY) appendBinary(num);
@@ -141,8 +117,18 @@ Logger& Logger::operator<<(uint32_t num) {
     return *this;
 }
 
+Logger& Logger::operator<<(unsigned int num) {
+    this->operator<<((uint32_t)num);
+    return *this;
+}
+
 Logger& Logger::operator<<(float num) {
     appendFloat(num);
+    return *this;
+}
+
+Logger& Logger::operator<<(double num) {
+    appendFloat((float)num);
     return *this;
 }
 

@@ -62,40 +62,30 @@ void MotorDriver::update(double dt) {
   measurement_diff = this->current_encoder_measurement - this->last_encoder_measurement;
   interrupts();
 
-  //mcu::logger <<String(micros()).c_str() << ",";
-  //mcu::logger <<String(this->current_encoder_measurement).c_str() << ",";
-  //mcu::logger <<String(this->last_encoder_measurement).c_str() << ",";
-  //mcu::logger <<String(measurement_diff).c_str() << ",";
+  logger << measurement_diff << ",";
+
   // measurement dt is 3000 increments per ms therefore divide by 3000 to get ms
 
-  this->measured_speed = (this->degPerTick * 2 * 1000UL) / float(measurement_diff);
+  this->measured_speed = (this->degPerTick * 2.0 * 1000) / (float)measurement_diff;
+  logger << this->measured_speed << ",";
   this->filter.push(this->measured_speed);
   this->measured_speed = this->filter.getMean();
 
-  
   if (this->last_encoder_measurement + measurement_diff * 3 < BuggyTimer1::counter) this->measured_speed = 0; // there should have been an encoder pulse by now...
   
-  //mcu::logger <<String(this->measured_speed).c_str() << ",";
-  //mcu::logger << String(this->set_speed).c_str() << ",";
+  logger << this->measured_speed << ",";
+  logger << this->set_speed << ",";
 
   error = float(this->set_speed) - float(this->measured_speed);
 
-  //mcu::logger << String(error).c_str() << ",";
+  logger << error << ",";
 
   correction = this->controller.update(error, dt);
-  //mcu::logger << String(correction).c_str() << ",";
-
-  //logger << String(this->pwm_cycle).c_str() << ",";
+  logger << correction;
 
   pwm = constrain(round(correction), 0, 255);
   analogWrite(this->pins.pulse, abs(pwm));
 
-  // Change direction if pwm is negative and not already running backwards
-  /*
-  if(this->pwm_cycle < 0 && running_direction)
-    this->backward();
-  // Change direction if pwm is positive and not already running forwards
-  if(this->pwm_cycle > 0 && !running_direction);
-    this->forward();
-  */
+  logger << EmbeddedLogger::endl;
+
 }

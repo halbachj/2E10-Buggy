@@ -67,8 +67,11 @@ public:
   Logger& operator<<(const char* str);
   Logger& operator<<(char c);
   Logger& operator<<(int32_t num);
+  Logger& operator<<(int num);
   Logger& operator<<(uint32_t num);
+  Logger& operator<<(unsigned int num);
   Logger& operator<<(float num);
+  Logger& operator<<(double num);
   Logger& operator<<(LogLevel level);
 
   void flush();

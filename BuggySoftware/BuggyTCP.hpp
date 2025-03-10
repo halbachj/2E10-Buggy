@@ -23,9 +23,6 @@ private:
   char input_buffer[MAX_PACKET_LENGTH];
 
 public:
-  TcpServer(int port=1234);
-  void setup();
-  Packet update();
   /**
    * @brief Construct the TCP server on the specified port
    *

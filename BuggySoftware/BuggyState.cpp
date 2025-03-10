@@ -43,7 +43,7 @@ void ObjectDetectedState::update(Buggy& buggy, double dt) {
   //logger << distance << EmbeddedLogger::endl;
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (!buggy.objectDetected) { 
-    buggy.setState(ObjectDetectedHandlerState::instance());
+    buggy.setState(LineFollowingState::instance());
   }
 }
 
@@ -154,7 +154,7 @@ void LineFollowingState::update(Buggy& buggy, double dt) {
   }
 }
 
-void LineFollowingState::exit(Buggy& buggy) {
+void LineFollowingState::exit(Buggy& buggy, BuggyState* oldState) {
   // Cleanup logic before leaving idle state
 }
 
@@ -163,32 +163,21 @@ void LineFollowingState::exit(Buggy& buggy) {
  * JUST STRAIGHT DRIVING
  */
 
-void DrivingStraightState::enter(Buggy& buggy) {
+void DrivingStraightState::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
 }
 
 void DrivingStraightState::update(Buggy& buggy, double dt) {
-  buggy.ultrasonicSensor.update();
+  //buggy.ultrasonicSensor.update();
 
 
   /*buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) { 
     buggy.setState(ObjectDetectedState::instance());
   }*/
-  //buggy.leftMotor.update(dt);
-  //buggy.rightMotor.update(dt);
+  buggy.leftMotor.update(dt);
+  buggy.rightMotor.update(dt);
 }
 
-void DrivingStraightState::exit(Buggy& buggy) {
-  //buggy.leftMotor.update(dt);
-  //buggy.rightMotor.update(dt);
-
-  buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
-  if (buggy.objectDetected) {
-    buggy.setState(ObjectDetectedHandlerState::instance());
-  }
-}
-
-void LineFollowingState::exit(Buggy& buggy, BuggyState* oldState) {
-  // Cleanup logic before leaving idle state
+void DrivingStraightState::exit(Buggy& buggy, BuggyState* oldState) {
 }

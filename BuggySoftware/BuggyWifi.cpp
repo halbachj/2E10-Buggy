@@ -54,7 +54,3 @@ void BuggyWiFi::update() {
 bool BuggyWiFi::isSetup() {
   return setupDone;
 }
-
-BuggyWiFi::BuggyWiFi() {
-  
-}

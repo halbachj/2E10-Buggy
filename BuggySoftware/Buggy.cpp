@@ -46,8 +46,8 @@ void Buggy::handleControlPacket(ControlPacket control) {
   leftSpeed = set_speed * (control.x+1);
   rightSpeed = set_speed * (control.x-1);
 
-  mcu::logger << String(leftSpeed).c_str() << mcu::LeanStreamIO::endl;
-  mcu::logger << String(rightSpeed).c_str() << mcu::LeanStreamIO::endl;
+  logger << String(leftSpeed).c_str() << EmbeddedLogger::endl;
+  logger << String(rightSpeed).c_str() << EmbeddedLogger::endl;
   this->leftMotor.pwmOverride(abs(leftSpeed));
   this->rightMotor.pwmOverride(abs(rightSpeed));
 }
@@ -59,7 +59,7 @@ void Buggy::handlePacket(Packet packet) {
       this->handleCommand(packet.content.commandPacket);
       break;
     case PacketType::CONTROL:
-      mcu::logger << "RECEIVED CONTROL PACKET" << mcu::LeanStreamIO::endl;
+      logger << "RECEIVED CONTROL PACKET" << EmbeddedLogger::endl;
       this->handleControlPacket(packet.content.controlPacket);
   }
 }

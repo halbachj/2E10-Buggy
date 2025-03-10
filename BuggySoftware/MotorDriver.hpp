@@ -19,7 +19,7 @@ private:
   PIDController controller;
   
   static const size_t filter_window = 200;
-  MoveMeanFilter<int, filter_window> filter = MoveMeanFilter<int, filter_window>();
+  MoveMeanFilter<unsigned int, filter_window> filter = MoveMeanFilter<unsigned int, filter_window>();
   const unsigned short ticks = 8;                 // encoder ticks per rotations
   const unsigned short degPerTick = 360/ticks;    // ratio of degrees per tick
 

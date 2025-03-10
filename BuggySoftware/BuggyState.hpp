@@ -157,6 +157,7 @@ private:
     LineFollowingState() = default;  // Private constructor for singleton pattern
 };
 
+
 class DrivingStraightState : public BuggyState {
 public:
     static DrivingStraightState& instance() {
@@ -164,9 +165,9 @@ public:
         return instance;
     }
 
-    void enter(Buggy& buggy) override;
+    void enter(Buggy& buggy,  BuggyState* oldState) override;
     void update(Buggy& buggy, double dt) override;
-    void exit(Buggy& buggy) override;
+    void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
     DrivingStraightState() = default;  // Private constructor for singleton pattern

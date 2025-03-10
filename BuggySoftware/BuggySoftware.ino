@@ -103,7 +103,7 @@ void ISR_ultrasonic_echo();
 void setup() {
   Serial.begin(115200);
   while (!Serial) yield();
-  mcu::logger << "INIT Start" << mcu::LeanStreamIO::endl;
+  logger << "INIT Start" << EmbeddedLogger::endl;
 
   // start Timer 1
   BuggyTimer1::begin();
@@ -138,6 +138,7 @@ void setup() {
 
   buggy.setState(DrivingStraightState::instance());
   leftMotor.forward();
+  leftMotor.setSpeed(1000);
   rightMotor.forward();
 }
 
@@ -160,9 +161,6 @@ void loop() {
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
   delay(max(0, loop_duration - dt));
-
-  //mcu::logger << String(end_time-start_time).c_str() << mcu::LeanStreamIO::endl;
-  //delay(max(0, loop_duration - dt));
 
 }
 

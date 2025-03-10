@@ -9,7 +9,8 @@ enum PacketType {
     // Start at one so empty packages can be detected with 0 as the Packet type
     STATUS = 1, ///< Status packet containing sensor and motor data.
     LOG,        ///< Log packet containing debug messages.
-    COMMAND     ///< Command packet for controlling the system.
+    COMMAND,    ///< Command packet for controlling the system.
+    CONTROL     ///< Control packet for remote controlling the buggy.
 };
 
 
@@ -63,6 +64,14 @@ struct CommandPacket {
   uint16_t data;      ///< Additional command data.
 };
 
+/*
+ * CONTROL PACKET
+ */
+
+struct ControlPacket {
+  float x;
+  float y;
+};
 
 /**
  * @union PacketContent
@@ -71,6 +80,7 @@ struct CommandPacket {
 union PacketContent {
   StatusPacket statusPacket;    ///< Status packet data.
   CommandPacket commandPacket;  ///< Command packet data.
+  ControlPacket controlPacket;
   LogPacket logPacket;          ///< Log packet data.
 };
 
