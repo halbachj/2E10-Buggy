@@ -32,12 +32,27 @@ public:
   void wifi_checks();
   /**
    * @brief Returns if the AP was setup
+   * @return the setup state of the access point
    */
   bool isSetup();
   /**
    * @brief Is supposed to be used inside the main loop to update the status LED.
    */
   void update();
+  /**
+   * @brief Returns the broadcast IP address of the current connected networ
+   * @return The broadcast IP address.
+   */
+  IPAddress getBroadcastIP() {
+    IPAddress localIP = WiFi.localIP();
+    IPAddress subnetMask = WiFi.subnetMask();
+    IPAddress broadcastIP;
+
+    for (int i = 0; i < 4; i++) {
+        broadcastIP[i] = (localIP[i] & subnetMask[i]) | ~subnetMask[i];
+    }
+    return broadcastIP;
+  }
   /**
    * @brief Log the current WiFi status.
    */

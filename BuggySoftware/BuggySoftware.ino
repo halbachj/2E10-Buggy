@@ -16,15 +16,16 @@
 
 #define VERSION 1.4
 
+using EmbeddedLogger::logger;
+using logLevel = EmbeddedLogger::LogLevel;
+
 TcpServer logging_server = TcpServer(44);
 
 namespace EmbeddedLogger {
-  //SerialWirelessLogger target = SerialWirelessLogger(logging_server);
-  SerialLogger target = SerialLogger();
+  SerialWirelessLogger target = SerialWirelessLogger(logging_server);
+  //SerialLogger target = SerialLogger();
   Logger logger(&target);
 }
-
-using EmbeddedLogger::logger;
 
 /// @todo Write a scheduler service to delegate reoccuring tasks at specific intervals.
 
@@ -68,10 +69,7 @@ Matrix ledMatrix;
 
 /// PID CONSTANTS
 const PIDConstants leftMotorPID = { 0.07f, 1.0, 0.0f };
-//const PIDConstants leftMotorPID = {0.015625f, 0.00f, 0.015625f};
-//const PIDConstants rightMotorPID = { 0.05f, 0.00f, 0.00f };
 const PIDConstants rightMotorPID = {0.055f, 1.0f, 0.0f};
-
 const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
 
 /// INSTANCES
@@ -102,8 +100,9 @@ void ISR_ultrasonic_echo();
  */
 void setup() {
   Serial.begin(115200);
+  logger.setLogLevel(logLevel::DEBUG);
   while (!Serial) yield();
-  logger << "INIT Start" << EmbeddedLogger::endl;
+  logger << logLevel::INFO << "INIT Start" << EmbeddedLogger::endl;
 
   // start Timer 1
   BuggyTimer1::begin();
@@ -134,7 +133,7 @@ void setup() {
   wifi.printWiFiStatus(); ///< @todo make this part of BuggyWiFi begin
   server.setup();         ///< @todo rename this to server.begin
 
-  logger << "INIT Done" << EmbeddedLogger::endl;
+  logger << logLevel::INFO << "INIT Done" << EmbeddedLogger::endl;
 
   buggy.setState(JustDriveState::instance());
   leftMotor.forward();
@@ -143,8 +142,8 @@ void setup() {
 }
 
 unsigned long start_time, end_time;
-double dt = 0.01;           //s so 10ms
-uint8_t loop_duration = 5e-6;  //ms at least
+double dt;                     //s
+uint8_t loop_duration = 5e-6;  //s at least
 
 /**
  * @brief Main loop of the arduino. Called as often ass possible.
@@ -161,7 +160,6 @@ void loop() {
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
   delay(max(0, loop_duration - dt));
-
 }
 
 

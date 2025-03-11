@@ -8,6 +8,7 @@ void JustDriveState::enter(Buggy& buggy, BuggyState* oldState) {
 }
 
 void JustDriveState::update(Buggy& buggy, double dt) {
+<<<<<<< HEAD
   //buggy.ultrasonicSensor.update();
 
 
@@ -15,6 +16,15 @@ void JustDriveState::update(Buggy& buggy, double dt) {
   if (buggy.objectDetected) { 
     buggy.setState(ObjectDetectedState::instance());
   }*/
+=======
+  buggy.ultrasonicSensor.update();
+
+  buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
+  if (buggy.objectDetected) { 
+    buggy.setState(ObjectDetectedHandlerState::instance());
+  }
+
+>>>>>>> c3ac23c (fixed the handler state for object detected and added an experimental udp server)
   buggy.leftMotor.update(dt);
   buggy.rightMotor.update(dt);
 }

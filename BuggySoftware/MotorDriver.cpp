@@ -6,6 +6,7 @@
 // Measured max speed is 1496 deg/s - 4.15 rps
 
 using EmbeddedLogger::logger;
+using logLevel = EmbeddedLogger::LogLevel;
 
 MotorDriver::MotorDriver(const MotorPinGroup& pins, const PIDConstants& constants) : pins(pins), controller(constants) {
   this->forward();
@@ -57,6 +58,7 @@ void MotorDriver::resetDistance()
 void MotorDriver::update(double dt) {
   int measurement_diff, pwm;
   float error, correction;
+  logger << logLevel::DEBUG;
   
   noInterrupts();
   measurement_diff = this->current_encoder_measurement - this->last_encoder_measurement;

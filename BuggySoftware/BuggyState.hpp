@@ -88,8 +88,7 @@ private:
  **/
 class ObjectDetectedHandlerState : public BuggyState {
 private:
-  BuggyState* oldState;
-
+  BuggyState* savedState;
 public:
 
     static ObjectDetectedHandlerState& instance() {

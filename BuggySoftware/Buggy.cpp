@@ -1,6 +1,7 @@
 #include "Buggy.hpp"
 
 using EmbeddedLogger::logger;
+using logLevel = EmbeddedLogger::LogLevel;
 
 Buggy::Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSensor, IrSensor& rightIrSensor,
    UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower):
@@ -13,17 +14,17 @@ void Buggy::handleCommand(CommandPacket command) {
     logger << String(command.type).c_str() << EmbeddedLogger::endl;
     switch (command.type) {
         case CommandType::START:
-            logger << "START COMMAND" << EmbeddedLogger::endl;
+            logger << logLevel::DEBUG << "START COMMAND" << EmbeddedLogger::endl;
             this->setState(LineFollowingState::instance());
             break;
         case CommandType::STOP:
             this->setState(IdleState::instance());
-            logger << "STOP COMMAND" << EmbeddedLogger::endl;
+            logger << logLevel::DEBUG << "STOP COMMAND" << EmbeddedLogger::endl;
             break;
         case CommandType::RESET_DISTANCE: // New case for resetting distance
             leftMotor.resetDistance();
             rightMotor.resetDistance();
-            logger << "DISTANCE RESET" << EmbeddedLogger::endl;
+            logger << logLevel::DEBUG << "DISTANCE RESET" << EmbeddedLogger::endl;
             break;
         default:
             break;
@@ -55,11 +56,11 @@ void Buggy::handleControlPacket(ControlPacket control) {
 void Buggy::handlePacket(Packet packet) {
   switch (packet.type) {
     case PacketType::COMMAND:
-      logger << "RECIEVED COMMAND PACKET" << EmbeddedLogger::endl;
+      logger << logLevel::DEBUG << "RECIEVED COMMAND PACKET" << EmbeddedLogger::endl;
       this->handleCommand(packet.content.commandPacket);
       break;
     case PacketType::CONTROL:
-      logger << "RECEIVED CONTROL PACKET" << EmbeddedLogger::endl;
+      logger << logLevel::DEBUG << "RECEIVED CONTROL PACKET" << EmbeddedLogger::endl;
       this->handleControlPacket(packet.content.controlPacket);
   }
 }
