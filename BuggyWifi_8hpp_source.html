@@ -131,18 +131,32 @@ $(function(){initNavTree('BuggyWifi_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  BuggyWiFi() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classBuggyWiFi.html#aeb09f971541dce0b5900083d605c05bc">setup_ap</a>();</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classBuggyWiFi.html#a36bbc11f5d71dffd75de8c761dac72b5">wifi_checks</a>();</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classBuggyWiFi.html#a75f423e8b24cfee97ac1a89a588db4ef">isSetup</a>();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classBuggyWiFi.html#a2de069de05afd09b14cb2489fea73635">update</a>();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classBuggyWiFi.html#a13db83294d2e71a2615ff4415b5002c4">printWiFiStatus</a>();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classBuggyWiFi.html#a75f423e8b24cfee97ac1a89a588db4ef">isSetup</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classBuggyWiFi.html#a2de069de05afd09b14cb2489fea73635">update</a>();</div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classBuggyWiFi.html#a031591562837eb675fe04d893fb1951f">   46</a></span>  IPAddress <a class="code hl_function" href="classBuggyWiFi.html#a031591562837eb675fe04d893fb1951f">getBroadcastIP</a>() {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    IPAddress localIP = WiFi.localIP();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    IPAddress subnetMask = WiFi.subnetMask();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    IPAddress broadcastIP;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; i++) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        broadcastIP[i] = (localIP[i] &amp; subnetMask[i]) | ~subnetMask[i];</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> broadcastIP;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  }</div>
 </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif </span><span class="comment">//BUGGY_WIFI_HPP</span></div>
-<div class="ttc" id="aclassBuggyWiFi_html_a13db83294d2e71a2615ff4415b5002c4"><div class="ttname"><a href="classBuggyWiFi.html#a13db83294d2e71a2615ff4415b5002c4">BuggyWiFi::printWiFiStatus</a></div><div class="ttdeci">void printWiFiStatus()</div><div class="ttdoc">Log the current WiFi status.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:6</div></div>
-<div class="ttc" id="aclassBuggyWiFi_html_a2de069de05afd09b14cb2489fea73635"><div class="ttname"><a href="classBuggyWiFi.html#a2de069de05afd09b14cb2489fea73635">BuggyWiFi::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Is supposed to be used inside the main loop to update the status LED.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:38</div></div>
-<div class="ttc" id="aclassBuggyWiFi_html_a36bbc11f5d71dffd75de8c761dac72b5"><div class="ttname"><a href="classBuggyWiFi.html#a36bbc11f5d71dffd75de8c761dac72b5">BuggyWiFi::wifi_checks</a></div><div class="ttdeci">void wifi_checks()</div><div class="ttdoc">Will perform the WiFi status check.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:25</div></div>
-<div class="ttc" id="aclassBuggyWiFi_html_a75f423e8b24cfee97ac1a89a588db4ef"><div class="ttname"><a href="classBuggyWiFi.html#a75f423e8b24cfee97ac1a89a588db4ef">BuggyWiFi::isSetup</a></div><div class="ttdeci">bool isSetup()</div><div class="ttdoc">Returns if the AP was setup.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:54</div></div>
-<div class="ttc" id="aclassBuggyWiFi_html_aeb09f971541dce0b5900083d605c05bc"><div class="ttname"><a href="classBuggyWiFi.html#aeb09f971541dce0b5900083d605c05bc">BuggyWiFi::setup_ap</a></div><div class="ttdeci">void setup_ap()</div><div class="ttdoc">Sets up the access point. Needs to be called during setup.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:14</div></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classBuggyWiFi.html#a13db83294d2e71a2615ff4415b5002c4">printWiFiStatus</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif </span><span class="comment">//BUGGY_WIFI_HPP</span></div>
+<div class="ttc" id="aclassBuggyWiFi_html_a031591562837eb675fe04d893fb1951f"><div class="ttname"><a href="classBuggyWiFi.html#a031591562837eb675fe04d893fb1951f">BuggyWiFi::getBroadcastIP</a></div><div class="ttdeci">IPAddress getBroadcastIP()</div><div class="ttdoc">Returns the broadcast IP address of the current connected networ.</div><div class="ttdef"><b>Definition</b> BuggyWifi.hpp:46</div></div>
+<div class="ttc" id="aclassBuggyWiFi_html_a13db83294d2e71a2615ff4415b5002c4"><div class="ttname"><a href="classBuggyWiFi.html#a13db83294d2e71a2615ff4415b5002c4">BuggyWiFi::printWiFiStatus</a></div><div class="ttdeci">void printWiFiStatus()</div><div class="ttdoc">Log the current WiFi status.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:7</div></div>
+<div class="ttc" id="aclassBuggyWiFi_html_a2de069de05afd09b14cb2489fea73635"><div class="ttname"><a href="classBuggyWiFi.html#a2de069de05afd09b14cb2489fea73635">BuggyWiFi::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Is supposed to be used inside the main loop to update the status LED.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:39</div></div>
+<div class="ttc" id="aclassBuggyWiFi_html_a36bbc11f5d71dffd75de8c761dac72b5"><div class="ttname"><a href="classBuggyWiFi.html#a36bbc11f5d71dffd75de8c761dac72b5">BuggyWiFi::wifi_checks</a></div><div class="ttdeci">void wifi_checks()</div><div class="ttdoc">Will perform the WiFi status check.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:26</div></div>
+<div class="ttc" id="aclassBuggyWiFi_html_a75f423e8b24cfee97ac1a89a588db4ef"><div class="ttname"><a href="classBuggyWiFi.html#a75f423e8b24cfee97ac1a89a588db4ef">BuggyWiFi::isSetup</a></div><div class="ttdeci">bool isSetup()</div><div class="ttdoc">Returns if the AP was setup.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:55</div></div>
+<div class="ttc" id="aclassBuggyWiFi_html_aeb09f971541dce0b5900083d605c05bc"><div class="ttname"><a href="classBuggyWiFi.html#aeb09f971541dce0b5900083d605c05bc">BuggyWiFi::setup_ap</a></div><div class="ttdeci">void setup_ap()</div><div class="ttdoc">Sets up the access point. Needs to be called during setup.</div><div class="ttdef"><b>Definition</b> BuggyWifi.cpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

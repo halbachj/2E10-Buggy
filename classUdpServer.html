@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Buggy: TcpServer Class Reference</title>
+<title>Buggy: UdpServer Class Reference</title>
 <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
 <script type="text/javascript">
     DoxygenAwesomeDarkModeToggle.init()
@@ -82,7 +82,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('classTcpServer.html',''); initResizable(true); });
+$(function(){initNavTree('classUdpServer.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -110,55 +110,69 @@ $(function(){initNavTree('classTcpServer.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classTcpServer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">TcpServer Class Reference</div></div>
+<a href="classUdpServer-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">UdpServer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The TCP server class provides functionality for setting up and managing a basic TCP server using Wi-Fi.  
+<p>The UDP server class provides functionality for setting up and managing a basic UDP server using Wi-Fi.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="BuggyTCP_8hpp_source.html">BuggyTCP.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="UdpServer_8hpp_source.html">UdpServer.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for TcpServer:</div>
+Inheritance diagram for UdpServer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTcpServer__inherit__graph.svg" width="123" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classUdpServer__inherit__graph.svg" width="123" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
-Collaboration diagram for TcpServer:</div>
+Collaboration diagram for UdpServer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classTcpServer__coll__graph.svg" width="123" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classUdpServer__coll__graph.svg" width="123" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af6c94855227b723a7195d221f3663d10" id="r_af6c94855227b723a7195d221f3663d10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6c94855227b723a7195d221f3663d10">TcpServer</a> (int port=1234)</td></tr>
-<tr class="memdesc:af6c94855227b723a7195d221f3663d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the TCP server on the specified port.  <br /></td></tr>
-<tr class="separator:af6c94855227b723a7195d221f3663d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfbd895aae6f14876257683adf8b1b79" id="r_acfbd895aae6f14876257683adf8b1b79"><td class="memItemLeft" align="right" valign="top"><a id="acfbd895aae6f14876257683adf8b1b79" name="acfbd895aae6f14876257683adf8b1b79"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setup</b> ()</td></tr>
-<tr class="memdesc:acfbd895aae6f14876257683adf8b1b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup method for the TCP server. needs to be called during setup. <br /></td></tr>
-<tr class="separator:acfbd895aae6f14876257683adf8b1b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b2e8e9998aebf6bd3955dadb559bfe2" id="r_a7b2e8e9998aebf6bd3955dadb559bfe2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPacket.html">Packet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b2e8e9998aebf6bd3955dadb559bfe2">update</a> ()</td></tr>
-<tr class="memdesc:a7b2e8e9998aebf6bd3955dadb559bfe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update method handles the receiving of packets.  <br /></td></tr>
-<tr class="separator:a7b2e8e9998aebf6bd3955dadb559bfe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9d0c2c2a0616e07fd77ea108145fa22" id="r_af9d0c2c2a0616e07fd77ea108145fa22"><td class="memItemLeft" align="right" valign="top"><a id="af9d0c2c2a0616e07fd77ea108145fa22" name="af9d0c2c2a0616e07fd77ea108145fa22"></a>
+<tr class="memitem:a54787b67e84ea9de4c9d309d51f821df" id="r_a54787b67e84ea9de4c9d309d51f821df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54787b67e84ea9de4c9d309d51f821df">UdpServer</a> (int port=1234)</td></tr>
+<tr class="memdesc:a54787b67e84ea9de4c9d309d51f821df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the UDP server on the specified port.  <br /></td></tr>
+<tr class="separator:a54787b67e84ea9de4c9d309d51f821df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af71909d685bc69b3353636aeae0b0c5c" id="r_af71909d685bc69b3353636aeae0b0c5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af71909d685bc69b3353636aeae0b0c5c">setup</a> (IPAddress broadcastAddress)</td></tr>
+<tr class="memdesc:af71909d685bc69b3353636aeae0b0c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup method for the UDP server. needs to be called during setup.  <br /></td></tr>
+<tr class="separator:af71909d685bc69b3353636aeae0b0c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6975cd47fb46c926418d596d77da03f" id="r_ac6975cd47fb46c926418d596d77da03f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPacket.html">Packet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6975cd47fb46c926418d596d77da03f">update</a> ()</td></tr>
+<tr class="memdesc:ac6975cd47fb46c926418d596d77da03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update method handles the receiving of packets.  <br /></td></tr>
+<tr class="separator:ac6975cd47fb46c926418d596d77da03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadca574635a3d066f9470be9f25ef433" id="r_aadca574635a3d066f9470be9f25ef433"><td class="memItemLeft" align="right" valign="top"><a id="aadca574635a3d066f9470be9f25ef433" name="aadca574635a3d066f9470be9f25ef433"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>sendPacket</b> (const <a class="el" href="structPacket.html">Packet</a> packet)</td></tr>
-<tr class="memdesc:af9d0c2c2a0616e07fd77ea108145fa22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will send a packet to all clients connected to the server. <br /></td></tr>
-<tr class="separator:af9d0c2c2a0616e07fd77ea108145fa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:aadca574635a3d066f9470be9f25ef433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will send a packet to all clients connected to the server. <br /></td></tr>
+<tr class="separator:aadca574635a3d066f9470be9f25ef433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classTcpServer"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classTcpServer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classTcpServer.html">TcpServer</a></td></tr>
+<tr class="memitem:af6c94855227b723a7195d221f3663d10 inherit pub_methods_classTcpServer" id="r_af6c94855227b723a7195d221f3663d10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTcpServer.html#af6c94855227b723a7195d221f3663d10">TcpServer</a> (int port=1234)</td></tr>
+<tr class="memdesc:af6c94855227b723a7195d221f3663d10 inherit pub_methods_classTcpServer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the TCP server on the specified port.  <br /></td></tr>
+<tr class="separator:af6c94855227b723a7195d221f3663d10 inherit pub_methods_classTcpServer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfbd895aae6f14876257683adf8b1b79 inherit pub_methods_classTcpServer" id="r_acfbd895aae6f14876257683adf8b1b79"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setup</b> ()</td></tr>
+<tr class="memdesc:acfbd895aae6f14876257683adf8b1b79 inherit pub_methods_classTcpServer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup method for the TCP server. needs to be called during setup. <br /></td></tr>
+<tr class="separator:acfbd895aae6f14876257683adf8b1b79 inherit pub_methods_classTcpServer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b2e8e9998aebf6bd3955dadb559bfe2 inherit pub_methods_classTcpServer" id="r_a7b2e8e9998aebf6bd3955dadb559bfe2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPacket.html">Packet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTcpServer.html#a7b2e8e9998aebf6bd3955dadb559bfe2">update</a> ()</td></tr>
+<tr class="memdesc:a7b2e8e9998aebf6bd3955dadb559bfe2 inherit pub_methods_classTcpServer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update method handles the receiving of packets.  <br /></td></tr>
+<tr class="separator:a7b2e8e9998aebf6bd3955dadb559bfe2 inherit pub_methods_classTcpServer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d0c2c2a0616e07fd77ea108145fa22 inherit pub_methods_classTcpServer" id="r_af9d0c2c2a0616e07fd77ea108145fa22"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sendPacket</b> (const <a class="el" href="structPacket.html">Packet</a> packet)</td></tr>
+<tr class="memdesc:af9d0c2c2a0616e07fd77ea108145fa22 inherit pub_methods_classTcpServer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will send a packet to all clients connected to the server. <br /></td></tr>
+<tr class="separator:af9d0c2c2a0616e07fd77ea108145fa22 inherit pub_methods_classTcpServer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The TCP server class provides functionality for setting up and managing a basic TCP server using Wi-Fi. </p>
+<div class="textblock"><p>The UDP server class provides functionality for setting up and managing a basic UDP server using Wi-Fi. </p>
 <p>It allows the server to listen for incoming client connections on a specified port (default is 1234) and handle communication. The class includes methods to update the server state, send data to all connected clients, and handle client interactions. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af6c94855227b723a7195d221f3663d10" name="af6c94855227b723a7195d221f3663d10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6c94855227b723a7195d221f3663d10">&#9670;&#160;</a></span>TcpServer()</h2>
+<a id="a54787b67e84ea9de4c9d309d51f821df" name="a54787b67e84ea9de4c9d309d51f821df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54787b67e84ea9de4c9d309d51f821df">&#9670;&#160;</a></span>UdpServer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">TcpServer::TcpServer </td>
+          <td class="memname">UdpServer::UdpServer </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>port</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1234</span></td><td>)</td>
           <td></td>
@@ -166,7 +180,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendPacket</b> (const
       </table>
 </div><div class="memdoc">
 
-<p>Construct the TCP server on the specified port. </p>
+<p>Construct the UDP server on the specified port. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">port</td><td>the TCP port on which the server is supposed to run, defaults to 1234. </td></tr>
@@ -177,14 +191,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendPacket</b> (const
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7b2e8e9998aebf6bd3955dadb559bfe2" name="a7b2e8e9998aebf6bd3955dadb559bfe2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b2e8e9998aebf6bd3955dadb559bfe2">&#9670;&#160;</a></span>update()</h2>
+<a id="af71909d685bc69b3353636aeae0b0c5c" name="af71909d685bc69b3353636aeae0b0c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af71909d685bc69b3353636aeae0b0c5c">&#9670;&#160;</a></span>setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structPacket.html">Packet</a> TcpServer::update </td>
+          <td class="memname">void UdpServer::setup </td>
+          <td>(</td>
+          <td class="paramtype">IPAddress</td>          <td class="paramname"><span class="paramname"><em>broadcastAddress</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setup method for the UDP server. needs to be called during setup. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boradcastAddress</td><td>the address to broadcast the packets to. Usually the broadcas address of the local network. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac6975cd47fb46c926418d596d77da03f" name="ac6975cd47fb46c926418d596d77da03f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6975cd47fb46c926418d596d77da03f">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPacket.html">Packet</a> UdpServer::update </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -199,15 +238,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendPacket</b> (const
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>BuggySoftware/<a class="el" href="BuggyTCP_8hpp_source.html">BuggyTCP.hpp</a></li>
-<li>BuggySoftware/<b>BuggyTCP.cpp</b></li>
+<li>BuggySoftware/<a class="el" href="UdpServer_8hpp_source.html">UdpServer.hpp</a></li>
+<li>BuggySoftware/<b>UdpServer.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classTcpServer.html">TcpServer</a></li>
+    <li class="navelem"><a class="el" href="classUdpServer.html">UdpServer</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

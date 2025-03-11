@@ -117,7 +117,7 @@ $(function(){initNavTree('classBuggyWiFi.html',''); initResizable(true); });
 <div class="dynheader">
 Collaboration diagram for BuggyWiFi:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBuggyWiFi__coll__graph.svg" width="148" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuggyWiFi__coll__graph.svg" width="148" height="196"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,19 +130,70 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setup_ap</b> ()</td><
 void&#160;</td><td class="memItemRight" valign="bottom"><b>wifi_checks</b> ()</td></tr>
 <tr class="memdesc:a36bbc11f5d71dffd75de8c761dac72b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will perform the WiFi status check. <br /></td></tr>
 <tr class="separator:a36bbc11f5d71dffd75de8c761dac72b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75f423e8b24cfee97ac1a89a588db4ef" id="r_a75f423e8b24cfee97ac1a89a588db4ef"><td class="memItemLeft" align="right" valign="top"><a id="a75f423e8b24cfee97ac1a89a588db4ef" name="a75f423e8b24cfee97ac1a89a588db4ef"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSetup</b> ()</td></tr>
-<tr class="memdesc:a75f423e8b24cfee97ac1a89a588db4ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the AP was setup. <br /></td></tr>
+<tr class="memitem:a75f423e8b24cfee97ac1a89a588db4ef" id="r_a75f423e8b24cfee97ac1a89a588db4ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75f423e8b24cfee97ac1a89a588db4ef">isSetup</a> ()</td></tr>
+<tr class="memdesc:a75f423e8b24cfee97ac1a89a588db4ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the AP was setup.  <br /></td></tr>
 <tr class="separator:a75f423e8b24cfee97ac1a89a588db4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2de069de05afd09b14cb2489fea73635" id="r_a2de069de05afd09b14cb2489fea73635"><td class="memItemLeft" align="right" valign="top"><a id="a2de069de05afd09b14cb2489fea73635" name="a2de069de05afd09b14cb2489fea73635"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
 <tr class="memdesc:a2de069de05afd09b14cb2489fea73635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is supposed to be used inside the main loop to update the status LED. <br /></td></tr>
 <tr class="separator:a2de069de05afd09b14cb2489fea73635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031591562837eb675fe04d893fb1951f" id="r_a031591562837eb675fe04d893fb1951f"><td class="memItemLeft" align="right" valign="top">IPAddress&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a031591562837eb675fe04d893fb1951f">getBroadcastIP</a> ()</td></tr>
+<tr class="memdesc:a031591562837eb675fe04d893fb1951f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the broadcast IP address of the current connected networ.  <br /></td></tr>
+<tr class="separator:a031591562837eb675fe04d893fb1951f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13db83294d2e71a2615ff4415b5002c4" id="r_a13db83294d2e71a2615ff4415b5002c4"><td class="memItemLeft" align="right" valign="top"><a id="a13db83294d2e71a2615ff4415b5002c4" name="a13db83294d2e71a2615ff4415b5002c4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>printWiFiStatus</b> ()</td></tr>
 <tr class="memdesc:a13db83294d2e71a2615ff4415b5002c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log the current WiFi status. <br /></td></tr>
 <tr class="separator:a13db83294d2e71a2615ff4415b5002c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a031591562837eb675fe04d893fb1951f" name="a031591562837eb675fe04d893fb1951f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031591562837eb675fe04d893fb1951f">&#9670;&#160;</a></span>getBroadcastIP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IPAddress BuggyWiFi::getBroadcastIP </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the broadcast IP address of the current connected networ. </p>
+<dl class="section return"><dt>Returns</dt><dd>The broadcast IP address. </dd></dl>
+
+</div>
+</div>
+<a id="a75f423e8b24cfee97ac1a89a588db4ef" name="a75f423e8b24cfee97ac1a89a588db4ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f423e8b24cfee97ac1a89a588db4ef">&#9670;&#160;</a></span>isSetup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BuggyWiFi::isSetup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns if the AP was setup. </p>
+<dl class="section return"><dt>Returns</dt><dd>the setup state of the access point </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>BuggySoftware/<a class="el" href="BuggyWifi_8hpp_source.html">BuggyWifi.hpp</a></li>
 <li>BuggySoftware/<b>BuggyWifi.cpp</b></li>

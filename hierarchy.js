@@ -38,7 +38,9 @@ var hierarchy =
     [ "PIDController", "classPIDController.html", null ],
     [ "EmbeddedLogger::Logger::Precision", "structEmbeddedLogger_1_1Logger_1_1Precision.html", null ],
     [ "StatusPacket", "structStatusPacket.html", null ],
-    [ "TcpServer", "classTcpServer.html", null ],
+    [ "TcpServer", "classTcpServer.html", [
+      [ "UdpServer", "classUdpServer.html", null ]
+    ] ],
     [ "UltrasonicSensor", "classUltrasonicSensor.html", null ],
     [ "UltrasonicSensorPinGroup", "structUltrasonicSensorPinGroup.html", null ]
 ];

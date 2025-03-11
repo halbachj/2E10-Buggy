@@ -20,6 +20,7 @@ var dir_f39fb8b7a855060c391429e67cd03caa =
     [ "SerialLogger.hpp", "SerialLogger_8hpp_source.html", null ],
     [ "SerialWirelessLogger.hpp", "SerialWirelessLogger_8hpp_source.html", null ],
     [ "Timer1.hpp", "Timer1_8hpp.html", null ],
+    [ "UdpServer.hpp", "UdpServer_8hpp_source.html", null ],
     [ "UltrasonicSensor.hpp", "UltrasonicSensor_8hpp_source.html", null ],
     [ "WirelessLogger.hpp", "WirelessLogger_8hpp_source.html", null ]
 ];

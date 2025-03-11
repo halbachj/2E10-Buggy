@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Buggy: BuggySoftware/SerialWirelessLogger.hpp Source File</title>
+<title>Buggy: BuggySoftware/UdpServer.hpp Source File</title>
 <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
 <script type="text/javascript">
     DoxygenAwesomeDarkModeToggle.init()
@@ -82,7 +82,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('SerialWirelessLogger_8hpp_source.html',''); initResizable(true); });
+$(function(){initNavTree('UdpServer_8hpp_source.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -108,44 +108,44 @@ $(function(){initNavTree('SerialWirelessLogger_8hpp_source.html',''); initResiza
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SerialWirelessLogger.hpp</div></div>
+  <div class="headertitle"><div class="title">UdpServer.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SERIALWIRELESS_LOGGER_INTERFACE_HPP</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SERIALWIRELESS_LOGGER_INTERFACE_HPP</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BUGGY_UDP_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BUGGY_UDP_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;SerialLogger.hpp&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;WirelessLogger.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Arduino.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;BuggyTCP.hpp&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;PacketFactory.hpp&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>EmbeddedLogger {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classEmbeddedLogger_1_1SerialWirelessLogger.html">   13</a></span><span class="keyword">class </span>SerialWirelessLogger : <span class="keyword">public</span> SerialLogger, <span class="keyword">public</span> WirelessLogger {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  SerialWirelessLogger(<a class="code hl_class" href="classTcpServer.html">TcpServer</a> server) : WirelessLogger(server) {};</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keywordtype">void</span> write(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> length)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">//SerialLogger::write(data, length);</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">//WirelessLogger::write(data, length);</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
-</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;BuggyTCP.hpp&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classUdpServer.html">   15</a></span><span class="keyword">class </span><a class="code hl_function" href="classUdpServer.html#a54787b67e84ea9de4c9d309d51f821df">UdpServer</a> : <span class="keyword">public</span> <a class="code hl_function" href="classTcpServer.html#af6c94855227b723a7195d221f3663d10">TcpServer</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keywordtype">bool</span> setupDone = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> serverPort;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  WiFiUDP server;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  IPAddress broadcastAddress;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keywordtype">char</span> input_buffer[MAX_PACKET_LENGTH];</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif </span><span class="comment">//SERIALWIRELESS_LOGGER_INTERFACE_HPP</span></div>
-<div class="ttc" id="aclassTcpServer_html"><div class="ttname"><a href="classTcpServer.html">TcpServer</a></div><div class="ttdoc">The TCP server class provides functionality for setting up and managing a basic TCP server using Wi-F...</div><div class="ttdef"><b>Definition</b> BuggyTCP.hpp:17</div></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <a class="code hl_function" href="classUdpServer.html#a54787b67e84ea9de4c9d309d51f821df">UdpServer</a>(<span class="keywordtype">int</span> port=1234);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classTcpServer.html#acfbd895aae6f14876257683adf8b1b79">setup</a>(IPAddress broadcastAddress);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <a class="code hl_struct" href="structPacket.html">Packet</a> <a class="code hl_function" href="classUdpServer.html#ac6975cd47fb46c926418d596d77da03f">update</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classUdpServer.html#aadca574635a3d066f9470be9f25ef433">sendPacket</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structPacket.html">Packet</a> packet);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif </span><span class="comment">//BUGGY_UDP_HPP</span></div>
+<div class="ttc" id="aclassTcpServer_html_acfbd895aae6f14876257683adf8b1b79"><div class="ttname"><a href="classTcpServer.html#acfbd895aae6f14876257683adf8b1b79">TcpServer::setup</a></div><div class="ttdeci">void setup()</div><div class="ttdoc">Setup method for the TCP server. needs to be called during setup.</div><div class="ttdef"><b>Definition</b> BuggyTCP.cpp:12</div></div>
+<div class="ttc" id="aclassTcpServer_html_af6c94855227b723a7195d221f3663d10"><div class="ttname"><a href="classTcpServer.html#af6c94855227b723a7195d221f3663d10">TcpServer::TcpServer</a></div><div class="ttdeci">TcpServer(int port=1234)</div><div class="ttdoc">Construct the TCP server on the specified port.</div><div class="ttdef"><b>Definition</b> BuggyTCP.cpp:8</div></div>
+<div class="ttc" id="aclassUdpServer_html_a54787b67e84ea9de4c9d309d51f821df"><div class="ttname"><a href="classUdpServer.html#a54787b67e84ea9de4c9d309d51f821df">UdpServer::UdpServer</a></div><div class="ttdeci">UdpServer(int port=1234)</div><div class="ttdoc">Construct the UDP server on the specified port.</div><div class="ttdef"><b>Definition</b> UdpServer.cpp:8</div></div>
+<div class="ttc" id="aclassUdpServer_html_aadca574635a3d066f9470be9f25ef433"><div class="ttname"><a href="classUdpServer.html#aadca574635a3d066f9470be9f25ef433">UdpServer::sendPacket</a></div><div class="ttdeci">void sendPacket(const Packet packet)</div><div class="ttdoc">Will send a packet to all clients connected to the server.</div><div class="ttdef"><b>Definition</b> UdpServer.cpp:19</div></div>
+<div class="ttc" id="aclassUdpServer_html_ac6975cd47fb46c926418d596d77da03f"><div class="ttname"><a href="classUdpServer.html#ac6975cd47fb46c926418d596d77da03f">UdpServer::update</a></div><div class="ttdeci">Packet update()</div><div class="ttdoc">The update method handles the receiving of packets.</div><div class="ttdef"><b>Definition</b> UdpServer.cpp:27</div></div>
+<div class="ttc" id="astructPacket_html"><div class="ttname"><a href="structPacket.html">Packet</a></div><div class="ttdoc">Represents a generic packet containing different types of information.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:92</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_f39fb8b7a855060c391429e67cd03caa.html">BuggySoftware</a></li><li class="navelem"><b>SerialWirelessLogger.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_f39fb8b7a855060c391429e67cd03caa.html">BuggySoftware</a></li><li class="navelem"><b>UdpServer.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

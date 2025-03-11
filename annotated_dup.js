@@ -35,6 +35,7 @@ var annotated_dup =
     [ "PIDController", "classPIDController.html", "classPIDController" ],
     [ "StatusPacket", "structStatusPacket.html", "structStatusPacket" ],
     [ "TcpServer", "classTcpServer.html", "classTcpServer" ],
+    [ "UdpServer", "classUdpServer.html", "classUdpServer" ],
     [ "UltrasonicSensor", "classUltrasonicSensor.html", "classUltrasonicSensor" ],
     [ "UltrasonicSensorPinGroup", "structUltrasonicSensorPinGroup.html", "structUltrasonicSensorPinGroup" ]
 ];
