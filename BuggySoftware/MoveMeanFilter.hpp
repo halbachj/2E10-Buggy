@@ -9,15 +9,11 @@ using EmbeddedLogger::logger;
 template<typename T, size_t N>
 class MoveMeanFilter {
 private:
-  T buffer[N];
+  T buffer[N]{};
   size_t index = 0;
 
 public:
-  MoveMeanFilter() {
-    for (int i=0; i<N; ++i) {
-      buffer[i] = T();
-    }
-  }
+  MoveMeanFilter() = default;
 
   void push(T value) {
     ++this->index;
