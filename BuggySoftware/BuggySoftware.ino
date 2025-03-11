@@ -136,7 +136,7 @@ void setup() {
 
   logger << "INIT Done" << EmbeddedLogger::endl;
 
-  buggy.setState(DrivingStraightState::instance());
+  buggy.setState(JustDriveState::instance());
   leftMotor.forward();
   leftMotor.setSpeed(1000);
   rightMotor.forward();

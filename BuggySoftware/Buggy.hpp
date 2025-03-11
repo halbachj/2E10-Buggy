@@ -112,7 +112,7 @@ public:
   friend class ObjectDetectedState;
   friend class CalibrationState;
   friend class LineFollowingState;
-  friend class DrivingStraightState;
+  friend class JustDriveState;
   friend class ObjectDetectedHandlerState;
   friend class LineFollowingState;
 };

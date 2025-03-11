@@ -158,10 +158,10 @@ private:
 };
 
 
-class DrivingStraightState : public BuggyState {
+class JustDriveState : public BuggyState {
 public:
-    static DrivingStraightState& instance() {
-        static DrivingStraightState instance;
+    static JustDriveState& instance() {
+        static JustDriveState instance;
         return instance;
     }
 
@@ -170,7 +170,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
-    DrivingStraightState() = default;  // Private constructor for singleton pattern
+    JustDriveState() = default;  // Private constructor for singleton pattern
 };
 
 #endif //BUGGY_STATE
