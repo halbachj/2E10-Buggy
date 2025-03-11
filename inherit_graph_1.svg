@@ -38,9 +38,9 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classDrivingStraightState.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="245,-167 129,-167 129,-148 245,-148 245,-167"/>
-<text text-anchor="middle" x="187" y="-155" font-family="Helvetica,sans-Serif" font-size="10.00">DrivingStraightState</text>
+<g id="a_Node000002"><a xlink:href="classIdleState.html" target="_top" xlink:title="The idle state represents a state in which the buggy operates normaly but is not driving.">
+<polygon fill="white" stroke="#666666" points="217,-167 157,-167 157,-148 217,-148 217,-167"/>
+<text text-anchor="middle" x="187" y="-155" font-family="Helvetica,sans-Serif" font-size="10.00">IdleState</text>
 </a>
 </g>
 </g>
@@ -48,7 +48,7 @@
 <g id="edge2_Node000000_Node000002" class="edge">
 <title>Node0&#45;&gt;Node2</title>
 <g id="a_edge2_Node000000_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M61.28,-116.14C74.85,-123.98 92.43,-133.28 109,-139.5 117.74,-142.78 127.27,-145.59 136.55,-147.94"/>
+<path fill="none" stroke="#63b8ff" d="M61.28,-116.14C74.85,-123.98 92.43,-133.28 109,-139.5 124.42,-145.29 142.31,-149.61 156.95,-152.56"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="62.97,-113.08 52.58,-111 59.41,-119.1 62.97,-113.08"/>
 </a>
 </g>
@@ -56,9 +56,9 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classIdleState.html" target="_top" xlink:title="The idle state represents a state in which the buggy operates normaly but is not driving.">
-<polygon fill="white" stroke="#666666" points="217,-130 157,-130 157,-111 217,-111 217,-130"/>
-<text text-anchor="middle" x="187" y="-118" font-family="Helvetica,sans-Serif" font-size="10.00">IdleState</text>
+<g id="a_Node000003"><a xlink:href="classJustDriveState.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="230,-130 144,-130 144,-111 230,-111 230,-130"/>
+<text text-anchor="middle" x="187" y="-118" font-family="Helvetica,sans-Serif" font-size="10.00">JustDriveState</text>
 </a>
 </g>
 </g>
@@ -66,7 +66,7 @@
 <g id="edge3_Node000000_Node000003" class="edge">
 <title>Node0&#45;&gt;Node3</title>
 <g id="a_edge3_Node000000_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M83.02,-107.32C107,-110.39 135.7,-114.06 156.71,-116.75"/>
+<path fill="none" stroke="#63b8ff" d="M83.17,-107.34C102.51,-109.82 124.92,-112.68 143.86,-115.11"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="83.43,-103.85 73.07,-106.05 82.54,-110.79 83.43,-103.85"/>
 </a>
 </g>

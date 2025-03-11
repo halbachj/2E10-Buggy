@@ -2,10 +2,10 @@
 <area shape="rect" id="Node000000" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="5,129,103,155"/>
 <area shape="rect" id="Node000001" href="$classCalibrationState.html" title="The calibration state of the buggy is the first state it enters after being placed on the track...." alt="" coords="191,5,318,31"/>
 <area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="69,117,103,77,125,57,149,40,190,24,192,29,152,44,128,61,107,81,73,120"/>
-<area shape="rect" id="Node000002" href="$classDrivingStraightState.html" title=" " alt="" coords="177,55,332,80"/>
-<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="86,120,150,89,187,78,188,83,152,94,88,125"/>
-<area shape="rect" id="Node000003" href="$classIdleState.html" title="The idle state represents a state in which the buggy operates normaly but is not driving." alt="" coords="215,104,295,129"/>
-<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="116,132,214,119,215,124,116,137"/>
+<area shape="rect" id="Node000002" href="$classIdleState.html" title="The idle state represents a state in which the buggy operates normaly but is not driving." alt="" coords="215,55,295,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="86,120,150,89,214,71,215,76,152,94,88,125"/>
+<area shape="rect" id="Node000003" href="$classJustDriveState.html" title=" " alt="" coords="197,104,312,129"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="116,132,197,121,197,127,117,137"/>
 <area shape="rect" id="Node000004" href="$classLineFollowingState.html" title="In the Line following state the buggy is trying to follow the line using the IR sensors...." alt="" coords="182,153,327,179"/>
 <area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="116,147,182,155,182,160,116,152"/>
 <area shape="rect" id="Node000005" href="$classObjectDetectedHandlerState.html" title="This state is entered before the buggy goes into ObjectDetectedState. It is used to save the previous..." alt="" coords="151,203,359,228"/>

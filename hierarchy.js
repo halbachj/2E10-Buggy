@@ -3,8 +3,8 @@ var hierarchy =
     [ "Buggy", "classBuggy.html", null ],
     [ "BuggyState", "classBuggyState.html", [
       [ "CalibrationState", "classCalibrationState.html", null ],
-      [ "DrivingStraightState", "classDrivingStraightState.html", null ],
       [ "IdleState", "classIdleState.html", null ],
+      [ "JustDriveState", "classJustDriveState.html", null ],
       [ "LineFollowingState", "classLineFollowingState.html", null ],
       [ "ObjectDetectedHandlerState", "classObjectDetectedHandlerState.html", null ],
       [ "ObjectDetectedState", "classObjectDetectedState.html", null ]
