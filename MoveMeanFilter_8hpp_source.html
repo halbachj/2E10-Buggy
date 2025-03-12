@@ -133,25 +133,25 @@ $(function(){initNavTree('MoveMeanFilter_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">void</span> push(T value) {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    ++this-&gt;index;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    this-&gt;index %= N;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    this-&gt;index = this-&gt;index % N;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    this-&gt;buffer[this-&gt;index] = value;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    logger &lt;&lt; logLevel::DEBUG &lt;&lt; <span class="stringliteral">&quot;Writing buffer at &quot;</span> &lt;&lt; this-&gt;index &lt;&lt; EmbeddedLogger::endl;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">//logger &lt;&lt; logLevel::DEBUG &lt;&lt; &quot;Writing buffer at &quot; &lt;&lt; this-&gt;index &lt;&lt; &quot; value &quot; &lt;&lt; value &lt;&lt; EmbeddedLogger::endl;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  }</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">float</span> getMean() {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    logger &lt;&lt; logLevel::DEBUG;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">//logger &lt;&lt; logLevel::DEBUG;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> size = N;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">float</span> sum = 0;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (this-&gt;filled) {   <span class="comment">// if the buffer is not filled only consider the values up until index</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (!this-&gt;filled) {   <span class="comment">// if the buffer is not filled only consider the values up until index</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      size = this-&gt;index;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      this-&gt;filled = size/(N-1); <span class="comment">// will be 1 when size == N, then it will consider the buffer to be full</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;N; i++) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;size; i++) {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      sum += this-&gt;buffer[i];</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      logger &lt;&lt; this-&gt;buffer[i] &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <span class="comment">//logger &lt;&lt; this-&gt;buffer[i] &lt;&lt; &quot;,&quot;;</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    logger &lt;&lt; EmbeddedLogger::endl;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    logger &lt;&lt; logLevel::DEBUG &lt;&lt; <span class="stringliteral">&quot;size is &quot;</span> &lt;&lt; size &lt;&lt; <span class="stringliteral">&quot; Sum is &quot;</span> &lt;&lt; sum &lt;&lt; EmbeddedLogger::endl;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">//logger &lt;&lt; EmbeddedLogger::endl;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">//logger &lt;&lt; logLevel::DEBUG &lt;&lt; &quot;size is &quot; &lt;&lt; size &lt;&lt; &quot; Sum is &quot; &lt;&lt; sum &lt;&lt; EmbeddedLogger::endl;</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> sum/size;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  }</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
