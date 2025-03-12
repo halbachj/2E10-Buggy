@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 #include "PinSetup.hpp"
+#include "MoveMeanFilter.hpp"
 
 
 /**
@@ -22,6 +23,8 @@ private:
   volatile unsigned long startTime, endTime; ///< Variables for timing the echo measurement.
   unsigned long last_trigger = 0; ///< Timestamp of the last trigger event.
 
+  static const size_t filter_window = 200;
+  MoveMeanFilter<float, filter_window> filter = MoveMeanFilter<float, filter_window>();
 
   /**
    * @brief Sends a trigger pulse to initiate an ultrasonic measurement.

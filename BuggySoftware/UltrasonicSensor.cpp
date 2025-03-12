@@ -26,6 +26,7 @@ void UltrasonicSensor::ISR_UltrasonicEcho() {
 void UltrasonicSensor::update() {
   if(millis() - this->endTime > this->trigger_interval ) {
     this->echoDuration = this->endTime - this->startTime;
+    this->filter.push(echoDuration / 58.3);
     this->trigger();
   }
 }
@@ -41,5 +42,5 @@ bool UltrasonicSensor::objectDetected() {
 }
 
 float UltrasonicSensor::getReading() {
-  return echoDuration / 58.3;
+  return this->filter.getMean();
 }
