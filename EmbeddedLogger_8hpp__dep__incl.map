@@ -1,30 +1,35 @@
 <map id="BuggySoftware/EmbeddedLogger.hpp" name="BuggySoftware/EmbeddedLogger.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="303,5,567,31"/>
-<area shape="rect" id="Node000002" href="$Buggy_8hpp_source.html" title=" " alt="" coords="396,328,586,353"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="581,18,661,24,738,34,803,51,828,63,844,76,863,86,888,88,916,89,938,95,946,102,949,113,947,128,939,147,904,201,837,282,820,295,796,306,733,322,659,333,587,339,586,333,659,327,732,317,794,301,817,290,833,278,900,197,935,144,942,126,944,114,941,105,936,100,915,94,888,93,861,91,841,81,825,67,801,56,737,40,660,29,581,24"/>
-<area shape="rect" id="Node000003" href="$BuggySoftware_8ino.html" title="This is the main entry point for the Buggy software." alt="" coords="89,401,336,427"/>
-<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="289,27,213,34,138,44,75,60,51,69,34,81,17,100,10,120,10,171,10,261,14,288,26,312,44,334,66,352,118,380,168,399,166,404,116,385,63,356,40,337,21,315,9,290,4,262,4,171,5,119,13,98,31,77,49,65,73,55,137,39,212,28,289,22"/>
-<area shape="rect" id="Node000005" href="$MoveMeanFilter_8hpp_source.html" title=" " alt="" coords="575,79,831,104"/>
-<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="492,32,660,76,659,81,491,37"/>
-<area shape="rect" id="Node000009" href="$SerialLogger_8hpp_source.html" title=" " alt="" coords="319,79,551,104"/>
-<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="438,44,438,79,432,79,432,44"/>
-<area shape="rect" id="Node000011" href="$WirelessLogger_8hpp_source.html" title=" " alt="" coords="44,79,295,104"/>
-<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="380,37,213,81,212,76,378,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="434,359,258,404,257,399,432,354"/>
-<area shape="rect" id="Node000004" href="$BuggyState_8hpp_source.html" title=" " alt="" coords="378,401,604,427"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="485,367,487,401,481,401,480,367"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="497,388,495,354,500,354,502,388"/>
-<area shape="rect" id="Node000006" href="$MotorDriver_8hpp_source.html" title=" " alt="" coords="376,159,606,185"/>
-<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="660,111,523,162,521,157,659,106"/>
-<area shape="rect" id="Node000008" href="$UltrasonicSensor_8hpp_source.html" title=" " alt="" coords="632,240,822,280"/>
-<area shape="poly" id="edge11_Node000005_Node000008" title=" " alt="" coords="709,117,727,239,722,240,704,118"/>
-<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="431,192,393,212,377,225,364,241,357,260,364,279,378,295,395,308,435,325,432,330,392,312,374,299,359,281,352,260,359,239,373,221,390,207,428,187"/>
-<area shape="rect" id="Node000007" href="$LineFollower_8hpp_source.html" title=" " alt="" coords="374,247,608,273"/>
-<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="494,199,494,247,488,247,488,199"/>
-<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="494,286,494,328,488,328,488,286"/>
-<area shape="poly" id="edge12_Node000008_Node000002" title=" " alt="" coords="658,287,526,330,525,325,656,282"/>
-<area shape="rect" id="Node000010" href="$SerialWirelessLogger_8hpp_source.html" title=" " alt="" coords="104,152,321,192"/>
-<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="390,111,267,154,265,149,389,106"/>
-<area shape="poly" id="edge15_Node000010_Node000003" title=" " alt="" coords="215,206,215,401,210,401,210,206"/>
-<area shape="poly" id="edge17_Node000011_Node000010" title=" " alt="" coords="185,115,204,151,200,153,180,117"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="481,5,745,31"/>
+<area shape="rect" id="Node000002" href="$Buggy_8hpp_source.html" title=" " alt="" coords="121,328,311,353"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="468,25,346,42,282,58,218,79,157,107,101,143,53,187,14,241,9,258,10,272,19,285,33,296,73,314,121,326,120,331,71,319,30,301,15,289,5,274,3,258,10,239,49,184,98,139,154,103,216,74,280,53,345,37,467,20"/>
+<area shape="rect" id="Node000003" href="$BuggySoftware_8ino.html" title="This is the main entry point for the Buggy software." alt="" coords="422,401,669,427"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="616,44,616,171,616,261,610,310,590,355,574,381,558,403,553,400,570,378,586,352,605,308,611,261,611,171,611,44"/>
+<area shape="rect" id="Node000005" href="$MoveMeanFilter_8hpp_source.html" title=" " alt="" coords="280,79,536,104"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="568,38,442,81,440,76,567,33"/>
+<area shape="rect" id="Node000010" href="$SerialLogger_8hpp_source.html" title=" " alt="" coords="925,79,1157,104"/>
+<area shape="poly" id="edge17_Node000001_Node000010" title=" " alt="" coords="696,30,973,76,972,81,695,36"/>
+<area shape="rect" id="Node000012" href="$WirelessLogger_8hpp_source.html" title=" " alt="" coords="651,79,901,104"/>
+<area shape="poly" id="edge20_Node000001_Node000012" title=" " alt="" coords="653,34,750,76,748,81,651,39"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="283,354,493,399,491,404,281,359"/>
+<area shape="rect" id="Node000004" href="$BuggyState_8hpp_source.html" title=" " alt="" coords="103,401,329,427"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="210,367,212,401,206,401,205,367"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="222,388,220,354,226,354,227,388"/>
+<area shape="rect" id="Node000006" href="$MotorDriver_8hpp_source.html" title=" " alt="" coords="293,159,523,185"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="411,118,411,159,405,159,405,118"/>
+<area shape="rect" id="Node000009" href="$UltrasonicSensor_8hpp_source.html" title=" " alt="" coords="25,240,215,280"/>
+<area shape="poly" id="edge14_Node000005_Node000009" title=" " alt="" coords="369,112,283,154,208,200,148,242,145,238,205,196,280,150,367,107"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="363,192,321,213,280,242,261,263,245,287,223,329,219,326,240,285,257,260,277,238,318,209,361,187"/>
+<area shape="rect" id="Node000007" href="$CruiseControl_8hpp_source.html" title=" " alt="" coords="336,328,576,353"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="470,187,508,207,525,221,538,239,545,260,538,281,528,297,514,311,484,330,481,326,510,307,523,294,534,279,540,260,534,241,521,225,505,211,467,192"/>
+<area shape="rect" id="Node000008" href="$LineFollower_8hpp_source.html" title=" " alt="" coords="291,247,525,273"/>
+<area shape="poly" id="edge11_Node000006_Node000008" title=" " alt="" coords="411,199,411,247,405,247,405,199"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="483,360,532,399,529,403,479,364"/>
+<area shape="poly" id="edge12_Node000008_Node000002" title=" " alt="" coords="368,280,245,330,243,326,366,275"/>
+<area shape="poly" id="edge13_Node000008_Node000007" title=" " alt="" coords="424,283,451,326,447,329,420,286"/>
+<area shape="poly" id="edge15_Node000009_Node000002" title=" " alt="" coords="155,287,203,326,200,330,152,291"/>
+<area shape="poly" id="edge16_Node000009_Node000007" title=" " alt="" coords="214,280,407,325,406,331,213,286"/>
+<area shape="rect" id="Node000011" href="$SerialWirelessLogger_8hpp_source.html" title=" " alt="" coords="667,152,885,192"/>
+<area shape="poly" id="edge18_Node000010_Node000011" title=" " alt="" coords="990,110,841,154,839,149,989,105"/>
+<area shape="poly" id="edge19_Node000011_Node000003" title=" " alt="" coords="758,205,705,277,671,317,634,355,599,383,567,403,564,399,596,378,630,351,667,314,701,273,754,202"/>
+<area shape="poly" id="edge21_Node000012_Node000011" title=" " alt="" coords="779,118,779,152,773,152,773,118"/>
 </map>

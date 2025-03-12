@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classUltrasonicSensor.html" title="Handles ultrasonic sensor operations, including triggering and measuring distance." alt="" coords="5,5,137,31"/>
+<area shape="rect" id="Node000000" href="$classTcpServer.html" title="The TCP server class provides functionality for setting up and managing a basic TCP server using Wi&#45;F..." alt="" coords="5,5,91,31"/>
+<area shape="rect" id="Node000001" href="$classUdpServer.html" title="The UDP server class provides functionality for setting up and managing a basic UDP server using Wi&#45;F..." alt="" coords="139,5,229,31"/>
+<area shape="poly" id="edge12_Node000000_Node000001" title=" " alt="" coords="104,15,138,15,138,21,104,21"/>
 </map>

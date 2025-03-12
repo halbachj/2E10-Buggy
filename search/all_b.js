@@ -8,7 +8,7 @@ var searchData=
   ['leftmotorpid_5',['leftMotorPID',['../BuggySoftware_8ino.html#a358d734f43830cdd6834d1116a956ecf',1,'BuggySoftware.ino']]],
   ['leftmotorpinout_6',['leftMotorPinout',['../BuggySoftware_8ino.html#a45a600971962c1bece48f05997535af0',1,'BuggySoftware.ino']]],
   ['leftmotorspeed_7',['leftMotorSpeed',['../structStatusPacket.html#afd93f5a16ab8a64d2bf38280533b7404',1,'StatusPacket']]],
-  ['linefollower_8',['LineFollower',['../classLineFollower.html',1,'LineFollower'],['../classLineFollower.html#a5d768334facabfd1e4ca28456abd77df',1,'LineFollower::LineFollower()']]],
+  ['linefollower_8',['LineFollower',['../classLineFollower.html',1,'LineFollower'],['../classCruiseControl.html#ab6a59a218c1c5c8465ed0e326e78ae20',1,'CruiseControl::LineFollower()'],['../classLineFollower.html#a5d768334facabfd1e4ca28456abd77df',1,'LineFollower::LineFollower()']]],
   ['linefollowingstate_9',['LineFollowingState',['../classLineFollowingState.html',1,'']]],
   ['list_10',['Todo List',['../todo.html',1,'']]],
   ['logger_11',['Logger',['../classEmbeddedLogger_1_1Logger.html',1,'EmbeddedLogger']]],

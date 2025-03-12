@@ -3,6 +3,7 @@ var hierarchy =
     [ "Buggy", "classBuggy.html", null ],
     [ "BuggyState", "classBuggyState.html", [
       [ "CalibrationState", "classCalibrationState.html", null ],
+      [ "CruiseControlState", "classCruiseControlState.html", null ],
       [ "IdleState", "classIdleState.html", null ],
       [ "JustDriveState", "classJustDriveState.html", null ],
       [ "LineFollowingState", "classLineFollowingState.html", null ],
@@ -13,6 +14,7 @@ var hierarchy =
     [ "BuggyWifi", "classBuggyWifi.html", null ],
     [ "CommandPacket", "structCommandPacket.html", null ],
     [ "ControlPacket", "structControlPacket.html", null ],
+    [ "CruiseControl", "classCruiseControl.html", null ],
     [ "EmbeddedLogger::ILogTarget", "classEmbeddedLogger_1_1ILogTarget.html", [
       [ "EmbeddedLogger::SerialLogger", "classEmbeddedLogger_1_1SerialLogger.html", [
         [ "EmbeddedLogger::SerialWirelessLogger", "classEmbeddedLogger_1_1SerialWirelessLogger.html", null ]

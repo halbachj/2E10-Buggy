@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 714;
+var viewWidth = 872;
 var viewHeight = 324;
 var sectionId = 'dynsection-1';
 </script>
@@ -59,8 +59,8 @@ var sectionId = 'dynsection-1';
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title=" ">
-<polygon fill="#999999" stroke="#666666" points="421.21,-316 223.21,-316 223.21,-297 421.21,-297 421.21,-316"/>
-<text text-anchor="middle" x="322.21" y="-304" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/EmbeddedLogger.hpp</text>
+<polygon fill="#999999" stroke="#666666" points="554.98,-316 356.98,-316 356.98,-297 554.98,-297 554.98,-316"/>
+<text text-anchor="middle" x="455.98" y="-304" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/EmbeddedLogger.hpp</text>
 </a>
 </g>
 </g>
@@ -68,8 +68,8 @@ var sectionId = 'dynsection-1';
 <g id="Node000002" class="node">
 <title>Node2</title>
 <g id="a_Node000002"><a xlink:href="Buggy_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="435.71,-74 292.71,-74 292.71,-55 435.71,-55 435.71,-74"/>
-<text text-anchor="middle" x="364.21" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/Buggy.hpp</text>
+<polygon fill="white" stroke="#666666" points="229.48,-74 86.48,-74 86.48,-55 229.48,-55 229.48,-74"/>
+<text text-anchor="middle" x="157.98" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/Buggy.hpp</text>
 </a>
 </g>
 </g>
@@ -77,8 +77,8 @@ var sectionId = 'dynsection-1';
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node1&#45;&gt;Node2</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M431.71,-304.21C508.9,-300.7 602.87,-290.29 628.21,-261 653.93,-231.26 792.73,-303.36 622.21,-110 598.19,-82.77 503.68,-72.2 436.01,-68.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="431.27,-300.72 421.42,-304.64 431.56,-307.71 431.27,-300.72"/>
+<path fill="none" stroke="#63b8ff" d="M346.49,-302.96C235.36,-293.54 70.62,-258.97 4.98,-140 -15.94,-102.1 37.19,-83.18 86.47,-73.93"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="346.49,-306.47 356.74,-303.77 347.04,-299.49 346.49,-306.47"/>
 </a>
 </g>
 </g>
@@ -86,8 +86,8 @@ var sectionId = 'dynsection-1';
 <g id="Node000003" class="node">
 <title>Node3</title>
 <g id="a_Node000003"><a xlink:href="BuggySoftware_8ino.html" target="_top" xlink:title="This is the main entry point for the Buggy software.">
-<polygon fill="white" stroke="#666666" points="247.71,-19 62.71,-19 62.71,0 247.71,0 247.71,-19"/>
-<text text-anchor="middle" x="155.21" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/BuggySoftware.ino</text>
+<polygon fill="white" stroke="#666666" points="497.48,-19 312.48,-19 312.48,0 497.48,0 497.48,-19"/>
+<text text-anchor="middle" x="404.98" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/BuggySoftware.ino</text>
 </a>
 </g>
 </g>
@@ -95,8 +95,8 @@ var sectionId = 'dynsection-1';
 <g id="edge5_Node000001_Node000003" class="edge">
 <title>Node1&#45;&gt;Node3</title>
 <g id="a_edge5_Node000001_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M212.75,-301.72C138.31,-296.91 48.4,-285.94 20.21,-261 -3.62,-239.93 1.21,-223.81 1.21,-192 1.21,-192 1.21,-192 1.21,-124 1.21,-64.71 76.08,-32.92 121.41,-19.11"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="212.95,-305.24 223.15,-302.36 213.38,-298.26 212.95,-305.24"/>
+<path fill="none" stroke="#63b8ff" d="M455.98,-286.81C455.98,-264.31 455.98,-225.39 455.98,-192 455.98,-192 455.98,-192 455.98,-124 455.98,-92.19 450.7,-83.7 436.98,-55 430.49,-41.44 419.82,-27.66 412.6,-19.11"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="452.48,-286.96 455.98,-296.96 459.48,-286.96 452.48,-286.96"/>
 </a>
 </g>
 </g>
@@ -104,8 +104,8 @@ var sectionId = 'dynsection-1';
 <g id="Node000005" class="node">
 <title>Node5</title>
 <g id="a_Node000005"><a xlink:href="MoveMeanFilter_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="619.21,-261 427.21,-261 427.21,-242 619.21,-242 619.21,-261"/>
-<text text-anchor="middle" x="523.21" y="-249" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/MoveMeanFilter.hpp</text>
+<polygon fill="white" stroke="#666666" points="397.98,-261 205.98,-261 205.98,-242 397.98,-242 397.98,-261"/>
+<text text-anchor="middle" x="301.98" y="-249" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/MoveMeanFilter.hpp</text>
 </a>
 </g>
 </g>
@@ -113,44 +113,44 @@ var sectionId = 'dynsection-1';
 <g id="edge6_Node000001_Node000005" class="edge">
 <title>Node1&#45;&gt;Node5</title>
 <g id="a_edge6_Node000001_Node000005"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M364.64,-294.31C402.25,-284.39 456.38,-270.12 490.66,-261.08"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="363.28,-291.05 354.5,-296.98 365.06,-297.82 363.28,-291.05"/>
+<path fill="none" stroke="#63b8ff" d="M421.6,-293.67C392.88,-283.79 352.62,-269.93 326.91,-261.08"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="420.64,-297.04 431.23,-296.98 422.92,-290.42 420.64,-297.04"/>
 </a>
 </g>
 </g>
-<!-- Node9 -->
-<g id="Node000009" class="node">
-<title>Node9</title>
-<g id="a_Node000009"><a xlink:href="SerialLogger_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="409.21,-261 235.21,-261 235.21,-242 409.21,-242 409.21,-261"/>
-<text text-anchor="middle" x="322.21" y="-249" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/SerialLogger.hpp</text>
+<!-- Node10 -->
+<g id="Node000010" class="node">
+<title>Node10</title>
+<g id="a_Node000010"><a xlink:href="SerialLogger_8hpp_source.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="863.98,-261 689.98,-261 689.98,-242 863.98,-242 863.98,-261"/>
+<text text-anchor="middle" x="776.98" y="-249" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/SerialLogger.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node9 -->
-<g id="edge13_Node000001_Node000009" class="edge">
-<title>Node1&#45;&gt;Node9</title>
-<g id="a_edge13_Node000001_Node000009"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M322.21,-286.66C322.21,-277.93 322.21,-267.99 322.21,-261.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="318.71,-286.75 322.21,-296.75 325.71,-286.75 318.71,-286.75"/>
+<!-- Node1&#45;&gt;Node10 -->
+<g id="edge17_Node000001_Node000010" class="edge">
+<title>Node1&#45;&gt;Node10</title>
+<g id="a_edge17_Node000001_Node000010"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M517.69,-295.31C577.97,-285.36 668.67,-270.38 725.26,-261.04"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="516.85,-291.9 507.55,-296.98 517.99,-298.81 516.85,-291.9"/>
 </a>
 </g>
 </g>
-<!-- Node11 -->
-<g id="Node000011" class="node">
-<title>Node11</title>
-<g id="a_Node000011"><a xlink:href="WirelessLogger_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="217.21,-261 29.21,-261 29.21,-242 217.21,-242 217.21,-261"/>
-<text text-anchor="middle" x="123.21" y="-249" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/WirelessLogger.hpp</text>
+<!-- Node12 -->
+<g id="Node000012" class="node">
+<title>Node12</title>
+<g id="a_Node000012"><a xlink:href="WirelessLogger_8hpp_source.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="671.98,-261 483.98,-261 483.98,-242 671.98,-242 671.98,-261"/>
+<text text-anchor="middle" x="577.98" y="-249" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/WirelessLogger.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node11 -->
-<g id="edge16_Node000001_Node000011" class="edge">
-<title>Node1&#45;&gt;Node11</title>
-<g id="a_edge16_Node000001_Node000011"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M280.19,-294.31C242.96,-284.39 189.37,-270.12 155.43,-261.08"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="279.67,-297.79 290.23,-296.98 281.47,-291.03 279.67,-297.79"/>
+<!-- Node1&#45;&gt;Node12 -->
+<g id="edge20_Node000001_Node000012" class="edge">
+<title>Node1&#45;&gt;Node12</title>
+<g id="a_edge20_Node000001_Node000012"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M484.99,-292.9C507.52,-283.11 538.17,-269.79 558.02,-261.17"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="483.35,-289.79 475.58,-296.98 486.14,-296.21 483.35,-289.79"/>
 </a>
 </g>
 </g>
@@ -158,8 +158,8 @@ var sectionId = 'dynsection-1';
 <g id="edge2_Node000002_Node000003" class="edge">
 <title>Node2&#45;&gt;Node3</title>
 <g id="a_edge2_Node000002_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M320.83,-52.5C281.7,-42.58 224.92,-28.18 189.05,-19.08"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="320.07,-55.92 330.63,-54.98 321.79,-49.13 320.07,-55.92"/>
+<path fill="none" stroke="#63b8ff" d="M207.48,-52.88C253.77,-42.94 322.04,-28.3 364.98,-19.08"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="206.7,-49.46 197.66,-54.98 208.17,-56.31 206.7,-49.46"/>
 </a>
 </g>
 </g>
@@ -167,8 +167,8 @@ var sectionId = 'dynsection-1';
 <g id="Node000004" class="node">
 <title>Node4</title>
 <g id="a_Node000004"><a xlink:href="BuggyState_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="449.21,-19 279.21,-19 279.21,0 449.21,0 449.21,-19"/>
-<text text-anchor="middle" x="364.21" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/BuggyState.hpp</text>
+<polygon fill="white" stroke="#666666" points="242.98,-19 72.98,-19 72.98,0 242.98,0 242.98,-19"/>
+<text text-anchor="middle" x="157.98" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/BuggyState.hpp</text>
 </a>
 </g>
 </g>
@@ -176,8 +176,8 @@ var sectionId = 'dynsection-1';
 <g id="edge3_Node000002_Node000004" class="edge">
 <title>Node2&#45;&gt;Node4</title>
 <g id="a_edge3_Node000002_Node000004"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M357.71,-44.66C357.11,-35.93 357.57,-25.99 359.08,-19.09"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="354.27,-45.29 359.04,-54.75 361.21,-44.38 354.27,-45.29"/>
+<path fill="none" stroke="#63b8ff" d="M151.48,-44.66C150.88,-35.93 151.34,-25.99 152.84,-19.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="148.04,-45.29 152.81,-54.75 154.98,-44.38 148.04,-45.29"/>
 </a>
 </g>
 </g>
@@ -185,8 +185,8 @@ var sectionId = 'dynsection-1';
 <g id="edge4_Node000004_Node000002" class="edge">
 <title>Node4&#45;&gt;Node2</title>
 <g id="a_edge4_Node000004_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M370.68,-29.13C371.3,-37.85 370.87,-47.8 369.37,-54.75"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="374.14,-28.53 369.34,-19.09 367.2,-29.47 374.14,-28.53"/>
+<path fill="none" stroke="#63b8ff" d="M164.45,-29.13C165.07,-37.85 164.63,-47.8 163.14,-54.75"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="167.9,-28.53 163.11,-19.09 160.97,-29.47 167.9,-28.53"/>
 </a>
 </g>
 </g>
@@ -194,8 +194,8 @@ var sectionId = 'dynsection-1';
 <g id="Node000006" class="node">
 <title>Node6</title>
 <g id="a_Node000006"><a xlink:href="MotorDriver_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="450.21,-200.5 278.21,-200.5 278.21,-181.5 450.21,-181.5 450.21,-200.5"/>
-<text text-anchor="middle" x="364.21" y="-188.5" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/MotorDriver.hpp</text>
+<polygon fill="white" stroke="#666666" points="387.98,-200.5 215.98,-200.5 215.98,-181.5 387.98,-181.5 387.98,-200.5"/>
+<text text-anchor="middle" x="301.98" y="-188.5" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/MotorDriver.hpp</text>
 </a>
 </g>
 </g>
@@ -203,27 +203,27 @@ var sectionId = 'dynsection-1';
 <g id="edge7_Node000005_Node000006" class="edge">
 <title>Node5&#45;&gt;Node6</title>
 <g id="a_edge7_Node000005_Node000006"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M490.66,-238.52C459.91,-227.21 414.57,-210.53 387.35,-200.52"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="489.49,-241.83 500.09,-241.99 491.91,-235.26 489.49,-241.83"/>
+<path fill="none" stroke="#63b8ff" d="M301.98,-231.66C301.98,-221.24 301.98,-208.8 301.98,-200.67"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="298.48,-231.87 301.98,-241.87 305.48,-231.87 298.48,-231.87"/>
 </a>
 </g>
 </g>
-<!-- Node8 -->
-<g id="Node000008" class="node">
-<title>Node8</title>
-<g id="a_Node000008"><a xlink:href="UltrasonicSensor_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="612.71,-140 469.71,-140 469.71,-110 612.71,-110 612.71,-140"/>
-<text text-anchor="start" x="477.71" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/Ultrasonic</text>
-<text text-anchor="middle" x="541.21" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Sensor.hpp</text>
+<!-- Node9 -->
+<g id="Node000009" class="node">
+<title>Node9</title>
+<g id="a_Node000009"><a xlink:href="UltrasonicSensor_8hpp_source.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="157.48,-140 14.48,-140 14.48,-110 157.48,-110 157.48,-140"/>
+<text text-anchor="start" x="22.48" y="-128" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/Ultrasonic</text>
+<text text-anchor="middle" x="85.98" y="-117" font-family="Helvetica,sans-Serif" font-size="10.00">Sensor.hpp</text>
 </a>
 </g>
 </g>
-<!-- Node5&#45;&gt;Node8 -->
-<g id="edge11_Node000005_Node000008" class="edge">
-<title>Node5&#45;&gt;Node8</title>
-<g id="a_edge11_Node000005_Node000008"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M525.89,-231.91C529.52,-206.83 535.9,-162.72 539.16,-140.16"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="522.41,-231.54 524.44,-241.94 529.34,-232.55 522.41,-231.54"/>
+<!-- Node5&#45;&gt;Node9 -->
+<g id="edge14_Node000005_Node000009" class="edge">
+<title>Node5&#45;&gt;Node9</title>
+<g id="a_edge14_Node000005_Node000009"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M272.19,-237.89C253.18,-229.52 228.21,-217.91 206.98,-206 169.86,-185.18 129.01,-156.99 105.54,-140.23"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="270.97,-241.18 281.53,-241.96 273.76,-234.76 270.97,-241.18"/>
 </a>
 </g>
 </g>
@@ -231,17 +231,17 @@ var sectionId = 'dynsection-1';
 <g id="edge8_Node000006_Node000002" class="edge">
 <title>Node6&#45;&gt;Node2</title>
 <g id="a_edge8_Node000006_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M318.04,-177.89C298.83,-170.33 278.43,-158.41 267.21,-140 260.27,-128.62 260.01,-121.22 267.21,-110 279.16,-91.36 301.09,-80.43 321.08,-74.07"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="317.04,-181.25 327.63,-181.36 319.42,-174.67 317.04,-181.25"/>
+<path fill="none" stroke="#63b8ff" d="M267.7,-177.64C247.77,-169.23 223.1,-156.61 204.98,-140 183.78,-120.57 168.37,-89.5 161.68,-74.36"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="266.47,-180.91 277.05,-181.42 269.09,-174.42 266.47,-180.91"/>
 </a>
 </g>
 </g>
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="LineFollower_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="451.71,-134.5 276.71,-134.5 276.71,-115.5 451.71,-115.5 451.71,-134.5"/>
-<text text-anchor="middle" x="364.21" y="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/LineFollower.hpp</text>
+<g id="a_Node000007"><a xlink:href="CruiseControl_8hpp_source.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="427.98,-74 247.98,-74 247.98,-55 427.98,-55 427.98,-74"/>
+<text text-anchor="middle" x="337.98" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/CruiseControl.hpp</text>
 </a>
 </g>
 </g>
@@ -249,17 +249,35 @@ var sectionId = 'dynsection-1';
 <g id="edge9_Node000006_Node000007" class="edge">
 <title>Node6&#45;&gt;Node7</title>
 <g id="a_edge9_Node000006_Node000007"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M364.21,-171.08C364.21,-159.13 364.21,-144.22 364.21,-134.91"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="360.71,-171.37 364.21,-181.37 367.71,-171.37 360.71,-171.37"/>
+<path fill="none" stroke="#63b8ff" d="M347.25,-177.95C366.39,-170.37 386.8,-158.42 397.98,-140 404.89,-128.6 403.97,-121.91 397.98,-110 389.58,-93.32 371.64,-81.32 357.56,-74.02"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="345.9,-174.71 337.7,-181.42 348.3,-181.29 345.9,-174.71"/>
 </a>
 </g>
 </g>
-<!-- Node7&#45;&gt;Node2 -->
-<g id="edge10_Node000007_Node000002" class="edge">
-<title>Node7&#45;&gt;Node2</title>
-<g id="a_edge10_Node000007_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M364.21,-105.16C364.21,-94.74 364.21,-82.3 364.21,-74.17"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="360.71,-105.37 364.21,-115.37 367.71,-105.37 360.71,-105.37"/>
+<!-- Node8 -->
+<g id="Node000008" class="node">
+<title>Node8</title>
+<g id="a_Node000008"><a xlink:href="LineFollower_8hpp_source.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="389.48,-134.5 214.48,-134.5 214.48,-115.5 389.48,-115.5 389.48,-134.5"/>
+<text text-anchor="middle" x="301.98" y="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/LineFollower.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node6&#45;&gt;Node8 -->
+<g id="edge11_Node000006_Node000008" class="edge">
+<title>Node6&#45;&gt;Node8</title>
+<g id="a_edge11_Node000006_Node000008"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M301.98,-171.08C301.98,-159.13 301.98,-144.22 301.98,-134.91"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="298.48,-171.37 301.98,-181.37 305.48,-171.37 298.48,-171.37"/>
+</a>
+</g>
+</g>
+<!-- Node7&#45;&gt;Node3 -->
+<g id="edge10_Node000007_Node000003" class="edge">
+<title>Node7&#45;&gt;Node3</title>
+<g id="a_edge10_Node000007_Node000003"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M356.81,-48.6C368.81,-39.11 383.95,-27.13 394.01,-19.17"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="354.41,-46.04 348.74,-54.98 358.75,-51.53 354.41,-46.04"/>
 </a>
 </g>
 </g>
@@ -267,45 +285,72 @@ var sectionId = 'dynsection-1';
 <g id="edge12_Node000008_Node000002" class="edge">
 <title>Node8&#45;&gt;Node2</title>
 <g id="a_edge12_Node000008_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M488.99,-106.74C456.43,-95.98 415.94,-82.6 390.09,-74.05"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="488.22,-110.17 498.81,-109.99 490.41,-103.53 488.22,-110.17"/>
+<path fill="none" stroke="#63b8ff" d="M271.41,-111.58C243.59,-100.28 203.27,-83.9 178.94,-74.02"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="270.45,-114.97 281.04,-115.49 273.09,-108.49 270.45,-114.97"/>
 </a>
 </g>
 </g>
-<!-- Node10 -->
-<g id="Node000010" class="node">
-<title>Node10</title>
-<g id="a_Node000010"><a xlink:href="SerialWirelessLogger_8hpp_source.html" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="236.71,-206 73.71,-206 73.71,-176 236.71,-176 236.71,-206"/>
-<text text-anchor="start" x="81.71" y="-194" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/SerialWireless</text>
-<text text-anchor="middle" x="155.21" y="-183" font-family="Helvetica,sans-Serif" font-size="10.00">Logger.hpp</text>
+<!-- Node8&#45;&gt;Node7 -->
+<g id="edge13_Node000008_Node000007" class="edge">
+<title>Node8&#45;&gt;Node7</title>
+<g id="a_edge13_Node000008_Node000007"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M312.56,-106.8C319.16,-96.08 327.37,-82.73 332.64,-74.17"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="309.55,-105.02 307.29,-115.37 315.51,-108.69 309.55,-105.02"/>
 </a>
 </g>
 </g>
-<!-- Node9&#45;&gt;Node10 -->
-<g id="edge14_Node000009_Node000010" class="edge">
-<title>Node9&#45;&gt;Node10</title>
-<g id="a_edge14_Node000009_Node000010"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M288.19,-238.58C261.3,-229.16 223.71,-216 195.36,-206.06"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="287.33,-241.99 297.92,-241.99 289.64,-235.38 287.33,-241.99"/>
+<!-- Node9&#45;&gt;Node2 -->
+<g id="edge15_Node000009_Node000002" class="edge">
+<title>Node9&#45;&gt;Node2</title>
+<g id="a_edge15_Node000009_Node000002"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M111.17,-103.53C123.5,-93.51 137.69,-81.98 147.19,-74.27"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="108.96,-100.82 103.4,-109.84 113.37,-106.25 108.96,-100.82"/>
 </a>
 </g>
 </g>
-<!-- Node10&#45;&gt;Node3 -->
-<g id="edge15_Node000010_Node000003" class="edge">
-<title>Node10&#45;&gt;Node3</title>
-<g id="a_edge15_Node000010_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M155.21,-165.83C155.21,-125.29 155.21,-45.45 155.21,-19.13"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="151.71,-165.91 155.21,-175.91 158.71,-165.91 151.71,-165.91"/>
+<!-- Node9&#45;&gt;Node7 -->
+<g id="edge16_Node000009_Node000007" class="edge">
+<title>Node9&#45;&gt;Node7</title>
+<g id="a_edge16_Node000009_Node000007"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M156.16,-107.71C203.18,-96.79 263.2,-82.86 301.13,-74.05"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="155.29,-104.32 146.34,-109.99 156.87,-111.14 155.29,-104.32"/>
 </a>
 </g>
 </g>
-<!-- Node11&#45;&gt;Node10 -->
-<g id="edge17_Node000011_Node000010" class="edge">
-<title>Node11&#45;&gt;Node10</title>
-<g id="a_edge17_Node000011_Node000010"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M132.75,-233.05C137.45,-224.45 143.05,-214.21 147.49,-206.11"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="129.66,-231.42 127.93,-241.87 135.8,-234.77 129.66,-231.42"/>
+<!-- Node11 -->
+<g id="Node000011" class="node">
+<title>Node11</title>
+<g id="a_Node000011"><a xlink:href="SerialWirelessLogger_8hpp_source.html" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="659.48,-206 496.48,-206 496.48,-176 659.48,-176 659.48,-206"/>
+<text text-anchor="start" x="504.48" y="-194" font-family="Helvetica,sans-Serif" font-size="10.00">BuggySoftware/SerialWireless</text>
+<text text-anchor="middle" x="577.98" y="-183" font-family="Helvetica,sans-Serif" font-size="10.00">Logger.hpp</text>
+</a>
+</g>
+</g>
+<!-- Node10&#45;&gt;Node11 -->
+<g id="edge18_Node000010_Node000011" class="edge">
+<title>Node10&#45;&gt;Node11</title>
+<g id="a_edge18_Node000010_Node000011"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M738.12,-239.08C705.98,-229.63 660.2,-216.17 625.82,-206.06"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="737.46,-242.53 748.04,-241.99 739.43,-235.82 737.46,-242.53"/>
+</a>
+</g>
+</g>
+<!-- Node11&#45;&gt;Node3 -->
+<g id="edge19_Node000011_Node000003" class="edge">
+<title>Node11&#45;&gt;Node3</title>
+<g id="a_edge19_Node000011_Node000003"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M563.06,-167.45C543.7,-139.19 507.89,-90.19 469.98,-55 454.44,-40.58 433.89,-27.31 420.09,-19.08"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="560.25,-169.53 568.75,-175.85 566.04,-165.61 560.25,-169.53"/>
+</a>
+</g>
+</g>
+<!-- Node12&#45;&gt;Node11 -->
+<g id="edge21_Node000012_Node000011" class="edge">
+<title>Node12&#45;&gt;Node11</title>
+<g id="a_edge21_Node000012_Node000011"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M577.98,-231.65C577.98,-223.36 577.98,-213.78 577.98,-206.11"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="574.48,-231.87 577.98,-241.87 581.48,-231.87 574.48,-231.87"/>
 </a>
 </g>
 </g>

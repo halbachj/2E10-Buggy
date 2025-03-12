@@ -14,6 +14,8 @@ var annotated_dup =
     [ "CalibrationState", "classCalibrationState.html", null ],
     [ "CommandPacket", "structCommandPacket.html", "structCommandPacket" ],
     [ "ControlPacket", "structControlPacket.html", null ],
+    [ "CruiseControl", "classCruiseControl.html", "classCruiseControl" ],
+    [ "CruiseControlState", "classCruiseControlState.html", null ],
     [ "IdleState", "classIdleState.html", null ],
     [ "IrSensor", "classIrSensor.html", "classIrSensor" ],
     [ "JustDriveState", "classJustDriveState.html", null ],

@@ -6,7 +6,7 @@ var searchData=
   ['serialwirelesslogger_3',['SerialWirelessLogger',['../classEmbeddedLogger_1_1SerialWirelessLogger.html',1,'EmbeddedLogger']]],
   ['setcalibrationrange_4',['setCalibrationRange',['../classIrSensor.html#afae8bb53eee8d95ab680bb1bdaac8fd8',1,'IrSensor']]],
   ['setdetectionrange_5',['setDetectionRange',['../classUltrasonicSensor.html#a17d97791899bca44be932d2c6fb27cd5',1,'UltrasonicSensor']]],
-  ['setspeed_6',['setSpeed',['../classMotorDriver.html#a78bad5e883f6f4f02f376a2890b3f41a',1,'MotorDriver']]],
+  ['setspeed_6',['setSpeed',['../classLineFollower.html#aabb07dbedae7dffeca30dc03b5a12ca2',1,'LineFollower::setSpeed()'],['../classMotorDriver.html#a78bad5e883f6f4f02f376a2890b3f41a',1,'MotorDriver::setSpeed()']]],
   ['setstate_7',['setState',['../classBuggy.html#a6ec6b72a75e112f777e8c6754a70012b',1,'Buggy']]],
   ['setup_8',['setup',['../classTcpServer.html#acfbd895aae6f14876257683adf8b1b79',1,'TcpServer::setup()'],['../classUdpServer.html#af71909d685bc69b3353636aeae0b0c5c',1,'UdpServer::setup()'],['../BuggySoftware_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;BuggySoftware.ino']]],
   ['setup_5fap_9',['setup_ap',['../classBuggyWiFi.html#aeb09f971541dce0b5900083d605c05bc',1,'BuggyWiFi']]],

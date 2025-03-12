@@ -127,6 +127,7 @@ $(function(){initNavTree('BuggySoftware_8ino.html',''); initResizable(true); });
 <code>#include &quot;PIDController.hpp&quot;</code><br />
 <code>#include &quot;PacketFactory.hpp&quot;</code><br />
 <code>#include &quot;Matrix.hpp&quot;</code><br />
+<code>#include &quot;CruiseControl.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for BuggySoftware.ino:</div>
 <div class="dyncontent">
@@ -198,6 +199,9 @@ const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><t
 <tr class="memitem:a26fb1722bf500795725f592fa6758fa5" id="r_a26fb1722bf500795725f592fa6758fa5"><td class="memItemLeft" align="right" valign="top"><a id="a26fb1722bf500795725f592fa6758fa5" name="a26fb1722bf500795725f592fa6758fa5"></a>
 const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lineFollowerPID</b> = { 1.0f, 0.0f, 0.0f }</td></tr>
 <tr class="separator:a26fb1722bf500795725f592fa6758fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac25145f43f9d210837002d114d1ccc65" id="r_ac25145f43f9d210837002d114d1ccc65"><td class="memItemLeft" align="right" valign="top"><a id="ac25145f43f9d210837002d114d1ccc65" name="ac25145f43f9d210837002d114d1ccc65"></a>
+const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cruiseControlPID</b> = { 1.0f, 0.0f, 0.0f }</td></tr>
+<tr class="separator:ac25145f43f9d210837002d114d1ccc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae331786b5d511eb0af20bef336c22311" id="r_ae331786b5d511eb0af20bef336c22311"><td class="memItemLeft" align="right" valign="top"><a id="ae331786b5d511eb0af20bef336c22311" name="ae331786b5d511eb0af20bef336c22311"></a>
 <a class="el" href="classMotorDriver.html">MotorDriver</a>&#160;</td><td class="memItemRight" valign="bottom"><b>leftMotor</b> (<a class="el" href="#a45a600971962c1bece48f05997535af0">leftMotorPinout</a>, <a class="el" href="#a358d734f43830cdd6834d1116a956ecf">leftMotorPID</a>)</td></tr>
 <tr class="memdesc:ae331786b5d511eb0af20bef336c22311"><td class="mdescLeft">&#160;</td><td class="mdescRight">INSTANCES. <br /></td></tr>
@@ -223,8 +227,11 @@ const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><t
 <tr class="memitem:ad8a9e9a7a77a2751e33d810ede6cc5a0" id="r_ad8a9e9a7a77a2751e33d810ede6cc5a0"><td class="memItemLeft" align="right" valign="top"><a id="ad8a9e9a7a77a2751e33d810ede6cc5a0" name="ad8a9e9a7a77a2751e33d810ede6cc5a0"></a>
 <a class="el" href="classLineFollower.html">LineFollower</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lineFollower</b> (<a class="el" href="#ae331786b5d511eb0af20bef336c22311">leftMotor</a>, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID)</td></tr>
 <tr class="separator:ad8a9e9a7a77a2751e33d810ede6cc5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90dddfe0bb5c8c1fa3590c36f8af12e3" id="r_a90dddfe0bb5c8c1fa3590c36f8af12e3"><td class="memItemLeft" align="right" valign="top"><a id="a90dddfe0bb5c8c1fa3590c36f8af12e3" name="a90dddfe0bb5c8c1fa3590c36f8af12e3"></a>
+<a class="el" href="classCruiseControl.html">CruiseControl</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cruiseControl</b> (ultrasonicSensor, lineFollower, cruiseControlPID)</td></tr>
+<tr class="separator:a90dddfe0bb5c8c1fa3590c36f8af12e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fafa7f10bcc74497b24bac5444fea06" id="r_a7fafa7f10bcc74497b24bac5444fea06"><td class="memItemLeft" align="right" valign="top"><a id="a7fafa7f10bcc74497b24bac5444fea06" name="a7fafa7f10bcc74497b24bac5444fea06"></a>
-<a class="el" href="classBuggy.html">Buggy</a>&#160;</td><td class="memItemRight" valign="bottom"><b>buggy</b> = <a class="el" href="classBuggy.html">Buggy</a>(<a class="el" href="#ae331786b5d511eb0af20bef336c22311">leftMotor</a>, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, wifi, server, lineFollower)</td></tr>
+<a class="el" href="classBuggy.html">Buggy</a>&#160;</td><td class="memItemRight" valign="bottom"><b>buggy</b> = <a class="el" href="classBuggy.html">Buggy</a>(<a class="el" href="#ae331786b5d511eb0af20bef336c22311">leftMotor</a>, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, wifi, server, lineFollower, cruiseControl)</td></tr>
 <tr class="separator:a7fafa7f10bcc74497b24bac5444fea06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07795b64998e93a085d14a540fbee91c" id="r_a07795b64998e93a085d14a540fbee91c"><td class="memItemLeft" align="right" valign="top"><a id="a07795b64998e93a085d14a540fbee91c" name="a07795b64998e93a085d14a540fbee91c"></a>
 unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>start_time</b></td></tr>

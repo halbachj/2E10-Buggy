@@ -122,7 +122,7 @@ $(function(){initNavTree('classLineFollower.html',''); initResizable(true); });
 <div class="dynheader">
 Collaboration diagram for LineFollower:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classLineFollower__coll__graph.svg" width="132" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLineFollower__coll__graph.svg" width="132" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,6 +130,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d768334facabfd1e4ca28456abd77df" id="r_a5d768334facabfd1e4ca28456abd77df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d768334facabfd1e4ca28456abd77df">LineFollower</a> (<a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;leftMotor, <a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;rightMotor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;leftSensor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;rightSensor, const <a class="el" href="structPIDConstants.html">PIDConstants</a> &amp;constants)</td></tr>
 <tr class="memdesc:a5d768334facabfd1e4ca28456abd77df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the line Follower.  <br /></td></tr>
 <tr class="separator:a5d768334facabfd1e4ca28456abd77df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb07dbedae7dffeca30dc03b5a12ca2" id="r_aabb07dbedae7dffeca30dc03b5a12ca2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabb07dbedae7dffeca30dc03b5a12ca2">setSpeed</a> (int value)</td></tr>
+<tr class="memdesc:aabb07dbedae7dffeca30dc03b5a12ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the target speed of the line follower.  <br /></td></tr>
+<tr class="separator:aabb07dbedae7dffeca30dc03b5a12ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dce7ba6d1bfe31118ae1860adb6f99d" id="r_a7dce7ba6d1bfe31118ae1860adb6f99d"><td class="memItemLeft" align="right" valign="top"><a id="a7dce7ba6d1bfe31118ae1860adb6f99d" name="a7dce7ba6d1bfe31118ae1860adb6f99d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
 <tr class="memdesc:a7dce7ba6d1bfe31118ae1860adb6f99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will read and adapt the motors each call. Needs to be called inside of loop to be useful. <br /></td></tr>
@@ -181,6 +184,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></t
     <tr><td class="paramname">leftIrSensot</td><td>the left <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> </td></tr>
     <tr><td class="paramname">leftIrSensot</td><td>the right <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> </td></tr>
     <tr><td class="paramname">constants</td><td>PID constants for the PID based turning </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aabb07dbedae7dffeca30dc03b5a12ca2" name="aabb07dbedae7dffeca30dc03b5a12ca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabb07dbedae7dffeca30dc03b5a12ca2">&#9670;&#160;</a></span>setSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LineFollower::setSpeed </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the target speed of the line follower. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>the target speed to reach </td></tr>
   </table>
   </dd>
 </dl>
