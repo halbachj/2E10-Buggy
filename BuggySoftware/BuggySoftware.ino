@@ -142,6 +142,7 @@ void setup() {
   leftMotor.forward();
   leftMotor.setSpeed(1000);
   rightMotor.forward();
+  delay(1000 * 10);  
 }
 
 unsigned long start_time, end_time;
@@ -149,6 +150,9 @@ double dt;                     //s
 uint8_t loop_duration = 5e-6;  //s at least
 
 unsigned long initial_time = millis();
+unsigned int min_pwm = 0, max_pwm = 255;
+unsigned long min_time = 500, max_time=5000;
+unsigned long wait_time = 1000; 
 
 /**
  * @brief Main loop of the arduino. Called as often ass possible.
@@ -162,9 +166,16 @@ void loop() {
   start_time = micros();
   //wifi.update();
   buggy.update(dt);
+  logger << start_time << ",";
+  if (millis() - initial_time > wait_time) {
+    wait_time = random(min_time, max_time);
+    leftMotor.pwmOverride(random(min_pwm, max_pwm));
+    initial_time = millis();
+  }
+
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
-  delay(max(0, loop_duration - dt));
+  //delay(max(0, loop_duration - dt));
 }
 
 
