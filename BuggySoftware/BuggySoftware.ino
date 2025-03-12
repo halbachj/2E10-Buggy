@@ -13,6 +13,7 @@
 #include "PIDController.hpp"
 #include "PacketFactory.hpp"
 #include "Matrix.hpp"
+#include "CruiseControl.hpp"
 
 #define VERSION 1.4
 
@@ -71,6 +72,7 @@ Matrix ledMatrix;
 const PIDConstants leftMotorPID = { 0.07f, 1.0, 0.0f };
 const PIDConstants rightMotorPID = {0.055f, 1.0f, 0.0f};
 const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
+const PIDConstants cruiseControlPID = { 1.0f, 0.0f, 0.0f };
 
 /// INSTANCES
 MotorDriver leftMotor(leftMotorPinout, leftMotorPID);
@@ -85,8 +87,9 @@ BuggyWiFi wifi;
 TcpServer server = TcpServer();
 
 LineFollower lineFollower(leftMotor, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID);
+CruiseControl cruiseControl(ultrasonicSensor, lineFollower, cruiseControlPID);
 
-Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, wifi, server, lineFollower);
+Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, wifi, server, lineFollower, cruiseControl);
 
 // ISR
 void ISR_left_motor();

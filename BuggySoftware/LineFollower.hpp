@@ -36,6 +36,12 @@ public:
    */
   LineFollower(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftSensor, IrSensor& rightSensor, const PIDConstants& constants);
   /**
+   * @brief Set the target speed of the line follower
+   *
+   * @param value the target speed to reach
+   */
+  void setSpeed(int value);
+  /**
    * @brief Will read and adapt the motors each call. Needs to be called inside of loop to be useful.
    */ 
   void update();

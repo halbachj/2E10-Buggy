@@ -41,6 +41,7 @@ private:
   TcpServer& server;
 
   LineFollower& lineFollower;
+  CruiseControl& cruiseConroller;
 
   BuggyState* currentState;
 
@@ -62,7 +63,7 @@ public:
   **/
 
   Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSensor, IrSensor& rightIrSensor,
-   UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower);
+   UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseConroller);
   // cannot copy
   Buggy(const Buggy& other) = delete;
   Buggy& operator=(const Buggy& other) = delete; 
@@ -112,9 +113,11 @@ public:
   friend class ObjectDetectedState;
   friend class CalibrationState;
   friend class LineFollowingState;
+  friend class CruiseControl;
   friend class JustDriveState;
   friend class ObjectDetectedHandlerState;
   friend class LineFollowingState;
+  friend class CruiseControlState;
 };
 
 

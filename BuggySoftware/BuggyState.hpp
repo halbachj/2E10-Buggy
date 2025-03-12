@@ -157,6 +157,30 @@ private:
 };
 
 
+/**
+ * @class CruiseControl
+ *
+ * @brief Cruise control state keeps the distance to an obstacle infront of the buggy constant using the Ultrasonic sensor. The buggy continues 
+ * to follow the line and adjusts its speed accordingly.
+ */
+
+class CruiseControlState : public BuggyState {
+public:
+    static CruiseControlState& instance() {
+        static CruiseControlState instance;
+        return instance;
+    }
+
+    void enter(Buggy& buggy, BuggyState* oldState) override;
+    void update(Buggy& buggy, double dt) override;
+    void exit(Buggy& buggy, BuggyState* oldState) override;
+  
+private:
+    CruiseControlState() = default;  // Private constructor for singleton pattern
+};
+
+
+
 class JustDriveState : public BuggyState {
 public:
     static JustDriveState& instance() {

@@ -5,6 +5,10 @@ LineFollower::LineFollower(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSe
   : leftMotor(leftMotor), rightMotor(rightMotor), leftSensor(leftSensor), rightSensor(rightSensor), controller(constants) {
 }
 
+void LineFollower::setSpeed(int value) {
+  this->target_speed = value;
+}
+
 void LineFollower::update() {
   int leftReading, rightReading;
   leftReading = this->leftSensor.getManualReading();
