@@ -69,7 +69,7 @@ const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
 Matrix ledMatrix;
 
 /// PID CONSTANTS
-const PIDConstants leftMotorPID = { 0.07f, 1.0, 0.0f };
+const PIDConstants leftMotorPID = { 1.0f, 1.0, 0.0f };
 const PIDConstants rightMotorPID = {0.055f, 1.0f, 0.0f};
 const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
 const PIDConstants cruiseControlPID = { 1.0f, 0.0f, 0.0f };
@@ -147,6 +147,8 @@ void setup() {
 unsigned long start_time, end_time;
 double dt;                     //s
 uint8_t loop_duration = 5e-6;  //s at least
+
+unsigned long initial_time = millis();
 
 /**
  * @brief Main loop of the arduino. Called as often ass possible.

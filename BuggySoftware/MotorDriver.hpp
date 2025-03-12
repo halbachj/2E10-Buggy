@@ -18,7 +18,7 @@ private:
 	const MotorPinGroup& pins;
   PIDController controller;
   
-  static const size_t filter_window = 200;
+  static const size_t filter_window = 20;
   MoveMeanFilter<unsigned int, filter_window> filter = MoveMeanFilter<unsigned int, filter_window>();
   const unsigned short ticks = 8;                 // encoder ticks per rotations
   const unsigned short degPerTick = 360/ticks;    // ratio of degrees per tick
@@ -31,6 +31,7 @@ private:
 	volatile unsigned long last_encoder_measurement = millis();
 	volatile unsigned long current_encoder_measurement = millis();
   volatile unsigned long degrees = 0;
+  volatile bool encoder_tirggered = false;
 
   unsigned int applied_pwm = 0;
 

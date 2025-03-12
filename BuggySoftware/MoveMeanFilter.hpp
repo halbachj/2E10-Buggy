@@ -19,25 +19,25 @@ public:
 
   void push(T value) {
     ++this->index;
-    this->index %= N;
+    this->index = this->index % N;
     this->buffer[this->index] = value;
-    logger << logLevel::DEBUG << "Writing buffer at " << this->index << EmbeddedLogger::endl;
+    //logger << logLevel::DEBUG << "Writing buffer at " << this->index << " value " << value << EmbeddedLogger::endl;
   }
 
   float getMean() {
-    logger << logLevel::DEBUG;
+    //logger << logLevel::DEBUG;
     int size = N;
     float sum = 0;
-    if (this->filled) {   // if the buffer is not filled only consider the values up until index
+    if (!this->filled) {   // if the buffer is not filled only consider the values up until index
       size = this->index;
       this->filled = size/(N-1); // will be 1 when size == N, then it will consider the buffer to be full
     }
-    for (int i=0; i<N; i++) {
+    for (int i=0; i<size; i++) {
       sum += this->buffer[i];
-      logger << this->buffer[i] << ",";
+      //logger << this->buffer[i] << ",";
     }
-    logger << EmbeddedLogger::endl;
-    logger << logLevel::DEBUG << "size is " << size << " Sum is " << sum << EmbeddedLogger::endl;
+    //logger << EmbeddedLogger::endl;
+    //logger << logLevel::DEBUG << "size is " << size << " Sum is " << sum << EmbeddedLogger::endl;
     return sum/size;
   }
 
