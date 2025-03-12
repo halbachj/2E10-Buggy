@@ -12,6 +12,7 @@
 #include "PacketFactory.hpp"
 #include "EmbeddedLogger.hpp"
 #include "Matrix.hpp"
+#include "CruiseControl.hpp"
 
 class BuggyState;
 
@@ -41,7 +42,7 @@ private:
   TcpServer& server;
 
   LineFollower& lineFollower;
-  CruiseControl& cruiseConroller;
+  CruiseControl& cruiseController;
 
   BuggyState* currentState;
 
@@ -60,10 +61,11 @@ public:
   * @param wifi takes reference to the initialized BuggyWiFi to control the access point
   * @param server takes a reference to the running BuggyTCP server that handles ground station communication
   * @param lineFollower takes a reference to the LineFollower. This already contains reference to its neccessarry components
+  * @param cruiseController takes a referenct to the CruiseController.  This already contains a reference to its neccessarry components
   **/
 
   Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSensor, IrSensor& rightIrSensor,
-   UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseConroller);
+   UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController);
   // cannot copy
   Buggy(const Buggy& other) = delete;
   Buggy& operator=(const Buggy& other) = delete; 

@@ -153,9 +153,9 @@ Logger& Logger::operator<<(Precision p) {
 Logger& Logger::operator<<(LoggerAction act) {
   switch (act) {
     case LoggerAction::ENDL:
-      *this << '\n';
+      //this->appendToBuffer(&this->newline);
     case LoggerAction::FLUSH:
-      this->flushBuffer();
+      //this->flushBuffer();
     default:
       break;
   }

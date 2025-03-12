@@ -4,9 +4,9 @@ using EmbeddedLogger::logger;
 using logLevel = EmbeddedLogger::LogLevel;
 
 Buggy::Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSensor, IrSensor& rightIrSensor,
-   UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower):
+   UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController):
    leftMotor(leftMotor), rightMotor(rightMotor), leftIrSensor(leftIrSensor), rightIrSensor(rightIrSensor), ultrasonicSensor(ultrasonicSensor),
-   wifi(wifi), server(server), lineFollower(lineFollower), currentState(&IdleState::instance()) {
+   wifi(wifi), server(server), lineFollower(lineFollower), cruiseController(cruiseController), currentState(&IdleState::instance()) {
   
 }
 

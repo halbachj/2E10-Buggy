@@ -20,17 +20,17 @@ public:
     ++this->index;
     this->index %= N;
     this->buffer[this->index] = value;
-    logger << logLevel::DEBUG << "Writing buffer at " << this->index << EmbeddedLogger::endl;
+    //logger << logLevel::DEBUG << "Writing buffer at " << this->index << EmbeddedLogger::endl;
   }
 
   float getMean() {
     float sum = 0;
     for (int i=0; i<N; i++) {
       sum += this->buffer[i];
-      logger << logLevel::DEBUG << this->buffer[i] << ",";
+      //logger << logLevel::DEBUG << this->buffer[i] << ",";
     }
     logger << EmbeddedLogger::endl;
-    logger << logLevel::DEBUG << "size is " << N << " Sum is " << sum << EmbeddedLogger::endl;
+    //logger << logLevel::DEBUG << "size is " << N << " Sum is " << sum << EmbeddedLogger::endl;
     return sum/N;
   }
 

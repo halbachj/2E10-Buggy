@@ -18,7 +18,7 @@
 class CruiseControl {
 private:
   LineFollower& lineFollower;
-  UlstrasonicSensor& ussensor;
+  UltrasonicSensor& ussensor;
   PIDController controller; // Initialize the PID with the right coefficients
 
   int target_distance = 20; // cm
@@ -29,7 +29,7 @@ public:
    *
    * @param lineFollower the line follower helper class
    */
-  LineFollower(UltrasonicSensor& ussensor, LineFolower& lineFollower, PIDConstants constansts);
+  CruiseControl(UltrasonicSensor& ussensor, LineFollower& lineFollower, PIDConstants constansts);
   /**
    * @brief Will read and adapt the line follower speed at each call. Needs to be called inside of loop to be useful.
    *

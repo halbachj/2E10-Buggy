@@ -1,8 +1,8 @@
 #include "CruiseControl.hpp"
 
-LineFollower(UltrasonicSensor& ussensor, LineFolower& lineFollower, PIDConstants constansts) : ussensor(ussensor), lineFollower(lineFollower), controller(constansts) {}
+CruiseControl::CruiseControl(UltrasonicSensor& ussensor, LineFollower& lineFollower, PIDConstants constansts) : ussensor(ussensor), lineFollower(lineFollower), controller(constansts) {}
 
-void update(float dt) {
+void CruiseControl::update(float dt) {
   float distance, error, correction;
 
   distance = this->ussensor.getReading();

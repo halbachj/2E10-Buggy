@@ -45,6 +45,8 @@ private:
   LogLevel currentLevel;
   NumFormat numFormat;
 
+  const char newline = '\n';
+
   int floatPrecision;
 
   void flushBuffer();

@@ -23,8 +23,8 @@ using logLevel = EmbeddedLogger::LogLevel;
 TcpServer logging_server = TcpServer(44);
 
 namespace EmbeddedLogger {
-  SerialWirelessLogger target = SerialWirelessLogger(logging_server);
-  //SerialLogger target = SerialLogger();
+  //SerialWirelessLogger target = SerialWirelessLogger(logging_server);
+  SerialLogger target = SerialLogger();
   Logger logger(&target);
 }
 
@@ -103,7 +103,7 @@ void ISR_ultrasonic_echo();
  */
 void setup() {
   Serial.begin(115200);
-  logger.setLogLevel(logLevel::DEBUG);
+  logger.setLogLevel(logLevel::INFO);
   while (!Serial) yield();
   logger << logLevel::INFO << "INIT Start" << EmbeddedLogger::endl;
 

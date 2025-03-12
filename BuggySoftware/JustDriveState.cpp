@@ -11,9 +11,9 @@ void JustDriveState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
 
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
-  if (buggy.objectDetected) { 
-    buggy.setState(ObjectDetectedHandlerState::instance());
-  }
+  //if (buggy.objectDetected) { 
+  //  buggy.setState(ObjectDetectedHandlerState::instance());
+  //}
 
   buggy.leftMotor.update(dt);
   buggy.rightMotor.update(dt);
