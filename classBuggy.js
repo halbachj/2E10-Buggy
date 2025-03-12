@@ -1,6 +1,6 @@
 var classBuggy =
 [
-    [ "Buggy", "classBuggy.html#acb80502940c94125c330bee25cfc5c99", null ],
+    [ "Buggy", "classBuggy.html#a9a2cfa6622b198fa08cca3475a5ac082", null ],
     [ "handleCommand", "classBuggy.html#a1207f60e091c8934c31dc04d05da715c", null ],
     [ "handleControlPacket", "classBuggy.html#a4d76df8fa8e6229177dbd4a306cbbe5b", null ],
     [ "handlePacket", "classBuggy.html#a5ecfce732e816d7e6087ce5e04c1e4cf", null ],
