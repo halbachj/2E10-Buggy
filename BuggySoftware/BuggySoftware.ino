@@ -140,7 +140,6 @@ void setup() {
 
   buggy.setState(JustDriveState::instance());
   leftMotor.forward();
-  leftMotor.setSpeed(1000);
   rightMotor.forward();
   delay(1000 * 10);  
 }
@@ -165,14 +164,22 @@ unsigned long wait_time = 1000;
 void loop() {
   start_time = micros();
   //wifi.update();
-  buggy.update(dt);
-  logger << start_time << ",";
+  //buggy.update(dt);
+  /*logger << start_time << ",";
   if (millis() - initial_time > wait_time) {
     wait_time = random(min_time, max_time);
     leftMotor.pwmOverride(random(min_pwm, max_pwm));
     initial_time = millis();
-  }
+  }*/
 
+  for (int i=0;i<255;i++) {
+    leftMotor.pwmOverride(i);
+    logger << "PWM SIGNAL: " << i << EmbeddedLogger::endl;
+    delay(1000);
+    leftMotor.pwmOverride(0);
+    delay(1000);
+  }
+  logger << "FINISHED TEST" <<< EmbeddedLogger::endl;
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
   //delay(max(0, loop_duration - dt));
