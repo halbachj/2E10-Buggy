@@ -144,6 +144,7 @@ void setup() {
   leftMotor.setSpeed(800);
   rightMotor.setSpeed(800);
   rightMotor.forward();
+  delay(1000 * 10);  
 }
 
 unsigned long start_time, end_time;
@@ -164,7 +165,7 @@ void loop() {
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) / 1000000;
-  delay(max(0, loop_duration - dt));
+  //delay(max(0, loop_duration - dt));
 }
 
 
