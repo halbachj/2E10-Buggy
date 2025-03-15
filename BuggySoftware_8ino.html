@@ -166,7 +166,7 @@ Variables</h2></td></tr>
 <a class="el" href="classTcpServer.html">TcpServer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>logging_server</b> = <a class="el" href="classTcpServer.html">TcpServer</a>(44)</td></tr>
 <tr class="separator:aa630fdc6a214c7c8d50f8712df90a0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19a854266f320301b6e2cd7fa4cc4919" id="r_a19a854266f320301b6e2cd7fa4cc4919"><td class="memItemLeft" align="right" valign="top"><a id="a19a854266f320301b6e2cd7fa4cc4919" name="a19a854266f320301b6e2cd7fa4cc4919"></a>
-<a class="el" href="classEmbeddedLogger_1_1SerialLogger.html">SerialLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EmbeddedLogger::target</b> = <a class="el" href="classEmbeddedLogger_1_1SerialLogger.html">SerialLogger</a>()</td></tr>
+<a class="el" href="classEmbeddedLogger_1_1SerialWirelessLogger.html">SerialWirelessLogger</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EmbeddedLogger::target</b> = <a class="el" href="classEmbeddedLogger_1_1SerialWirelessLogger.html">SerialWirelessLogger</a>(logging_server)</td></tr>
 <tr class="separator:a19a854266f320301b6e2cd7fa4cc4919"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45a600971962c1bece48f05997535af0" id="r_a45a600971962c1bece48f05997535af0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structMotorPinGroup.html">MotorPinGroup</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45a600971962c1bece48f05997535af0">leftMotorPinout</a> = { 6, 7, 5, 2 }</td></tr>
 <tr class="memdesc:a45a600971962c1bece48f05997535af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">MOTOR PINPUTS.  <br /></td></tr>
@@ -190,11 +190,11 @@ const <a class="el" href="structUltrasonicSensorPinGroup.html">UltrasonicSensorP
 <tr class="memdesc:a097013634b0ac91d3b8dfc7a692fb4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED MATRIX. <br /></td></tr>
 <tr class="separator:a097013634b0ac91d3b8dfc7a692fb4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a358d734f43830cdd6834d1116a956ecf" id="r_a358d734f43830cdd6834d1116a956ecf"><td class="memItemLeft" align="right" valign="top"><a id="a358d734f43830cdd6834d1116a956ecf" name="a358d734f43830cdd6834d1116a956ecf"></a>
-const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>leftMotorPID</b> = { 1.0f, 1.0, 0.0f }</td></tr>
+const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>leftMotorPID</b> = { 0.1f, 4.0f, 0.0f }</td></tr>
 <tr class="memdesc:a358d734f43830cdd6834d1116a956ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">PID CONSTANTS. <br /></td></tr>
 <tr class="separator:a358d734f43830cdd6834d1116a956ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7255390682c2cc771b284cee80ec7749" id="r_a7255390682c2cc771b284cee80ec7749"><td class="memItemLeft" align="right" valign="top"><a id="a7255390682c2cc771b284cee80ec7749" name="a7255390682c2cc771b284cee80ec7749"></a>
-const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rightMotorPID</b> = {0.055f, 1.0f, 0.0f}</td></tr>
+const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rightMotorPID</b> = { 0.05f, 4.0f, 0.0f }</td></tr>
 <tr class="separator:a7255390682c2cc771b284cee80ec7749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26fb1722bf500795725f592fa6758fa5" id="r_a26fb1722bf500795725f592fa6758fa5"><td class="memItemLeft" align="right" valign="top"><a id="a26fb1722bf500795725f592fa6758fa5" name="a26fb1722bf500795725f592fa6758fa5"></a>
 const <a class="el" href="structPIDConstants.html">PIDConstants</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lineFollowerPID</b> = { 1.0f, 0.0f, 0.0f }</td></tr>
@@ -245,9 +245,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>dt</b></td></tr>
 <tr class="memitem:aa5ce924acd918d6043f4a1f761ff5dd1" id="r_aa5ce924acd918d6043f4a1f761ff5dd1"><td class="memItemLeft" align="right" valign="top"><a id="aa5ce924acd918d6043f4a1f761ff5dd1" name="aa5ce924acd918d6043f4a1f761ff5dd1"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>loop_duration</b> = 5e-6</td></tr>
 <tr class="separator:aa5ce924acd918d6043f4a1f761ff5dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1e10716dc55d72e0ff89a2d50cffaff" id="r_aa1e10716dc55d72e0ff89a2d50cffaff"><td class="memItemLeft" align="right" valign="top"><a id="aa1e10716dc55d72e0ff89a2d50cffaff" name="aa1e10716dc55d72e0ff89a2d50cffaff"></a>
-unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>initial_time</b> = millis()</td></tr>
-<tr class="separator:aa1e10716dc55d72e0ff89a2d50cffaff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a895852cf285da2f8d9a7273028655700" id="r_a895852cf285da2f8d9a7273028655700"><td class="memItemLeft" align="right" valign="top"><a id="a895852cf285da2f8d9a7273028655700" name="a895852cf285da2f8d9a7273028655700"></a>
 Logger&#160;</td><td class="memItemRight" valign="bottom"><b>logger</b></td></tr>
 <tr class="separator:a895852cf285da2f8d9a7273028655700"><td class="memSeparator" colspan="2">&#160;</td></tr>

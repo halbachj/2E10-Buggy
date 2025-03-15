@@ -127,17 +127,18 @@ $(function(){initNavTree('WirelessLogger_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <a class="code hl_class" href="classTcpServer.html">TcpServer</a>&amp; server;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  WirelessLogger(<a class="code hl_class" href="classTcpServer.html">TcpServer</a> server) : server(server) {};</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  WirelessLogger(<a class="code hl_class" href="classTcpServer.html">TcpServer</a>&amp; server) : server(server) {};</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keywordtype">void</span> write(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> length)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_struct" href="structPacket.html">Packet</a> packet = <a class="code hl_function" href="classPacketFactory.html#a19e658487db5220f16ee103deeb7b9be">PacketFactory::createLogPacket</a>(length, data);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    server.sendPacket(packet);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">//Serial.println(packet.content.logPacket.message);</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">//server.sendPacket(packet);</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif </span><span class="comment">//WIRELESS_LOGGER_INTERFACE_HPP</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif </span><span class="comment">//WIRELESS_LOGGER_INTERFACE_HPP</span></div>
 <div class="ttc" id="aEmbeddedLogger_8hpp_html"><div class="ttname"><a href="EmbeddedLogger_8hpp.html">EmbeddedLogger.hpp</a></div></div>
 <div class="ttc" id="aclassEmbeddedLogger_1_1ILogTarget_html"><div class="ttname"><a href="classEmbeddedLogger_1_1ILogTarget.html">EmbeddedLogger::ILogTarget</a></div><div class="ttdef"><b>Definition</b> EmbeddedLogger.hpp:32</div></div>
 <div class="ttc" id="aclassPacketFactory_html_a19e658487db5220f16ee103deeb7b9be"><div class="ttname"><a href="classPacketFactory.html#a19e658487db5220f16ee103deeb7b9be">PacketFactory::createLogPacket</a></div><div class="ttdeci">static Packet createLogPacket(short count, const char *message)</div><div class="ttdoc">Creates a log packet containing a log message.</div><div class="ttdef"><b>Definition</b> PacketFactory.hpp:38</div></div>
