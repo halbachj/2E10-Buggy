@@ -13,10 +13,11 @@ class WirelessLogger : virtual public ILogTarget {
 private:
   TcpServer& server;
 public:
-  WirelessLogger(TcpServer server) : server(server) {};
+  WirelessLogger(TcpServer& server) : server(server) {};
   void write(const char* data, size_t length) override {
     Packet packet = PacketFactory::createLogPacket(length, data);
-    server.sendPacket(packet);
+    //Serial.println(packet.content.logPacket.message);
+    //server.sendPacket(packet);
   }
 };
 

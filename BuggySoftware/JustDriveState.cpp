@@ -16,7 +16,7 @@ void JustDriveState::update(Buggy& buggy, double dt) {
   //}
 
   buggy.leftMotor.update(dt);
-  //buggy.rightMotor.update(dt);
+  buggy.rightMotor.update(dt);
 }
 
 void JustDriveState::exit(Buggy& buggy, BuggyState* oldState) {

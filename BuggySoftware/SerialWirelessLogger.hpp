@@ -13,10 +13,10 @@ namespace EmbeddedLogger {
 class SerialWirelessLogger : public SerialLogger, public WirelessLogger {
 private:
 public:
-  SerialWirelessLogger(TcpServer server) : WirelessLogger(server) {};
+  SerialWirelessLogger(TcpServer& server) : WirelessLogger(server) {};
   void write(const char* data, size_t length) override {
-    //SerialLogger::write(data, length);
-    //WirelessLogger::write(data, length);
+    SerialLogger::write(data, length);
+    WirelessLogger::write(data, length);
   }
 };
 

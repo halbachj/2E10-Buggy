@@ -23,8 +23,8 @@ using logLevel = EmbeddedLogger::LogLevel;
 TcpServer logging_server = TcpServer(44);
 
 namespace EmbeddedLogger {
-  //SerialWirelessLogger target = SerialWirelessLogger(logging_server);
-  SerialLogger target = SerialLogger();
+  SerialWirelessLogger target = SerialWirelessLogger(logging_server);
+  //SerialLogger target = SerialLogger();
   Logger logger(&target);
 }
 
@@ -69,8 +69,8 @@ const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
 Matrix ledMatrix;
 
 /// PID CONSTANTS
-const PIDConstants leftMotorPID = { 1.0f, 1.0, 0.0f };
-const PIDConstants rightMotorPID = {0.055f, 1.0f, 0.0f};
+const PIDConstants leftMotorPID = { 0.1f, 4.0f, 0.0f };
+const PIDConstants rightMotorPID = { 0.05f, 4.0f, 0.0f };
 const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
 const PIDConstants cruiseControlPID = { 1.0f, 0.0f, 0.0f };
 
@@ -104,7 +104,7 @@ void ISR_ultrasonic_echo();
 void setup() {
   Serial.begin(115200);
   logger.setLogLevel(logLevel::INFO);
-  while (!Serial) yield();
+  //while (!Serial) yield();
   logger << logLevel::INFO << "INIT Start" << EmbeddedLogger::endl;
 
   // start Timer 1
@@ -135,20 +135,20 @@ void setup() {
   wifi.setup_ap();    ///< @todo make this part of BuggyWiFi begin
   wifi.printWiFiStatus(); ///< @todo make this part of BuggyWiFi begin
   server.setup();         ///< @todo rename this to server.begin
+  logging_server.setup();
 
   logger << logLevel::INFO << "INIT Done" << EmbeddedLogger::endl;
 
   buggy.setState(JustDriveState::instance());
   leftMotor.forward();
-  leftMotor.setSpeed(1000);
+  leftMotor.setSpeed(800);
+  rightMotor.setSpeed(800);
   rightMotor.forward();
 }
 
 unsigned long start_time, end_time;
 double dt;                     //s
 uint8_t loop_duration = 5e-6;  //s at least
-
-unsigned long initial_time = millis();
 
 /**
  * @brief Main loop of the arduino. Called as often ass possible.
