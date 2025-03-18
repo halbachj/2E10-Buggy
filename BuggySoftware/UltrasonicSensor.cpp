@@ -26,7 +26,9 @@ void UltrasonicSensor::ISR_UltrasonicEcho() {
 void UltrasonicSensor::update() {
   if(millis() - this->endTime > this->trigger_interval ) {
     this->echoDuration = this->endTime - this->startTime;
-    this->filter.push(echoDuration / 58.3);
+    noInterrupts();
+    this->filter.push(echoDuration / 58.3);  // Disable interrupts while reading from the sensor
+    interrupts();
     this->trigger();
   }
 }

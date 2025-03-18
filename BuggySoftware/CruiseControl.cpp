@@ -27,7 +27,6 @@ float CruiseControl::update(double dt) {
   
   correction = min(correction, this->max_speed);
   return max(0, correction);
-  //this->lineFollower.setSpeed(abs(correction));
   //maybe updtae line follower here
 }
   

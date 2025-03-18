@@ -6,10 +6,8 @@ using logLevel = EmbeddedLogger::LogLevel;
 
 
 void ObjectDetectedState::enter(Buggy& buggy, BuggyState* oldState) {
-  this->left_old_pwm = buggy.leftMotor.getSpeed();
-  this->right_old_pwm = buggy.rightMotor.getSpeed();
-  buggy.leftMotor.pwmOverride(0);
-  buggy.rightMotor.pwmOverride(0);
+  buggy.leftMotor.setSpeed(0);
+  buggy.rightMotor.setSpeed(0);
   buggy.ledMatrix.setMode(BuggyMode::OBSTACLE_DETECTED);
 }
 
@@ -21,9 +19,12 @@ void ObjectDetectedState::update(Buggy& buggy, double dt) {
   if (!buggy.objectDetected) { 
     buggy.setState(LineFollowingState::instance());
   }
+  buggy.leftMotor.update(dt);
+  buggy.rightMotor.update(dt);
 }
 
-void ObjectDetectedState::exit(Buggy& buggy, BuggyState* oldState) {}
+void ObjectDetectedState::exit(Buggy& buggy, BuggyState* oldState) {
+}
 
 
 /*

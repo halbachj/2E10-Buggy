@@ -14,10 +14,10 @@ void LineFollowingState::update(Buggy& buggy, double dt) {
   buggy.leftMotor.update(dt);
   buggy.rightMotor.update(dt);
 
-  /*buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
+  buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) {
     buggy.setState(ObjectDetectedHandlerState::instance());
-  }*/
+  }
 }
 
 void LineFollowingState::exit(Buggy& buggy, BuggyState* oldState) {

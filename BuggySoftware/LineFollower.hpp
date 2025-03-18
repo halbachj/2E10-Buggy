@@ -23,7 +23,7 @@ private:
   PIDController controller; // Initialize the PID with the right coefficients
 
   int target_speed = 400; // 160
-  int turning_threshold = 100;
+  int turning_threshold = 150;
 
 public:
   /**

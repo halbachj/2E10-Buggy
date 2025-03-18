@@ -34,23 +34,27 @@ void Buggy::switchControlMode(ControlMode mode) {
 void Buggy::handleCommand(CommandPacket command) {
     logger << logLevel::DEBUG << "Command type: " << command.type << EmbeddedLogger::endl;
     switch (command.type) {
-        case CommandType::START:
-            logger << logLevel::DEBUG << "START COMMAND" << EmbeddedLogger::endl;
-            this->setState(LineFollowingState::instance());
-            break;
-        case CommandType::STOP:
-            this->setState(IdleState::instance());
-            logger << logLevel::DEBUG << "STOP COMMAND" << EmbeddedLogger::endl;
-            break;
-        case CommandType::RESET_DISTANCE: // New case for resetting distance
-            leftMotor.resetDistance();
-            rightMotor.resetDistance();
-            logger << logLevel::DEBUG << "DISTANCE RESET" << EmbeddedLogger::endl;
-            break;
-        case CommandType::SWITCH_MODE:
-            logger << logLevel::DEBUG << "SWTICH MODE" << EmbeddedLogger::endl;
-            ControlMode mode = ControlMode(command.data);
-            break;
+      case CommandType::START:
+        logger << logLevel::DEBUG << "START COMMAND" << EmbeddedLogger::endl;
+        this->setState(LineFollowingState::instance());
+        break;
+      case CommandType::STOP:
+        this->setState(IdleState::instance());
+        logger << logLevel::DEBUG << "STOP COMMAND" << EmbeddedLogger::endl;
+        break;
+      case CommandType::RESET_DISTANCE: // New case for resetting distance
+        leftMotor.resetDistance();
+        rightMotor.resetDistance();
+        logger << logLevel::DEBUG << "DISTANCE RESET" << EmbeddedLogger::endl;
+        break;
+      case CommandType::SET_SPEED:
+        lineFollower.setSpeed(command.data);
+        logger << logLevel::DEBUG << "SET SPEED TO " << command.data << EmbeddedLogger::endl;
+        break;
+      case CommandType::SWITCH_MODE:
+        logger << logLevel::DEBUG << "SWTICH MODE" << EmbeddedLogger::endl;
+        ControlMode mode = ControlMode(command.data);
+        this->switchControlMode(mode);
     }
 }
 

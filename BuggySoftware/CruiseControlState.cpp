@@ -13,6 +13,7 @@ void CruiseControlState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.getReading();
 
   float speed = buggy.cruiseController.update(dt);
+  buggy.lineFollower.setSpeed((int)abs(speed));
   buggy.lineFollower.update(dt);
   //buggy.leftMotor.setSpeed(speed);
   //buggy.rightMotor.setSpeed(speed);
