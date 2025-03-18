@@ -10,8 +10,29 @@ Buggy::Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSe
   
 }
 
+void Buggy::switchControlMode(ControlMode mode) {
+  logger << logLevel::DEBUG << "SWITCTHING CONTROL MODE TO ";
+  switch (mode) {
+    case ControlMode::LINE_FOLLOWING:
+      logger << "LINE FOLLOWING" << EmbeddedLogger::endl;
+      this->setState(LineFollowingState::instance());
+      break;
+    case ControlMode::CRUISE_CONTROL:
+      logger << "CRUISE CONTROL" << EmbeddedLogger::endl;
+      this->setState(CruiseControlState::instance());
+      break;
+    case ControlMode::REMOTE_CONTROL:
+      logger << "REMOTE CONTROL" << EmbeddedLogger::endl;
+      this->setState(JustDriveState::instance());
+      break;
+    default:
+      logger << "UNKNONW STATE !!! NOT DOING ANYTHING" << EmbeddedLogger::endl;
+      break;
+  }
+}
+
 void Buggy::handleCommand(CommandPacket command) {
-    logger << String(command.type).c_str() << EmbeddedLogger::endl;
+    logger << logLevel::DEBUG << "Command type: " << command.type << EmbeddedLogger::endl;
     switch (command.type) {
         case CommandType::START:
             logger << logLevel::DEBUG << "START COMMAND" << EmbeddedLogger::endl;
@@ -26,7 +47,9 @@ void Buggy::handleCommand(CommandPacket command) {
             rightMotor.resetDistance();
             logger << logLevel::DEBUG << "DISTANCE RESET" << EmbeddedLogger::endl;
             break;
-        default:
+        case CommandType::SWITCH_MODE:
+            logger << logLevel::DEBUG << "SWTICH MODE" << EmbeddedLogger::endl;
+            ControlMode mode = ControlMode(command.data);
             break;
     }
 }

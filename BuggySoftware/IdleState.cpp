@@ -11,7 +11,7 @@ void IdleState::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
   buggy.leftMotor.pwmOverride(0);
   buggy.rightMotor.pwmOverride(0);
-  buggy.ledMatrix.setMode(STOPPED);
+  buggy.ledMatrix.setMode(BuggyMode::STOPPED);
 
 }
 

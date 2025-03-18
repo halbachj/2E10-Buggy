@@ -48,6 +48,8 @@ private:
 
   bool objectDetected = false;
   
+  void switchControlMode(ControlMode mode);
+
 public:
 
   /**

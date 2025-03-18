@@ -10,7 +10,7 @@ void ObjectDetectedState::enter(Buggy& buggy, BuggyState* oldState) {
   this->right_old_pwm = buggy.rightMotor.getSpeed();
   buggy.leftMotor.pwmOverride(0);
   buggy.rightMotor.pwmOverride(0);
-  buggy.ledMatrix.setMode(OBSTACLE_DETECTED);
+  buggy.ledMatrix.setMode(BuggyMode::OBSTACLE_DETECTED);
 }
 
 void ObjectDetectedState::update(Buggy& buggy, double dt) {

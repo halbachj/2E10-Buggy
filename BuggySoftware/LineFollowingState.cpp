@@ -5,7 +5,7 @@ using EmbeddedLogger::logger;
 
 void LineFollowingState::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
-  buggy.ledMatrix.setMode(LINE_FOLLOWING);
+  buggy.ledMatrix.setMode(BuggyMode::LINE_FOLLOWING);
 }
 
 void LineFollowingState::update(Buggy& buggy, double dt) {

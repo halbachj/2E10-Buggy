@@ -52,7 +52,20 @@ struct StatusPacket {
 enum CommandType {
   STOP = 0,        ///< Stop command.
   START,           ///< Start command.
-  RESET_DISTANCE   ///< Reset distance measurement command.
+  RESET_DISTANCE,  ///< Reset distance measurement command.
+  SET_SPEED,       ///< Set the speed to the value specified by the attribute.
+  SWITCH_MODE,     ///< Switch to mode specified in the attribute.
+};
+
+/**
+ * @enum ControlMode
+ * @brief Defined the possible control modes the buggy can switch to
+ */
+
+enum ControlMode {
+  LINE_FOLLOWING,   ///< Buggy follows line using PID speed control
+  CRUISE_CONTROL,   ///< Buggy follows line using distance PID for speed control. 
+  REMOTE_CONTROL    ///< Full remote control of the buggy.
 };
 
 /**
@@ -61,7 +74,7 @@ enum CommandType {
  */
 struct CommandPacket {
   CommandType type;   ///< Type of command.
-  uint16_t data;      ///< Additional command data.
+  uint32_t data;      ///< Additional command attribute.
 };
 
 /*

@@ -9,7 +9,7 @@
 #include "Arduino_LED_Matrix.h"
 
 // Enum for different buggy modes
-enum BuggyMode {
+enum class BuggyMode {
     LINE_FOLLOWING,
     STOPPED,
     OBSTACLE_DETECTED

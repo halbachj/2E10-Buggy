@@ -36,12 +36,12 @@ uint8_t Matrix::warningPattern[8][12] = {
 };
 
 // Constructor
-Matrix::Matrix() : currentMode(STOPPED) {}
+Matrix::Matrix() : currentMode(BuggyMode::STOPPED) {}
 
 // Initialize the LED matrix
 void Matrix::begin() {
     matrix.begin();
-    setMode(STOPPED);
+    setMode(BuggyMode::STOPPED);
 }
 
 // Update matrix based on mode
@@ -49,13 +49,13 @@ void Matrix::setMode(BuggyMode mode) {
     currentMode = mode;
     matrix.clear();
     switch (mode) {
-        case LINE_FOLLOWING:
+        case BuggyMode::LINE_FOLLOWING:
             displayLineFollowing();
             break;
-        case STOPPED:
+        case BuggyMode::STOPPED:
             displayStopped();
             break;
-        case OBSTACLE_DETECTED:
+        case BuggyMode::OBSTACLE_DETECTED:
             displayObstacleDetected();
             break;
     }
