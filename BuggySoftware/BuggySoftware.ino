@@ -69,10 +69,14 @@ const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
 Matrix ledMatrix;
 
 /// PID CONSTANTS
-const PIDConstants leftMotorPID = { 0.1f, 4.0f, 0.0f };
-const PIDConstants rightMotorPID = { 0.05f, 4.0f, 0.0f };
-const PIDConstants lineFollowerPID = { 1.0f, 0.0f, 0.0f };
-const PIDConstants cruiseControlPID = { 1.0f, 0.0f, 0.0f };
+const PIDConstants leftMotorPID = { 0.15f, 0.12f, 0.0f };
+const PIDConstants rightMotorPID = { 0.2f, 0.14f, 0.0f};
+//const PIDConstants leftMotorPID = { 0.015f, 0.415f, 0.0f };
+//const PIDConstants rightMotorPID = { 0.03f, 0.55f, 0.0f };
+
+const PIDConstants lineFollowerPID = { 1.0f, 10.0f, 0.0f };
+//const PIDConstants cruiseControlPID = { 0.0001f, 0.8f, 0.0001f };
+const PIDConstants cruiseControlPID = { 25.0f, 0.0f, 0.0f };
 
 /// INSTANCES
 MotorDriver leftMotor(leftMotorPinout, leftMotorPID);
@@ -139,12 +143,14 @@ void setup() {
 
   logger << logLevel::INFO << "INIT Done" << EmbeddedLogger::endl;
 
-  buggy.setState(JustDriveState::instance());
+  //buggy.setState(JustDriveState::instance());
+  //buggy.setState(LineFollowingState::instance());
+  buggy.setState(CruiseControlState::instance());
   leftMotor.forward();
-  leftMotor.setSpeed(800);
-  rightMotor.setSpeed(800);
+  leftMotor.setSpeed(1000);
+  rightMotor.setSpeed(1000);
   rightMotor.forward();
-  delay(1000 * 10);  
+  //delay(1000 * 10);  
 }
 
 unsigned long start_time, end_time;
@@ -164,7 +170,7 @@ void loop() {
   //wifi.update();
   buggy.update(dt);
   end_time = micros();
-  dt = (end_time - start_time) / 1000000;
+  dt = (end_time - start_time) * 1.0e-6;
   //delay(max(0, loop_duration - dt));
 }
 

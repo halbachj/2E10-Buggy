@@ -23,7 +23,7 @@ private:
   volatile unsigned long startTime, endTime; ///< Variables for timing the echo measurement.
   unsigned long last_trigger = 0; ///< Timestamp of the last trigger event.
 
-  static const size_t filter_window = 200;
+  static const size_t filter_window = 5;
   MoveMeanFilter<float, filter_window> filter = MoveMeanFilter<float, filter_window>();
 
   /**

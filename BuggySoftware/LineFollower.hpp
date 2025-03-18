@@ -22,8 +22,9 @@ private:
 
   PIDController controller; // Initialize the PID with the right coefficients
 
-  int target_speed = 160; // 130
-  
+  int target_speed = 400; // 160
+  int turning_threshold = 100;
+
 public:
   /**
    * @brief Construct the line Follower
@@ -44,7 +45,7 @@ public:
   /**
    * @brief Will read and adapt the motors each call. Needs to be called inside of loop to be useful.
    */ 
-  void update();
+  void update(double dt);
   
 };
 

@@ -26,9 +26,9 @@ class PIDController {
 private:
   const PIDConstants& constants; 
   float lastError = 0;               // Error from previous calculation
-  unsigned long prevTime;            // Time from last update
+  //unsigned long prevTime;            // Time from last update
   float accumulated_error = 0;
-  const float integralMax = 200.0;   // Example anti-windup limit
+  const float integralMax = 100000.0;   // Example anti-windup limit
 public:
   /**
    * @brief Contstuct the PIDController using the PIDConstants.

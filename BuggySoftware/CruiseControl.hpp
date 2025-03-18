@@ -20,8 +20,8 @@ private:
   LineFollower& lineFollower;
   UltrasonicSensor& ussensor;
   PIDController controller; // Initialize the PID with the right coefficients
-
   int target_distance = 20; // cm
+  int max_speed = 600;
   
 public:
   /**
@@ -29,13 +29,13 @@ public:
    *
    * @param lineFollower the line follower helper class
    */
-  CruiseControl(UltrasonicSensor& ussensor, LineFollower& lineFollower, PIDConstants constansts);
+  CruiseControl(UltrasonicSensor& ussensor, LineFollower& lineFollower, const PIDConstants& constansts);
   /**
    * @brief Will read and adapt the line follower speed at each call. Needs to be called inside of loop to be useful.
    *
    * @param dt the time taken during the last loop
    */ 
-  void update(float dt);
+  float update(double dt);
   
 };
 
