@@ -150,55 +150,64 @@ $(function(){initNavTree('PacketTypes_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">enum</span> CommandType {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  STOP = 0,        </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  START,           </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  RESET_DISTANCE   </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
-<div class="foldopen" id="foldopen00062" data-start="{" data-end="};">
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structCommandPacket.html">   62</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structCommandPacket.html">CommandPacket</a> {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">   63</a></span>  CommandType <a class="code hl_variable" href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">type</a>;   </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structCommandPacket.html#a13070f393d954043664468c73d13431a">   64</a></span>  uint16_t <a class="code hl_variable" href="structCommandPacket.html#a13070f393d954043664468c73d13431a">data</a>;      </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  RESET_DISTANCE,  </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  SET_SPEED,       </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  SWITCH_MODE,     </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">enum</span> ControlMode {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  LINE_FOLLOWING,   </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  CRUISE_CONTROL,   </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  REMOTE_CONTROL    </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="};">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structCommandPacket.html">   75</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structCommandPacket.html">CommandPacket</a> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">   76</a></span>  CommandType <a class="code hl_variable" href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">type</a>;   </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structCommandPacket.html#a80dc754760b9fa04ab76b0f86a9c5301">   77</a></span>  uint32_t <a class="code hl_variable" href="structCommandPacket.html#a80dc754760b9fa04ab76b0f86a9c5301">data</a>;      </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * CONTROL PACKET</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="foldopen" id="foldopen00071" data-start="{" data-end="};">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structControlPacket.html">   71</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structControlPacket.html">ControlPacket</a> {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keywordtype">float</span> x;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keywordtype">float</span> y;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> * CONTROL PACKET</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="};">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structControlPacket.html">   84</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structControlPacket.html">ControlPacket</a> {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordtype">float</span> x;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="keywordtype">float</span> y;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
-<div class="foldopen" id="foldopen00080" data-start="{" data-end="};">
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="unionPacketContent.html">   80</a></span><span class="keyword">union </span><a class="code hl_union" href="unionPacketContent.html">PacketContent</a> {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">   81</a></span>  <a class="code hl_struct" href="structStatusPacket.html">StatusPacket</a> <a class="code hl_variable" href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">statusPacket</a>;    </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">   82</a></span>  <a class="code hl_struct" href="structCommandPacket.html">CommandPacket</a> <a class="code hl_variable" href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">commandPacket</a>;  </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <a class="code hl_struct" href="structControlPacket.html">ControlPacket</a> controlPacket;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">   84</a></span>  <a class="code hl_struct" href="structLogPacket.html">LogPacket</a> <a class="code hl_variable" href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">logPacket</a>;          </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="};">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="unionPacketContent.html">   93</a></span><span class="keyword">union </span><a class="code hl_union" href="unionPacketContent.html">PacketContent</a> {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">   94</a></span>  <a class="code hl_struct" href="structStatusPacket.html">StatusPacket</a> <a class="code hl_variable" href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">statusPacket</a>;    </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">   95</a></span>  <a class="code hl_struct" href="structCommandPacket.html">CommandPacket</a> <a class="code hl_variable" href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">commandPacket</a>;  </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <a class="code hl_struct" href="structControlPacket.html">ControlPacket</a> controlPacket;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">   97</a></span>  <a class="code hl_struct" href="structLogPacket.html">LogPacket</a> <a class="code hl_variable" href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">logPacket</a>;          </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
 </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
-<div class="foldopen" id="foldopen00092" data-start="{" data-end="};">
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="structPacket.html">   92</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structPacket.html">Packet</a> {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">   93</a></span>  PacketType <a class="code hl_variable" href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">type</a>;        </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">   94</a></span>  <a class="code hl_union" href="unionPacketContent.html">PacketContent</a> <a class="code hl_variable" href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">content</a>;  </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span></div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="};">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="structPacket.html">  105</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structPacket.html">Packet</a> {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">  106</a></span>  PacketType <a class="code hl_variable" href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">type</a>;        </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">  107</a></span>  <a class="code hl_union" href="unionPacketContent.html">PacketContent</a> <a class="code hl_variable" href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">content</a>;  </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>};</div>
 </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">//const size_t MAX_PACKET_LENGTH = sizeof(Packet);</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">//PACKET_TYPES_HPP</span></div>
-<div class="ttc" id="astructCommandPacket_html"><div class="ttname"><a href="structCommandPacket.html">CommandPacket</a></div><div class="ttdoc">Represents a command packet for controlling the system.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:62</div></div>
-<div class="ttc" id="astructCommandPacket_html_a13070f393d954043664468c73d13431a"><div class="ttname"><a href="structCommandPacket.html#a13070f393d954043664468c73d13431a">CommandPacket::data</a></div><div class="ttdeci">uint16_t data</div><div class="ttdoc">Additional command data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:64</div></div>
-<div class="ttc" id="astructCommandPacket_html_ade1a30d81817db21e272708145c38544"><div class="ttname"><a href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">CommandPacket::type</a></div><div class="ttdeci">CommandType type</div><div class="ttdoc">Type of command.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:63</div></div>
-<div class="ttc" id="astructControlPacket_html"><div class="ttname"><a href="structControlPacket.html">ControlPacket</a></div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:71</div></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">//const size_t MAX_PACKET_LENGTH = sizeof(Packet);</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#endif </span><span class="comment">//PACKET_TYPES_HPP</span></div>
+<div class="ttc" id="astructCommandPacket_html"><div class="ttname"><a href="structCommandPacket.html">CommandPacket</a></div><div class="ttdoc">Represents a command packet for controlling the system.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:75</div></div>
+<div class="ttc" id="astructCommandPacket_html_a80dc754760b9fa04ab76b0f86a9c5301"><div class="ttname"><a href="structCommandPacket.html#a80dc754760b9fa04ab76b0f86a9c5301">CommandPacket::data</a></div><div class="ttdeci">uint32_t data</div><div class="ttdoc">Additional command attribute.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:77</div></div>
+<div class="ttc" id="astructCommandPacket_html_ade1a30d81817db21e272708145c38544"><div class="ttname"><a href="structCommandPacket.html#ade1a30d81817db21e272708145c38544">CommandPacket::type</a></div><div class="ttdeci">CommandType type</div><div class="ttdoc">Type of command.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:76</div></div>
+<div class="ttc" id="astructControlPacket_html"><div class="ttname"><a href="structControlPacket.html">ControlPacket</a></div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:84</div></div>
 <div class="ttc" id="astructLogPacket_html"><div class="ttname"><a href="structLogPacket.html">LogPacket</a></div><div class="ttdoc">Represents a log message packet.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:26</div></div>
-<div class="ttc" id="astructPacket_html"><div class="ttname"><a href="structPacket.html">Packet</a></div><div class="ttdoc">Represents a generic packet containing different types of information.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:92</div></div>
-<div class="ttc" id="astructPacket_html_a5615e0173e5361428d7f50418695e4e4"><div class="ttname"><a href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">Packet::content</a></div><div class="ttdeci">PacketContent content</div><div class="ttdoc">Packet content.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:94</div></div>
-<div class="ttc" id="astructPacket_html_aebbae2cef32f967d0bbcabbe41dae6bf"><div class="ttname"><a href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">Packet::type</a></div><div class="ttdeci">PacketType type</div><div class="ttdoc">Type of the packet.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:93</div></div>
+<div class="ttc" id="astructPacket_html"><div class="ttname"><a href="structPacket.html">Packet</a></div><div class="ttdoc">Represents a generic packet containing different types of information.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:105</div></div>
+<div class="ttc" id="astructPacket_html_a5615e0173e5361428d7f50418695e4e4"><div class="ttname"><a href="structPacket.html#a5615e0173e5361428d7f50418695e4e4">Packet::content</a></div><div class="ttdeci">PacketContent content</div><div class="ttdoc">Packet content.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:107</div></div>
+<div class="ttc" id="astructPacket_html_aebbae2cef32f967d0bbcabbe41dae6bf"><div class="ttname"><a href="structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf">Packet::type</a></div><div class="ttdeci">PacketType type</div><div class="ttdoc">Type of the packet.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:106</div></div>
 <div class="ttc" id="astructStatusPacket_html"><div class="ttname"><a href="structStatusPacket.html">StatusPacket</a></div><div class="ttdoc">Represents a status update packet containing sensor and motor data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:36</div></div>
 <div class="ttc" id="astructStatusPacket_html_a0f75bb6f37ad104b188fc2d88abc8447"><div class="ttname"><a href="structStatusPacket.html#a0f75bb6f37ad104b188fc2d88abc8447">StatusPacket::rightMotorSpeed</a></div><div class="ttdeci">int rightMotorSpeed</div><div class="ttdoc">Speed of the right motor.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:40</div></div>
 <div class="ttc" id="astructStatusPacket_html_a2043e9841084e1a03ca103ee7e66d785"><div class="ttname"><a href="structStatusPacket.html#a2043e9841084e1a03ca103ee7e66d785">StatusPacket::objectDistance</a></div><div class="ttdeci">float objectDistance</div><div class="ttdoc">Distance to the detected object.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:38</div></div>
@@ -208,10 +217,10 @@ $(function(){initNavTree('PacketTypes_8hpp_source.html',''); initResizable(true)
 <div class="ttc" id="astructStatusPacket_html_a8ae8e73eab1200e304441d19a22195ba"><div class="ttname"><a href="structStatusPacket.html#a8ae8e73eab1200e304441d19a22195ba">StatusPacket::rightIrSensorValue</a></div><div class="ttdeci">int rightIrSensorValue</div><div class="ttdoc">IR sensor reading on the right side.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:44</div></div>
 <div class="ttc" id="astructStatusPacket_html_acd1adb48867d21bbdb53bd5a45c5c3d5"><div class="ttname"><a href="structStatusPacket.html#acd1adb48867d21bbdb53bd5a45c5c3d5">StatusPacket::rightMotorDistanceTraveled</a></div><div class="ttdeci">float rightMotorDistanceTraveled</div><div class="ttdoc">Distance traveled by the right motor.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:42</div></div>
 <div class="ttc" id="astructStatusPacket_html_afd93f5a16ab8a64d2bf38280533b7404"><div class="ttname"><a href="structStatusPacket.html#afd93f5a16ab8a64d2bf38280533b7404">StatusPacket::leftMotorSpeed</a></div><div class="ttdeci">int leftMotorSpeed</div><div class="ttdoc">Speed of the left motor.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:39</div></div>
-<div class="ttc" id="aunionPacketContent_html"><div class="ttname"><a href="unionPacketContent.html">PacketContent</a></div><div class="ttdoc">Union containing different packet types.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:80</div></div>
-<div class="ttc" id="aunionPacketContent_html_a377d6250f3b5a99c348a40bafe139380"><div class="ttname"><a href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">PacketContent::statusPacket</a></div><div class="ttdeci">StatusPacket statusPacket</div><div class="ttdoc">Status packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:81</div></div>
-<div class="ttc" id="aunionPacketContent_html_a83c80bc70debb3ff136687fd652b29d7"><div class="ttname"><a href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">PacketContent::logPacket</a></div><div class="ttdeci">LogPacket logPacket</div><div class="ttdoc">Log packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:84</div></div>
-<div class="ttc" id="aunionPacketContent_html_af58114f9e58ee35e67e9e116d9eaa7f3"><div class="ttname"><a href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">PacketContent::commandPacket</a></div><div class="ttdeci">CommandPacket commandPacket</div><div class="ttdoc">Command packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:82</div></div>
+<div class="ttc" id="aunionPacketContent_html"><div class="ttname"><a href="unionPacketContent.html">PacketContent</a></div><div class="ttdoc">Union containing different packet types.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:93</div></div>
+<div class="ttc" id="aunionPacketContent_html_a377d6250f3b5a99c348a40bafe139380"><div class="ttname"><a href="unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380">PacketContent::statusPacket</a></div><div class="ttdeci">StatusPacket statusPacket</div><div class="ttdoc">Status packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:94</div></div>
+<div class="ttc" id="aunionPacketContent_html_a83c80bc70debb3ff136687fd652b29d7"><div class="ttname"><a href="unionPacketContent.html#a83c80bc70debb3ff136687fd652b29d7">PacketContent::logPacket</a></div><div class="ttdeci">LogPacket logPacket</div><div class="ttdoc">Log packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:97</div></div>
+<div class="ttc" id="aunionPacketContent_html_af58114f9e58ee35e67e9e116d9eaa7f3"><div class="ttname"><a href="unionPacketContent.html#af58114f9e58ee35e67e9e116d9eaa7f3">PacketContent::commandPacket</a></div><div class="ttdeci">CommandPacket commandPacket</div><div class="ttdoc">Command packet data.</div><div class="ttdef"><b>Definition</b> PacketTypes.hpp:95</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

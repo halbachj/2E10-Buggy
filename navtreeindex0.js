@@ -139,7 +139,7 @@ var NAVTREEINDEX0 =
 "pages.html":[],
 "secrets_8h_source.html":[3,0,0,17],
 "structCommandPacket.html":[2,0,6],
-"structCommandPacket.html#a13070f393d954043664468c73d13431a":[2,0,6,0],
+"structCommandPacket.html#a80dc754760b9fa04ab76b0f86a9c5301":[2,0,6,0],
 "structCommandPacket.html#ade1a30d81817db21e272708145c38544":[2,0,6,1],
 "structControlPacket.html":[2,0,7],
 "structEmbeddedLogger_1_1Logger_1_1Precision.html":[2,0,0,1,0],
