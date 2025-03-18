@@ -127,20 +127,20 @@ Collaboration diagram for CruiseControl:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9b72f2dbdf7f6426d15990fe76c20be7" id="r_a9b72f2dbdf7f6426d15990fe76c20be7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b72f2dbdf7f6426d15990fe76c20be7">CruiseControl</a> (<a class="el" href="classUltrasonicSensor.html">UltrasonicSensor</a> &amp;ussensor, <a class="el" href="classLineFollower.html">LineFollower</a> &amp;lineFollower, <a class="el" href="structPIDConstants.html">PIDConstants</a> constansts)</td></tr>
-<tr class="memdesc:a9b72f2dbdf7f6426d15990fe76c20be7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Cruise controller.  <br /></td></tr>
-<tr class="separator:a9b72f2dbdf7f6426d15990fe76c20be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae047253d6e2f36e76b00d37c83c6b644" id="r_ae047253d6e2f36e76b00d37c83c6b644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae047253d6e2f36e76b00d37c83c6b644">update</a> (float dt)</td></tr>
-<tr class="memdesc:ae047253d6e2f36e76b00d37c83c6b644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will read and adapt the line follower speed at each call. Needs to be called inside of loop to be useful.  <br /></td></tr>
-<tr class="separator:ae047253d6e2f36e76b00d37c83c6b644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a367e2a98f6072741bcefbaa8a18a5906" id="r_a367e2a98f6072741bcefbaa8a18a5906"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a367e2a98f6072741bcefbaa8a18a5906">CruiseControl</a> (<a class="el" href="classUltrasonicSensor.html">UltrasonicSensor</a> &amp;ussensor, <a class="el" href="classLineFollower.html">LineFollower</a> &amp;lineFollower, const <a class="el" href="structPIDConstants.html">PIDConstants</a> &amp;constansts)</td></tr>
+<tr class="memdesc:a367e2a98f6072741bcefbaa8a18a5906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Cruise controller.  <br /></td></tr>
+<tr class="separator:a367e2a98f6072741bcefbaa8a18a5906"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a839061316e80c80993e429c913b09e58" id="r_a839061316e80c80993e429c913b09e58"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a839061316e80c80993e429c913b09e58">update</a> (double dt)</td></tr>
+<tr class="memdesc:a839061316e80c80993e429c913b09e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will read and adapt the line follower speed at each call. Needs to be called inside of loop to be useful.  <br /></td></tr>
+<tr class="separator:a839061316e80c80993e429c913b09e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classCruiseControl.html" title="The CruiseControl helper class allows holds helper functions to allow the buggy to hold a constant di...">CruiseControl</a> helper class allows holds helper functions to allow the buggy to hold a constant distance to an obstacle in front. </p>
 <p>Cruise control state keeps the distance to an obstacle infront of the buggy constant using the Ultrasonic sensor. The buggy continues to follow the line and adjusts its speed accordingly.</p>
 <p>This is done using a cascade PID controller, as this PID controller controls distance and the second PID controller controls the rotational speed of the wheels. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9b72f2dbdf7f6426d15990fe76c20be7" name="a9b72f2dbdf7f6426d15990fe76c20be7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b72f2dbdf7f6426d15990fe76c20be7">&#9670;&#160;</a></span>CruiseControl()</h2>
+<a id="a367e2a98f6072741bcefbaa8a18a5906" name="a367e2a98f6072741bcefbaa8a18a5906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a367e2a98f6072741bcefbaa8a18a5906">&#9670;&#160;</a></span>CruiseControl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,7 +158,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structPIDConstants.html">PIDConstants</a></td>          <td class="paramname"><span class="paramname"><em>constansts</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="structPIDConstants.html">PIDConstants</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>constansts</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -174,16 +174,16 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae047253d6e2f36e76b00d37c83c6b644" name="ae047253d6e2f36e76b00d37c83c6b644"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae047253d6e2f36e76b00d37c83c6b644">&#9670;&#160;</a></span>update()</h2>
+<a id="a839061316e80c80993e429c913b09e58" name="a839061316e80c80993e429c913b09e58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a839061316e80c80993e429c913b09e58">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CruiseControl::update </td>
+          <td class="memname">float CruiseControl::update </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span></td><td>)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
