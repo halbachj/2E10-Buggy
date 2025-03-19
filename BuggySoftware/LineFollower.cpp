@@ -37,10 +37,10 @@ void LineFollower::update(double dt) {
   }
 
   if (err > this->turning_threshold) {
-    this->leftMotor.setSpeed(this->target_speed+150);
+    this->leftMotor.setSpeed(this->target_speed+this->turning_speed);
     this->rightMotor.setSpeed(0);
   } else if (err < this->turning_threshold){
     this->leftMotor.setSpeed(0);
-    this->rightMotor.setSpeed(this->target_speed+150);
+    this->rightMotor.setSpeed(this->target_speed+this->turning_speed);
   }
 }

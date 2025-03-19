@@ -69,8 +69,8 @@ const UltrasonicSensorPinGroup ultrasonicSensorPinout = { 9, 8 };
 Matrix ledMatrix;
 
 /// PID CONSTANTS
-const PIDConstants leftMotorPID = { 0.15f, 0.12f, 0.0f };
-const PIDConstants rightMotorPID = { 0.25f, 0.2f, 0.0f};
+const PIDConstants leftMotorPID = { 0.16f, 0.16f, 0.0f };
+const PIDConstants rightMotorPID = { 0.21f, 0.15f, 0.0f};
 //const PIDConstants leftMotorPID = { 0.015f, 0.415f, 0.0f };
 //const PIDConstants rightMotorPID = { 0.03f, 0.55f, 0.0f };
 
@@ -144,8 +144,8 @@ void setup() {
   logger << logLevel::INFO << "INIT Done" << EmbeddedLogger::endl;
 
   //buggy.setState(JustDriveState::instance());
+  buggy.setState(LineFollowingState::instance());
   //buggy.setState(LineFollowingState::instance());
-  buggy.setState(CruiseControlState::instance());
   leftMotor.forward();
   //leftMotor.setSpeed(1000);
   //rightMotor.setSpeed(1000);
