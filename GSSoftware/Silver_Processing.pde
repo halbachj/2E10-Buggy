@@ -6,8 +6,10 @@ import controlP5.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-
+//calculate the speed from degrees/s to m/s
 ControlP5 cp5; // UI Control variables
+float pi = 3.14159265359;
+float r = 0.03;
 PGraphics alertScreen;
 float obstacleDist = -1;
 String message = "No connection";
@@ -41,6 +43,17 @@ int[][] arrowPattern = {
     {0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
+int[][] cruisePattern = {
+    {0,0,0,0,0,0,1,0,0,0,0,0},
+    {0,0,0,0,0,0,1,1,0,0,0,0},
+    {0,0,0,0,0,0,1,0,1,0,0,0},
+    {0,0,0,0,0,0,1,1,0,0,0,0},
+    {0,0,0,0,0,0,1,0,0,0,0,0},
+    {0,0,1,1,1,1,1,1,1,1,0,0},
+    {0,0,0,1,0,0,0,0,1,0,0,0},
+    {0,0,0,0,1,1,1,1,0,0,0,0}
+};
+
 int[][] stopPattern = {
     {0,0,0,0,1,1,1,1,0,0,0,0},
     {0,0,0,1,0,0,0,0,1,0,0,0},
@@ -63,15 +76,27 @@ int[][] warningPattern = {
     {0,0,0,1,0,0,0,0,1,0,0,0}
 };
 
+int[][] remotePattern = {
+    {0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,1,1,0,0,0,0,0},
+    {0,0,0,0,0,1,1,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0}
+};
+
+
 void setup() {
-  size(600, 550);
+  size(700, 550);
   
   alertScreen = createGraphics(400, 200); //creates the alert screen
   cp5 = new ControlP5(this);
   font = createFont("Arial", 16);
   
   cp5.addKnob("speed Dial") //speed dial
-     .setRange(0, 100)
+     .setRange(0, 70)
      .setValue(0)
      .setPosition(70, 30)
      .setSize(150, 150)
@@ -81,18 +106,44 @@ void setup() {
      .setColorActive(color(0, 200, 0))
      .setColorCaptionLabel(color(0))
      .getCaptionLabel().setFont(font); // Set larger font for label
-       
-    // Speed Input
-  cp5.addTextfield("speed Input")
-     .setPosition(250, 50)
-     .setSize(100, 30)
+     
+     cp5.addTextfield("Set Speed")
+     .setPosition(550, 350)
+     .setSize(125, 30)
      .setFont(font)
      .setColorForeground(color(0, 0, 255))
      .setColor(color(0)) // Set background color (if needed)
      .setColorValue(color(255)) // Set text color to black
      .setColorActive(color(255)) // Set active text color to black
      .setAutoClear(false);
-  cp5.get(Textfield.class, "speed Input")
+  cp5.get(Textfield.class, "Set Speed")
+     .getCaptionLabel()
+     .setColor(color(0)); // Set text color to black
+  
+  /*cp5.addSlider("Set Speed") //speed slider
+     .setRange(0, 78.5)
+     .setValue(0)
+     .setPosition(590, 50)
+     .setSize(50, 450)
+     .setSliderMode(Slider.FLEXIBLE)
+     .setColorForeground(color(0, 150, 0))
+     .setColorBackground(color(5, 30, 110))
+     .setColorActive(color(0, 200, 0))
+     .setColorCaptionLabel(color(0))
+     .setColorValue(color(0))
+     .getCaptionLabel().setFont(font); // Set larger font for label*/
+     
+    // Speed Input
+  cp5.addTextfield("Change Mode")
+     .setPosition(250, 50)
+     .setSize(125, 30)
+     .setFont(font)
+     .setColorForeground(color(0, 0, 255))
+     .setColor(color(0)) // Set background color (if needed)
+     .setColorValue(color(255)) // Set text color to black
+     .setColorActive(color(255)) // Set active text color to black
+     .setAutoClear(false);
+  cp5.get(Textfield.class, "Change Mode")
      .getCaptionLabel()
      .setColor(color(0)); // Set text color to black
        
@@ -128,12 +179,12 @@ void setup() {
 }
 
 void draw() {
-  background(200);
+  background(150, 167, 247);
   
   // Render UI first before handling connection
   drawWheelDistances();
   updateAlertScreen();
-  drawMatrix(375, 80);
+  drawMatrix(400, 90);
 
   // Attempt connection only if not already connected & within retry limit
   if (!clientConnected && connectionAttempts < maxAttempts) {
@@ -180,7 +231,7 @@ void start() {
   } else {
     println("Cannot send command, not connected.");
   }
-  
+  //frameRate(15);
   buggyState = 0;
 }
 
@@ -229,13 +280,18 @@ void parsePacket(byte[] buffer) {
   
   int leftSpeed = bb.getInt();
   int rightSpeed = bb.getInt();
-  float speed = (leftSpeed + rightSpeed) / 2.0;
-  cp5.getController("speedDial").setValue(speed); // Update dial
+  //println(leftSpeed);
+  //println(rightSpeed);
+  float averagespeed = (leftSpeed + rightSpeed) / 2.0;
+  float speed = (averagespeed * pi * r) / 1.8;
+  //println(averagespeed);
+  //println(speed);
+  cp5.getController("speed Dial").setValue(speed); // Update dial
   
   leftWheel = bb.getFloat();
   rightWheel = bb.getFloat();
-  println(bb.getInt());//sensor values
-  println(bb.getInt());
+  //println(bb.getInt());//sensor values
+  //println(bb.getInt());
   //println(Arrays.toString(buffer));
   
 }
@@ -250,7 +306,7 @@ void sendCommandPacket(int commandType, int data) {
   bb.order(ByteOrder.LITTLE_ENDIAN);
   bb.putInt(3);
   bb.putInt(commandType);
-  bb.putShort((short) data);
+  bb.putLong((long) data);
   client.write(bb.array());
 }
 
@@ -299,8 +355,8 @@ void drawWheelDistances() {
   fill(0);
   textSize(20);
   textAlign(CENTER);
-  text("Total Distance Travelled " + rDistance +  " m" , width / 2, 460);
-  text("Buggy Alerts", width / 2, 220);
+  text("Total Distance Travelled " + rDistance +  " m" , 300, 460);
+  text("Buggy Alerts", 300, 220);
 }
 
 void copyPattern(int[][] pattern) {
@@ -311,26 +367,52 @@ void copyPattern(int[][] pattern) {
   }
 }
 
+
 void controlEvent(ControlEvent theEvent) {
   if (theEvent.isController()) {
     String controllerName = theEvent.getController().getName();
     
     // Handle Speed Input
-    if (controllerName.equals("speedInput")) {
-      String text = theEvent.getStringValue();
-      try {
-        int newSpeed = Integer.parseInt(text);
-        if (newSpeed >= 0) {
-        sendCommandPacket(4, newSpeed);// Assuming command type 4 sets the speed
-        println("Speed updated to: " + newSpeed);
-        }
-        else {
-          println("Speed must be bigger than 0.");
-        }  
-       } catch (NumberFormatException e) {
-        println("Invalid input. Please enter a numeric value.");
-      }
-    }
+    if (controllerName.equals("Set Speed")) {
+      int newSpeed = Integer.parseInt(theEvent.getStringValue());
+      
+        float dnewSpeed = (newSpeed * pi * r) / 1.8 ;
+        println("NEW SPEEEEEED: " + dnewSpeed);
+        sendCommandPacket(3, newSpeed);// Assuming command type 4 sets the speed
+        //String rValue = String.format("%.1f", sliderValue);
+        //println("Speed updated to: " + rValue);
+        
+        //theEvent.getController().getCaptionLabel().setText("Speed: " + rValue);
+       }
+     if (controllerName.equals("Change Mode")){
+       String changeMode = theEvent.getStringValue().toLowerCase();
+       int mode = -1;
+       
+       switch (changeMode){
+         case "line following":
+           mode = 0;
+           break;
+         case "cruise control":
+           mode = 1;
+           break;
+         case "remote control":
+           mode = 2;
+           break;
+         default:
+           println("Enter one mode: 'Line following', 'Cruise control' or 'Remote control'");
+           return;
+       }
+       
+       sendCommandPacket(4, mode);
+       println("Mode changed to:" + changeMode);
+       /*if (mode == 0){ //change
+         copyPattern(arrowPattern);
+       }else if (mode == 1){
+         copyPattern(cruisePattern);
+       } else if (mode == 2){
+         copyPattern(remotePattern);
+       }*/
+     }
     
     // Handle Reset Distance Button
     if (controllerName.equals("reset distance")) {  
