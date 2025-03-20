@@ -3,14 +3,14 @@
 
 <div class="title_screenshot">
 
-![Project Banner](img/BuggyBanner.png)
+![](img/BuggyBanner.png)
 
 </div>
 
 ## Authors
 
-- [Cristina]()
-- [Conor]()
+- [@Cristina](https://www.github.com/alpha-num1)
+- [@Conor](https://www.github.com/)
 - [@halbachj](https://www.github.com/halbachj)
 
 
