@@ -1,3 +1,12 @@
+/**
+ * @file GroundStation.pde
+ * @author Conor Quinn & Cristina Franco Ortuno
+ * @brief This is the Processing software running
+ * on the ground station computer to control the buggy.
+ *
+ */
+
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import processing.net.*;
@@ -6,10 +15,7 @@ import controlP5.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-//calculate the speed from degrees/s to m/s
-ControlP5 cp5; // UI Control variables
-float pi = 3.14159265359;
-float r = 0.03;
+ControlP5 cp5; // UI Control
 PGraphics alertScreen;
 float obstacleDist = -1;
 String message = "No connection";
@@ -17,8 +23,6 @@ PFont font;
 float leftWheel = 0;
 float rightWheel = 0;
 double robstacleDist;
-
-//Variables for Wifi
 Client client = null; // Start as null
 boolean clientConnected = false;
 int connectionAttempts = 0;
@@ -43,17 +47,6 @@ int[][] arrowPattern = {
     {0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
-int[][] cruisePattern = {
-    {0,0,0,0,0,0,1,0,0,0,0,0},
-    {0,0,0,0,0,0,1,1,0,0,0,0},
-    {0,0,0,0,0,0,1,0,1,0,0,0},
-    {0,0,0,0,0,0,1,1,0,0,0,0},
-    {0,0,0,0,0,0,1,0,0,0,0,0},
-    {0,0,1,1,1,1,1,1,1,1,0,0},
-    {0,0,0,1,0,0,0,0,1,0,0,0},
-    {0,0,0,0,1,1,1,1,0,0,0,0}
-};
-
 int[][] stopPattern = {
     {0,0,0,0,1,1,1,1,0,0,0,0},
     {0,0,0,1,0,0,0,0,1,0,0,0},
@@ -76,94 +69,22 @@ int[][] warningPattern = {
     {0,0,0,1,0,0,0,0,1,0,0,0}
 };
 
-int[][] remotePattern = {
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,1,1,0,0,0,0,0},
-    {0,0,0,0,0,1,1,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0}
-};
 
-
-Knob speedDial;
-DropdownList modeDropdown;
-
-
+/**
+ * @brief This is the setup method. Similar to the Arduino setup mehod.
+ * 
+ * In here the environment for processing is set up, like the window and the buttons.
+ */
 void setup() {
-  size(700, 550);
+  size(600, 500);
   
-  alertScreen = createGraphics(400, 200); //creates the alert screen
+  alertScreen = createGraphics(400, 200);
   cp5 = new ControlP5(this);
   font = createFont("Arial", 16);
   
-  speedDial = cp5.addKnob("speed Dial"); //speed dial
-  speedDial.setRange(0, 70)
-     .setValue(0)
-     .setPosition(70, 30)
-     .setSize(150, 150)
-     .setColorForeground(color(0, 150, 0))
-     .setColorBackground(color(50))
-     .setColorCaptionLabel(250)
-     .setColorActive(color(0, 200, 0))
-     .setColorCaptionLabel(color(0))
-     .getCaptionLabel().setFont(font); // Set larger font for label
-     
-     
-     cp5.addTextfield("Set Speed")
-     .setPosition(550, 350)
-     .setSize(125, 30)
-     .setFont(font)
-     .setColorForeground(color(0, 0, 255))
-     .setColor(color(0)) // Set background color (if needed)
-     .setColorValue(color(255)) // Set text color to black
-     .setColorActive(color(255)) // Set active text color to black
-     .setAutoClear(false);
-  cp5.get(Textfield.class, "Set Speed")
-     .getCaptionLabel()
-     .setColor(color(0)); // Set text color to black
-  
-  /*cp5.addSlider("Set Speed") //speed slider
-     .setRange(0, 78.5)
-     .setValue(0)
-     .setPosition(590, 50)
-     .setSize(50, 450)
-     .setSliderMode(Slider.FLEXIBLE)
-     .setColorForeground(color(0, 150, 0))
-     .setColorBackground(color(5, 30, 110))
-     .setColorActive(color(0, 200, 0))
-     .setColorCaptionLabel(color(0))
-     .setColorValue(color(0))
-     .getCaptionLabel().setFont(font); // Set larger font for label*/
-     
-    // Speed Input
-  modeDropdown = cp5.addDropdownList("Change Mode");
-  modeDropdown.setPosition(250, 50)
-     .setSize(175, 100)
-     .setBarHeight(25)
-     .setItemHeight(25)
-     .setFont(font)
-     .setColorForeground(color(0, 0, 255))
-     .addItems(new String[]{"Line Follower", "Cruise Control", "Remote control"})
-     .addListener(new ControlListener(){
-       void controlEvent(ControlEvent event) {
-         println("DROPDOWN CONTROL EVENT");
-       }
-     });
-     //.setOpen(false);
-     /*.setColor(color(0)) // Set background color (if needed)
-     .setColorValue(color(255)); // Set text color to black
-     .setColorActive(color(255)) // Set active text color to black
-     .setAutoClear(false);
-  cp5.get(Textfield.class, "Change Mode")
-     .getCaptionLabel()
-     .setColor(color(0)); // Set text color to black*/
-       
   // Start & Stop Buttons
   cp5.addButton("start")
-     .setPosition(50, 475)
+     .setPosition(50, 425)
      .setSize(100, 45)
      .setColorBackground(color(0, 100, 0))
      .setColorForeground(color(0, 150, 0))
@@ -172,7 +93,7 @@ void setup() {
      .getCaptionLabel().setFont(font).toUpperCase(true);
 
   cp5.addButton("stop")
-     .setPosition(450, 475)
+     .setPosition(450, 425)
      .setSize(100, 45)
      .setColorBackground(color(150, 0, 0))
      .setColorForeground(color(200, 50, 50))
@@ -181,24 +102,27 @@ void setup() {
      .getCaptionLabel().setFont(font).toUpperCase(true);
   
   cp5.addButton("reset distance")
-   .setPosition(200, 475)
+   .setPosition(200, 425)
    .setSize(200, 45)
    .setColorBackground(color(50, 50, 150))
    .setColorForeground(color(80, 80, 200))
    .setColorActive(color(100, 100, 255))
    .setColorLabel(color(255))
    .getCaptionLabel().setFont(font).toUpperCase(true);
-   
-   initializeMatrix(); // Default matrix values
+
+  initializeMatrix(); // Default matrix values
 }
 
+/**
+ * @brief The draw method is called every frame. This corresponds to the loop method in Arduino.
+ */
 void draw() {
-  background(150, 167, 247);
+  background(200);
   
   // Render UI first before handling connection
   drawWheelDistances();
   updateAlertScreen();
-  drawMatrix(400, 90);
+  drawMatrix(width /3 + 25 , 65);
 
   // Attempt connection only if not already connected & within retry limit
   if (!clientConnected && connectionAttempts < maxAttempts) {
@@ -245,7 +169,7 @@ void start() {
   } else {
     println("Cannot send command, not connected.");
   }
-  //frameRate(15);
+  
   buggyState = 0;
 }
 
@@ -291,36 +215,27 @@ void parsePacket(byte[] buffer) {
   message = objectDetected ? "Object Detected" : "No Object";
   obstacleDist = bb.getFloat();
   robstacleDist = new BigDecimal(obstacleDist).setScale(2, RoundingMode.HALF_UP).doubleValue();
-  
-  int leftSpeed = bb.getInt();
-  int rightSpeed = bb.getInt();
-  //println(leftSpeed);
-  //println(rightSpeed);
-  float averagespeed = (leftSpeed + rightSpeed) / 2.0;
-  float speed = (averagespeed * pi * r) / 1.8;
-  //println(averagespeed);
-  //println(speed);
-  cp5.getController("speed Dial").setValue(speed); // Update dial
-  
+  println(bb.getInt());
+  println(bb.getInt());
   leftWheel = bb.getFloat();
   rightWheel = bb.getFloat();
-  //println(bb.getInt());//sensor values
-  //println(bb.getInt());
+  println(bb.getInt());
+  println(bb.getInt());
   //println(Arrays.toString(buffer));
   
 }
+
 
 void sendCommandPacket(int commandType, int data) {
   if (!clientConnected) {
     println("Not connected, cannot send command.");
     return;
   }
-  
   ByteBuffer bb = ByteBuffer.allocate(72);
   bb.order(ByteOrder.LITTLE_ENDIAN);
   bb.putInt(3);
   bb.putInt(commandType);
-  bb.putLong((long) data);
+  bb.putShort((short) data);
   client.write(bb.array());
 }
 
@@ -353,7 +268,7 @@ void updateAlertScreen() {
   }
 
   alertScreen.endDraw();
-  image(alertScreen, 100, 235);
+  image(alertScreen, 100, 200);
   
   if(buggyState == 0)
     copyPattern(arrowPattern);
@@ -369,8 +284,8 @@ void drawWheelDistances() {
   fill(0);
   textSize(20);
   textAlign(CENTER);
-  text("Total Distance Travelled " + rDistance +  " m" , 300, 460);
-  text("Buggy Alerts", 300, 220);
+  text("Total Distance Travelled " + rDistance +  " m" , width / 2, 40);
+  text("Buggy Alerts", width / 2, 185);
 }
 
 void copyPattern(int[][] pattern) {
@@ -381,56 +296,11 @@ void copyPattern(int[][] pattern) {
   }
 }
 
-
 void controlEvent(ControlEvent theEvent) {
   if (theEvent.isController()) {
-    String controllerName = theEvent.getController().getName();
-    
-    // Handle Speed Input
-    if (controllerName.equals("Set Speed")) {
-      int newSpeed = Integer.parseInt(theEvent.getStringValue());
-      
-        float dnewSpeed = (newSpeed * pi * r) / 1.8 ;
-        println("NEW SPEEEEEED: " + dnewSpeed);
-        sendCommandPacket(3, newSpeed);// Assuming command type 4 sets the speed
-        //String rValue = String.format("%.1f", sliderValue);
-        //println("Speed updated to: " + rValue);
-        
-        //theEvent.getController().getCaptionLabel().setText("Speed: " + rValue);
-       }
-     if (controllerName.equals("Change Mode")){
-       String changeMode = theEvent.getStringValue().toLowerCase();
-       int mode = -1;
-       
-       switch (changeMode){
-         case "line following":
-           mode = 0;
-           break;
-         case "cruise control":
-           mode = 1;
-           break;
-         case "remote control":
-           mode = 2;
-           break;
-         default:
-           println("Enter one mode: 'Line following', 'Cruise control' or 'Remote control'");
-           return;
-       }
-       
-       sendCommandPacket(4, mode);
-       println("Mode changed to:" + changeMode);
-       /*if (mode == 0){ //change
-         copyPattern(arrowPattern);
-       }else if (mode == 1){
-         copyPattern(cruisePattern);
-       } else if (mode == 2){
-         copyPattern(remotePattern);
-       }*/
-     }
-    
-    // Handle Reset Distance Button
-    if (controllerName.equals("reset distance")) {  
-      resetDistance();  
+    String buttonName = theEvent.getController().getName();
+    if (buttonName.equals("reset distance")) {  
+      resetDistance();  // Call function when button is clicked
     }
   }
 }
