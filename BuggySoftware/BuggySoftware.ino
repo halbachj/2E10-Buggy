@@ -14,6 +14,7 @@
 #include "PacketFactory.hpp"
 #include "Matrix.hpp"
 #include "CruiseControl.hpp"
+#include "Scheduler.hpp"
 
 #define VERSION 1.4
 
@@ -79,6 +80,8 @@ const PIDConstants lineFollowerPID = { 1.0f, 10.0f, 0.0f };
 const PIDConstants cruiseControlPID = { 25.0f, 0.0f, 0.0f };
 
 /// INSTANCES
+Scheduler scheduler = Scheduler();
+
 MotorDriver leftMotor(leftMotorPinout, leftMotorPID);
 MotorDriver rightMotor(rightMotorPinout, rightMotorPID);
 
@@ -93,7 +96,7 @@ TcpServer server = TcpServer();
 LineFollower lineFollower(leftMotor, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID);
 CruiseControl cruiseControl(ultrasonicSensor, lineFollower, cruiseControlPID);
 
-Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, wifi, server, lineFollower, cruiseControl);
+Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, scheduler, wifi, server, lineFollower, cruiseControl);
 
 // ISR
 void ISR_left_motor();
@@ -167,7 +170,7 @@ uint8_t loop_duration = 5e-6;  //s at least
  */
 void loop() {
   start_time = micros();
-  //wifi.update();
+  scheduler.update();
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) * 1.0e-6;
