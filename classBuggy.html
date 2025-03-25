@@ -126,9 +126,9 @@ Collaboration diagram for Buggy:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9a2cfa6622b198fa08cca3475a5ac082" id="r_a9a2cfa6622b198fa08cca3475a5ac082"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a2cfa6622b198fa08cca3475a5ac082">Buggy</a> (<a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;leftMotor, <a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;rightMotor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;leftIrSensor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;rightIrSensor, <a class="el" href="classUltrasonicSensor.html">UltrasonicSensor</a> &amp;ultrasonicSensor, <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> &amp;wifi, <a class="el" href="classTcpServer.html">TcpServer</a> &amp;server, <a class="el" href="classLineFollower.html">LineFollower</a> &amp;lineFollower, <a class="el" href="classCruiseControl.html">CruiseControl</a> &amp;cruiseController)</td></tr>
-<tr class="memdesc:a9a2cfa6622b198fa08cca3475a5ac082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the buggy. Initialized with all neccessary components.  <br /></td></tr>
-<tr class="separator:a9a2cfa6622b198fa08cca3475a5ac082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad08754258f089e5e781eb37c2a5c233e" id="r_ad08754258f089e5e781eb37c2a5c233e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad08754258f089e5e781eb37c2a5c233e">Buggy</a> (<a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;leftMotor, <a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;rightMotor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;leftIrSensor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;rightIrSensor, <a class="el" href="classUltrasonicSensor.html">UltrasonicSensor</a> &amp;ultrasonicSensor, <a class="el" href="classScheduler.html">Scheduler</a> &amp;scheduler, <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> &amp;wifi, <a class="el" href="classTcpServer.html">TcpServer</a> &amp;server, <a class="el" href="classLineFollower.html">LineFollower</a> &amp;lineFollower, <a class="el" href="classCruiseControl.html">CruiseControl</a> &amp;cruiseController)</td></tr>
+<tr class="memdesc:ad08754258f089e5e781eb37c2a5c233e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the buggy. Initialized with all neccessary components.  <br /></td></tr>
+<tr class="separator:ad08754258f089e5e781eb37c2a5c233e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a394acc3ce03ca87ea517024d352358df" id="r_a394acc3ce03ca87ea517024d352358df"><td class="memItemLeft" align="right" valign="top"><a id="a394acc3ce03ca87ea517024d352358df" name="a394acc3ce03ca87ea517024d352358df"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Buggy</b> (const <a class="el" href="classBuggy.html">Buggy</a> &amp;other)=delete</td></tr>
 <tr class="separator:a394acc3ce03ca87ea517024d352358df"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,8 +192,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
 <div class="textblock"><p>The <a class="el" href="classBuggy.html" title="The Buggy class contains all relevant peripherals mounted on the buggy, as well as some helper classe...">Buggy</a> class contains all relevant peripherals mounted on the buggy, as well as some helper classes. </p>
 <p><a class="el" href="classBuggy.html" title="The Buggy class contains all relevant peripherals mounted on the buggy, as well as some helper classe...">Buggy</a> State is handled through a state machine which handles the different updates. Look into state machine class for further information. State change is handled whenever a state change is reuqested by the state machine and the neccessarry calls are made. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9a2cfa6622b198fa08cca3475a5ac082" name="a9a2cfa6622b198fa08cca3475a5ac082"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a2cfa6622b198fa08cca3475a5ac082">&#9670;&#160;</a></span>Buggy()</h2>
+<a id="ad08754258f089e5e781eb37c2a5c233e" name="ad08754258f089e5e781eb37c2a5c233e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad08754258f089e5e781eb37c2a5c233e">&#9670;&#160;</a></span>Buggy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,6 +226,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classScheduler.html">Scheduler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scheduler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>wifi</em></span>, </td>
         </tr>
         <tr>
@@ -254,6 +259,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
     <tr><td class="paramname">leftIrSensor</td><td>takes reference to left <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> Sensor </td></tr>
     <tr><td class="paramname">rightIrSensor</td><td>takes referemce to right <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> Sensor </td></tr>
     <tr><td class="paramname">ultrasonicSensor</td><td>takes reference to the <a class="el" href="classUltrasonicSensor.html" title="Handles ultrasonic sensor operations, including triggering and measuring distance.">UltrasonicSensor</a> </td></tr>
+    <tr><td class="paramname">scheduler</td><td>takes reference to the task <a class="el" href="classScheduler.html">Scheduler</a> </td></tr>
     <tr><td class="paramname">wifi</td><td>takes reference to the initialized <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> to control the access point </td></tr>
     <tr><td class="paramname">server</td><td>takes a reference to the running BuggyTCP server that handles ground station communication </td></tr>
     <tr><td class="paramname">lineFollower</td><td>takes a reference to the <a class="el" href="classLineFollower.html" title="The line follower class is a helper class that allows for easy control of the buggy.">LineFollower</a>. This already contains reference to its neccessarry components </td></tr>
@@ -261,6 +267,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuggy_ad08754258f089e5e781eb37c2a5c233e_cgraph.svg" width="602" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>

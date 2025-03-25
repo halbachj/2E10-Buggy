@@ -17,6 +17,7 @@ var dir_f39fb8b7a855060c391429e67cd03caa =
     [ "PacketTypes.hpp", "PacketTypes_8hpp_source.html", null ],
     [ "PIDController.hpp", "PIDController_8hpp_source.html", null ],
     [ "PinSetup.hpp", "PinSetup_8hpp_source.html", null ],
+    [ "Scheduler.hpp", "Scheduler_8hpp_source.html", null ],
     [ "secrets.h", "secrets_8h_source.html", null ],
     [ "SerialLogger.hpp", "SerialLogger_8hpp_source.html", null ],
     [ "SerialWirelessLogger.hpp", "SerialWirelessLogger_8hpp_source.html", null ],

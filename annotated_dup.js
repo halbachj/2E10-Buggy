@@ -35,6 +35,7 @@ var annotated_dup =
     [ "PacketSerializer", "classPacketSerializer.html", null ],
     [ "PIDConstants", "structPIDConstants.html", null ],
     [ "PIDController", "classPIDController.html", "classPIDController" ],
+    [ "Scheduler", "classScheduler.html", null ],
     [ "StatusPacket", "structStatusPacket.html", "structStatusPacket" ],
     [ "TcpServer", "classTcpServer.html", "classTcpServer" ],
     [ "UdpServer", "classUdpServer.html", "classUdpServer" ],
