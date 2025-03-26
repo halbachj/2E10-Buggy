@@ -21,11 +21,9 @@ public:
     ++this->index;
     this->index = this->index % N;
     this->buffer[this->index] = value;
-    //logger << logLevel::DEBUG << "Writing buffer at " << this->index << " value " << value << EmbeddedLogger::endl;
   }
 
   float getMean() {
-    //logger << logLevel::DEBUG;
     int size = N;
     float sum = 0;
     if (!this->filled) {   // if the buffer is not filled only consider the values up until index
@@ -34,10 +32,7 @@ public:
     }
     for (int i=0; i<size; i++) {
       sum += this->buffer[i];
-      //logger << this->buffer[i] << ",";
     }
-    //logger << EmbeddedLogger::endl;
-    //logger << logLevel::DEBUG << "size is " << size << " Sum is " << sum << EmbeddedLogger::endl;
     return sum/size;
   }
 

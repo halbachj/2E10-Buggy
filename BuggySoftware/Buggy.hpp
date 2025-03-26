@@ -13,7 +13,6 @@
 #include "EmbeddedLogger.hpp"
 #include "Matrix.hpp"
 #include "CruiseControl.hpp"
-#include "Scheduler.hpp"
 
 class BuggyState;
 
@@ -41,7 +40,6 @@ private:
   Matrix ledMatrix;
   BuggyWiFi& wifi;
   TcpServer& server;
-  Scheduler scheduler;
 
   LineFollower& lineFollower;
   CruiseControl& cruiseController;
@@ -62,7 +60,6 @@ public:
   * @param leftIrSensor takes reference to left IrSensor Sensor
   * @param rightIrSensor takes referemce to right IrSensor Sensor 
   * @param ultrasonicSensor takes reference to the UltrasonicSensor
-  * @param scheduler takes reference to the task Scheduler
   * @param wifi takes reference to the initialized BuggyWiFi to control the access point
   * @param server takes a reference to the running BuggyTCP server that handles ground station communication
   * @param lineFollower takes a reference to the LineFollower. This already contains reference to its neccessarry components
@@ -70,7 +67,7 @@ public:
   **/
 
   Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSensor, IrSensor& rightIrSensor,
-   UltrasonicSensor& ultrasonicSensor, Scheduler& scheduler, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController);
+   UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController);
   // cannot copy
   Buggy(const Buggy& other) = delete;
   Buggy& operator=(const Buggy& other) = delete; 

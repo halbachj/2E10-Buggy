@@ -4,36 +4,36 @@ using EmbeddedLogger::logger;
 using logLevel = EmbeddedLogger::LogLevel;
 
 Buggy::Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSensor, IrSensor& rightIrSensor,
-   UltrasonicSensor& ultrasonicSensor, Scheduler& scheduler, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController):
+   UltrasonicSensor& ultrasonicSensor, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController):
    leftMotor(leftMotor), rightMotor(rightMotor), leftIrSensor(leftIrSensor), rightIrSensor(rightIrSensor), ultrasonicSensor(ultrasonicSensor),
-   scheduler(scheduler), wifi(wifi), server(server), lineFollower(lineFollower), cruiseController(cruiseController), currentState(&IdleState::instance())
+   wifi(wifi), server(server), lineFollower(lineFollower), cruiseController(cruiseController), currentState(&IdleState::instance())
    {
-  scheduler.addTask(this, &Buggy::sendStatusPacket, 300); // add status packet task to send every 300 ms
+
 }
 
 void Buggy::switchControlMode(ControlMode mode) {
   logger << logLevel::DEBUG << "SWITCTHING CONTROL MODE TO ";
   switch (mode) {
     case ControlMode::LINE_FOLLOWING:
-      logger << "LINE FOLLOWING" << EmbeddedLogger::endl;
+      logger << F("LINE FOLLOWING") << EmbeddedLogger::endl;
       this->setState(LineFollowingState::instance());
       break;
     case ControlMode::CRUISE_CONTROL:
-      logger << "CRUISE CONTROL" << EmbeddedLogger::endl;
+      logger << F("CRUISE CONTROL") << EmbeddedLogger::endl;
       this->setState(CruiseControlState::instance());
       break;
     case ControlMode::REMOTE_CONTROL:
-      logger << "REMOTE CONTROL" << EmbeddedLogger::endl;
+      logger << F("REMOTE CONTROL") << EmbeddedLogger::endl;
       this->setState(JustDriveState::instance());
       break;
     default:
-      logger << "UNKNONW STATE !!! NOT DOING ANYTHING" << EmbeddedLogger::endl;
+      logger << F("UNKNONW STATE !!! NOT DOING ANYTHING") << EmbeddedLogger::endl;
       break;
   }
 }
 
 void Buggy::handleCommand(CommandPacket command) {
-    logger << logLevel::DEBUG << "Command type: " << command.type << EmbeddedLogger::endl;
+    logger << logLevel::DEBUG << F("Command type: ") << command.type << EmbeddedLogger::endl;
     switch (command.type) {
       case CommandType::START:
         logger << logLevel::DEBUG << "START COMMAND" << EmbeddedLogger::endl;
@@ -41,19 +41,19 @@ void Buggy::handleCommand(CommandPacket command) {
         break;
       case CommandType::STOP:
         this->setState(IdleState::instance());
-        logger << logLevel::DEBUG << "STOP COMMAND" << EmbeddedLogger::endl;
+        logger << logLevel::DEBUG << F("STOP COMMAND") << EmbeddedLogger::endl;
         break;
       case CommandType::RESET_DISTANCE: // New case for resetting distance
         leftMotor.resetDistance();
         rightMotor.resetDistance();
-        logger << logLevel::DEBUG << "DISTANCE RESET" << EmbeddedLogger::endl;
+        logger << logLevel::DEBUG << F("DISTANCE RESET") << EmbeddedLogger::endl;
         break;
       case CommandType::SET_SPEED:
         lineFollower.setSpeed(command.data);
-        logger << logLevel::DEBUG << "SET SPEED TO " << command.data << EmbeddedLogger::endl;
+        logger << logLevel::DEBUG << F("SET SPEED TO ") << command.data << EmbeddedLogger::endl;
         break;
       case CommandType::SWITCH_MODE:
-        logger << logLevel::DEBUG << "SWTICH MODE" << EmbeddedLogger::endl;
+        logger << logLevel::DEBUG << F("SWTICH MODE") << EmbeddedLogger::endl;
         ControlMode mode = ControlMode(command.data);
         this->switchControlMode(mode);
     }
@@ -84,11 +84,11 @@ void Buggy::handleControlPacket(ControlPacket control) {
 void Buggy::handlePacket(Packet packet) {
   switch (packet.type) {
     case PacketType::COMMAND:
-      logger << logLevel::DEBUG << "RECIEVED COMMAND PACKET" << EmbeddedLogger::endl;
+      logger << logLevel::DEBUG << F("RECIEVED COMMAND PACKET") << EmbeddedLogger::endl;
       this->handleCommand(packet.content.commandPacket);
       break;
     case PacketType::CONTROL:
-      logger << logLevel::DEBUG << "RECEIVED CONTROL PACKET" << EmbeddedLogger::endl;
+      logger << logLevel::DEBUG << F("RECEIVED CONTROL PACKET") << EmbeddedLogger::endl;
       this->handleControlPacket(packet.content.controlPacket);
   }
 }
