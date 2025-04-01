@@ -1,13 +1,15 @@
 #ifndef CAMERA_HPP
 #define CAMERA_HPP
 
-#include "RoadSigns.hpp"
-#include "libs/HUSKYLENS/HUSKYLENS.h"
+#include "HUSKYLENS.h"
+#include "Wire.h"
 
 
 class Camera {
 private:
-  HUSKYLENS huskylens;
+  HUSKYLENS& huskylens;
+
+  unsigned long last_request = 0, request_interval = 1000;
 
 public:
 
@@ -55,16 +57,7 @@ public:
    *
    * @return the HUSKYLENSResult result arrow object
    */
-  HUSKYLENSResult getBiggestArrow();
-
-  /**
-   * @brief will try to read the cloasest Road sign 
-   *
-   * This is useful when looking for roadsigns as the biggest one is probably cloasest.
-   * 
-   * @return the learned road sign
-   */
-  RoadSign readRoadSign();
+  //HUSKYLENSResult getBiggestArrow();
 
   /**
    * @brief switch to the specified camera mode

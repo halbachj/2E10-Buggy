@@ -158,6 +158,57 @@ private:
 
 
 /**
+ * @class LineFollowingState_TURN_RIGHT
+ *
+ * @brief A special sub state of LineFollowing which preferes a right turn when following the line.
+ *
+ * This is used to turn onto a different track at intersections.
+ */
+
+class LineFollowingState_TURN_RIGHT : public BuggyState {
+private:
+  bool hitIntersection = false; // goes high when both sensors are on the intersection
+public:
+    static LineFollowingState_TURN_RIGHT& instance() {
+      static LineFollowingState_TURN_RIGHT instance;
+      return instance;
+    }
+
+    void enter(Buggy& buggy, BuggyState* oldState) override;
+    void update(Buggy& buggy, double dt) override;
+    void exit(Buggy& buggy, BuggyState* oldState) override;
+  
+private:
+    LineFollowingState_TURN_RIGHT() = default;  // Private constructor for singleton pattern
+};
+
+/**
+ * @class LineFollowingState_TURN_LEFT
+ *
+ * @brief A special sub state of LineFollowing which preferes a left turn when following the line.
+ *
+ * This is used to turn onto a different track at intersections.
+ */
+
+class LineFollowingState_TURN_LEFT : public BuggyState {
+private:
+  bool hitIntersection = false; // goes high when both sensors are on the intersection
+public:
+    static LineFollowingState_TURN_LEFT& instance() {
+        static LineFollowingState_TURN_LEFT instance;
+        return instance;
+    }
+
+    void enter(Buggy& buggy, BuggyState* oldState) override;
+    void update(Buggy& buggy, double dt) override;
+    void exit(Buggy& buggy, BuggyState* oldState) override;
+  
+private:
+    LineFollowingState_TURN_LEFT() = default;  // Private constructor for singleton pattern
+};
+
+
+/**
  * @class CruiseControl
  *
  * @brief Cruise control state keeps the distance to an obstacle infront of the buggy constant using the Ultrasonic sensor. The buggy continues 

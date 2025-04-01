@@ -19,7 +19,7 @@
  2.This code is tested on Arduino Uno, Leonardo, Mega boards.
  ****************************************************/
 
-#include "HUSKYLENS.h"
+#include "libs/HUSKYLENS/HUSKYLENS.h"
 
 HUSKYLENS huskylens;
 //HUSKYLENS green line >> SDA; blue line >> SCL

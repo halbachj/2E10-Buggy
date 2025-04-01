@@ -17,6 +17,7 @@ class IrSensor {
 private:
   const pin_size_t input_pin;
   int min=0, max=1023;
+  unsigned int threshold = 1024/2.0;
 public:
   /**
    * @brief Will construct the IrSensor using the Pins.
@@ -43,6 +44,24 @@ public:
    * @returns the raw analog reading.
    */
   int getManualReading();
+  /**
+   * @brief Returns the reading of the sensor as a boolean based on a threshold value.
+   * 
+   * @returns true if the sensor reads a high value
+   */
+  bool isHigh();
+  /**
+   * @brief Returns the reading of the sensor as a boolean based on a threshold value.
+   * 
+   * @returns true if the sensor reads a high value
+   */
+  bool isLow();
+  /**
+   * @brief Setter for the threshold value.
+   * 
+   * @param value the threshold value to be set.
+   */
+  void setThreshold(unsigned int value);
 };
 
 

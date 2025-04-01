@@ -14,6 +14,8 @@
 #include "PacketFactory.hpp"
 #include "Matrix.hpp"
 #include "CruiseControl.hpp"
+#include "Camera.hpp"
+#include "HUSKYLENS.h"
 
 #define VERSION 1.4
 
@@ -80,6 +82,8 @@ const PIDConstants cruiseControlPID = { 25.0f, 0.0f, 0.0f };
 
 /// INSTANCES
 
+HUSKYLENS huskylens;
+
 MotorDriver leftMotor(leftMotorPinout, leftMotorPID);
 MotorDriver rightMotor(rightMotorPinout, rightMotorPID);
 
@@ -88,13 +92,17 @@ IrSensor rightIrSensor(rightIrSensorPin);
 
 UltrasonicSensor ultrasonicSensor(ultrasonicSensorPinout);
 
+Camera camera = Camera(huskylens);
+RoadSignRecognition signRecognition = RoadSignRecognition(camera);
+
 BuggyWiFi wifi;
 TcpServer server = TcpServer();
 
 LineFollower lineFollower(leftMotor, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID);
 CruiseControl cruiseControl(ultrasonicSensor, lineFollower, cruiseControlPID);
 
-Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, wifi, server, lineFollower, cruiseControl);
+Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, camera, wifi, server, lineFollower, cruiseControl, signRecognition);
+
 
 // ISR
 void ISR_left_motor();
@@ -110,7 +118,7 @@ void setup() {
   Serial.begin(115200);
   logger.setLogLevel(logLevel::INFO);
   //while (!Serial) yield();
-  logger << logLevel::INFO << F("INIT Start") << EmbeddedLogger::endl;
+  logger << logLevel::INFO << "INIT Start" << EmbeddedLogger::endl;
 
   // start Timer 1
   BuggyTimer1::begin();
@@ -134,6 +142,9 @@ void setup() {
 
   // LED MATRIX
   ledMatrix.begin(); ///< @todo make this part of the matrix class
+
+  // Camera
+  camera.begin();
   
   // SETUP WIFI
   wifi.wifi_checks(); ///< @todo make this part of BuggyWiFi begin
@@ -142,10 +153,10 @@ void setup() {
   server.setup();         ///< @todo rename this to server.begin
   logging_server.setup();
 
-  logger << logLevel::INFO << F("INIT Done") << EmbeddedLogger::endl;
+  logger << logLevel::INFO << "INIT Done" << EmbeddedLogger::endl;
 
-  //buggy.setState(JustDriveState::instance());
-  buggy.setState(LineFollowingState::instance());
+  buggy.setState(JustDriveState::instance());
+  //buggy.setState(LineFollowingState::instance());
   //buggy.setState(LineFollowingState::instance());
   leftMotor.forward();
   //leftMotor.setSpeed(1000);

@@ -11,7 +11,7 @@ TcpServer::TcpServer(int port): server(port), serverPort(port) {
 
 void TcpServer::setup() {
   if (setupDone) return;
-  logger << logLevel::DEBUG << F("Starting Tcp Server") << EmbeddedLogger::endl;
+  logger << logLevel::DEBUG << "Starting Tcp Server" << EmbeddedLogger::endl;
   server.begin();
 }
 
@@ -28,15 +28,15 @@ Packet TcpServer::update() {
   packet.type = PacketType(0); // Will initialize packet type to an invalid packet that can be detected
   if (client) {
     delayMicroseconds(10);            // This is required for the Arduino Nano RP2040 Connect
-    logger << logLevel::DEBUG << F("CLIENT CONNECTED") << EmbeddedLogger::endl;
+    logger << logLevel::DEBUG << "CLIENT CONNECTED" << EmbeddedLogger::endl;
     if (client.available() >= 72) {
-      logger << logLevel::DEBUG << F("RECIEVED PACKAGE") << EmbeddedLogger::endl;
+      logger << logLevel::DEBUG << "RECIEVED PACKAGE" << EmbeddedLogger::endl;
       client.readBytes(this->input_buffer, MAX_PACKET_LENGTH);
-      logger << logLevel::DEBUG << F("PACKAGE RECIEVED - DESERIALIZING") << EmbeddedLogger::endl;
+      logger << logLevel::DEBUG << "PACKAGE RECIEVED - DESERIALIZING" << EmbeddedLogger::endl;
       // deserialize packet
       memcpy(&packet, this->input_buffer, MAX_PACKET_LENGTH);
       //packet = PacketDeserializer::deserializePacket(this->input_buffer);
-      logger << logLevel::DEBUG << F("DESERIALIZED") << EmbeddedLogger::endl << F("PACKET: ") << String(packet.type).c_str() << EmbeddedLogger::endl;
+      logger << logLevel::DEBUG << "DESERIALIZED" << EmbeddedLogger::endl << "PACKET: " << String(packet.type).c_str() << EmbeddedLogger::endl;
     }
   }
   return packet;

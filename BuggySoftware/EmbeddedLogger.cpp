@@ -15,12 +15,12 @@ void Logger::appendToBuffer(const char* str) {
   }
 }
 
-void Logger::appendToBuffer(const __FlashStringHelper *str) {
+/* void Logger::appendToBuffer(const __FlashStringHelper *str) {
   size_t length = strlen_P((const char*)str); 
   int target = min(BUFFER_SIZE - 1, pos + length);
   strncpy_P(&this->buffer[pos], (const char*)str, BUFFER_SIZE - 1);  // _P is the version to read from program space
   this->pos = target;
-}
+} */
 
 void Logger::appendNumber(int32_t num) {
   char numBuffer[12];
@@ -101,10 +101,10 @@ Logger& Logger::operator<<(const char* str) {
     return *this;
 }
 
-Logger& Logger::operator<<(const __FlashStringHelper* str) {
+/* Logger& Logger::operator<<(const __FlashStringHelper* str) {
     appendToBuffer(str);
     return *this;
-}
+} */
 
 Logger& Logger::operator<<(char c) {
     if (pos < BUFFER_SIZE - 1) buffer[pos++] = c;

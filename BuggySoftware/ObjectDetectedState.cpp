@@ -14,7 +14,7 @@ void ObjectDetectedState::enter(Buggy& buggy, BuggyState* oldState) {
 void ObjectDetectedState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
   float distance = buggy.ultrasonicSensor.getReading();
-  logger << logLevel::INFO << F("Object Distance: ") << distance << EmbeddedLogger::endl;
+  logger << logLevel::INFO << "Object Distance: " << distance << EmbeddedLogger::endl;
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (!buggy.objectDetected) { 
     buggy.setState(LineFollowingState::instance());

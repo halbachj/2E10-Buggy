@@ -69,7 +69,7 @@ public:
   };
 
   Logger& operator<<(const char* str);
-  Logger& operator<<(const __FlashStringHelper* str);
+  //Logger& operator<<(const __FlashStringHelper* str);
   Logger& operator<<(char c);
   Logger& operator<<(int32_t num);
   Logger& operator<<(int num);

@@ -16,3 +16,15 @@ int IrSensor::getReading() {
 int IrSensor::getManualReading() {
   return analogRead(this->input_pin);
 }
+
+bool IrSensor::isHigh() {
+  return this->getReading() >= this->threshold;
+}
+
+bool IrSensor::isLow() {
+  return !this->isHigh();
+}
+
+void IrSensor::setThreshold(unsigned int value) {
+  this->threshold = value;
+}

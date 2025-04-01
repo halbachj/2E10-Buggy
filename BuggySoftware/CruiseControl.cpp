@@ -11,10 +11,10 @@ float CruiseControl::update(double dt) {
   float distance, error, correction;
 
   distance = this->ussensor.getReading();
-  logger << logLevel::DEBUG << F("CRUISE CONTROL MEASURED DISTANCE ") << distance << EmbeddedLogger::endl;
+  logger << logLevel::DEBUG << "CRUISE CONTROL MEASURED DISTANCE " << distance << EmbeddedLogger::endl;
 
   error = distance - this->target_distance;
-  logger << logLevel::DEBUG << F("CRUISE CONTROL ERROR ") << error << EmbeddedLogger::endl;
+  logger << logLevel::DEBUG << "CRUISE CONTROL ERROR " << error << EmbeddedLogger::endl;
 
   /*logger << logLevel::DEBUG << "CRUISE CONTROL CONSTANTS:  ";
   logger << this->constants.Kp << " ";
@@ -22,7 +22,7 @@ float CruiseControl::update(double dt) {
   logger << this->constants.Kd << " " << EmbeddedLogger::endl;*/
 
   correction = this->controller.update(error, dt);
-  logger << logLevel::DEBUG << F("CRUISE CONTROL CORRECTION ") << correction << EmbeddedLogger::endl;
+  logger << logLevel::DEBUG << "CRUISE CONTROL CORRECTION " << correction << EmbeddedLogger::endl;
   
   correction = min(correction, this->max_speed);
   return max(0, correction);
