@@ -6,7 +6,6 @@ import controlP5.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-//calculate the speed from degrees/s to m/s
 ControlP5 cp5; // UI Control variables
 float pi = 3.14159265359;
 float r = 0.03;
