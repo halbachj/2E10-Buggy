@@ -145,6 +145,9 @@ void setup() {
 
   // Camera
   camera.begin();
+
+  // Sign recognition
+  signRecognition.begin(&buggy);
   
   // SETUP WIFI
   wifi.wifi_checks(); ///< @todo make this part of BuggyWiFi begin
@@ -155,8 +158,8 @@ void setup() {
 
   logger << logLevel::INFO << "INIT Done" << EmbeddedLogger::endl;
 
-  buggy.setState(JustDriveState::instance());
-  //buggy.setState(LineFollowingState::instance());
+  //buggy.setState(JustDriveState::instance());
+  buggy.setState(LineFollowingState::instance());
   //buggy.setState(LineFollowingState::instance());
   leftMotor.forward();
   //leftMotor.setSpeed(1000);

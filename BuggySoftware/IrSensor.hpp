@@ -17,7 +17,7 @@ class IrSensor {
 private:
   const pin_size_t input_pin;
   int min=0, max=1023;
-  unsigned int threshold = 1024/2.0;
+  unsigned int threshold = 1024/2;
 public:
   /**
    * @brief Will construct the IrSensor using the Pins.

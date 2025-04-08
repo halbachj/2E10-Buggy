@@ -9,8 +9,6 @@ void JustDriveState::enter(Buggy& buggy, BuggyState* oldState) {
 
 void JustDriveState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
-  buggy.camera.update();
-  buggy.signRecognition.update();
 
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) { 

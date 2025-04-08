@@ -6,8 +6,8 @@ using logLevel = EmbeddedLogger::LogLevel;
 
 
 void ObjectDetectedState::enter(Buggy& buggy, BuggyState* oldState) {
-  buggy.leftMotor.setSpeed(0);
-  buggy.rightMotor.setSpeed(0);
+  buggy.leftMotor.setSpeed(-500);
+  buggy.rightMotor.setSpeed(-500);
   buggy.ledMatrix.setMode(BuggyMode::OBSTACLE_DETECTED);
 }
 

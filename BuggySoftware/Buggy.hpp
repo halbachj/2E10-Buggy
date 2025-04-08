@@ -18,6 +18,7 @@
 
 // Forward declerations
 class BuggyState;
+enum class BuggyStates;
 class RoadSignRecognition;
 
 /**
@@ -101,6 +102,13 @@ public:
   void setState(BuggyState& newState);
 
   /**
+  * @brief Gets the current state to be compared with @see BuggyStates 
+  * 
+  * @return the state
+  **/
+  BuggyStates getState();
+
+  /**
   * @brief handles an incoming packet in the context of the buggy.
   *
   * @param packet the actual packet
@@ -122,8 +130,19 @@ public:
   * @brief Sends a status packet to the ground station.
   **/
   void sendStatusPacket();
+  /**
+   * @brief updates the buggy vision
+   */
+  void updateRecognition();
+  /**
+   * @brief Sets the general speed of the buggy
+   * @param speed the speed to run at 
+   */
+  void setSpeed(int speed);
+
 
   friend class TcpServer;
+  friend class SignRecognition;
   friend class BuggyState;
   friend class IdleState;
   friend class ObjectDetectedState;

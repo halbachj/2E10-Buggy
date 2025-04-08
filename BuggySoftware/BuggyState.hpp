@@ -5,6 +5,21 @@
 
 class Buggy;  // Forward declaration
 
+enum class BuggyStates {
+  IDLE,
+  JUST_DRIVING,
+  CALIBRATION,
+  CRUISE_CONTROL,
+  LINE_FOLLOWING,
+  LINE_FOLLOWING_LEFT,
+  LINE_FOLLOWING_RIGHT,
+  OBJECT_DETECTED,
+  OBJECT_DETECTED_HANDLER,
+};
+
+
+const char* getStateName(BuggyStates state);
+
 /**
  * @class BuggyState
  *
@@ -16,11 +31,15 @@ class Buggy;  // Forward declaration
  **/
 
 class BuggyState {
+private:
+  BuggyStates state;
 public:
+    BuggyState(BuggyStates state) : state(state) {};
     virtual void enter(Buggy& buggy, BuggyState* oldState) = 0;
     virtual void update(Buggy& buggy, double dt) = 0;
     virtual void exit(Buggy& buggy, BuggyState* newState) = 0;
     virtual ~BuggyState() = default;
+    BuggyStates getState() {return state;};
 };
 
 /*
@@ -36,6 +55,7 @@ public:
  * the buggy detects an obstacle and brakes, or when the buggy crashes by loosing the line or something similar.
  **/
 class IdleState : public BuggyState {
+private:
 public:
     static IdleState& instance() {
         static IdleState instance;
@@ -47,7 +67,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
-    IdleState() = default;  // Private constructor for singleton pattern
+    IdleState() : BuggyState(BuggyStates::IDLE) {}  // Private constructor for singleton pattern
 };
 
 
@@ -75,7 +95,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
-    ObjectDetectedState() = default;  // Private constructor for singleton pattern
+    ObjectDetectedState() : BuggyState(BuggyStates::OBJECT_DETECTED) {};  // Private constructor for singleton pattern
 };
 
 
@@ -102,7 +122,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
-    ObjectDetectedHandlerState() = default;  // Private constructor for singleton pattern
+    ObjectDetectedHandlerState() : BuggyState(BuggyStates::OBJECT_DETECTED_HANDLER) {};  // Private constructor for singleton pattern
 };
 
 /**
@@ -130,7 +150,7 @@ public:
   void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
-    CalibrationState() = default;  // Private constructor for singleton pattern
+    CalibrationState() : BuggyState(BuggyStates::CALIBRATION) {};  // Private constructor for singleton pattern
 };
 
 /**
@@ -153,7 +173,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
   
 private:
-    LineFollowingState() = default;  // Private constructor for singleton pattern
+    LineFollowingState() : BuggyState(BuggyStates::LINE_FOLLOWING) {};  // Private constructor for singleton pattern
 };
 
 
@@ -179,7 +199,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
   
 private:
-    LineFollowingState_TURN_RIGHT() = default;  // Private constructor for singleton pattern
+    LineFollowingState_TURN_RIGHT() : BuggyState(BuggyStates::LINE_FOLLOWING_RIGHT) {};;  // Private constructor for singleton pattern
 };
 
 /**
@@ -204,7 +224,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
   
 private:
-    LineFollowingState_TURN_LEFT() = default;  // Private constructor for singleton pattern
+    LineFollowingState_TURN_LEFT() : BuggyState(BuggyStates::LINE_FOLLOWING_LEFT) {};  // Private constructor for singleton pattern
 };
 
 
@@ -227,7 +247,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
   
 private:
-    CruiseControlState() = default;  // Private constructor for singleton pattern
+    CruiseControlState() : BuggyState(BuggyStates::CRUISE_CONTROL) {};  // Private constructor for singleton pattern
 };
 
 
@@ -244,7 +264,7 @@ public:
     void exit(Buggy& buggy, BuggyState* oldState) override;
 
 private:
-    JustDriveState() = default;  // Private constructor for singleton pattern
+    JustDriveState() : BuggyState(BuggyStates::JUST_DRIVING) {};  // Private constructor for singleton pattern
 };
 
 #endif //BUGGY_STATE

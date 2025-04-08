@@ -47,26 +47,27 @@ void Camera::switchMode(CameraMode mode) {
 }
 
 
-HUSKYLENSResult Camera::getBiggestBlock() {
+bool Camera::getBiggestBlock(HUSKYLENSResult *result) {
   int count, best_size, tmp_size;
-  HUSKYLENSResult result, tmp;
+  HUSKYLENSResult tmp;
+  *result = HUSKYLENSResult{}; 
 
   count = this->huskylens.countBlocksLearned();
   logger << logLevel::DEBUG << "COUNT: " << count << EmbeddedLogger::endl;
-  if (count < 1) return HUSKYLENSResult{};
+  if (count < 1) return false;
 
-  result = this->huskylens.getBlockLearned(0);
-  best_size = result.width * result.height;
+  *result = this->huskylens.getBlockLearned(0);
+  best_size = result->width * result->height;
   for (int i=1;i<count;++i) {
     tmp = this->huskylens.getBlockLearned(i);
     tmp_size = tmp.width * tmp.height;
     if (tmp_size > best_size) {
-      result = tmp;
+      *result = tmp;
       best_size = tmp_size;
     }
   }
-  logger << logLevel::DEBUG << "Biggest block in frame: " << result.ID << EmbeddedLogger::endl;
-  return result;
+  logger << logLevel::DEBUG << "Biggest block in frame: " << result->ID << EmbeddedLogger::endl;
+  return true;
 }
 /*
 HUSKYLENSResult Camera::getBiggestArrow() {

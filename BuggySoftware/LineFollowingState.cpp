@@ -14,8 +14,6 @@ void LineFollowingState::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
   buggy.leftMotor.update(dt);
   buggy.rightMotor.update(dt);
-  buggy.camera.update();
-  buggy.signRecognition.update();
 
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) {
@@ -30,7 +28,6 @@ void LineFollowingState::exit(Buggy& buggy, BuggyState* oldState) {
 void LineFollowingState_TURN_RIGHT::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
   buggy.ledMatrix.setMode(BuggyMode::LINE_FOLLOWING);
-  buggy.lineFollower.setTurn(LineFollower::TurnDirection::RIGHT);
 }
 
 void LineFollowingState_TURN_RIGHT::update(Buggy& buggy, double dt) {
@@ -38,8 +35,6 @@ void LineFollowingState_TURN_RIGHT::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
   buggy.leftMotor.update(dt);
   buggy.rightMotor.update(dt);
-  buggy.camera.update();
-  buggy.signRecognition.update();
 
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) {
@@ -48,6 +43,7 @@ void LineFollowingState_TURN_RIGHT::update(Buggy& buggy, double dt) {
 
   if (buggy.leftIrSensor.isHigh() && buggy.rightIrSensor.isHigh()) {
     this->hitIntersection = true;
+    buggy.lineFollower.setTurn(LineFollower::TurnDirection::RIGHT);
   }
 
   if (this->hitIntersection && buggy.leftIrSensor.isLow() && buggy.rightIrSensor.isLow()) {
@@ -58,13 +54,13 @@ void LineFollowingState_TURN_RIGHT::update(Buggy& buggy, double dt) {
 
 void LineFollowingState_TURN_RIGHT::exit(Buggy& buggy, BuggyState* oldState) {
   buggy.lineFollower.setTurn(LineFollower::TurnDirection::STRAIGHT);
+  buggy.signRecognition.clearSign();
 }
 
 
 void LineFollowingState_TURN_LEFT::enter(Buggy& buggy, BuggyState* oldState) {
   // Setup logic when entering idle state
   buggy.ledMatrix.setMode(BuggyMode::LINE_FOLLOWING);
-  buggy.lineFollower.setTurn(LineFollower::TurnDirection::LEFT);
 }
 
 void LineFollowingState_TURN_LEFT::update(Buggy& buggy, double dt) {
@@ -72,8 +68,6 @@ void LineFollowingState_TURN_LEFT::update(Buggy& buggy, double dt) {
   buggy.ultrasonicSensor.update();
   buggy.leftMotor.update(dt);
   buggy.rightMotor.update(dt);
-  buggy.camera.update();
-  buggy.signRecognition.update();
 
   buggy.objectDetected = buggy.ultrasonicSensor.objectDetected();
   if (buggy.objectDetected) {
@@ -81,10 +75,13 @@ void LineFollowingState_TURN_LEFT::update(Buggy& buggy, double dt) {
   }
 
   if (buggy.leftIrSensor.isHigh() && buggy.rightIrSensor.isHigh()) {
+    logger << logLevel::DEBUG << "HIT INTERSECTION TURNING LEFT NOW" << EmbeddedLogger::endl;
     this->hitIntersection = true;
+    buggy.lineFollower.setTurn(LineFollower::TurnDirection::LEFT);
   }
 
   if (this->hitIntersection && buggy.leftIrSensor.isLow() && buggy.rightIrSensor.isLow()) {
+    logger << logLevel::DEBUG << "PASSED INTERSECTION GOING STRAIGHT NOW" << EmbeddedLogger::endl;
     this->hitIntersection = false;
     buggy.setState(LineFollowingState::instance());
   }
@@ -93,4 +90,5 @@ void LineFollowingState_TURN_LEFT::update(Buggy& buggy, double dt) {
 
 void LineFollowingState_TURN_LEFT::exit(Buggy& buggy, BuggyState* oldState) {
   buggy.lineFollower.setTurn(LineFollower::TurnDirection::STRAIGHT);
+  buggy.signRecognition.clearSign();
 }

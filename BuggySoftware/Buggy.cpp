@@ -114,6 +114,8 @@ void Buggy::update(double dt) {
   Packet packet = this->server.update();
   if (packet.type) this->handlePacket(packet);
   this->sendStatusPacket();
+  this->updateRecognition();
+  logger << logLevel::DEBUG << "UPDATING STATE " << getStateName(this->currentState->getState()) << EmbeddedLogger::endl;
   this->camera.update();
   this->currentState->update(*this, dt);
 }
@@ -123,4 +125,17 @@ void Buggy::setState(BuggyState& newState) {
   BuggyState* oldState = this->currentState;
   this->currentState = &newState;
   this->currentState->enter(*this, oldState);
+}
+
+BuggyStates Buggy::getState() {
+  return this->currentState->getState();
+}
+
+void Buggy::updateRecognition() {
+  this->camera.update();
+  this->signRecognition.update();
+}
+
+void Buggy::setSpeed(int speed) {
+  this->lineFollower.setSpeed(speed);
 }

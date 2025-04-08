@@ -46,9 +46,11 @@ public:
    *
    * This is useful when looking for roadsigns as the biggest one is probably cloasest.
    *
-   * @return the HUSKYLENSResult result object
+   * @param[out] result is contains the resulting block read by the HUSKYLENS
+   *
+   * @return if a block was recognized
    */
-  HUSKYLENSResult getBiggestBlock();
+  boolean getBiggestBlock(HUSKYLENSResult* result);
 
   /**
    * @brief will return the biggest arrow that is currently in frame.
