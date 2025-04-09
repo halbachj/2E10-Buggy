@@ -49,8 +49,6 @@ class SecondWindow extends PApplet {
     counter++;
   }
 
-
-
   private void sendCommandPacket(float x, float y) {
     ByteBuffer bb = ByteBuffer.allocate(72);
     bb.order(ByteOrder.LITTLE_ENDIAN);
