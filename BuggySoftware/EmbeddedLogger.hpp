@@ -11,6 +11,7 @@
 
 #include <stdint.h>  // Fixed-width types
 #include <stddef.h>  // size_t
+#include "Arduino.h"
 
 namespace EmbeddedLogger {
 
@@ -51,6 +52,7 @@ private:
 
   void flushBuffer();
   void appendToBuffer(const char* str);
+  void appendToBuffer(const __FlashStringHelper* str);
   void appendNumber(int32_t num);
   void appendHex(uint32_t num);
   void appendBinary(uint32_t num);
@@ -67,6 +69,7 @@ public:
   };
 
   Logger& operator<<(const char* str);
+  //Logger& operator<<(const __FlashStringHelper* str);
   Logger& operator<<(char c);
   Logger& operator<<(int32_t num);
   Logger& operator<<(int num);

@@ -13,9 +13,13 @@
 #include "EmbeddedLogger.hpp"
 #include "Matrix.hpp"
 #include "CruiseControl.hpp"
-#include "Scheduler.hpp"
+#include "Camera.hpp"
+#include "RoadSigns.hpp"
 
+// Forward declerations
 class BuggyState;
+enum class BuggyStates;
+class RoadSignRecognition;
 
 /**
  * @class Buggy Class
@@ -38,15 +42,21 @@ private:
 
   UltrasonicSensor& ultrasonicSensor;
 
+  Camera& camera;
+
   Matrix ledMatrix;
   BuggyWiFi& wifi;
   TcpServer& server;
-  Scheduler scheduler;
 
   LineFollower& lineFollower;
   CruiseControl& cruiseController;
+  RoadSignRecognition& signRecognition;
+   
 
   BuggyState* currentState;
+
+  unsigned long last_status_sent = millis();
+  unsigned int status_send_interval = 300;
 
   bool objectDetected = false;
   
@@ -62,7 +72,7 @@ public:
   * @param leftIrSensor takes reference to left IrSensor Sensor
   * @param rightIrSensor takes referemce to right IrSensor Sensor 
   * @param ultrasonicSensor takes reference to the UltrasonicSensor
-  * @param scheduler takes reference to the task Scheduler
+  * @param camera The HUSKYLENS Camera
   * @param wifi takes reference to the initialized BuggyWiFi to control the access point
   * @param server takes a reference to the running BuggyTCP server that handles ground station communication
   * @param lineFollower takes a reference to the LineFollower. This already contains reference to its neccessarry components
@@ -70,7 +80,7 @@ public:
   **/
 
   Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSensor, IrSensor& rightIrSensor,
-   UltrasonicSensor& ultrasonicSensor, Scheduler& scheduler, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController);
+   UltrasonicSensor& ultrasonicSensor, Camera& camera, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController, RoadSignRecognition& signRecognition);
   // cannot copy
   Buggy(const Buggy& other) = delete;
   Buggy& operator=(const Buggy& other) = delete; 
@@ -90,6 +100,13 @@ public:
   * @param newState reference to the state to change to
   **/
   void setState(BuggyState& newState);
+
+  /**
+  * @brief Gets the current state to be compared with @see BuggyStates 
+  * 
+  * @return the state
+  **/
+  BuggyStates getState();
 
   /**
   * @brief handles an incoming packet in the context of the buggy.
@@ -113,17 +130,29 @@ public:
   * @brief Sends a status packet to the ground station.
   **/
   void sendStatusPacket();
+  /**
+   * @brief updates the buggy vision
+   */
+  void updateRecognition();
+  /**
+   * @brief Sets the general speed of the buggy
+   * @param speed the speed to run at 
+   */
+  void setSpeed(int speed);
+
 
   friend class TcpServer;
+  friend class SignRecognition;
   friend class BuggyState;
   friend class IdleState;
   friend class ObjectDetectedState;
   friend class CalibrationState;
   friend class LineFollowingState;
+  friend class LineFollowingState_TURN_LEFT;
+  friend class LineFollowingState_TURN_RIGHT;
   friend class CruiseControl;
   friend class JustDriveState;
   friend class ObjectDetectedHandlerState;
-  friend class LineFollowingState;
   friend class CruiseControlState;
 };
 

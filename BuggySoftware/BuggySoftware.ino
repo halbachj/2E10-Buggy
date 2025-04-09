@@ -14,7 +14,8 @@
 #include "PacketFactory.hpp"
 #include "Matrix.hpp"
 #include "CruiseControl.hpp"
-#include "Scheduler.hpp"
+#include "Camera.hpp"
+#include "HUSKYLENS.h"
 
 #define VERSION 1.4
 
@@ -71,7 +72,7 @@ Matrix ledMatrix;
 
 /// PID CONSTANTS
 const PIDConstants leftMotorPID = { 0.16f, 0.16f, 0.0f };
-const PIDConstants rightMotorPID = { 0.21f, 0.15f, 0.0f};
+const PIDConstants rightMotorPID = { 0.18f, 0.20f, 0.0f};
 //const PIDConstants leftMotorPID = { 0.015f, 0.415f, 0.0f };
 //const PIDConstants rightMotorPID = { 0.03f, 0.55f, 0.0f };
 
@@ -80,7 +81,8 @@ const PIDConstants lineFollowerPID = { 1.0f, 10.0f, 0.0f };
 const PIDConstants cruiseControlPID = { 25.0f, 0.0f, 0.0f };
 
 /// INSTANCES
-Scheduler scheduler = Scheduler();
+
+HUSKYLENS huskylens;
 
 MotorDriver leftMotor(leftMotorPinout, leftMotorPID);
 MotorDriver rightMotor(rightMotorPinout, rightMotorPID);
@@ -90,13 +92,17 @@ IrSensor rightIrSensor(rightIrSensorPin);
 
 UltrasonicSensor ultrasonicSensor(ultrasonicSensorPinout);
 
+Camera camera = Camera(huskylens);
+RoadSignRecognition signRecognition = RoadSignRecognition(camera);
+
 BuggyWiFi wifi;
 TcpServer server = TcpServer();
 
 LineFollower lineFollower(leftMotor, rightMotor, leftIrSensor, rightIrSensor, lineFollowerPID);
 CruiseControl cruiseControl(ultrasonicSensor, lineFollower, cruiseControlPID);
 
-Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, scheduler, wifi, server, lineFollower, cruiseControl);
+Buggy buggy = Buggy(leftMotor, rightMotor, leftIrSensor, rightIrSensor, ultrasonicSensor, camera, wifi, server, lineFollower, cruiseControl, signRecognition);
+
 
 // ISR
 void ISR_left_motor();
@@ -136,6 +142,12 @@ void setup() {
 
   // LED MATRIX
   ledMatrix.begin(); ///< @todo make this part of the matrix class
+
+  // Camera
+  camera.begin();
+
+  // Sign recognition
+  signRecognition.begin(&buggy);
   
   // SETUP WIFI
   wifi.wifi_checks(); ///< @todo make this part of BuggyWiFi begin
@@ -143,6 +155,11 @@ void setup() {
   wifi.printWiFiStatus(); ///< @todo make this part of BuggyWiFi begin
   server.setup();         ///< @todo rename this to server.begin
   logging_server.setup();
+
+  for (int i=0;i<100;i++) {
+    leftIrSensor.getReading();
+    rightIrSensor.getReading();
+  }
 
   logger << logLevel::INFO << "INIT Done" << EmbeddedLogger::endl;
 
@@ -170,7 +187,6 @@ uint8_t loop_duration = 5e-6;  //s at least
  */
 void loop() {
   start_time = micros();
-  scheduler.update();
   buggy.update(dt);
   end_time = micros();
   dt = (end_time - start_time) * 1.0e-6;

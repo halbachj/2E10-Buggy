@@ -13,6 +13,16 @@
  * on the calculated error. It also has PID capabilites for future PID based turning.
  */
 class LineFollower {
+public:
+  /**
+   * @brief TurnDirection is the direction the line follower is supposed to turn at at the next intersection.
+   */
+  enum class TurnDirection {
+    LEFT,       ///< Turn left at next intersection.
+    RIGHT,      ///< Turn right at next intersection.
+    STRAIGHT    ///< Go straight ahead (default).
+  };
+  
 private:
   IrSensor& leftSensor;
   IrSensor& rightSensor;
@@ -22,9 +32,11 @@ private:
 
   PIDController controller; // Initialize the PID with the right coefficients
 
-  int target_speed = 400; // 160
+  int target_speed = 250; // 160
   int turning_threshold = 135;
   int turning_speed = 125;
+
+  TurnDirection direction = TurnDirection::STRAIGHT;
 
 public:
   /**
@@ -48,6 +60,8 @@ public:
    */ 
   void update(double dt);
   
+  void setTurn(TurnDirection direction);
+
 };
 
 

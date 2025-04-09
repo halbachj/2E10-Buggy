@@ -8,8 +8,7 @@ void BuggyWiFi::printWiFiStatus() {
   // print the SSID of the network you're attached to:
   logger << logLevel::INFO << "SSID: " << WiFi.SSID() << EmbeddedLogger::endl;
   // print your WiFi shield's IP address:
-  logger << logLevel::INFO << "IP Address: " << String("lool").c_str() << EmbeddedLogger::endl;
-  Serial.println(WiFi.localIP());
+  logger << logLevel::INFO << "IP Address: " << String(WiFi.localIP()).c_str() << EmbeddedLogger::endl;
 }
 
 void BuggyWiFi::setup_ap() {

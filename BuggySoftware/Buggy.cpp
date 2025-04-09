@@ -4,11 +4,11 @@ using EmbeddedLogger::logger;
 using logLevel = EmbeddedLogger::LogLevel;
 
 Buggy::Buggy(MotorDriver& leftMotor, MotorDriver& rightMotor, IrSensor& leftIrSensor, IrSensor& rightIrSensor,
-   UltrasonicSensor& ultrasonicSensor, Scheduler& scheduler, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController):
-   leftMotor(leftMotor), rightMotor(rightMotor), leftIrSensor(leftIrSensor), rightIrSensor(rightIrSensor), ultrasonicSensor(ultrasonicSensor),
-   scheduler(scheduler), wifi(wifi), server(server), lineFollower(lineFollower), cruiseController(cruiseController), currentState(&IdleState::instance())
+   UltrasonicSensor& ultrasonicSensor, Camera& camera, BuggyWiFi& wifi, TcpServer& server, LineFollower& lineFollower, CruiseControl& cruiseController, RoadSignRecognition& signRecognition):
+   leftMotor(leftMotor), rightMotor(rightMotor), leftIrSensor(leftIrSensor), rightIrSensor(rightIrSensor), ultrasonicSensor(ultrasonicSensor), camera(camera),
+   wifi(wifi), server(server), lineFollower(lineFollower), cruiseController(cruiseController),  signRecognition(signRecognition), currentState(&IdleState::instance())
    {
-  scheduler.addTask(this, &Buggy::sendStatusPacket, 300); // add status packet task to send every 300 ms
+
 }
 
 void Buggy::switchControlMode(ControlMode mode) {
@@ -94,6 +94,7 @@ void Buggy::handlePacket(Packet packet) {
 }
 
 void Buggy::sendStatusPacket() {
+  if (this->last_status_sent + this->status_send_interval > millis()) return;
   this->server.sendPacket(
     PacketFactory::createStatusPacket(
       this->ultrasonicSensor.objectDetected(),
@@ -106,12 +107,16 @@ void Buggy::sendStatusPacket() {
       this->rightIrSensor.getManualReading()
     )
   );
+  this->last_status_sent = millis();
 }
 
 void Buggy::update(double dt) {
   Packet packet = this->server.update();
   if (packet.type) this->handlePacket(packet);
   this->sendStatusPacket();
+  this->updateRecognition();
+  logger << logLevel::DEBUG << "UPDATING STATE " << getStateName(this->currentState->getState()) << EmbeddedLogger::endl;
+  this->camera.update();
   this->currentState->update(*this, dt);
 }
 
@@ -120,4 +125,17 @@ void Buggy::setState(BuggyState& newState) {
   BuggyState* oldState = this->currentState;
   this->currentState = &newState;
   this->currentState->enter(*this, oldState);
+}
+
+BuggyStates Buggy::getState() {
+  return this->currentState->getState();
+}
+
+void Buggy::updateRecognition() {
+  this->camera.update();
+  this->signRecognition.update();
+}
+
+void Buggy::setSpeed(int speed) {
+  this->lineFollower.setSpeed(speed);
 }

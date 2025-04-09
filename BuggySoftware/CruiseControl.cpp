@@ -9,7 +9,6 @@ CruiseControl::CruiseControl(UltrasonicSensor& ussensor, LineFollower& lineFollo
 
 float CruiseControl::update(double dt) {
   float distance, error, correction;
-  logger << logLevel::DEBUG << "CRUISE CONTROL DT " << dt << EmbeddedLogger::endl;
 
   distance = this->ussensor.getReading();
   logger << logLevel::DEBUG << "CRUISE CONTROL MEASURED DISTANCE " << distance << EmbeddedLogger::endl;

@@ -1,3 +1,12 @@
+/**
+ * @file GroundStation.pde
+ * @author Conor Quinn & Cristina Franco Ortuno
+ * @brief This is the Processing software running
+ * on the ground station computer to control the buggy.
+ *
+ */
+
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import processing.net.*;
@@ -6,6 +15,7 @@ import controlP5.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+<<<<<<< HEAD:GSSoftware/Silver_Processing.pde
 SecondWindow remoteWindow;
 float deadZoneRadius = 30;
 float xOutput = 0;
@@ -13,6 +23,9 @@ float yOutput = 0;
 ControlP5 cp5; // UI Control variables
 float pi = 3.14159265359;
 float r = 0.03;
+=======
+ControlP5 cp5; // UI Control
+>>>>>>> feat/husky_lens:GSSoftware/GroundStation/GroundStation.pde
 PGraphics alertScreen;
 float obstacleDist = -1;
 String message = "No connection";
@@ -21,9 +34,12 @@ int mode = -1;
 float leftWheel = 0;
 float rightWheel = 0;
 double robstacleDist;
+<<<<<<< HEAD:GSSoftware/Silver_Processing.pde
 boolean remoteWindowOpen = false;
 
 //Variables for Wifi
+=======
+>>>>>>> feat/husky_lens:GSSoftware/GroundStation/GroundStation.pde
 Client client = null; // Start as null
 boolean clientConnected = false;
 int connectionAttempts = 0;
@@ -48,17 +64,6 @@ int[][] arrowPattern = {
     {0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
-int[][] cruisePattern = {
-    {0,0,0,0,0,0,1,0,0,0,0,0},
-    {0,0,0,0,0,0,1,1,0,0,0,0},
-    {0,0,0,0,0,0,1,0,1,0,0,0},
-    {0,0,0,0,0,0,1,1,0,0,0,0},
-    {0,0,0,0,0,0,1,0,0,0,0,0},
-    {0,0,1,1,1,1,1,1,1,1,0,0},
-    {0,0,0,1,0,0,0,0,1,0,0,0},
-    {0,0,0,0,1,1,1,1,0,0,0,0}
-};
-
 int[][] stopPattern = {
     {0,0,0,0,1,1,1,1,0,0,0,0},
     {0,0,0,1,0,0,0,0,1,0,0,0},
@@ -81,25 +86,20 @@ int[][] warningPattern = {
     {0,0,0,1,0,0,0,0,1,0,0,0}
 };
 
-int[][] remotePattern = {
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,1,1,0,0,0,0,0},
-    {0,0,0,0,0,1,1,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0}
-};
 
-
+/**
+ * @brief This is the setup method. Similar to the Arduino setup mehod.
+ * 
+ * In here the environment for processing is set up, like the window and the buttons.
+ */
 void setup() {
-  size(700, 550);
+  size(600, 500);
   
-  alertScreen = createGraphics(400, 200); //creates the alert screen
+  alertScreen = createGraphics(400, 200);
   cp5 = new ControlP5(this);
   font = createFont("Arial", 16);
   
+<<<<<<< HEAD:GSSoftware/Silver_Processing.pde
   cp5.addKnob("speed Dial") //speed dial
      .setRange(0, 70)
      .setValue(0)
@@ -139,9 +139,11 @@ void setup() {
      .getCaptionLabel()
      .setColor(color(0)); // Set text color to black
        
+=======
+>>>>>>> feat/husky_lens:GSSoftware/GroundStation/GroundStation.pde
   // Start & Stop Buttons
   cp5.addButton("start")
-     .setPosition(50, 475)
+     .setPosition(50, 425)
      .setSize(100, 45)
      .setColorBackground(color(0, 100, 0))
      .setColorForeground(color(0, 150, 0))
@@ -150,7 +152,7 @@ void setup() {
      .getCaptionLabel().setFont(font).toUpperCase(true);
 
   cp5.addButton("stop")
-     .setPosition(450, 475)
+     .setPosition(450, 425)
      .setSize(100, 45)
      .setColorBackground(color(150, 0, 0))
      .setColorForeground(color(200, 50, 50))
@@ -159,24 +161,27 @@ void setup() {
      .getCaptionLabel().setFont(font).toUpperCase(true);
   
   cp5.addButton("reset distance")
-   .setPosition(200, 475)
+   .setPosition(200, 425)
    .setSize(200, 45)
    .setColorBackground(color(50, 50, 150))
    .setColorForeground(color(80, 80, 200))
    .setColorActive(color(100, 100, 255))
    .setColorLabel(color(255))
    .getCaptionLabel().setFont(font).toUpperCase(true);
-   
-   initializeMatrix(); // Default matrix values
+
+  initializeMatrix(); // Default matrix values
 }
 
+/**
+ * @brief The draw method is called every frame. This corresponds to the loop method in Arduino.
+ */
 void draw() {
-  background(150, 167, 247);
+  background(200);
   
   // Render UI first before handling connection
   drawWheelDistances();
   updateAlertScreen();
-  drawMatrix(400, 90);
+  drawMatrix(width /3 + 25 , 65);
 
   // Attempt connection only if not already connected & within retry limit
   if (!clientConnected && connectionAttempts < maxAttempts) {
@@ -223,7 +228,7 @@ void start() {
   } else {
     println("Cannot send command, not connected.");
   }
-  //frameRate(15);
+  
   buggyState = 0;
 }
 
@@ -269,33 +274,30 @@ void parsePacket(byte[] buffer) {
   message = objectDetected ? "Object Detected" : "No Object";
   obstacleDist = bb.getFloat();
   robstacleDist = new BigDecimal(obstacleDist).setScale(2, RoundingMode.HALF_UP).doubleValue();
-  
-  int leftSpeed = bb.getInt();
-  int rightSpeed = bb.getInt();
-  //println(leftSpeed);
-  //println(rightSpeed);
-  float averagespeed = (leftSpeed + rightSpeed) / 2.0;
-  float speed = (averagespeed * pi * r) / 1.8;
-  //println(averagespeed);
-  //println(speed);
-  cp5.getController("speed Dial").setValue(speed); // Update dial
-  
+  println(bb.getInt());
+  println(bb.getInt());
   leftWheel = bb.getFloat();
   rightWheel = bb.getFloat();
+<<<<<<< HEAD:GSSoftware/Silver_Processing.pde
+=======
+  println(bb.getInt());
+  println(bb.getInt());
+  //println(Arrays.toString(buffer));
+>>>>>>> feat/husky_lens:GSSoftware/GroundStation/GroundStation.pde
   
 }
+
 
 void sendCommandPacket(int commandType, int data) {
   if (!clientConnected) {
     println("Not connected, cannot send command.");
     return;
   }
-  
   ByteBuffer bb = ByteBuffer.allocate(72);
   bb.order(ByteOrder.LITTLE_ENDIAN);
   bb.putInt(3);
   bb.putInt(commandType);
-  bb.putLong((long) data);
+  bb.putShort((short) data);
   client.write(bb.array());
 }
 
@@ -328,7 +330,7 @@ void updateAlertScreen() {
   }
 
   alertScreen.endDraw();
-  image(alertScreen, 100, 235);
+  image(alertScreen, 100, 200);
   
   if(buggyState == 0)
     copyPattern(arrowPattern);
@@ -360,8 +362,8 @@ void drawWheelDistances() {
   fill(0);
   textSize(20);
   textAlign(CENTER);
-  text("Total Distance Travelled " + rDistance +  " m" , 300, 460);
-  text("Buggy Alerts", 300, 220);
+  text("Total Distance Travelled " + rDistance +  " m" , width / 2, 40);
+  text("Buggy Alerts", width / 2, 185);
 }
 
 void copyPattern(int[][] pattern) {
@@ -372,9 +374,9 @@ void copyPattern(int[][] pattern) {
   }
 }
 
-
 void controlEvent(ControlEvent theEvent) {
   if (theEvent.isController()) {
+<<<<<<< HEAD:GSSoftware/Silver_Processing.pde
     String controllerName = theEvent.getController().getName();
     
     // Handle Speed Input
@@ -417,6 +419,11 @@ void controlEvent(ControlEvent theEvent) {
     // Handle Reset Distance Button
     if (controllerName.equals("reset distance")) {  
       resetDistance();  
+=======
+    String buttonName = theEvent.getController().getName();
+    if (buttonName.equals("reset distance")) {  
+      resetDistance();  // Call function when button is clicked
+>>>>>>> feat/husky_lens:GSSoftware/GroundStation/GroundStation.pde
     }
   }
 }

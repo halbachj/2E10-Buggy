@@ -18,10 +18,10 @@ private:
 
   const int trigger_interval = 20; ///< Minimum interval between triggers in milliseconds.
   volatile int echoDuration = 0; ///< Stores the duration of the received echo.
-  unsigned short detectionRange = 20; ///< Detection range threshold in centimeters.
+  unsigned short detectionRange = 10; ///< Detection range threshold in centimeters.
 
   volatile unsigned long startTime, endTime; ///< Variables for timing the echo measurement.
-  unsigned long last_trigger = 0; ///< Timestamp of the last trigger event.
+  volatile bool isReading = false; ///< Flag to indicate if the sensor is currently taking a reading
 
   static const size_t filter_window = 5;
   MoveMeanFilter<float, filter_window> filter = MoveMeanFilter<float, filter_window>();

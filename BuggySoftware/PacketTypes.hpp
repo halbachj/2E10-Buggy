@@ -1,6 +1,8 @@
 #ifndef PACKET_TYPES_HPP
 #define PACKET_TYPES_HPP
 
+#include "Arduino.h"
+
 /**
  * @enum PacketType
  * @brief Defines different types of packets used for communication.
