@@ -1,17 +1,21 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="5,153,103,179"/>
+<area shape="rect" id="Node000000" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="5,203,103,228"/>
 <area shape="rect" id="Node000001" href="$classCalibrationState.html" title="The calibration state of the buggy is the first state it enters after being placed on the track...." alt="" coords="191,5,318,31"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="65,140,98,89,122,62,149,40,190,23,192,28,152,44,126,66,103,92,70,142"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="60,189,71,155,90,114,115,74,149,40,169,29,190,21,192,26,171,33,152,44,120,77,94,117,76,157,65,190"/>
 <area shape="rect" id="Node000002" href="$classCruiseControlState.html" title=" " alt="" coords="183,55,327,80"/>
-<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="77,141,110,114,149,89,181,77,183,82,152,94,113,118,80,145"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="65,189,98,138,122,111,149,89,181,75,183,80,152,94,126,115,103,141,70,192"/>
 <area shape="rect" id="Node000003" href="$classIdleState.html" title="The idle state represents a state in which the buggy operates normaly but is not driving." alt="" coords="215,104,295,129"/>
-<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="115,147,150,138,214,123,215,128,151,143,116,152"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="77,190,110,163,149,138,182,126,214,119,215,124,183,131,152,143,113,167,80,195"/>
 <area shape="rect" id="Node000004" href="$classJustDriveState.html" title=" " alt="" coords="197,153,312,179"/>
-<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="116,163,197,163,197,169,116,169"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="115,197,150,187,197,176,198,181,151,193,116,202"/>
 <area shape="rect" id="Node000005" href="$classLineFollowingState.html" title="In the Line following state the buggy is trying to follow the line using the IR sensors...." alt="" coords="182,203,327,228"/>
-<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="117,179,151,187,202,200,201,205,150,193,115,184"/>
-<area shape="rect" id="Node000006" href="$classObjectDetectedHandlerState.html" title="This state is entered before the buggy goes into ObjectDetectedState. It is used to save the previous..." alt="" coords="151,252,359,277"/>
-<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="80,186,113,213,152,237,185,249,184,254,149,242,110,217,77,190"/>
-<area shape="rect" id="Node000007" href="$classObjectDetectedState.html" title="The state the Buggy enters when an object is detected during driving." alt="" coords="176,301,333,327"/>
-<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="70,189,103,239,126,265,152,286,178,299,176,304,149,291,122,269,99,243,66,192"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="117,213,182,213,182,218,117,218"/>
+<area shape="rect" id="Node000006" href="$classLineFollowingState__TURN__LEFT.html" title="A special sub state of LineFollowing which preferes a left turn when following the line." alt="" coords="182,253,327,293"/>
+<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="113,229,185,250,183,255,112,235"/>
+<area shape="rect" id="Node000007" href="$classLineFollowingState__TURN__RIGHT.html" title="A special sub state of LineFollowing which preferes a right turn when following the line." alt="" coords="182,317,327,357"/>
+<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="76,237,110,270,152,302,183,317,181,321,149,307,106,274,73,240"/>
+<area shape="rect" id="Node000008" href="$classObjectDetectedHandlerState.html" title="This state is entered before the buggy goes into ObjectDetectedState. It is used to save the previous..." alt="" coords="151,381,359,407"/>
+<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="67,240,98,304,122,338,152,367,176,379,173,384,149,371,118,342,93,307,62,242"/>
+<area shape="rect" id="Node000009" href="$classObjectDetectedState.html" title="The state the Buggy enters when an object is detected during driving." alt="" coords="176,431,333,456"/>
+<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="63,241,73,280,90,328,116,376,133,397,152,416,177,430,174,435,149,420,129,401,112,379,85,330,68,282,58,242"/>
 </map>

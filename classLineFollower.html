@@ -109,6 +109,7 @@ $(function(){initNavTree('classLineFollower.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classLineFollower-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">LineFollower Class Reference</div></div>
@@ -122,9 +123,18 @@ $(function(){initNavTree('classLineFollower.html',''); initResizable(true); });
 <div class="dynheader">
 Collaboration diagram for LineFollower:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classLineFollower__coll__graph.svg" width="132" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classLineFollower__coll__graph.svg" width="132" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a784885aa25f281dcb39a257238c9f391" id="r_a784885aa25f281dcb39a257238c9f391"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a784885aa25f281dcb39a257238c9f391">TurnDirection</a> { <a class="el" href="#a784885aa25f281dcb39a257238c9f391a684d325a7303f52e64011467ff5c5758">LEFT</a>
+, <a class="el" href="#a784885aa25f281dcb39a257238c9f391a21507b40c80068eda19865706fdc2403">RIGHT</a>
+, <a class="el" href="#a784885aa25f281dcb39a257238c9f391a8c5e50fab3748e9c53a6863b3dce1401">STRAIGHT</a>
+ }</td></tr>
+<tr class="memdesc:a784885aa25f281dcb39a257238c9f391"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a784885aa25f281dcb39a257238c9f391" title="TurnDirection is the direction the line follower is supposed to turn at at the next intersection.">TurnDirection</a> is the direction the line follower is supposed to turn at at the next intersection.  <a href="#a784885aa25f281dcb39a257238c9f391">More...</a><br /></td></tr>
+<tr class="separator:a784885aa25f281dcb39a257238c9f391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d768334facabfd1e4ca28456abd77df" id="r_a5d768334facabfd1e4ca28456abd77df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d768334facabfd1e4ca28456abd77df">LineFollower</a> (<a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;leftMotor, <a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;rightMotor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;leftSensor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;rightSensor, const <a class="el" href="structPIDConstants.html">PIDConstants</a> &amp;constants)</td></tr>
@@ -137,11 +147,47 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (double dt)</td></tr>
 <tr class="memdesc:a0e4d3ad338b2a15c66b686a277a58066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will read and adapt the motors each call. Needs to be called inside of loop to be useful. <br /></td></tr>
 <tr class="separator:a0e4d3ad338b2a15c66b686a277a58066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44a5423cc5314836420e7de7ed07833a" id="r_a44a5423cc5314836420e7de7ed07833a"><td class="memItemLeft" align="right" valign="top"><a id="a44a5423cc5314836420e7de7ed07833a" name="a44a5423cc5314836420e7de7ed07833a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTurn</b> (<a class="el" href="#a784885aa25f281dcb39a257238c9f391">TurnDirection</a> direction)</td></tr>
+<tr class="separator:a44a5423cc5314836420e7de7ed07833a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The line follower class is a helper class that allows for easy control of the buggy. </p>
 <p>It holds both motors ans sensors and the PID controller for easy access. On update the line follower class will poll the IR sensors calculate the error and turn based on the calculated error. It also has PID capabilites for future PID based turning. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a784885aa25f281dcb39a257238c9f391" name="a784885aa25f281dcb39a257238c9f391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a784885aa25f281dcb39a257238c9f391">&#9670;&#160;</a></span>TurnDirection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a784885aa25f281dcb39a257238c9f391">LineFollower::TurnDirection</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a784885aa25f281dcb39a257238c9f391" title="TurnDirection is the direction the line follower is supposed to turn at at the next intersection.">TurnDirection</a> is the direction the line follower is supposed to turn at at the next intersection. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a784885aa25f281dcb39a257238c9f391a684d325a7303f52e64011467ff5c5758" name="a784885aa25f281dcb39a257238c9f391a684d325a7303f52e64011467ff5c5758"></a>LEFT&#160;</td><td class="fielddoc"><p>Turn left at next intersection. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a784885aa25f281dcb39a257238c9f391a21507b40c80068eda19865706fdc2403" name="a784885aa25f281dcb39a257238c9f391a21507b40c80068eda19865706fdc2403"></a>RIGHT&#160;</td><td class="fielddoc"><p>Turn right at next intersection. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a784885aa25f281dcb39a257238c9f391a8c5e50fab3748e9c53a6863b3dce1401" name="a784885aa25f281dcb39a257238c9f391a8c5e50fab3748e9c53a6863b3dce1401"></a>STRAIGHT&#160;</td><td class="fielddoc"><p>Go straight ahead (default). </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5d768334facabfd1e4ca28456abd77df" name="a5d768334facabfd1e4ca28456abd77df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5d768334facabfd1e4ca28456abd77df">&#9670;&#160;</a></span>LineFollower()</h2>
 

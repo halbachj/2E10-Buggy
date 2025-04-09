@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['wirelesslogger_0',['WirelessLogger',['../classEmbeddedLogger_1_1WirelessLogger.html',1,'EmbeddedLogger']]]
+  ['udpserver_0',['UdpServer',['../classUdpServer.html',1,'']]],
+  ['ultrasonicsensor_1',['UltrasonicSensor',['../classUltrasonicSensor.html',1,'']]],
+  ['ultrasonicsensorpingroup_2',['UltrasonicSensorPinGroup',['../structUltrasonicSensorPinGroup.html',1,'']]]
 ];

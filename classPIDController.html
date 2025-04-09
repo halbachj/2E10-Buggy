@@ -122,7 +122,7 @@ $(function(){initNavTree('classPIDController.html',''); initResizable(true); });
 <div class="dynheader">
 Collaboration diagram for PIDController:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classPIDController__coll__graph.svg" width="136" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classPIDController__coll__graph.svg" width="136" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -133,6 +133,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abec0db5d7339fc8df0433a93970cb0f7" id="r_abec0db5d7339fc8df0433a93970cb0f7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abec0db5d7339fc8df0433a93970cb0f7">update</a> (float error, double dt)</td></tr>
 <tr class="memdesc:abec0db5d7339fc8df0433a93970cb0f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update method is called with an error term and returns a correction term to be applied to the driver.  <br /></td></tr>
 <tr class="separator:abec0db5d7339fc8df0433a93970cb0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe33e1aeb5148230a18366ca5149425" id="r_a6fe33e1aeb5148230a18366ca5149425"><td class="memItemLeft" align="right" valign="top"><a id="a6fe33e1aeb5148230a18366ca5149425" name="a6fe33e1aeb5148230a18366ca5149425"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pause</b> (double dt)</td></tr>
+<tr class="memdesc:a6fe33e1aeb5148230a18366ca5149425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will trick the PID controller into thinking that there is no error. Essentially pausing it. <br /></td></tr>
+<tr class="separator:a6fe33e1aeb5148230a18366ca5149425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The PID Controller class handles the necessary calculations associated with a PID controller. </p>

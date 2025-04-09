@@ -1,5 +1,5 @@
 <map id="CruiseControlState" name="CruiseControlState">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,179,141,304"/>
-<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="11,5,136,131"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,145,76,178,71,178,71,145"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,219,141,344"/>
+<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="11,5,136,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,184,76,218,71,218,71,184"/>
 </map>

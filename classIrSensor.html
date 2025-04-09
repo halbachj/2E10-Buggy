@@ -122,7 +122,7 @@ $(function(){initNavTree('classIrSensor.html',''); initResizable(true); });
 <div class="dynheader">
 Collaboration diagram for IrSensor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classIrSensor__coll__graph.svg" width="182" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classIrSensor__coll__graph.svg" width="182" height="196"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -139,6 +139,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a48d54bc804f23ec8b220c8b01b07e475" id="r_a48d54bc804f23ec8b220c8b01b07e475"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48d54bc804f23ec8b220c8b01b07e475">getManualReading</a> ()</td></tr>
 <tr class="memdesc:a48d54bc804f23ec8b220c8b01b07e475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a raw manual reading straight from the sensor.  <br /></td></tr>
 <tr class="separator:a48d54bc804f23ec8b220c8b01b07e475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbd0ea5c9ebb2c213612a94e3ab1e9fc" id="r_acbd0ea5c9ebb2c213612a94e3ab1e9fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbd0ea5c9ebb2c213612a94e3ab1e9fc">isHigh</a> ()</td></tr>
+<tr class="memdesc:acbd0ea5c9ebb2c213612a94e3ab1e9fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reading of the sensor as a boolean based on a threshold value.  <br /></td></tr>
+<tr class="separator:acbd0ea5c9ebb2c213612a94e3ab1e9fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bcee9b8b0b0b3f8e9397d58ef30985e" id="r_a9bcee9b8b0b0b3f8e9397d58ef30985e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bcee9b8b0b0b3f8e9397d58ef30985e">isLow</a> ()</td></tr>
+<tr class="memdesc:a9bcee9b8b0b0b3f8e9397d58ef30985e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reading of the sensor as a boolean based on a threshold value.  <br /></td></tr>
+<tr class="separator:a9bcee9b8b0b0b3f8e9397d58ef30985e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab27bf741ddf4b386285664ff12b89d8a" id="r_ab27bf741ddf4b386285664ff12b89d8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab27bf741ddf4b386285664ff12b89d8a">setThreshold</a> (unsigned int value)</td></tr>
+<tr class="memdesc:ab27bf741ddf4b386285664ff12b89d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter for the threshold value.  <br /></td></tr>
+<tr class="separator:ab27bf741ddf4b386285664ff12b89d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The IR sensor class provides an interface for reading data from an infrared sensor. </p>
@@ -215,6 +224,56 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="acbd0ea5c9ebb2c213612a94e3ab1e9fc" name="acbd0ea5c9ebb2c213612a94e3ab1e9fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd0ea5c9ebb2c213612a94e3ab1e9fc">&#9670;&#160;</a></span>isHigh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IrSensor::isHigh </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the reading of the sensor as a boolean based on a threshold value. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the sensor reads a high value </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classIrSensor_acbd0ea5c9ebb2c213612a94e3ab1e9fc_cgraph.svg" width="594" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9bcee9b8b0b0b3f8e9397d58ef30985e" name="a9bcee9b8b0b0b3f8e9397d58ef30985e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bcee9b8b0b0b3f8e9397d58ef30985e">&#9670;&#160;</a></span>isLow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IrSensor::isLow </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the reading of the sensor as a boolean based on a threshold value. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the sensor reads a high value </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classIrSensor_a9bcee9b8b0b0b3f8e9397d58ef30985e_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="afae8bb53eee8d95ab680bb1bdaac8fd8" name="afae8bb53eee8d95ab680bb1bdaac8fd8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afae8bb53eee8d95ab680bb1bdaac8fd8">&#9670;&#160;</a></span>setCalibrationRange()</h2>
 
@@ -239,6 +298,31 @@ Here is the call graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">min</td><td>the minimum of the range </td></tr>
     <tr><td class="paramname">max</td><td>the maximum of the range </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab27bf741ddf4b386285664ff12b89d8a" name="ab27bf741ddf4b386285664ff12b89d8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab27bf741ddf4b386285664ff12b89d8a">&#9670;&#160;</a></span>setThreshold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IrSensor::setThreshold </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter for the threshold value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>the threshold value to be set. </td></tr>
   </table>
   </dd>
 </dl>

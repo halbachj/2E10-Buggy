@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['tcpserver_0',['TcpServer',['../classTcpServer.html',1,'TcpServer'],['../classTcpServer.html#af6c94855227b723a7195d221f3663d10',1,'TcpServer::TcpServer()']]],
-  ['timer1_2ehpp_1',['Timer1.hpp',['../Timer1_8hpp.html',1,'']]],
-  ['todo_20list_2',['Todo List',['../todo.html',1,'']]],
-  ['trig_5fpin_3',['trig_pin',['../structUltrasonicSensorPinGroup.html#a8004f12429fc206dc9d879b84b88d4b0',1,'UltrasonicSensorPinGroup']]],
-  ['trinity_20college_20dublin_20engineering_20project_4',['A Trinity College Dublin Engineering project',['../index.html#autotoc_md1',1,'']]],
-  ['type_5',['type',['../structCommandPacket.html#ade1a30d81817db21e272708145c38544',1,'CommandPacket::type'],['../structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf',1,'Packet::type']]]
+  ['sendpacket_0',['sendPacket',['../classTcpServer.html#af9d0c2c2a0616e07fd77ea108145fa22',1,'TcpServer::sendPacket()'],['../classUdpServer.html#aadca574635a3d066f9470be9f25ef433',1,'UdpServer::sendPacket()']]],
+  ['sendstatuspacket_1',['sendStatusPacket',['../classBuggy.html#a69ac0c77c795b4a80addeaa4dada009e',1,'Buggy']]],
+  ['seriallogger_2',['SerialLogger',['../classEmbeddedLogger_1_1SerialLogger.html',1,'EmbeddedLogger']]],
+  ['serialwirelesslogger_3',['SerialWirelessLogger',['../classEmbeddedLogger_1_1SerialWirelessLogger.html',1,'EmbeddedLogger']]],
+  ['setcalibrationrange_4',['setCalibrationRange',['../classIrSensor.html#afae8bb53eee8d95ab680bb1bdaac8fd8',1,'IrSensor']]],
+  ['setdetectionrange_5',['setDetectionRange',['../classUltrasonicSensor.html#a17d97791899bca44be932d2c6fb27cd5',1,'UltrasonicSensor']]],
+  ['setspeed_6',['setSpeed',['../classBuggy.html#a6817b16561a74ca6001dbf0e4f5b23c5',1,'Buggy::setSpeed()'],['../classLineFollower.html#aabb07dbedae7dffeca30dc03b5a12ca2',1,'LineFollower::setSpeed()'],['../classMotorDriver.html#a78bad5e883f6f4f02f376a2890b3f41a',1,'MotorDriver::setSpeed()']]],
+  ['setstate_7',['setState',['../classBuggy.html#a6ec6b72a75e112f777e8c6754a70012b',1,'Buggy']]],
+  ['setthreshold_8',['setThreshold',['../classIrSensor.html#ab27bf741ddf4b386285664ff12b89d8a',1,'IrSensor']]],
+  ['setup_9',['setup',['../classTcpServer.html#acfbd895aae6f14876257683adf8b1b79',1,'TcpServer::setup()'],['../classUdpServer.html#af71909d685bc69b3353636aeae0b0c5c',1,'UdpServer::setup()'],['../BuggySoftware_8ino.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;BuggySoftware.ino']]],
+  ['setup_5fap_10',['setup_ap',['../classBuggyWiFi.html#aeb09f971541dce0b5900083d605c05bc',1,'BuggyWiFi']]],
+  ['sign_11',['sign',['../structIdentifiedRoadSign.html#ad004cefdbfec73fc3f78d1328ad85dd6',1,'IdentifiedRoadSign']]],
+  ['size_12',['size',['../structIdentifiedRoadSign.html#a40dd3b116f9bea0af6a723d782c5215f',1,'IdentifiedRoadSign']]],
+  ['statuspacket_13',['StatusPacket',['../structStatusPacket.html',1,'']]],
+  ['statuspacket_14',['statusPacket',['../unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380',1,'PacketContent']]],
+  ['straight_15',['STRAIGHT',['../classLineFollower.html#a784885aa25f281dcb39a257238c9f391a8c5e50fab3748e9c53a6863b3dce1401',1,'LineFollower']]],
+  ['switchmode_16',['switchMode',['../classCamera.html#af8e6bc4daa82fd1e5ce6507e7bb79527',1,'Camera']]]
 ];

@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['udpserver_0',['UdpServer',['../classUdpServer.html',1,'UdpServer'],['../classUdpServer.html#a54787b67e84ea9de4c9d309d51f821df',1,'UdpServer::UdpServer()']]],
-  ['ultrasonicsensor_1',['UltrasonicSensor',['../classUltrasonicSensor.html',1,'UltrasonicSensor'],['../classUltrasonicSensor.html#a191f27e844aebdbd97852d7f0c79dcfb',1,'UltrasonicSensor::UltrasonicSensor()']]],
-  ['ultrasonicsensorpingroup_2',['UltrasonicSensorPinGroup',['../structUltrasonicSensorPinGroup.html',1,'']]],
-  ['ultrasonicsensorpinout_3',['ultrasonicSensorPinout',['../BuggySoftware_8ino.html#a878b1081f8e6eb287d4510bb20b8d5ad',1,'BuggySoftware.ino']]],
-  ['update_4',['update',['../classBuggy.html#a5601f3316cb943f713e2dc9672d86b52',1,'Buggy::update()'],['../classTcpServer.html#a7b2e8e9998aebf6bd3955dadb559bfe2',1,'TcpServer::update()'],['../classBuggyWiFi.html#a2de069de05afd09b14cb2489fea73635',1,'BuggyWiFi::update()'],['../classCruiseControl.html#a839061316e80c80993e429c913b09e58',1,'CruiseControl::update()'],['../classLineFollower.html#a0e4d3ad338b2a15c66b686a277a58066',1,'LineFollower::update()'],['../classMotorDriver.html#ade588259930bec2efbf890859cab30f8',1,'MotorDriver::update()'],['../classPIDController.html#abec0db5d7339fc8df0433a93970cb0f7',1,'PIDController::update()'],['../classUdpServer.html#ac6975cd47fb46c926418d596d77da03f',1,'UdpServer::update()'],['../classUltrasonicSensor.html#acd2ef36cfe1e44b04d9c83c40abbed63',1,'UltrasonicSensor::update()']]]
+  ['tcpserver_0',['TcpServer',['../classTcpServer.html',1,'TcpServer'],['../classTcpServer.html#af6c94855227b723a7195d221f3663d10',1,'TcpServer::TcpServer()']]],
+  ['timer1_2ehpp_1',['Timer1.hpp',['../Timer1_8hpp.html',1,'']]],
+  ['timestamp_2',['timestamp',['../structIdentifiedRoadSign.html#adf5ff7facf847ef3ca5a082c2fc17340',1,'IdentifiedRoadSign']]],
+  ['todo_20list_3',['Todo List',['../todo.html',1,'']]],
+  ['trig_5fpin_4',['trig_pin',['../structUltrasonicSensorPinGroup.html#a8004f12429fc206dc9d879b84b88d4b0',1,'UltrasonicSensorPinGroup']]],
+  ['trinity_20college_20dublin_20engineering_20project_5',['A Trinity College Dublin Engineering project',['../index.html#autotoc_md1',1,'']]],
+  ['turndirection_6',['TurnDirection',['../classLineFollower.html#a784885aa25f281dcb39a257238c9f391',1,'LineFollower']]],
+  ['type_7',['type',['../structCommandPacket.html#ade1a30d81817db21e272708145c38544',1,'CommandPacket::type'],['../structPacket.html#aebbae2cef32f967d0bbcabbe41dae6bf',1,'Packet::type']]]
 ];

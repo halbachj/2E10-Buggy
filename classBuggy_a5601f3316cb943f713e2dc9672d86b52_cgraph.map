@@ -1,15 +1,17 @@
 <map id="Buggy::update" name="Buggy::update">
-<area shape="rect" id="Node000001" title="update is called during every loop. This calls the state machine update to update whatever state the ..." alt="" coords="5,84,120,109"/>
-<area shape="rect" id="Node000002" href="$classBuggy.html#a5ecfce732e816d7e6087ce5e04c1e4cf" title="handles an incoming packet in the context of the buggy." alt="" coords="182,55,338,80"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,86,168,78,169,84,121,91"/>
-<area shape="rect" id="Node000006" href="$classBuggy.html#a69ac0c77c795b4a80addeaa4dada009e" title="Sends a status packet to the ground station." alt="" coords="168,108,352,133"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,101,155,105,154,110,120,106"/>
-<area shape="rect" id="Node000003" href="$classBuggy.html#a1207f60e091c8934c31dc04d05da715c" title="decodes the CommandPacket and applies the command to the buggy." alt="" coords="411,5,592,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="322,52,425,31,426,36,323,57"/>
-<area shape="rect" id="Node000005" href="$classBuggy.html#a4d76df8fa8e6229177dbd4a306cbbe5b" title="handles the control packet for remote controlling the buggy" alt="" coords="400,55,603,80"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="338,65,386,65,386,70,338,70"/>
-<area shape="rect" id="Node000004" href="$classBuggy.html#a6ec6b72a75e112f777e8c6754a70012b" title="Changes the state of the buggy. This will call the necessary exit and enter methods of the state." alt="" coords="651,5,775,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="592,15,637,15,637,21,592,21"/>
-<area shape="rect" id="Node000007" href="$classPacketFactory.html#a27759b44a17b7c9550541de15dac7016" title="Creates a status packet containing sensor and motor data." alt="" coords="401,105,601,145"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="352,120,388,120,388,125,352,125"/>
+<area shape="rect" id="Node000001" title="update is called during every loop. This calls the state machine update to update whatever state the ..." alt="" coords="5,108,120,133"/>
+<area shape="rect" id="Node000002" href="$classBuggy.html#a5ecfce732e816d7e6087ce5e04c1e4cf" title="handles an incoming packet in the context of the buggy." alt="" coords="186,55,342,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,105,202,81,203,86,112,110"/>
+<area shape="rect" id="Node000006" href="$classBuggy.html#a69ac0c77c795b4a80addeaa4dada009e" title="Sends a status packet to the ground station." alt="" coords="172,108,356,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="120,118,158,118,158,123,120,123"/>
+<area shape="rect" id="Node000008" href="$classBuggy.html#a390164e31149773f2247487f5240fb88" title="updates the buggy vision" alt="" coords="168,157,360,183"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="116,131,199,151,197,157,115,136"/>
+<area shape="rect" id="Node000003" href="$classBuggy.html#a1207f60e091c8934c31dc04d05da715c" title="decodes the CommandPacket and applies the command to the buggy." alt="" coords="419,5,600,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="327,52,431,31,432,36,328,57"/>
+<area shape="rect" id="Node000005" href="$classBuggy.html#a4d76df8fa8e6229177dbd4a306cbbe5b" title="handles the control packet for remote controlling the buggy" alt="" coords="408,55,611,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="342,65,394,65,394,70,342,70"/>
+<area shape="rect" id="Node000004" href="$classBuggy.html#a6ec6b72a75e112f777e8c6754a70012b" title="Changes the state of the buggy. This will call the necessary exit and enter methods of the state." alt="" coords="659,5,783,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="600,15,645,15,645,21,600,21"/>
+<area shape="rect" id="Node000007" href="$classPacketFactory.html#a27759b44a17b7c9550541de15dac7016" title="Creates a status packet containing sensor and motor data." alt="" coords="409,105,609,145"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="356,119,396,120,396,125,356,125"/>
 </map>

@@ -11,9 +11,9 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="classCruiseControl.html" target="_top" xlink:title="The CruiseControl helper class allows holds helper functions to allow the buggy to hold a constant di...">
+<g id="a_Node000000"><a xlink:href="structControlPacket.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="83,-19 0,-19 0,0 83,0 83,-19"/>
-<text text-anchor="middle" x="41.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">CruiseControl</text>
+<text text-anchor="middle" x="41.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">ControlPacket</text>
 </a>
 </g>
 </g>

@@ -121,14 +121,14 @@ $(function(){initNavTree('classBuggy.html',''); initResizable(true); });
 <div class="dynheader">
 Collaboration diagram for Buggy:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBuggy__coll__graph.svg" width="183" height="236"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classBuggy__coll__graph.svg" width="183" height="296"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad08754258f089e5e781eb37c2a5c233e" id="r_ad08754258f089e5e781eb37c2a5c233e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad08754258f089e5e781eb37c2a5c233e">Buggy</a> (<a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;leftMotor, <a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;rightMotor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;leftIrSensor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;rightIrSensor, <a class="el" href="classUltrasonicSensor.html">UltrasonicSensor</a> &amp;ultrasonicSensor, <a class="el" href="classScheduler.html">Scheduler</a> &amp;scheduler, <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> &amp;wifi, <a class="el" href="classTcpServer.html">TcpServer</a> &amp;server, <a class="el" href="classLineFollower.html">LineFollower</a> &amp;lineFollower, <a class="el" href="classCruiseControl.html">CruiseControl</a> &amp;cruiseController)</td></tr>
-<tr class="memdesc:ad08754258f089e5e781eb37c2a5c233e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the buggy. Initialized with all neccessary components.  <br /></td></tr>
-<tr class="separator:ad08754258f089e5e781eb37c2a5c233e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab368631d4b0a6ade56e0fc3a670cc141" id="r_ab368631d4b0a6ade56e0fc3a670cc141"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab368631d4b0a6ade56e0fc3a670cc141">Buggy</a> (<a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;leftMotor, <a class="el" href="classMotorDriver.html">MotorDriver</a> &amp;rightMotor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;leftIrSensor, <a class="el" href="classIrSensor.html">IrSensor</a> &amp;rightIrSensor, <a class="el" href="classUltrasonicSensor.html">UltrasonicSensor</a> &amp;ultrasonicSensor, <a class="el" href="classCamera.html">Camera</a> &amp;camera, <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> &amp;wifi, <a class="el" href="classTcpServer.html">TcpServer</a> &amp;server, <a class="el" href="classLineFollower.html">LineFollower</a> &amp;lineFollower, <a class="el" href="classCruiseControl.html">CruiseControl</a> &amp;cruiseController, <a class="el" href="classRoadSignRecognition.html">RoadSignRecognition</a> &amp;signRecognition)</td></tr>
+<tr class="memdesc:ab368631d4b0a6ade56e0fc3a670cc141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the buggy. Initialized with all neccessary components.  <br /></td></tr>
+<tr class="separator:ab368631d4b0a6ade56e0fc3a670cc141"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a394acc3ce03ca87ea517024d352358df" id="r_a394acc3ce03ca87ea517024d352358df"><td class="memItemLeft" align="right" valign="top"><a id="a394acc3ce03ca87ea517024d352358df" name="a394acc3ce03ca87ea517024d352358df"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Buggy</b> (const <a class="el" href="classBuggy.html">Buggy</a> &amp;other)=delete</td></tr>
 <tr class="separator:a394acc3ce03ca87ea517024d352358df"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,6 +141,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ec6b72a75e112f777e8c6754a70012b" id="r_a6ec6b72a75e112f777e8c6754a70012b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ec6b72a75e112f777e8c6754a70012b">setState</a> (<a class="el" href="classBuggyState.html">BuggyState</a> &amp;newState)</td></tr>
 <tr class="memdesc:a6ec6b72a75e112f777e8c6754a70012b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the state of the buggy. This will call the necessary exit and enter methods of the state.  <br /></td></tr>
 <tr class="separator:a6ec6b72a75e112f777e8c6754a70012b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb32fc3c2265fafb58be4c5fff1c0c27" id="r_aeb32fc3c2265fafb58be4c5fff1c0c27"><td class="memItemLeft" align="right" valign="top">BuggyStates&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb32fc3c2265fafb58be4c5fff1c0c27">getState</a> ()</td></tr>
+<tr class="memdesc:aeb32fc3c2265fafb58be4c5fff1c0c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current state to be compared with.  <br /></td></tr>
+<tr class="separator:aeb32fc3c2265fafb58be4c5fff1c0c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ecfce732e816d7e6087ce5e04c1e4cf" id="r_a5ecfce732e816d7e6087ce5e04c1e4cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ecfce732e816d7e6087ce5e04c1e4cf">handlePacket</a> (<a class="el" href="structPacket.html">Packet</a> packet)</td></tr>
 <tr class="memdesc:a5ecfce732e816d7e6087ce5e04c1e4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">handles an incoming packet in the context of the buggy.  <br /></td></tr>
 <tr class="separator:a5ecfce732e816d7e6087ce5e04c1e4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,12 +157,22 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>sendStatusPacket</b> ()</td></tr>
 <tr class="memdesc:a69ac0c77c795b4a80addeaa4dada009e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a status packet to the ground station. <br /></td></tr>
 <tr class="separator:a69ac0c77c795b4a80addeaa4dada009e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390164e31149773f2247487f5240fb88" id="r_a390164e31149773f2247487f5240fb88"><td class="memItemLeft" align="right" valign="top"><a id="a390164e31149773f2247487f5240fb88" name="a390164e31149773f2247487f5240fb88"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateRecognition</b> ()</td></tr>
+<tr class="memdesc:a390164e31149773f2247487f5240fb88"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates the buggy vision <br /></td></tr>
+<tr class="separator:a390164e31149773f2247487f5240fb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6817b16561a74ca6001dbf0e4f5b23c5" id="r_a6817b16561a74ca6001dbf0e4f5b23c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6817b16561a74ca6001dbf0e4f5b23c5">setSpeed</a> (int speed)</td></tr>
+<tr class="memdesc:a6817b16561a74ca6001dbf0e4f5b23c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the general speed of the buggy.  <br /></td></tr>
+<tr class="separator:a6817b16561a74ca6001dbf0e4f5b23c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a3ecf3132e8c4bf890c07853cfab7619c" id="r_a3ecf3132e8c4bf890c07853cfab7619c"><td class="memItemLeft" align="right" valign="top"><a id="a3ecf3132e8c4bf890c07853cfab7619c" name="a3ecf3132e8c4bf890c07853cfab7619c"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>TcpServer</b></td></tr>
 <tr class="separator:a3ecf3132e8c4bf890c07853cfab7619c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad81cfb2e36b61306f1c4cc087a57ae" id="r_afad81cfb2e36b61306f1c4cc087a57ae"><td class="memItemLeft" align="right" valign="top"><a id="afad81cfb2e36b61306f1c4cc087a57ae" name="afad81cfb2e36b61306f1c4cc087a57ae"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>SignRecognition</b></td></tr>
+<tr class="separator:afad81cfb2e36b61306f1c4cc087a57ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a758b1f8d64fef47072fe5d98ee08015c" id="r_a758b1f8d64fef47072fe5d98ee08015c"><td class="memItemLeft" align="right" valign="top"><a id="a758b1f8d64fef47072fe5d98ee08015c" name="a758b1f8d64fef47072fe5d98ee08015c"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>BuggyState</b></td></tr>
 <tr class="separator:a758b1f8d64fef47072fe5d98ee08015c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,9 +185,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectDetectedState<
 <tr class="memitem:a9a08d677a3728c3c0d159dcb28494d2d" id="r_a9a08d677a3728c3c0d159dcb28494d2d"><td class="memItemLeft" align="right" valign="top"><a id="a9a08d677a3728c3c0d159dcb28494d2d" name="a9a08d677a3728c3c0d159dcb28494d2d"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>CalibrationState</b></td></tr>
 <tr class="separator:a9a08d677a3728c3c0d159dcb28494d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56f2c709b949004567ca94e356ebb2f4" id="r_a56f2c709b949004567ca94e356ebb2f4"><td class="memItemLeft" align="right" valign="top"><a id="a56f2c709b949004567ca94e356ebb2f4" name="a56f2c709b949004567ca94e356ebb2f4"></a>
+<tr class="memitem:a2a876e519be0c16858881eb576e8a9e7" id="r_a2a876e519be0c16858881eb576e8a9e7"><td class="memItemLeft" align="right" valign="top"><a id="a2a876e519be0c16858881eb576e8a9e7" name="a2a876e519be0c16858881eb576e8a9e7"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>LineFollowingState</b></td></tr>
-<tr class="separator:a56f2c709b949004567ca94e356ebb2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a2a876e519be0c16858881eb576e8a9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7ba6bd966010ca76f7bf5b5ba9a867f" id="r_af7ba6bd966010ca76f7bf5b5ba9a867f"><td class="memItemLeft" align="right" valign="top"><a id="af7ba6bd966010ca76f7bf5b5ba9a867f" name="af7ba6bd966010ca76f7bf5b5ba9a867f"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>LineFollowingState_TURN_LEFT</b></td></tr>
+<tr class="separator:af7ba6bd966010ca76f7bf5b5ba9a867f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e1742248d7087caef683aabb894816" id="r_aa6e1742248d7087caef683aabb894816"><td class="memItemLeft" align="right" valign="top"><a id="aa6e1742248d7087caef683aabb894816" name="aa6e1742248d7087caef683aabb894816"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>LineFollowingState_TURN_RIGHT</b></td></tr>
+<tr class="separator:aa6e1742248d7087caef683aabb894816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6615d8dc5360c0e5661416f01050c032" id="r_a6615d8dc5360c0e5661416f01050c032"><td class="memItemLeft" align="right" valign="top"><a id="a6615d8dc5360c0e5661416f01050c032" name="a6615d8dc5360c0e5661416f01050c032"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControl</b></td></tr>
 <tr class="separator:a6615d8dc5360c0e5661416f01050c032"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,8 +211,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
 <div class="textblock"><p>The <a class="el" href="classBuggy.html" title="The Buggy class contains all relevant peripherals mounted on the buggy, as well as some helper classe...">Buggy</a> class contains all relevant peripherals mounted on the buggy, as well as some helper classes. </p>
 <p><a class="el" href="classBuggy.html" title="The Buggy class contains all relevant peripherals mounted on the buggy, as well as some helper classe...">Buggy</a> State is handled through a state machine which handles the different updates. Look into state machine class for further information. State change is handled whenever a state change is reuqested by the state machine and the neccessarry calls are made. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad08754258f089e5e781eb37c2a5c233e" name="ad08754258f089e5e781eb37c2a5c233e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad08754258f089e5e781eb37c2a5c233e">&#9670;&#160;</a></span>Buggy()</h2>
+<a id="ab368631d4b0a6ade56e0fc3a670cc141" name="ab368631d4b0a6ade56e0fc3a670cc141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab368631d4b0a6ade56e0fc3a670cc141">&#9670;&#160;</a></span>Buggy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +245,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classScheduler.html">Scheduler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scheduler</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classCamera.html">Camera</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>camera</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -246,7 +265,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classCruiseControl.html">CruiseControl</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cruiseController</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classCruiseControl.html">CruiseControl</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cruiseController</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classRoadSignRecognition.html">RoadSignRecognition</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>signRecognition</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -259,7 +283,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
     <tr><td class="paramname">leftIrSensor</td><td>takes reference to left <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> Sensor </td></tr>
     <tr><td class="paramname">rightIrSensor</td><td>takes referemce to right <a class="el" href="classIrSensor.html" title="The IR sensor class provides an interface for reading data from an infrared sensor.">IrSensor</a> Sensor </td></tr>
     <tr><td class="paramname">ultrasonicSensor</td><td>takes reference to the <a class="el" href="classUltrasonicSensor.html" title="Handles ultrasonic sensor operations, including triggering and measuring distance.">UltrasonicSensor</a> </td></tr>
-    <tr><td class="paramname">scheduler</td><td>takes reference to the task <a class="el" href="classScheduler.html">Scheduler</a> </td></tr>
+    <tr><td class="paramname">camera</td><td>The HUSKYLENS <a class="el" href="classCamera.html">Camera</a> </td></tr>
     <tr><td class="paramname">wifi</td><td>takes reference to the initialized <a class="el" href="classBuggyWiFi.html">BuggyWiFi</a> to control the access point </td></tr>
     <tr><td class="paramname">server</td><td>takes a reference to the running BuggyTCP server that handles ground station communication </td></tr>
     <tr><td class="paramname">lineFollower</td><td>takes a reference to the <a class="el" href="classLineFollower.html" title="The line follower class is a helper class that allows for easy control of the buggy.">LineFollower</a>. This already contains reference to its neccessarry components </td></tr>
@@ -267,15 +291,31 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CruiseControlState</
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classBuggy_ad08754258f089e5e781eb37c2a5c233e_cgraph.svg" width="602" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aeb32fc3c2265fafb58be4c5fff1c0c27" name="aeb32fc3c2265fafb58be4c5fff1c0c27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb32fc3c2265fafb58be4c5fff1c0c27">&#9670;&#160;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BuggyStates Buggy::getState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current state to be compared with. </p>
+<dl class="section see"><dt>See also</dt><dd>BuggyStates</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the state </dd></dl>
+
+</div>
+</div>
 <a id="a1207f60e091c8934c31dc04d05da715c" name="a1207f60e091c8934c31dc04d05da715c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1207f60e091c8934c31dc04d05da715c">&#9670;&#160;</a></span>handleCommand()</h2>
 
@@ -361,6 +401,31 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a6817b16561a74ca6001dbf0e4f5b23c5" name="a6817b16561a74ca6001dbf0e4f5b23c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6817b16561a74ca6001dbf0e4f5b23c5">&#9670;&#160;</a></span>setSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Buggy::setSpeed </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>speed</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the general speed of the buggy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>the speed to run at </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a6ec6b72a75e112f777e8c6754a70012b" name="a6ec6b72a75e112f777e8c6754a70012b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ec6b72a75e112f777e8c6754a70012b">&#9670;&#160;</a></span>setState()</h2>
 
@@ -413,7 +478,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuggy_a5601f3316cb943f713e2dc9672d86b52_cgraph.svg" width="100%" height="413"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="classBuggy_a5601f3316cb943f713e2dc9672d86b52_cgraph.svg" width="100%" height="441"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

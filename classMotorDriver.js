@@ -9,6 +9,7 @@ var classMotorDriver =
     [ "getSpeed", "classMotorDriver.html#ab6d644296d8c9e4fedebe5f734767d6f", null ],
     [ "ISR_encoder_trigger", "classMotorDriver.html#a54b7fbfbaceed19ab7ba8d3bfdfb299b", null ],
     [ "operator=", "classMotorDriver.html#a034bc8754f662ad9c254baefbfb84468", null ],
+    [ "pause", "classMotorDriver.html#a9a9293e668723e3c91589eae701be437", null ],
     [ "pwmOverride", "classMotorDriver.html#aaf58e7b170708a923709bd5c2e000de4", null ],
     [ "resetDistance", "classMotorDriver.html#ad1951a4a64e492a49aae6c2068d29512", null ],
     [ "setSpeed", "classMotorDriver.html#a78bad5e883f6f4f02f376a2890b3f41a", null ],

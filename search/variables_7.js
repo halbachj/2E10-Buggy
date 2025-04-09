@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['scheduler_0',['scheduler',['../BuggySoftware_8ino.html#a7714de4b56e9edd12c75f4781688edef',1,'BuggySoftware.ino']]],
-  ['statuspacket_1',['statusPacket',['../unionPacketContent.html#a377d6250f3b5a99c348a40bafe139380',1,'PacketContent']]]
+  ['objectdetected_0',['objectDetected',['../structStatusPacket.html#a6f7c9a1e0fbc1715b6733f7c1f506403',1,'StatusPacket']]],
+  ['objectdistance_1',['objectDistance',['../structStatusPacket.html#a2043e9841084e1a03ca103ee7e66d785',1,'StatusPacket']]]
 ];

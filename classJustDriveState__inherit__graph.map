@@ -1,5 +1,5 @@
 <map id="JustDriveState" name="JustDriveState">
-<area shape="rect" id="Node000001" title=" " alt="" coords="15,179,121,304"/>
-<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="5,5,131,131"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,145,71,178,65,178,65,145"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="15,219,121,344"/>
+<area shape="rect" id="Node000002" href="$classBuggyState.html" title="The Buggy State class is an abstract class that represents the abstract state the buggy can be in." alt="" coords="5,5,131,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,184,71,218,65,218,65,184"/>
 </map>
