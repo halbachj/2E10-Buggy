@@ -6,6 +6,10 @@ import controlP5.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+SecondWindow remoteWindow;
+float deadZoneRadius = 30;
+float xOutput = 0;
+float yOutput = 0;
 ControlP5 cp5; // UI Control variables
 float pi = 3.14159265359;
 float r = 0.03;
@@ -13,9 +17,11 @@ PGraphics alertScreen;
 float obstacleDist = -1;
 String message = "No connection";
 PFont font;
+int mode = -1;
 float leftWheel = 0;
 float rightWheel = 0;
 double robstacleDist;
+boolean remoteWindowOpen = false;
 
 //Variables for Wifi
 Client client = null; // Start as null
@@ -118,19 +124,6 @@ void setup() {
   cp5.get(Textfield.class, "Set Speed")
      .getCaptionLabel()
      .setColor(color(0)); // Set text color to black
-  
-  /*cp5.addSlider("Set Speed") //speed slider
-     .setRange(0, 78.5)
-     .setValue(0)
-     .setPosition(590, 50)
-     .setSize(50, 450)
-     .setSliderMode(Slider.FLEXIBLE)
-     .setColorForeground(color(0, 150, 0))
-     .setColorBackground(color(5, 30, 110))
-     .setColorActive(color(0, 200, 0))
-     .setColorCaptionLabel(color(0))
-     .setColorValue(color(0))
-     .getCaptionLabel().setFont(font); // Set larger font for label*/
      
     // Speed Input
   cp5.addTextfield("Change Mode")
@@ -289,9 +282,6 @@ void parsePacket(byte[] buffer) {
   
   leftWheel = bb.getFloat();
   rightWheel = bb.getFloat();
-  //println(bb.getInt());//sensor values
-  //println(bb.getInt());
-  //println(Arrays.toString(buffer));
   
 }
 
@@ -346,6 +336,22 @@ void updateAlertScreen() {
     copyPattern(warningPattern);
   else
     copyPattern(stopPattern);
+    
+    if (mode == 0){
+         copyPattern(arrowPattern);
+         objectState();
+       }else if (mode == 1){
+         copyPattern(cruisePattern);
+         objectState();
+       } else if (mode == 2){
+         copyPattern(remotePattern);
+         objectState();
+       }
+}
+
+void objectState() {
+  if(buggyState == 1)
+    copyPattern(warningPattern);
 }
 
 void drawWheelDistances() {
@@ -377,25 +383,27 @@ void controlEvent(ControlEvent theEvent) {
       
         float dnewSpeed = (newSpeed * pi * r) / 1.8 ;
         println("NEW SPEEEEEED: " + dnewSpeed);
-        sendCommandPacket(3, newSpeed);// Assuming command type 4 sets the speed
-        //String rValue = String.format("%.1f", sliderValue);
-        //println("Speed updated to: " + rValue);
-        
-        //theEvent.getController().getCaptionLabel().setText("Speed: " + rValue);
+        sendCommandPacket(3, newSpeed);
        }
      if (controllerName.equals("Change Mode")){
        String changeMode = theEvent.getStringValue().toLowerCase();
-       int mode = -1;
        
        switch (changeMode){
          case "line following":
            mode = 0;
+           copyPattern(arrowPattern);
            break;
          case "cruise control":
            mode = 1;
+           copyPattern(cruisePattern);
            break;
          case "remote control":
            mode = 2;
+           copyPattern(remotePattern);
+           if (!remoteWindowOpen) {
+             remoteWindow = new SecondWindow();  
+             runSketch(new String[]{"Remote Control"}, remoteWindow);
+           }
            break;
          default:
            println("Enter one mode: 'Line following', 'Cruise control' or 'Remote control'");
@@ -404,13 +412,6 @@ void controlEvent(ControlEvent theEvent) {
        
        sendCommandPacket(4, mode);
        println("Mode changed to:" + changeMode);
-       /*if (mode == 0){ //change
-         copyPattern(arrowPattern);
-       }else if (mode == 1){
-         copyPattern(cruisePattern);
-       } else if (mode == 2){
-         copyPattern(remotePattern);
-       }*/
      }
     
     // Handle Reset Distance Button
