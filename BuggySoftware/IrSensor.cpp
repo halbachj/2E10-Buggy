@@ -18,7 +18,7 @@ int IrSensor::getManualReading() {
 }
 
 bool IrSensor::isHigh() {
-  return this->getReading() >= this->threshold;
+  return this->getReading() <= this->threshold;
 }
 
 bool IrSensor::isLow() {

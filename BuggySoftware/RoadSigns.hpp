@@ -41,8 +41,10 @@ class RoadSignRecognition {
 private:
   Camera& camera;
   static const size_t maxObservedSigns = 3;
-  IdentifiedRoadSign *observed_signs[maxObservedSigns];
-  IdentifiedRoadSign *nextRoadSign;
+  //IdentifiedRoadSign *observed_signs[maxObservedSigns];
+  IdentifiedRoadSign nextRoadSign;
+  IdentifiedRoadSign lastRoadSign;
+  bool readSign = false;
   
   Buggy* buggy;
   bool initialized = false;

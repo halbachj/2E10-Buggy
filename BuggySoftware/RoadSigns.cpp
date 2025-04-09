@@ -19,11 +19,13 @@ void sign2Callback(RoadSignRecognition& signRecognition, Buggy* buggy) {
 
 void sign3Callback(RoadSignRecognition& signRecognition, Buggy* buggy) {
   logger << logLevel::DEBUG << "Sign 3 callback" << EmbeddedLogger::endl;
+  buggy->setSpeed(100);
   buggy->setState(LineFollowingState_TURN_LEFT::instance());
 }
 
 void sign4Callback(RoadSignRecognition& signRecognition, Buggy* buggy) {
   logger << logLevel::DEBUG << "Sign 4 callback" << EmbeddedLogger::endl;
+  buggy->setSpeed(100);
   buggy->setState(LineFollowingState_TURN_RIGHT::instance());
 }
 
@@ -50,42 +52,20 @@ void RoadSignRecognition::updateObservedSigns() {
     return;
   }
   
-  
   RoadSign sign = knownSigns[signIndex];
   int sign_size = block.width * block.height;
-  IdentifiedRoadSign *observedSign = new IdentifiedRoadSign{sign, millis(), sign_size, 1.0/sign_size};
+  if (sign.id == this->lastRoadSign.sign.id) return;
+
+  IdentifiedRoadSign observedSign = IdentifiedRoadSign{sign, millis(), sign_size, 1.0/sign_size};
   logger << logLevel::DEBUG << "Observed sign: " << sign.name << EmbeddedLogger::endl;
-
-  IdentifiedRoadSign *temp;
-  for (int i=0;i<this->maxObservedSigns;i++) {
-    if (this->observed_signs[i] == nullptr) { // sign buffer empty at i
-      this->observed_signs[i] = observedSign;
-      temp = nullptr;
-      break; // we have inserted observed sign without the need to move other signs.
-    } else if (this->observed_signs[i]->sign.id == observedSign->sign.id) {   // This is the same sign id but it doesn't necessarily mean that is is comes from the same sign. We assume it is for now
-      this->observed_signs[i]->size = observedSign->size;
-      this->observed_signs[i]->estDistance = observedSign->estDistance;
-      temp = observedSign;
-      break; // we have inserted observed sign without the need to move other signs.
-    } else if (millis() - this->observed_signs[i]->timestamp > 1000) { // old sign should remove
-      temp = this->observed_signs[i];
-      this->observed_signs[i] = observedSign;
-      break; // inserted withouth moving
-
-    } else if (this->observed_signs[i]->size < observedSign->size) { // the observed sign is bigger than the compared one
-      temp = this->observed_signs[i];
-      this->observed_signs[i] = observedSign;
-      observedSign = temp;
-    }
-  }
-
-  if (temp != nullptr) delete temp; // delete the sign that has become irellevant
-
+  this->nextRoadSign = observedSign;
+  this->lastRoadSign = this->nextRoadSign;
+  this->readSign = true;
 }
 
 void RoadSignRecognition::clearSign() {
-  //delete this->nextRoadSign;
-  this->nextRoadSign = nullptr;
+  //this->nextRoadSign = IdentifiedRoadSign{};
+  this->readSign = false;
 }
 
 
@@ -101,13 +81,13 @@ void RoadSignRecognition::update() {
   }
 
   updateObservedSigns();
-  if (this->nextRoadSign) return; // We have a next road sign. Lets wait until we passed it to get the next one.
-  if (this->observed_signs[0] != nullptr) {
-    logger << logLevel::DEBUG << "TOP SIGN OBSERVED SINCE: " << this->observed_signs[0]->timestamp << EmbeddedLogger::endl; 
-    if (this->observed_signs[0]->timestamp) {
-      this->nextRoadSign = this->observed_signs[0];
-      logger << logLevel::DEBUG << "Sign observed for at least 750ms" << EmbeddedLogger::endl;
-      this->nextRoadSign->sign.callback(*this, this->buggy); 
-    }
-  }
+
+  if (!this->readSign) return; // We have a next road sign. Lets wait until we passed it to get the next one.
+  logger << logLevel::DEBUG << "TOP SIGN OBSERVED SINCE: " << this->nextRoadSign.timestamp << EmbeddedLogger::endl; 
+  //if (millis() - this->nextRoadSign.timestamp >= 10e-3) {
+  //  logger << logLevel::DEBUG << "Sign observed for at least 10ms" << EmbeddedLogger::endl;
+  this->nextRoadSign.sign.callback(*this, this->buggy);
+  //}
+
+  //if(millis() - this->nextRoadSign.timestamp >= 6000) this->clearSign();
 }

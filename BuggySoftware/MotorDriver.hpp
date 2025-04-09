@@ -82,6 +82,13 @@ public:
    * @brief Resets the recorded distance traveled.
    */
   void resetDistance();
+
+  /**
+   * @brief Will pause the PID control loop for the motor
+   *
+   */
+  void pause(double dt);
+
   /**
    * @brief Gets the last applied PWM value.
    * @return Last PWM value applied to the motor.
@@ -107,6 +114,8 @@ public:
    * update speed and distance measurements.
    */
   void ISR_encoder_trigger();
+
+   
 };
 
 #endif //BUGGY_MOTOR_DRIVER_HPP

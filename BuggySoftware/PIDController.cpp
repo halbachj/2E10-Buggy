@@ -27,3 +27,7 @@ float PIDController::update(float error, double dt) {
 
   return p + i + d;
 }
+
+void PIDController::pause(double dt) {
+  this->update(0, dt);
+}

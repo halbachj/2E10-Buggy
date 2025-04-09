@@ -42,6 +42,11 @@ public:
    * @returns the correction that needs to be applied to the actuator
    */
   float update(float error, double dt);
+  /**
+   * @brief Will trick the PID controller into thinking that there is no error. Essentially pausing it.
+   *
+   */  
+  void pause(double dt);
 };
 
 

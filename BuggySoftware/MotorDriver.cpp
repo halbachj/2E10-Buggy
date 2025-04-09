@@ -93,3 +93,7 @@ void MotorDriver::update(double dt) {
   logger << EmbeddedLogger::endl;
 
 }
+
+void MotorDriver::pause(double dt) {
+  this->controller.pause(dt);
+}

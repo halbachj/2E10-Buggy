@@ -187,6 +187,7 @@ private:
 
 class LineFollowingState_TURN_RIGHT : public BuggyState {
 private:
+  unsigned long hitIntersectionTime;
   bool hitIntersection = false; // goes high when both sensors are on the intersection
 public:
     static LineFollowingState_TURN_RIGHT& instance() {
@@ -212,6 +213,7 @@ private:
 
 class LineFollowingState_TURN_LEFT : public BuggyState {
 private:
+  unsigned long hitIntersectionTime;
   bool hitIntersection = false; // goes high when both sensors are on the intersection
 public:
     static LineFollowingState_TURN_LEFT& instance() {

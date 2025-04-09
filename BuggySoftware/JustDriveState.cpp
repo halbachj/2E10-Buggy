@@ -15,8 +15,8 @@ void JustDriveState::update(Buggy& buggy, double dt) {
     buggy.setState(ObjectDetectedHandlerState::instance());
   }
 
-  buggy.leftMotor.update(dt);
-  buggy.rightMotor.update(dt);
+  buggy.leftMotor.pause(dt);
+  buggy.rightMotor.pause(dt);
 }
 
 void JustDriveState::exit(Buggy& buggy, BuggyState* oldState) {

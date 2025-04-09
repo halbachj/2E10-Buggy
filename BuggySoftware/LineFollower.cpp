@@ -16,13 +16,18 @@ void LineFollower::update(double dt) {
 
   switch (this->direction) {
     case TurnDirection::LEFT:
-      rightReading /= 15.0;
+      leftReading = 0;
+      this->turning_speed = 170;
+      this->turning_threshold = 10;
       break;
     case TurnDirection::RIGHT:
-      leftReading /= 15.0;
+      rightReading = 1024;
+      this->turning_speed = 170;
       break;
     case TurnDirection::STRAIGHT:   // just do whatever we did before
     default:
+      this->turning_speed = 125;
+      this->turning_threshold = 135;
       break;
   }
 

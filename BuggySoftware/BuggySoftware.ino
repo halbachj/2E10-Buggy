@@ -72,7 +72,7 @@ Matrix ledMatrix;
 
 /// PID CONSTANTS
 const PIDConstants leftMotorPID = { 0.16f, 0.16f, 0.0f };
-const PIDConstants rightMotorPID = { 0.21f, 0.15f, 0.0f};
+const PIDConstants rightMotorPID = { 0.18f, 0.20f, 0.0f};
 //const PIDConstants leftMotorPID = { 0.015f, 0.415f, 0.0f };
 //const PIDConstants rightMotorPID = { 0.03f, 0.55f, 0.0f };
 
@@ -155,6 +155,11 @@ void setup() {
   wifi.printWiFiStatus(); ///< @todo make this part of BuggyWiFi begin
   server.setup();         ///< @todo rename this to server.begin
   logging_server.setup();
+
+  for (int i=0;i<100;i++) {
+    leftIrSensor.getReading();
+    rightIrSensor.getReading();
+  }
 
   logger << logLevel::INFO << "INIT Done" << EmbeddedLogger::endl;
 
