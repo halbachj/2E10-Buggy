@@ -1,0 +1,1390 @@
+* commit fb6278f7fd8ef13e3ebf7255d117becf4bbf5a38
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Apr 9 14:35:41 2025 +0100
+| 
+|     Restored Silver processing
+| 
+|  GSSoftware/Silver_Processing.pde | 431 +++++++++++++++++++++++++++++++++++++
+|  1 file changed, 431 insertions(+)
+|   
+*   commit 45c200888e3f7139d30e06b11c23d2ab525f0467
+|\  Merge: a21b0ad 263b56e
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Wed Apr 9 12:22:15 2025 +0100
+| | 
+| |     Merge branch 'feat/husky_lens'
+| | 
+| * commit 263b56eca30a97716f0a3d3dd39c9c3da89f2437
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Wed Apr 9 12:17:38 2025 +0100
+| | 
+| |     Final code adjustments. Gold is not working :/
+| |     This is the perfect lesson for me. Less code is sometimes more code...
+| | 
+| |  BuggySoftware/PacketTypes.cpp              |  19 ++
+| |  GSSoftware/GroundStation/GroundStation.pde | 315 +++++++++++++++++++++++++
+| |  2 files changed, 334 insertions(+)
+| | 
+| * commit 258397291816fd8942c4b94bc78627568cd78eb5
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Wed Apr 9 12:17:38 2025 +0100
+| | 
+| |     Final code adjustments. Gold is not working :/
+| |     This is the perfect lesson for me. Less code is sometimes more code...
+| | 
+| |  BuggySoftware/BuggySoftware.ino      |   7 +-
+| |  BuggySoftware/BuggyState.hpp         |   2 +
+| |  BuggySoftware/IrSensor.cpp           |   2 +-
+| |  BuggySoftware/IrSensor.hpp           |   2 +-
+| |  BuggySoftware/JustDriveState.cpp     |   4 +-
+| |  BuggySoftware/LineFollower.cpp       |   9 +-
+| |  BuggySoftware/LineFollower.hpp       |   2 +-
+| |  BuggySoftware/LineFollowingState.cpp |  75 ++++--
+| |  BuggySoftware/MotorDriver.cpp        |   4 +
+| |  BuggySoftware/MotorDriver.hpp        |   9 +
+| |  BuggySoftware/PIDController.cpp      |   4 +
+| |  BuggySoftware/PIDController.hpp      |   5 +
+| |  BuggySoftware/PacketTypes.hpp        |   2 +
+| |  BuggySoftware/RoadSigns.cpp          |  58 ++---
+| |  BuggySoftware/RoadSigns.hpp          |   6 +-
+| |  GSSoftware/GroundStation.pde         | 315 ----------------------
+| |  GSSoftware/Silver_Processing.pde     | 431 -------------------------------
+| |  17 files changed, 119 insertions(+), 818 deletions(-)
+| | 
+| * commit 154858633ff71be89561cdc91179ef0d25b6e7af
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Tue Apr 8 11:19:19 2025 +0100
+| | 
+| |     Working on Gold
+| | 
+| |  BuggySoftware/BuggyState.cpp | 26 ++++++++++++++++++++++++++
+| |  1 file changed, 26 insertions(+)
+| | 
+| * commit 3dbe00313f9362b3b3cd0d9795c191c127825f7f
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Tue Apr 8 11:18:56 2025 +0100
+| | 
+| |     Working on Gold
+| | 
+| |  BuggySoftware/Buggy.cpp               | 17 ++++++-
+| |  BuggySoftware/Buggy.hpp               | 19 +++++++
+| |  BuggySoftware/BuggySoftware.ino       |  7 ++-
+| |  BuggySoftware/BuggyState.hpp          | 38 ++++++++++----
+| |  BuggySoftware/Camera.cpp              | 17 ++++---
+| |  BuggySoftware/Camera.hpp              |  6 ++-
+| |  BuggySoftware/IrSensor.hpp            |  2 +-
+| |  BuggySoftware/JustDriveState.cpp      |  2 -
+| |  BuggySoftware/LineFollower.cpp        |  2 +-
+| |  BuggySoftware/LineFollowingState.cpp  | 14 +++--
+| |  BuggySoftware/MotorDriver.hpp         |  2 +-
+| |  BuggySoftware/ObjectDetectedState.cpp |  4 +-
+| |  BuggySoftware/RoadSigns.cpp           | 85 ++++++++++++++++++++++++-------
+| |  BuggySoftware/RoadSigns.hpp           | 14 +++--
+| |  BuggySoftware/UltrasonicSensor.hpp    |  2 +-
+| |  15 files changed, 171 insertions(+), 60 deletions(-)
+| | 
+| * commit d5acad89aaf00e32a0da53c59241e6f49f61b3b4
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Tue Apr 1 21:00:34 2025 +0100
+| | 
+| |     husky lens. work in progress
+| | 
+| |  BuggySoftware/Buggy.cpp                          | 31 +++++----
+| |  BuggySoftware/Buggy.hpp                          | 17 ++++-
+| |  BuggySoftware/BuggySoftware.ino                  | 21 ++++--
+| |  BuggySoftware/BuggyState.hpp                     | 51 ++++++++++++++
+| |  BuggySoftware/BuggyTCP.cpp                       | 10 +--
+| |  BuggySoftware/BuggyWifi.cpp                      | 14 ++--
+| |  BuggySoftware/Camera.cpp                         | 28 +++++---
+| |  BuggySoftware/Camera.hpp                         | 19 ++----
+| |  BuggySoftware/CruiseControl.cpp                  |  6 +-
+| |  BuggySoftware/EmbeddedLogger.cpp                 |  8 +--
+| |  BuggySoftware/EmbeddedLogger.hpp                 |  2 +-
+| |  BuggySoftware/IrSensor.cpp                       | 12 ++++
+| |  BuggySoftware/IrSensor.hpp                       | 19 ++++++
+| |  BuggySoftware/JustDriveState.cpp                 |  2 +
+| |  BuggySoftware/LineFollower.cpp                   | 30 ++++----
+| |  BuggySoftware/LineFollower.hpp                   | 14 ++++
+| |  BuggySoftware/LineFollowingState.cpp             | 72 ++++++++++++++++++++
+| |  BuggySoftware/ObjectDetectedState.cpp            |  2 +-
+| |  BuggySoftware/RoadSigns.cpp                      | 66 ++++++++++++++++++
+| |  BuggySoftware/RoadSigns.hpp                      | 35 +++++++++-
+| |  BuggySoftware/UdpServer.cpp                      | 10 +--
+| |  BuggySoftware/UltrasonicSensor.cpp               |  4 +-
+| |  BuggySoftware/UltrasonicSensor.hpp               |  2 +-
+| |  .../examples/HUSKYLENS_I2C/HUSKYLENS_I2C.ino     |  2 +-
+| |  24 files changed, 386 insertions(+), 91 deletions(-)
+| | 
+| * commit 02c55b16be9c3c29fe736cfac2e44275cf22cb08
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Wed Mar 26 00:25:49 2025 +0000
+| | 
+| |     Moved hardcoded strings into progmem & added husky lens
+| | 
+| |  BuggySoftware/Buggy.cpp                          |   28 +-
+| |  BuggySoftware/Buggy.hpp                          |    5 +-
+| |  BuggySoftware/BuggySoftware.ino                  |    9 +-
+| |  BuggySoftware/BuggyTCP.cpp                       |   10 +-
+| |  BuggySoftware/BuggyWifi.cpp                      |   15 +-
+| |  BuggySoftware/Camera.cpp                         |   86 ++
+| |  BuggySoftware/Camera.hpp                         |   78 ++
+| |  BuggySoftware/CruiseControl.cpp                  |    7 +-
+| |  BuggySoftware/CruiseControlState.cpp             |    2 -
+| |  BuggySoftware/EmbeddedLogger.cpp                 |   13 +
+| |  BuggySoftware/EmbeddedLogger.hpp                 |    3 +
+| |  BuggySoftware/JustDriveState.cpp                 |   10 +-
+| |  BuggySoftware/MotorDriver.cpp                    |   12 +-
+| |  BuggySoftware/MoveMeanFilter.hpp                 |    5 -
+| |  BuggySoftware/ObjectDetectedState.cpp            |    2 +-
+| |  BuggySoftware/PIDController.cpp                  |   16 -
+| |  BuggySoftware/RoadSigns.hpp                      |   22 +
+| |  BuggySoftware/Scheduler.hpp                      |   62 --
+| |  BuggySoftware/UdpServer.cpp                      |   10 +-
+| |  .../libs/HUSKYLENS/DFRobot_HuskyLens.cpp         |    5 +
+| |  BuggySoftware/libs/HUSKYLENS/DFRobot_HuskyLens.h |  232 ++++
+| |  BuggySoftware/libs/HUSKYLENS/HUSKYLENS.cpp       |    5 +
+| |  BuggySoftware/libs/HUSKYLENS/HUSKYLENS.h         | 1013 ++++++++++++++++++
+| |  .../libs/HUSKYLENS/HUSKYLENSMindPlus.cpp         |    5 +
+| |  BuggySoftware/libs/HUSKYLENS/HUSKYLENSMindPlus.h |  259 +++++
+| |  .../libs/HUSKYLENS/HuskyLensProtocolCore.c       |  184 ++++
+| |  .../libs/HUSKYLENS/HuskyLensProtocolCore.h       |   35 +
+| |  .../HUSKYLENS_ADVANCED/HUSKYLENS_ADVANCED.ino    |  151 +++
+| |  .../HUSKYLENS_GET_STARED.ino                     |   67 ++
+| |  .../examples/HUSKYLENS_I2C/HUSKYLENS_I2C.ino     |   65 ++
+| |  .../HUSKYLENS_LINE_TRACKING/DFMobile.cpp         |   70 ++
+| |  .../examples/HUSKYLENS_LINE_TRACKING/DFMobile.h  |   30 +
+| |  .../HUSKYLENS_LINE_TRACKING.ino                  |   92 ++
+| |  .../examples/HUSKYLENS_LINE_TRACKING/PIDLoop.h   |  100 ++
+| |  .../HUSKYLENS_MIND_PLUS/HUSKYLENS_MIND_PLUS.ino  |  160 +++
+| |  .../HUSKYLENS_OBJECT_TRACKING/DFMobile.cpp       |   70 ++
+| |  .../HUSKYLENS_OBJECT_TRACKING/DFMobile.h         |   30 +
+| |  .../HUSKYLENS_OBJECT_TRACKING.ino                |  151 +++
+| |  .../examples/HUSKYLENS_OBJECT_TRACKING/PIDLoop.h |  100 ++
+| |  .../HUSKYLENS_UTILITIES/HUSKYLENS_UTILITIES.ino  |  110 ++
+| |  BuggySoftware/libs/HUSKYLENS/library.properties  |    9 +
+| |  41 files changed, 3191 insertions(+), 147 deletions(-)
+| | 
+* | commit a21b0adbe44665fb873d7c72dc2358b32d3e057e
+| | Author: alpha-num1 <cristinf@tcd.ie>
+| | Date:   Wed Apr 9 12:16:53 2025 +0100
+| | 
+| |     SecondWindow.pde
+| | 
+| |  GSSoftware/SecondWindow.pde | 2 --
+| |  1 file changed, 2 deletions(-)
+| | 
+* | commit 7021a5ad5ba884ee53dd1fd59ca433c21f42c83e
+| | Author: alpha-num1 <cristinf@tcd.ie>
+| | Date:   Wed Apr 9 12:16:21 2025 +0100
+| | 
+| |     SecondWindow.pde
+| | 
+| |  GSSoftware/SecondWindow.pde | 63 +++++++++++++++++++++++++++++++++++++++++
+| |  1 file changed, 63 insertions(+)
+| | 
+* | commit 95b11691c503bcd6563ffb635dbf2bfc206f5a81
+| | Author: alpha-num1 <cristinf@tcd.ie>
+| | Date:   Wed Apr 9 12:15:21 2025 +0100
+| | 
+| |     Silver_Processing.pde
+| | 
+| |  GSSoftware/Silver_Processing.pde | 59 ++++++++++++++++++------------------
+| |  1 file changed, 30 insertions(+), 29 deletions(-)
+| | 
+* | commit 004d512082c7ca64b6c7d444eaa1781ad834a052
+|/  Author: alpha-num1 <cristinf@tcd.ie>
+|   Date:   Tue Apr 1 23:40:54 2025 +0100
+|   
+|       Silver_Processing.pde
+|   
+|    GSSoftware/Silver_Processing.pde | 1 -
+|    1 file changed, 1 deletion(-)
+| 
+* commit 068a6abac5dfd77fa60690a9df960283f8307aad
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Tue Mar 25 22:46:10 2025 +0000
+| 
+|     feat: Working on a scheduler
+| 
+|  BuggySoftware/Buggy.cpp         |  7 +++--
+|  BuggySoftware/Buggy.hpp         |  5 +++-
+|  BuggySoftware/BuggySoftware.ino |  7 +++--
+|  BuggySoftware/Scheduler.hpp     | 62 +++++++++++++++++++++++++++++++++++++++
+|  4 files changed, 75 insertions(+), 6 deletions(-)
+| 
+* commit 6a308149c4e8f2b2e98032c6b0604c9bbbf4b0c4
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Thu Mar 20 12:29:01 2025 +0000
+| 
+|     updated README.md
+| 
+|  README.md | 6 +++---
+|  1 file changed, 3 insertions(+), 3 deletions(-)
+| 
+* commit 10e920a68ac9b86a9e23eb271e636ab395039494
+| Author: alpha-num1 <cristinf@tcd.ie>
+| Date:   Thu Mar 20 12:27:36 2025 +0000
+| 
+|     Silver_Processing.pde
+| 
+|  GSSoftware/Silver_Processing.pde | 146 +++++++++++++++++++++++++++++--------
+|  1 file changed, 114 insertions(+), 32 deletions(-)
+| 
+* commit 11d8de67a09b5018b1d8c62603424afe9dacf03a
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Mar 19 16:57:45 2025 +0000
+| 
+|     silver demo
+| 
+|  BuggySoftware/LineFollower.hpp | 4 ++--
+|  1 file changed, 2 insertions(+), 2 deletions(-)
+| 
+* commit 0b806edb1e8d34fc8f8d31c226d7c354fdaa57b5
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Mar 19 12:45:07 2025 +0000
+| 
+|     better speed pid control
+| 
+|  BuggySoftware/BuggySoftware.ino | 6 +++---
+|  BuggySoftware/LineFollower.cpp  | 4 ++--
+|  BuggySoftware/LineFollower.hpp  | 3 ++-
+|  3 files changed, 7 insertions(+), 6 deletions(-)
+| 
+* commit efa0db528011db201cca7f7843c3189a4971199e
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Tue Mar 18 18:21:35 2025 +0000
+| 
+|     everything working. Fingers crossed
+| 
+|  BuggySoftware/Buggy.cpp               | 38 ++++++++++++++++++---------------
+|  BuggySoftware/BuggySoftware.ino       |  6 +++---
+|  BuggySoftware/CruiseControl.cpp       |  1 -
+|  BuggySoftware/CruiseControlState.cpp  |  1 +
+|  BuggySoftware/LineFollower.hpp        |  2 +-
+|  BuggySoftware/LineFollowingState.cpp  |  4 ++--
+|  BuggySoftware/ObjectDetectedState.cpp | 11 +++++-----
+|  BuggySoftware/UltrasonicSensor.cpp    |  4 +++-
+|  8 files changed, 37 insertions(+), 30 deletions(-)
+| 
+* commit 438e0befcc27b5038a293cba1666f00e9161901d
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Tue Mar 18 16:29:33 2025 +0000
+| 
+|     working cruise control
+| 
+|  BuggySoftware/BuggySoftware.ino      | 24 ++++++++++++++---------
+|  BuggySoftware/CruiseControl.cpp      | 25 ++++++++++++++++++++---
+|  BuggySoftware/CruiseControl.hpp      |  6 +++---
+|  BuggySoftware/CruiseControlState.cpp |  7 +++++--
+|  BuggySoftware/LineFollower.cpp       | 36 +++++++++++++++++++++++-----------
+|  BuggySoftware/LineFollower.hpp       |  7 ++++---
+|  BuggySoftware/LineFollowingState.cpp |  6 +++---
+|  BuggySoftware/MotorDriver.cpp        | 12 ++++++------
+|  BuggySoftware/PIDController.cpp      | 23 +++++++++++++++++++---
+|  BuggySoftware/PIDController.hpp      |  4 ++--
+|  BuggySoftware/UltrasonicSensor.hpp   |  2 +-
+|  11 files changed, 106 insertions(+), 46 deletions(-)
+| 
+* commit 83b650ba17143db896b3308db5c4928960ccca9c
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Tue Mar 18 11:34:11 2025 +0000
+| 
+|     added mode switch and speed packets
+| 
+|  BuggySoftware/Buggy.cpp               | 27 +++++++++++++++++++++++++--
+|  BuggySoftware/Buggy.hpp               |  2 ++
+|  BuggySoftware/IdleState.cpp           |  2 +-
+|  BuggySoftware/LineFollowingState.cpp  |  2 +-
+|  BuggySoftware/Matrix.cpp              | 10 +++++-----
+|  BuggySoftware/Matrix.hpp              |  2 +-
+|  BuggySoftware/ObjectDetectedState.cpp |  2 +-
+|  BuggySoftware/PacketTypes.hpp         | 17 +++++++++++++++--
+|  8 files changed, 51 insertions(+), 13 deletions(-)
+|   
+*   commit df230b2ae95e1acf07f4988336b4a9ff4c4b4eed
+|\  Merge: 4202d22 d947d38
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Sat Mar 15 18:37:02 2025 +0000
+| | 
+| |     added silver processing
+| | 
+| * commit d947d38746e6ad6b6d9c36dd60a1419da8402169
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Sat Mar 15 18:34:19 2025 +0000
+| | 
+| |     added silver processing
+| | 
+| |  GSSoftware/Silver_Processing.pde | 349 +++++++++++++++++++++++++++++++++++
+| |  1 file changed, 349 insertions(+)
+| | 
+| * commit 07e5859f1294f9e15037842801de8abb8d894ad7
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Wed Mar 12 17:29:23 2025 +0000
+| | 
+| |     trying to measure the transfer function of the motors
+| | 
+| |  BuggySoftware/BuggySoftware.ino | 13 ++++++++++++-
+| |  BuggySoftware/MotorDriver.cpp   | 18 ++++++++++--------
+| |  2 files changed, 22 insertions(+), 9 deletions(-)
+| | 
+* | commit 4202d22ec42ea7250732f8336cdd04fbc1ea5e25
+|/  Author: johannes@halbachnet.de <johannes@halbachnet.de>
+|   Date:   Sat Mar 15 18:29:56 2025 +0000
+|   
+|       enable wireless logger
+|   
+|    BuggySoftware/BuggySoftware.ino        | 16 ++++++++--------
+|    BuggySoftware/JustDriveState.cpp       |  2 +-
+|    BuggySoftware/SerialWirelessLogger.hpp |  6 +++---
+|    BuggySoftware/WirelessLogger.hpp       |  5 +++--
+|    4 files changed, 15 insertions(+), 14 deletions(-)
+| 
+* commit 5936f95d87dc7daca9a97a9546cdf6cf7ee1ea04
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Mar 12 16:14:02 2025 +0000
+| 
+|     fixed pid speed control
+| 
+|  BuggySoftware/BuggySoftware.ino  |  4 +++-
+|  BuggySoftware/JustDriveState.cpp |  6 +++---
+|  BuggySoftware/MotorDriver.cpp    | 35 +++++++++++++++++++----------------
+|  BuggySoftware/MotorDriver.hpp    |  3 ++-
+|  BuggySoftware/MoveMeanFilter.hpp | 16 ++++++++--------
+|  BuggySoftware/PIDController.hpp  |  2 +-
+|  6 files changed, 36 insertions(+), 30 deletions(-)
+| 
+* commit 0ef4b6d7840f7b8f4c61644395310b40587a16cb
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Mar 12 15:18:39 2025 +0000
+| 
+|     fix: move mean filter
+| 
+|  BuggySoftware/EmbeddedLogger.cpp |  4 ++--
+|  BuggySoftware/MoveMeanFilter.hpp | 15 +++++++++++----
+|  2 files changed, 13 insertions(+), 6 deletions(-)
+| 
+* commit 461c7ded7db9dd2a9c89954b92676cb55f847a1f
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Mar 12 14:47:23 2025 +0000
+| 
+|     bug: issues with logger
+| 
+|  BuggySoftware/Buggy.cpp          |  4 ++--
+|  BuggySoftware/Buggy.hpp          |  6 ++++--
+|  BuggySoftware/BuggySoftware.ino  |  6 +++---
+|  BuggySoftware/CruiseControl.cpp  |  4 ++--
+|  BuggySoftware/CruiseControl.hpp  |  4 ++--
+|  BuggySoftware/EmbeddedLogger.cpp |  4 ++--
+|  BuggySoftware/EmbeddedLogger.hpp |  2 ++
+|  BuggySoftware/JustDriveState.cpp |  6 +++---
+|  BuggySoftware/MotorDriver.cpp    | 21 +++++++++++++--------
+|  BuggySoftware/MoveMeanFilter.hpp |  6 +++---
+|  BuggySoftware/PIDController.hpp  |  2 +-
+|  11 files changed, 37 insertions(+), 28 deletions(-)
+| 
+* commit 9ed1e06c4d7b679cc7074bcedcc5202a2efd0a67
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Mar 12 14:17:18 2025 +0000
+| 
+|     added Cruise control
+| 
+|  BuggySoftware/Buggy.hpp              |  5 +++-
+|  BuggySoftware/BuggySoftware.ino      |  5 +++-
+|  BuggySoftware/BuggyState.hpp         | 24 +++++++++++++++++++
+|  BuggySoftware/CruiseControl.cpp      | 14 +++++++++++
+|  BuggySoftware/CruiseControl.hpp      | 43 ++++++++++++++++++++++++++++++++++
+|  BuggySoftware/CruiseControlState.cpp | 20 ++++++++++++++++
+|  BuggySoftware/LineFollower.cpp       |  4 ++++
+|  BuggySoftware/LineFollower.hpp       |  6 +++++
+|  BuggySoftware/PIDController.hpp      |  2 +-
+|  9 files changed, 120 insertions(+), 3 deletions(-)
+| 
+* commit 8cefb163b71f458028084de7df8ff58e180f6003
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Mar 12 09:31:40 2025 +0000
+| 
+|     feat: added filter to the ultrasonic sensor
+| 
+|  BuggySoftware/UltrasonicSensor.cpp | 3 ++-
+|  BuggySoftware/UltrasonicSensor.hpp | 3 +++
+|  2 files changed, 5 insertions(+), 1 deletion(-)
+| 
+* commit 916ef13497b6c04dc76da3f7348fde378a064ac2
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Tue Mar 11 10:16:55 2025 +0000
+| 
+|     fixed rebase issues
+| 
+|  BuggySoftware/JustDriveState.cpp      | 10 ----------
+|  BuggySoftware/LineFollowingState.cpp  |  8 --------
+|  BuggySoftware/ObjectDetectedState.cpp | 29 -----------------------------
+|  3 files changed, 47 deletions(-)
+| 
+* commit 661cfd67ed769ad3799f718dbec57e0d828f2f72
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Tue Mar 11 10:11:11 2025 +0000
+| 
+|     fixed the handler state for object detected and added an experimental udp server
+| 
+|  BuggySoftware/Buggy.cpp               | 11 ++++----
+|  BuggySoftware/BuggySoftware.ino       | 22 +++++++--------
+|  BuggySoftware/BuggyState.hpp          |  3 +-
+|  BuggySoftware/BuggyTCP.cpp            | 11 ++++----
+|  BuggySoftware/BuggyTCP.hpp            |  5 ++--
+|  BuggySoftware/BuggyWifi.cpp           | 17 ++++++------
+|  BuggySoftware/BuggyWifi.hpp           | 15 ++++++++++
+|  BuggySoftware/JustDriveState.cpp      | 10 +++++++
+|  BuggySoftware/LineFollowingState.cpp  |  7 +++++
+|  BuggySoftware/MotorDriver.cpp         |  2 ++
+|  BuggySoftware/MoveMeanFilter.hpp      | 14 +++++++---
+|  BuggySoftware/ObjectDetectedState.cpp | 30 ++++++++++++++++++++
+|  BuggySoftware/UdpServer.cpp           | 45 ++++++++++++++++++++++++++++++
+|  BuggySoftware/UdpServer.hpp           | 49 +++++++++++++++++++++++++++++++++
+|  14 files changed, 202 insertions(+), 39 deletions(-)
+| 
+* commit 95f62d659517e39094466d96a16bf6ce9e170981
+| Author: Johannes Halbach <johannes@halbachnet.de>
+| Date:   Tue Mar 11 00:22:52 2025 +0000
+| 
+|     fix: split up states into multiple files
+| 
+|  BuggySoftware/Buggy.hpp               |   2 +-
+|  BuggySoftware/BuggySoftware.ino       |   2 +-
+|  BuggySoftware/BuggyState.cpp          | 183 --------------------------------
+|  BuggySoftware/BuggyState.hpp          |   8 +-
+|  BuggySoftware/CalibrationState.cpp    |  63 +++++++++++
+|  BuggySoftware/IdleState.cpp           |  24 +++++
+|  BuggySoftware/JustDriveState.cpp      |  23 ++++
+|  BuggySoftware/LineFollowingState.cpp  |  25 +++++
+|  BuggySoftware/ObjectDetectedState.cpp |  45 ++++++++
+|  9 files changed, 186 insertions(+), 189 deletions(-)
+| 
+* commit bff522672d78cd49e60766a4b43824a2e4ac4a7e
+| Author: Johannes Halbach <johannes@halbachnet.de>
+| Date:   Tue Mar 11 00:00:48 2025 +0000
+| 
+|     fix: made sure to initialize buffer
+| 
+|  BuggySoftware/MoveMeanFilter.hpp | 8 ++------
+|  1 file changed, 2 insertions(+), 6 deletions(-)
+| 
+* commit a2f89413e3cbe9efd54111ce79e78004ad97c991
+| Author: Johannes Halbach <johannes@halbachnet.de>
+| Date:   Tue Mar 11 00:00:24 2025 +0000
+| 
+|     removed old helpers
+| 
+|  BuggySoftware/helpers.hpp | 7 -------
+|  1 file changed, 7 deletions(-)
+| 
+* commit 53364a044ba2fdeb19555aa49dc7661e42c90701
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Mon Mar 10 23:47:09 2025 +0000
+| 
+|     fix: Compile issues after merge
+| 
+|  BuggySoftware/Buggy.cpp          |  6 +++---
+|  BuggySoftware/BuggySoftware.ino  |  6 ++----
+|  BuggySoftware/BuggyState.cpp     | 25 ++++++----------------
+|  BuggySoftware/BuggyState.hpp     |  5 +++--
+|  BuggySoftware/BuggyTCP.hpp       |  3 ---
+|  BuggySoftware/BuggyWifi.cpp      |  4 ----
+|  BuggySoftware/EmbeddedLogger.cpp | 44 +++++++++++++-------------------------
+|  BuggySoftware/EmbeddedLogger.hpp |  3 +++
+|  BuggySoftware/IrSensor.hpp       |  4 ----
+|  BuggySoftware/MotorDriver.cpp    | 30 +++++++++-----------------
+|  BuggySoftware/MotorDriver.hpp    |  2 +-
+|  BuggySoftware/MoveMeanFilter.hpp | 17 ++++++++++++---
+|  BuggySoftware/PacketTypes.hpp    | 12 ++++++++++-
+|  13 files changed, 69 insertions(+), 92 deletions(-)
+|   
+*   commit dcad61dd2844d866a81b1cd94b68015590cee681
+|\  Merge: 7c1e040 1f4457b
+| | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | Date:   Mon Mar 10 16:41:17 2025 +0000
+| | 
+| |     Merge pull request #7 from halbachj/feat/EmbeddedLogger
+| |     
+| |     feat: Reworte LeanStreamIO and Logger to embedded Logger
+| |   
+| *   commit 1f4457b7dc55cffb58b61222211abd25c6bb56b8
+| |\  Merge: b344373 7c1e040
+| |/  Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+|/|   Date:   Mon Mar 10 16:41:05 2025 +0000
+| |   
+| |       Merge branch 'main' into feat/EmbeddedLogger
+| |   
+* |   commit 7c1e04037eb4f5b15c5573d992f78d73865c6729
+|\ \  Merge: 3720e8d ba44c9d
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Mon Mar 10 16:35:46 2025 +0000
+| | | 
+| | |     Merge pull request #6 from halbachj/experimental
+| | |     
+| | |     Merger Experimental with PID features
+| | |   
+| * |   commit ba44c9d83a733a8bd8fe7828deeea8c6c7d9247c
+| |\ \  Merge: 277c345 3720e8d
+| |/ /  Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+|/| |   Date:   Mon Mar 10 16:35:35 2025 +0000
+| | |   
+| | |       Merge branch 'main' into experimental
+| | | 
+| * | commit 277c345ed2e8765a655a2b33d03ec223bac45e3a
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Thu Feb 27 18:00:10 2025 +0000
+| | | 
+| | |     removed wifi updates from loop
+| | | 
+| | |  BuggySoftware/BuggySoftware.ino | 2 +-
+| | |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | | 
+| * | commit 2f6db3cf514875433c7a21a3ca59bb6f1a2c5fbc
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Thu Feb 27 12:41:26 2025 +0000
+| | | 
+| | |     updatinng experimental
+| | | 
+| | |  Buggy.cpp => BuggySoftware/Buggy.cpp                       | 0
+| | |  Buggy.hpp => BuggySoftware/Buggy.hpp                       | 0
+| | |  BuggySoftware.ino => BuggySoftware/BuggySoftware.ino       | 0
+| | |  BuggyState.cpp => BuggySoftware/BuggyState.cpp             | 0
+| | |  BuggyState.hpp => BuggySoftware/BuggyState.hpp             | 0
+| | |  BuggyTCP.cpp => BuggySoftware/BuggyTCP.cpp                 | 0
+| | |  BuggyTCP.hpp => BuggySoftware/BuggyTCP.hpp                 | 0
+| | |  BuggyWifi.cpp => BuggySoftware/BuggyWifi.cpp               | 0
+| | |  BuggyWifi.hpp => BuggySoftware/BuggyWifi.hpp               | 0
+| | |  IrSensor.cpp => BuggySoftware/IrSensor.cpp                 | 0
+| | |  IrSensor.hpp => BuggySoftware/IrSensor.hpp                 | 0
+| | |  LeanStreamIO.cpp => BuggySoftware/LeanStreamIO.cpp         | 0
+| | |  LeanStreamIO.hpp => BuggySoftware/LeanStreamIO.hpp         | 0
+| | |  LineFollower.cpp => BuggySoftware/LineFollower.cpp         | 0
+| | |  LineFollower.hpp => BuggySoftware/LineFollower.hpp         | 0
+| | |  Logger.hpp => BuggySoftware/Logger.hpp                     | 0
+| | |  MotorDriver.cpp => BuggySoftware/MotorDriver.cpp           | 0
+| | |  MotorDriver.hpp => BuggySoftware/MotorDriver.hpp           | 0
+| | |  MoveMeanFilter.hpp => BuggySoftware/MoveMeanFilter.hpp     | 0
+| | |  PIDController.cpp => BuggySoftware/PIDController.cpp       | 0
+| | |  PIDController.hpp => BuggySoftware/PIDController.hpp       | 0
+| | |  PacketFactory.hpp => BuggySoftware/PacketFactory.hpp       | 0
+| | |  PacketSerializer.hpp => BuggySoftware/PacketSerializer.hpp | 0
+| | |  PacketTypes.hpp => BuggySoftware/PacketTypes.hpp           | 0
+| | |  PinSetup.cpp => BuggySoftware/PinSetup.cpp                 | 0
+| | |  PinSetup.hpp => BuggySoftware/PinSetup.hpp                 | 0
+| | |  Timer1.cpp => BuggySoftware/Timer1.cpp                     | 0
+| | |  Timer1.hpp => BuggySoftware/Timer1.hpp                     | 0
+| | |  UltrasonicSensor.cpp => BuggySoftware/UltrasonicSensor.cpp | 0
+| | |  UltrasonicSensor.hpp => BuggySoftware/UltrasonicSensor.hpp | 0
+| | |  helpers.hpp => BuggySoftware/helpers.hpp                   | 0
+| | |  secrets.h => BuggySoftware/secrets.h                       | 0
+| | |  docs/doxygen-awesome-css                                   | 1 +
+| | |  33 files changed, 1 insertion(+)
+| | | 
+| * | commit 9476e30c8cbc5fbb79e088251f85cdf9b1a99d7c
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 09:06:08 2025 +0000
+| | | 
+| | |     feat: remote control runs backwards now
+| | | 
+| | |  Buggy.cpp            | 17 ++++++++++++-----
+| | |  BuggySoftware.ino    |  2 +-
+| | |  PacketSerializer.hpp |  4 ++--
+| | |  3 files changed, 15 insertions(+), 8 deletions(-)
+| | | 
+| * | commit b6d78f1b24e7b85bdf5787a37398986f90b4fd79
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Tue Feb 25 09:19:09 2025 +0000
+| | | 
+| | |     feat: romote controlling the buggy now
+| | | 
+| | |  Buggy.cpp            | 15 ++++++++++-----
+| | |  BuggyState.cpp       | 12 ++++++++----
+| | |  PacketSerializer.hpp |  8 ++++----
+| | |  PacketTypes.hpp      |  9 +++++----
+| | |  4 files changed, 27 insertions(+), 17 deletions(-)
+| | | 
+| * | commit 9c0371fa4f13ccfb1709099b8b0059cbe27681db
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 14:21:45 2025 +0000
+| | | 
+| | |     bug: problems with remote control. Untested
+| | | 
+| | |  Buggy.cpp         |  4 +++-
+| | |  BuggySoftware.ino |  2 +-
+| | |  MotorDriver.cpp   | 12 ++++++------
+| | |  PacketTypes.hpp   |  4 ++--
+| | |  4 files changed, 12 insertions(+), 10 deletions(-)
+| | | 
+| * | commit b30cd156e925870bb448d69be00d8ebc2234fd72
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 11:08:29 2025 +0000
+| | | 
+| | |     feat: Added remote control
+| | | 
+| | |  Buggy.cpp          | 11 +++++++++++
+| | |  Buggy.hpp          |  6 ++++++
+| | |  BuggySoftware.ino  |  8 +++-----
+| | |  LineFollower.cpp   |  2 +-
+| | |  MotorDriver.cpp    |  6 +++---
+| | |  MotorDriver.hpp    |  6 +++---
+| | |  MoveMeanFilter.cpp | 18 ------------------
+| | |  MoveMeanFilter.hpp | 20 +++++++++++++++-----
+| | |  PacketTypes.hpp    | 12 ++++++++++++
+| | |  9 files changed, 54 insertions(+), 35 deletions(-)
+| | | 
+| * | commit 74447c817459df9eed3a20835626c0c8c565b09e
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Fri Feb 21 11:40:36 2025 +0000
+| | | 
+| | |     still implementing
+| | | 
+| | |  MotorDriver.hpp    |  3 ++-
+| | |  MoveMeanFilter.cpp | 14 ++++++--------
+| | |  MoveMeanFilter.hpp | 11 +++++------
+| | |  3 files changed, 13 insertions(+), 15 deletions(-)
+| | | 
+| * | commit 70b9c0de3e418127c6fc5691bebd0a39f93ffcce
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Fri Feb 21 09:53:40 2025 +0000
+| | | 
+| | |     implementing moving mean filter
+| | | 
+| | |  Buggy.hpp          |  1 +
+| | |  BuggySoftware.ino  | 10 ++++------
+| | |  BuggyState.cpp     | 20 ++++++++++++++++++++
+| | |  BuggyState.hpp     | 17 +++++++++++++++++
+| | |  CircularBuffer.cpp |  0
+| | |  CircularBuffer.hpp | 23 -----------------------
+| | |  MotorDriver.cpp    |  7 +++----
+| | |  MotorDriver.hpp    |  3 +++
+| | |  MoveMeanFilter.cpp | 20 ++++++++++++++++++++
+| | |  MoveMeanFilter.hpp | 24 ++++++++++++++++++++++++
+| | |  10 files changed, 92 insertions(+), 33 deletions(-)
+| | | 
+| * | commit 7105cb4b346828ce8a215f045a9818ee6faefff2
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Fri Feb 21 09:13:44 2025 +0000
+| | | 
+| | |     adding circular buffer
+| | | 
+| | |  CircularBuffer.cpp |  0
+| | |  CircularBuffer.hpp | 23 +++++++++++++++++++++++
+| | |  2 files changed, 23 insertions(+)
+| | | 
+| * | commit 84708ab4803de27dd23d065c48d78f1e118c9f23
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Fri Feb 21 08:58:28 2025 +0000
+| | | 
+| | |     working on line following with motor pid control
+| | | 
+| | |  LineFollower.cpp | 10 ++--------
+| | |  1 file changed, 2 insertions(+), 8 deletions(-)
+| | | 
+| * | commit b526f30c476c83718513abfbf1f68658faf69bb7
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Fri Feb 21 08:56:17 2025 +0000
+| | | 
+| | |     removed min loop duration wait
+| | | 
+| | |  BuggySoftware.ino | 2 +-
+| | |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | | 
+| | * commit b3443734802fe9aa8a9472dca2fd2dd24ccc732b
+| |/  Author: johannes@halbachnet.de <johannes@halbachnet.de>
+|/|   Date:   Mon Mar 10 16:37:15 2025 +0000
+| |   
+| |       feat: Reworte LeanStreamIO and Logger to embedded Logger
+| |   
+| |    BuggySoftware/Buggy.cpp                |  12 +-
+| |    BuggySoftware/Buggy.hpp                |   2 +-
+| |    BuggySoftware/BuggySoftware.ino        |  19 +--
+| |    BuggySoftware/BuggyState.cpp           |   4 +-
+| |    BuggySoftware/BuggyTCP.cpp             |  14 +--
+| |    BuggySoftware/BuggyWifi.cpp            |  20 +--
+| |    BuggySoftware/EmbeddedLogger.cpp       | 179 +++++++++++++++++++++++++++
+| |    BuggySoftware/EmbeddedLogger.hpp       |  99 +++++++++++++++
+| |    BuggySoftware/LeanStreamIO.cpp         |  97 ---------------
+| |    BuggySoftware/LeanStreamIO.hpp         |  49 --------
+| |    BuggySoftware/LineFollower.cpp         |   2 +-
+| |    BuggySoftware/Logger.hpp               |  60 ---------
+| |    BuggySoftware/MotorDriver.cpp          |  24 ++--
+| |    BuggySoftware/SerialLogger.hpp         |  23 ++++
+| |    BuggySoftware/SerialWirelessLogger.hpp |  26 ++++
+| |    BuggySoftware/WirelessLogger.hpp       |  25 ++++
+| |    16 files changed, 404 insertions(+), 251 deletions(-)
+| | 
+* | commit 3720e8d154ef39f67dd896c39d5c5d59b98e7273
+| | Author: Johannes Halbach <johannes@halbachnet.de>
+| | Date:   Mon Mar 3 15:29:44 2025 +0100
+| | 
+| |     fix: Added some example documentation to the ground station software.
+| | 
+| |  GSSoftware/GroundStation.pde | 18 ++++++++++++++++++
+| |  1 file changed, 18 insertions(+)
+| | 
+* | commit 4be83beb9ec3470fcdc27fc5026ec7aca01e8bae
+| | Author: Johannes Halbach <johannes@halbachnet.de>
+| | Date:   Mon Mar 3 15:18:00 2025 +0100
+| | 
+| |     fix: Added Ground station software to doxzgen input and mapped .pde to java
+| | 
+| |  docs/Doxyfile | 11 +++++++----
+| |  1 file changed, 7 insertions(+), 4 deletions(-)
+| | 
+* | commit feaf0d79ce58a3e82a6a8a1e9f652858437c2cd2
+| | Author: Johannes Halbach <johannes@halbachnet.de>
+| | Date:   Mon Mar 3 15:13:51 2025 +0100
+| | 
+| |     fix: todo commands were not referencing their line
+| | 
+| |  BuggySoftware/BuggySoftware.ino | 30 +++++++++++++++---------------
+| |  1 file changed, 15 insertions(+), 15 deletions(-)
+| | 
+* | commit 85c44d94d6d44077ffea1030a156a0db63a12780
+| | Author: Johannes Halbach <johannes@halbachnet.de>
+| | Date:   Sun Mar 2 23:44:40 2025 +0100
+| | 
+| |     worked on part c of the interim report and added the ground station software
+| | 
+| |  GSSoftware/GroundStation.pde    | 297 ++++++++++++++++++++++++++++++++++++
+| |  InterimReport/DomainDiagram.png | Bin 0 -> 42991 bytes
+| |  InterimReport/PartC.md          | 142 ++++++++++++++++-
+| |  3 files changed, 438 insertions(+), 1 deletion(-)
+| | 
+* | commit 72a2b166ae09157866c4dc24a6e3df9e2b149d6e
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Fri Feb 28 22:55:40 2025 +0000
+| | 
+| |     writing interim report
+| | 
+| |  InterimReport/0.png                    | Bin 0 -> 23384 bytes
+| |  InterimReport/DomianDiagram.pdf        | Bin 0 -> 35956 bytes
+| |  InterimReport/Group_XX_PartC 2023.docx | Bin 0 -> 69189 bytes
+| |  InterimReport/PacketStructure .png     | Bin 0 -> 39952 bytes
+| |  InterimReport/PartC.md                 |  52 ++++
+| |  InterimReport/SequenceDiagram.uxf      | 400 +++++++++++++++++++++++++++++
+| |  InterimReport/pseudo_code.md           |  52 ++++
+| |  InterimReport/sequenceDiagramNew.png   | Bin 0 -> 71681 bytes
+| |  InterimReport/sequenceDiagramNew.uxf   |  66 +++++
+| |  InterimReport/stateDiagram.uxf         | 113 ++++++++
+| |  10 files changed, 683 insertions(+)
+| | 
+* | commit e66cf4fd70c8306c48255a436d0b7dda5f47610e
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Fri Feb 28 12:44:05 2025 +0000
+| | 
+| |     fix: code did not compile & updated todos
+| | 
+| |  BuggySoftware/BuggySoftware.ino    | 41 +++++++++++++++++-----------------
+| |  BuggySoftware/BuggyWifi.hpp        |  5 ++---
+| |  BuggySoftware/IrSensor.cpp         |  3 +--
+| |  BuggySoftware/IrSensor.hpp         |  7 +++---
+| |  BuggySoftware/PIDController.hpp    |  1 +
+| |  BuggySoftware/PinSetup.hpp         | 13 +++++------
+| |  BuggySoftware/UltrasonicSensor.hpp |  1 -
+| |  BuggySoftware/helpers.hpp          |  7 ------
+| |  8 files changed, 33 insertions(+), 45 deletions(-)
+| | 
+* | commit 1f3449237d72550836e063647a78135fa5f6015f
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Thu Feb 27 11:54:24 2025 +0000
+| | 
+| |     updated documentation
+| | 
+| |  BuggySoftware/Buggy.cpp            |  5 +-
+| |  BuggySoftware/Buggy.hpp            |  3 ++
+| |  BuggySoftware/BuggySoftware.ino    |  5 +-
+| |  BuggySoftware/BuggyState.cpp       | 37 +++++++++++----
+| |  BuggySoftware/BuggyState.hpp       | 63 +++++++++++++++++++------
+| |  BuggySoftware/BuggyTCP.hpp         | 27 +++++++++--
+| |  BuggySoftware/BuggyWifi.cpp        |  3 --
+| |  BuggySoftware/BuggyWifi.hpp        | 30 ++++++++----
+| |  BuggySoftware/IrSensor.hpp         | 29 ++++++++++--
+| |  BuggySoftware/LineFollower.hpp     | 26 +++++++----
+| |  BuggySoftware/MotorDriver.hpp      | 66 +++++++++++++++++++++++++-
+| |  BuggySoftware/PIDController.hpp    | 23 ++++++----
+| |  BuggySoftware/PacketFactory.hpp    | 28 +++++++++++-
+| |  BuggySoftware/PacketTypes.hpp      | 84 +++++++++++++++++++++-------------
+| |  BuggySoftware/PinSetup.hpp         | 40 ++++++++--------
+| |  BuggySoftware/UltrasonicSensor.hpp | 62 +++++++++++++++----------
+| |  16 files changed, 388 insertions(+), 143 deletions(-)
+| |   
+* |   commit e64a534d24e02dac8a2bd9b044ef578d606c8e89
+|\ \  Merge: 1337435 d33cb0f
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Thu Feb 27 10:37:12 2025 +0000
+| | | 
+| | |     Merge branch 'feat-doxygen'
+| | | 
+| * | commit d33cb0f06229266e0d7d41c8bfcf3b18cceb2e4d
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Thu Feb 27 10:35:06 2025 +0000
+| | | 
+| | |     feat: added builtin led matrix, by Conor
+| | | 
+| | |  BuggySoftware/Buggy.cpp         | 31 +++++++++------
+| | |  BuggySoftware/Buggy.hpp         |  3 ++
+| | |  BuggySoftware/BuggySoftware.ino | 10 ++++-
+| | |  BuggySoftware/BuggyState.cpp    |  5 ++-
+| | |  BuggySoftware/Matrix.cpp        | 75 +++++++++++++++++++++++++++++++++++
+| | |  BuggySoftware/Matrix.hpp        | 37 +++++++++++++++++
+| | |  BuggySoftware/MotorDriver.cpp   |  9 ++++-
+| | |  BuggySoftware/MotorDriver.hpp   |  3 +-
+| | |  BuggySoftware/PacketTypes.hpp   |  3 +-
+| | |  9 files changed, 158 insertions(+), 18 deletions(-)
+| | | 
+* | | commit 1337435f162663b59b7af9f8d3cef6a0848b0ee9
+|\| | Merge: e9da1a4 367acfb
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Wed Feb 26 13:40:33 2025 +0000
+| | | 
+| | |     Merge pull request #5 from halbachj/feat-doxygen
+| | |     
+| | |     added image path
+| | | 
+| * | commit 367acfb5139cee36e623e5298e75d0673ece2872
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 13:39:06 2025 +0000
+| | | 
+| | |     added image path
+| | | 
+| | |  docs/Doxyfile | 2 +-
+| | |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | | 
+* | | commit e9da1a456e991943b282863e41515c96f70a84db
+|\| | Merge: 70e2272 431ec1e
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Wed Feb 26 13:32:29 2025 +0000
+| | | 
+| | |     Merge pull request #4 from halbachj/feat-doxygen
+| | |     
+| | |     Update README.md
+| | | 
+| * | commit 431ec1ee0c1f062108dd955267bc4ae305caed50
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Wed Feb 26 14:31:32 2025 +0100
+| | | 
+| | |     Update README.md
+| | | 
+| | |  README.md | 7 ++++++-
+| | |  1 file changed, 6 insertions(+), 1 deletion(-)
+| | | 
+* | | commit 70e2272e5c9030310f3a3477553f3219eea39bc0
+|\| | Merge: 56c6166 50eb28c
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Wed Feb 26 13:28:09 2025 +0000
+| | | 
+| | |     Merge pull request #3 from halbachj/feat-doxygen
+| | |     
+| | |     feat Doxygen
+| | | 
+| * | commit 50eb28c4444bc5beed5fc1cc9abfe227b631d0dd
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Wed Feb 26 14:27:25 2025 +0100
+| | | 
+| | |     Update README.md
+| | | 
+| | |  README.md | 20 +++++++++++++++++++-
+| | |  1 file changed, 19 insertions(+), 1 deletion(-)
+| | | 
+| * | commit f643ef64fb12d2ed5af2f8e0261645cd9b2403ea
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 13:25:10 2025 +0000
+| | | 
+| | |     added banner image
+| | | 
+| | |  img/BuggyBanner.png | Bin 0 -> 737171 bytes
+| | |  1 file changed, 0 insertions(+), 0 deletions(-)
+| | | 
+| * | commit c0dd146cc783a2207f00ee328d427eb6e1d7a724
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 13:14:00 2025 +0000
+| | | 
+| | |     set README.md as mainpage
+| | | 
+| | |  docs/Doxyfile | 2 +-
+| | |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | | 
+| * | commit bd760490f1aa320f1996fb18c8ff2781fc4b9ed1
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 10:07:37 2025 +0000
+| | | 
+| | |     added readme and included it in Doxygen
+| | | 
+| | |  README.md     | 1 +
+| | |  docs/Doxyfile | 3 ++-
+| | |  2 files changed, 3 insertions(+), 1 deletion(-)
+| | | 
+| * | commit 563dfaa0ab1cadf2807f3d1c719a94a4717bd0fb
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 09:51:44 2025 +0000
+| | | 
+| | |     feat: changed to awesome sidebar view
+| | | 
+| | |  docs/Doxyfile | 3 ++-
+| | |  1 file changed, 2 insertions(+), 1 deletion(-)
+| | | 
+| * | commit 67a5a208642c3d5514967e17d96482369995d3a5
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 09:44:46 2025 +0000
+| | | 
+| | |     fixed header.html path
+| | | 
+| | |  docs/Doxyfile | 2 +-
+| | |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | | 
+| * | commit 3cecb8792761871afd858d33a2521cbd4bbef4db
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 09:42:35 2025 +0000
+| | | 
+| | |     feat: adding cutom header to doxygen
+| | | 
+| | |  docs/Doxyfile    |  2 +-
+| | |  docs/header.html | 96 ++++++++++++++++++++++++++++++++++++++++++++++++++
+| | |  2 files changed, 97 insertions(+), 1 deletion(-)
+| | | 
+| * | commit b8bde7b2a0886b6b89e682b1295ade532fcdd03d
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 09:19:59 2025 +0000
+| | | 
+| | |     fixed theme path in Doxyfile
+| | | 
+| | |  docs/Doxyfile | 4 ++--
+| | |  1 file changed, 2 insertions(+), 2 deletions(-)
+| | | 
+| * | commit f8d35039daefb822c75c48eeb35dab76a86d5a61
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Wed Feb 26 09:12:26 2025 +0000
+| | | 
+| | |     feat: added awesome doxygen theme
+| | | 
+| | |  .gitmodules                      |   3 +
+| | |  docs/Doxyfile                    |   6 +-
+| | |  docs/doxygen-awesome-css         |   1 +
+| | |  docs/theme/img/sample1.png       | Bin 64405 -> 0 bytes
+| | |  docs/theme/img/sample2.png       | Bin 47408 -> 0 bytes
+| | |  docs/theme/src/doxygen-style.css | 638 ---------------------------------
+| | |  6 files changed, 7 insertions(+), 641 deletions(-)
+| | | 
+* | | commit 56c6166adad784d0fa505a569cf93d7775ac1fb2
+|\| | Merge: 5591c02 783d234
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Tue Feb 25 10:16:34 2025 +0000
+| | | 
+| | |     Merge pull request #2 from halbachj/feat-doxygen
+| | |     
+| | |     Doxygen
+| | | 
+| * | commit 783d234db24fa0f5cdd6b0f135178c5d97b67de9
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Tue Feb 25 10:07:31 2025 +0000
+| | | 
+| | |     trying doxygen theme
+| | | 
+| | |  docs/Doxyfile                    |  10 +-
+| | |  docs/theme/img/sample1.png       | Bin 0 -> 64405 bytes
+| | |  docs/theme/img/sample2.png       | Bin 0 -> 47408 bytes
+| | |  docs/theme/src/doxygen-style.css | 638 +++++++++++++++++++++++++++++++++
+| | |  4 files changed, 642 insertions(+), 6 deletions(-)
+| | | 
+| * | commit 3d5e739f6e7df4bacd81c7dd58a9425a21669704
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Tue Feb 25 09:50:59 2025 +0000
+| | | 
+| | |     fixed folder structure
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 2 +-
+| | |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | | 
+| * | commit 895e986def6c580e9a20df8ab34c7b9678039c16
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Tue Feb 25 09:47:46 2025 +0000
+| | | 
+| | |     updated doxyfile
+| | | 
+| | |  docs/Doxyfile | 2 +-
+| | |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | | 
+| * | commit d9679a531c868698bc02a62fc02e00f79c84ae90
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Tue Feb 25 09:45:33 2025 +0000
+| | | 
+| | |     updated doxygen version
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 1 +
+| | |  1 file changed, 1 insertion(+)
+| | | 
+| * | commit 195f514d469e00949c7110f7f4b3f8a2ec3009c0
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Tue Feb 25 09:41:54 2025 +0000
+| | | 
+| | |     renamed documentation folder
+| | | 
+| | |  {doc => docs}/Doxyfile | 0
+| | |  1 file changed, 0 insertions(+), 0 deletions(-)
+| | | 
+| * | commit 95424251ca1a2fdc9309ccf1a35ab42f317c57e5
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Tue Feb 25 09:40:01 2025 +0000
+| | | 
+| | |     fixed action
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 1 -
+| | |  1 file changed, 1 deletion(-)
+| | | 
+| * | commit 405ae34e5d9b17cd85f123f035a043f20ee8c8b1
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Tue Feb 25 09:36:46 2025 +0000
+| | | 
+| | |     updated doxygen action
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 42 +++++------------------------
+| | |  1 file changed, 7 insertions(+), 35 deletions(-)
+| | | 
+| * | commit 742dc6c92aaaf886908cc14383931da567c2792e
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 15:22:21 2025 +0000
+| | | 
+| | |     changed deployment
+| | | 
+| | |  BuggySoftware/BuggyState.cpp       | 2 +-
+| | |  BuggySoftware/UltrasonicSensor.hpp | 2 +-
+| | |  2 files changed, 2 insertions(+), 2 deletions(-)
+| | | 
+* | | commit 5591c02592be7dd81b3bfc6d7ebf9e0cf20d75e2
+|\| | Merge: 10148f0 81e44ed
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Mon Feb 24 14:35:44 2025 +0000
+| | | 
+| | |     Merge pull request #1 from halbachj/feat-doxygen
+| | |     
+| | |     Feat doxygen
+| | | 
+| * | commit 81e44edf6a0cc4191b1850f37ba60f49b67b2d40
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 14:32:55 2025 +0000
+| | | 
+| | |     fixes path in action and doxyfile
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 2 +-
+| | |  doc/Doxyfile                          | 2 +-
+| | |  2 files changed, 2 insertions(+), 2 deletions(-)
+| | | 
+| * | commit 887d07e29830db8418ed9424ea8d896da910e4da
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 14:31:15 2025 +0000
+| | | 
+| | |     added second job to doxygen action
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 10 +++++-----
+| | |  1 file changed, 5 insertions(+), 5 deletions(-)
+| | | 
+| * | commit fe9dc749f933875cb87d5b664b64670176dae317
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 14:28:21 2025 +0000
+| | | 
+| | |     bug: fixed doxyfile paths
+| | | 
+| | |  doc/Doxyfile | 4 ++--
+| | |  1 file changed, 2 insertions(+), 2 deletions(-)
+| | | 
+| * | commit 104da58d720c41abe2a02a4d98908fc02523ea89
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 14:24:12 2025 +0000
+| | | 
+| | |     debugging doxygen action
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 12 ++++++------
+| | |  1 file changed, 6 insertions(+), 6 deletions(-)
+| | | 
+| * | commit 8430e65b31bc9bb7757ea64c151ccc483c264d98
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 11:54:48 2025 +0000
+| | | 
+| | |     fix: wrong arg in action
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 8 ++++----
+| | |  1 file changed, 4 insertions(+), 4 deletions(-)
+| | | 
+| * | commit b7674f42b5c3b81de5b990ce695ae7fbe3a9acb2
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 11:51:30 2025 +0000
+| | | 
+| | |     bug: changed path of Doxyfile
+| | | 
+| | |  .github/workflows/doxygen-action.yaml | 2 +-
+| | |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | | 
+| * | commit de2799a717a23e5bc223b3beab9ea8989236afed
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Mon Feb 24 12:49:25 2025 +0100
+| | | 
+| | |     Update and rename gen-doxygen-docs-action.yaml to doxygen-action.yaml
+| | | 
+| | |  .../{gen-doxygen-docs-action.yaml => doxygen-action.yaml}          | 1 +
+| | |  1 file changed, 1 insertion(+)
+| | | 
+| * | commit f2b0ae3d81cb4a3ce30815a7b8921de735cbb9b2
+| | | Author: TwoStone <24858624+halbachj@users.noreply.github.com>
+| | | Date:   Mon Feb 24 12:42:42 2025 +0100
+| | | 
+| | |     Update and rename doxygen-action.yaml to gen-doxygen-docs-action.yaml
+| | | 
+| | |  .github/workflows/doxygen-action.yaml          |  6 ---
+| | |  .github/workflows/gen-doxygen-docs-action.yaml | 52 ++++++++++++++++++++
+| | |  2 files changed, 52 insertions(+), 6 deletions(-)
+| | | 
+| * | commit d5294bef1f0eed24ad55f55027a5f919b5537d20
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 11:33:18 2025 +0000
+| | | 
+| | |     changed file name
+| | | 
+| | |  .../{doxygen.yaml => doxygen-action.yaml}       |  0
+| | |  .github/workflows/github-actions-demo.yml       | 19 -------------------
+| | |  2 files changed, 19 deletions(-)
+| | | 
+| * | commit 058422b4cc512476349ae9e9efd74231a1a09196
+| | | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | | Date:   Mon Feb 24 11:31:25 2025 +0000
+| | | 
+| | |     feat: added doxygen action and Doxyfile
+| | | 
+| | |  .github/workflows/doxygen.yaml |    6 +
+| | |  doc/Doxyfile                   | 2973 ++++++++++++++++++++++++++++++++++
+| | |  2 files changed, 2979 insertions(+)
+| | | 
+| * | commit 0a97474dcf0f990120dace789f79fff91112397c
+|/ /  Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| |   Date:   Mon Feb 24 11:21:39 2025 +0000
+| |   
+| |       feat: adding github action to try this out
+| |   
+| |    .github/workflows/github-actions-demo.yml | 19 +++++++++++++++++++
+| |    1 file changed, 19 insertions(+)
+| | 
+* | commit 10148f0604afc3c908ccdc4146353ceb240d83d8
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Mon Feb 24 11:09:34 2025 +0000
+| | 
+| |     chore: refactored into folder structure
+| | 
+| |  Buggy.cpp => BuggySoftware/Buggy.cpp                       | 0
+| |  Buggy.hpp => BuggySoftware/Buggy.hpp                       | 0
+| |  BuggySoftware.ino => BuggySoftware/BuggySoftware.ino       | 0
+| |  BuggyState.cpp => BuggySoftware/BuggyState.cpp             | 0
+| |  BuggyState.hpp => BuggySoftware/BuggyState.hpp             | 0
+| |  BuggyTCP.cpp => BuggySoftware/BuggyTCP.cpp                 | 0
+| |  BuggyTCP.hpp => BuggySoftware/BuggyTCP.hpp                 | 0
+| |  BuggyWifi.cpp => BuggySoftware/BuggyWifi.cpp               | 0
+| |  BuggyWifi.hpp => BuggySoftware/BuggyWifi.hpp               | 0
+| |  IrSensor.cpp => BuggySoftware/IrSensor.cpp                 | 0
+| |  IrSensor.hpp => BuggySoftware/IrSensor.hpp                 | 0
+| |  LeanStreamIO.cpp => BuggySoftware/LeanStreamIO.cpp         | 0
+| |  LeanStreamIO.hpp => BuggySoftware/LeanStreamIO.hpp         | 0
+| |  LineFollower.cpp => BuggySoftware/LineFollower.cpp         | 0
+| |  LineFollower.hpp => BuggySoftware/LineFollower.hpp         | 0
+| |  Logger.hpp => BuggySoftware/Logger.hpp                     | 0
+| |  MotorDriver.cpp => BuggySoftware/MotorDriver.cpp           | 0
+| |  MotorDriver.hpp => BuggySoftware/MotorDriver.hpp           | 0
+| |  PIDController.cpp => BuggySoftware/PIDController.cpp       | 0
+| |  PIDController.hpp => BuggySoftware/PIDController.hpp       | 0
+| |  PacketFactory.hpp => BuggySoftware/PacketFactory.hpp       | 0
+| |  PacketSerializer.hpp => BuggySoftware/PacketSerializer.hpp | 0
+| |  PacketTypes.hpp => BuggySoftware/PacketTypes.hpp           | 0
+| |  PinSetup.cpp => BuggySoftware/PinSetup.cpp                 | 0
+| |  PinSetup.hpp => BuggySoftware/PinSetup.hpp                 | 0
+| |  Timer1.cpp => BuggySoftware/Timer1.cpp                     | 0
+| |  Timer1.hpp => BuggySoftware/Timer1.hpp                     | 0
+| |  UltrasonicSensor.cpp => BuggySoftware/UltrasonicSensor.cpp | 0
+| |  UltrasonicSensor.hpp => BuggySoftware/UltrasonicSensor.hpp | 0
+| |  helpers.hpp => BuggySoftware/helpers.hpp                   | 0
+| |  secrets.h => BuggySoftware/secrets.h                       | 0
+| |  31 files changed, 0 insertions(+), 0 deletions(-)
+| | 
+* | commit 06c52c268ad9515b8c9fe4148d8bddb5742fb74d
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Fri Feb 21 12:10:51 2025 +0000
+| | 
+| |     reduced overall speed
+| | 
+| |  BuggySoftware.ino | 3 +--
+| |  LineFollower.hpp  | 2 +-
+| |  2 files changed, 2 insertions(+), 3 deletions(-)
+| | 
+* | commit 094b07906a6a03f31a5f1a4650b5fa18d19bc5ee
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Fri Feb 21 11:24:41 2025 +0000
+| | 
+| |     disable wifi status updates
+| | 
+| |  BuggySoftware.ino | 3 ++-
+| |  BuggyTCP.cpp      | 2 +-
+| |  LineFollower.hpp  | 2 +-
+| |  3 files changed, 4 insertions(+), 3 deletions(-)
+| | 
+* | commit e5b0a4a57550e767b6437a454d70f97e448358b5
+| | Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| | Date:   Fri Feb 21 09:24:35 2025 +0000
+| | 
+| |     # Working Line wollowing
+| | 
+| |  BuggySoftware.ino |  4 +---
+| |  BuggyState.cpp    | 10 ++++------
+| |  LineFollower.cpp  |  8 +++++---
+| |  3 files changed, 10 insertions(+), 12 deletions(-)
+| | 
+* | commit b80f7a04ee78be43644386cfc0d149db5ec49f44
+|/  Author: johannes@halbachnet.de <johannes@halbachnet.de>
+|   Date:   Fri Feb 21 09:05:00 2025 +0000
+|   
+|       simpler line following algorithm
+|   
+|    LineFollower.cpp | 31 ++++++++++++-------------------
+|    LineFollower.hpp |  2 +-
+|    2 files changed, 13 insertions(+), 20 deletions(-)
+| 
+* commit ebf56341a455075da4dd957b505c68c3c5635a3d
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Thu Feb 20 16:16:52 2025 +0000
+| 
+|     feat: PID running now Bug: Ultrasonic sensor stopped working
+| 
+|  Buggy.cpp         |  8 ++++++--
+|  Buggy.hpp         |  4 ++--
+|  BuggySoftware.ino | 55 ++++++++++++++++++++++-------------------------------
+|  BuggyState.cpp    | 22 ++++++++++++---------
+|  BuggyState.hpp    | 13 ++++++++-----
+|  LineFollower.cpp  | 24 ++++++++++++++++++-----
+|  LineFollower.hpp  |  2 +-
+|  MotorDriver.cpp   | 42 +++++++++++++++++++---------------------
+|  MotorDriver.hpp   | 18 +++++++++++-------
+|  PIDController.cpp |  2 +-
+|  PIDController.hpp |  2 +-
+|  PacketFactory.hpp |  4 ++--
+|  PacketTypes.hpp   |  4 ++++
+|  Timer1.cpp        |  5 ++++-
+|  Timer1.hpp        | 31 ++++++++----------------------
+|  15 files changed, 123 insertions(+), 113 deletions(-)
+| 
+* commit 29dfe025355592cd9d9bbce0719140ebacc5d936
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Wed Feb 19 20:48:46 2025 +0000
+| 
+|     feat: Added Timer1 for more acurate time measurement of motor encoders
+| 
+|  Buggy.cpp            |  7 +++----
+|  Buggy.hpp            |  1 +
+|  BuggySoftware.ino    | 25 +++++++++++++++++++++++--
+|  BuggyState.cpp       | 27 ++++++++++++++++++++++-----
+|  BuggyState.hpp       | 18 ++++++++++++++++++
+|  BuggyTCP.cpp         |  4 +++-
+|  MotorDriver.cpp      | 36 ++++++++++++++++++++++++++----------
+|  PIDController.cpp    | 10 ++++++----
+|  PacketSerializer.hpp | 14 --------------
+|  PacketTypes.hpp      |  2 +-
+|  Timer1.cpp           | 29 +++++++++++++++++++++++++++++
+|  UltrasonicSensor.cpp |  6 +++---
+|  UltrasonicSensor.hpp |  2 +-
+|  13 files changed, 136 insertions(+), 45 deletions(-)
+| 
+* commit 97f0fc3888f9297828af9bbab99bbb02e8d89512
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Tue Feb 18 09:51:39 2025 +0000
+| 
+|     feat: Timer1 for encoder time measurement
+| 
+|  Buggy.cpp                              |  4 +-
+|  Buggy.hpp                              | 54 +++++++++++++++++++++++----
+|  BuggySoftware.cpp => BuggySoftware.ino | 64 +++++++++++++++++++++++---------
+|  BuggyState.hpp                         | 35 +++++++++--------
+|  BuggyTCP.cpp                           |  6 ++-
+|  MotorDriver.cpp                        |  2 +-
+|  MotorDriver.hpp                        |  2 +-
+|  PacketSerializer.hpp                   |  3 +-
+|  PacketTypes.hpp                        |  2 +-
+|  Timer1.hpp                             | 45 ++++++++++++++++++++++
+|  UltrasonicSensor.hpp                   |  2 +-
+|  11 files changed, 169 insertions(+), 50 deletions(-)
+| 
+* commit c6d4b99efcb4016f84125816d88f09e18092de55
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Sat Feb 15 22:55:39 2025 +0000
+| 
+|     chore: drop ide folder
+| 
+|  .idea/.gitignore        | 8 --------
+|  .idea/BuggySoftware.iml | 8 --------
+|  .idea/modules.xml       | 8 --------
+|  .idea/vcs.xml           | 6 ------
+|  4 files changed, 30 deletions(-)
+| 
+* commit 7ff15ed65834749c019ae905ab53559cec391557
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Sat Feb 15 22:53:48 2025 +0000
+| 
+|     chore: update submodule
+| 
+|  .idea/.gitignore        | 8 ++++++++
+|  .idea/BuggySoftware.iml | 8 ++++++++
+|  .idea/modules.xml       | 8 ++++++++
+|  .idea/vcs.xml           | 6 ++++++
+|  4 files changed, 30 insertions(+)
+| 
+* commit b865a59e95ff380fb41ed0d47a9e8a4792f020e9
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Sat Feb 15 22:46:05 2025 +0000
+| 
+|     commit in submodule
+| 
+|  Buggy.cpp            | 13 ++++++++++-
+|  Buggy.hpp            |  3 +++
+|  BuggyState.cpp       | 62 +++++++++++++++++++++++++++++++++++++++++++-------
+|  BuggyState.hpp       | 22 +++++++++++-------
+|  BuggyTCP.cpp         | 31 +++----------------------
+|  BuggyTCP.hpp         |  5 +---
+|  LeanStreamIO.cpp     | 11 +++++++--
+|  MotorDriver.cpp      |  4 ++++
+|  MotorDriver.hpp      |  1 +
+|  PacketSerializer.hpp |  3 ++-
+|  PacketTypes.hpp      |  1 +
+|  UltrasonicSensor.cpp | 20 ++++++++--------
+|  UltrasonicSensor.hpp |  6 ++++-
+|  13 files changed, 120 insertions(+), 62 deletions(-)
+| 
+* commit 59d89252ce87800ec2f76f69797fa797518eb936
+  Author: johannes@halbachnet.de <johannes@halbachnet.de>
+  Date:   Sat Feb 15 20:26:36 2025 +0000
+  
+      initial commit
+  
+   Buggy.cpp            |  47 +++++++++++++++++
+   Buggy.hpp            |  67 ++++++++++++++++++++++++
+   BuggySoftware.cpp    | 136 +++++++++++++++++++++++++++++++++++++++++++++++++
+   BuggyState.cpp       |  70 +++++++++++++++++++++++++
+   BuggyState.hpp       |  95 ++++++++++++++++++++++++++++++++++
+   BuggyTCP.cpp         |  63 +++++++++++++++++++++++
+   BuggyTCP.hpp         |  34 +++++++++++++
+   BuggyWifi.cpp        |  60 ++++++++++++++++++++++
+   BuggyWifi.hpp        |  35 +++++++++++++
+   IrSensor.cpp         |  20 ++++++++
+   IrSensor.hpp         |  29 +++++++++++
+   LeanStreamIO.cpp     |  90 ++++++++++++++++++++++++++++++++
+   LeanStreamIO.hpp     |  49 ++++++++++++++++++
+   LineFollower.cpp     |  19 +++++++
+   LineFollower.hpp     |  37 ++++++++++++++
+   Logger.hpp           |  60 ++++++++++++++++++++++
+   MotorDriver.cpp      |  80 +++++++++++++++++++++++++++++
+   MotorDriver.hpp      |  42 +++++++++++++++
+   PIDController.cpp    |  26 ++++++++++
+   PIDController.hpp    |  40 +++++++++++++++
+   PacketFactory.hpp    |  29 +++++++++++
+   PacketSerializer.hpp |  42 +++++++++++++++
+   PacketTypes.hpp      |  61 ++++++++++++++++++++++
+   PinSetup.cpp         |  20 ++++++++
+   PinSetup.hpp         |  36 +++++++++++++
+   UltrasonicSensor.cpp |  43 ++++++++++++++++
+   UltrasonicSensor.hpp |  48 +++++++++++++++++
+   helpers.hpp          |   7 +++
+   secrets.h            |   7 +++
+   29 files changed, 1392 insertions(+)
