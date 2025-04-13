@@ -1,4 +1,74 @@
-* commit eee17e53cee0691e3964883e45e436670284da5f (HEAD -> main, origin/main, origin/HEAD)
+* commit 34236322e1134e4e74ff534afc96ff7ef8ffa276 (HEAD -> main, origin/main, origin/HEAD)
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Sun Apr 13 21:16:55 2025 +0100
+| 
+|     Gold Processing windows
+| 
+|  Reports/FinalReport/GoldProcessingMainWindow.png | Bin 0 -> 27165 bytes
+|  Reports/FinalReport/RemoteControlProcessing.png  | Bin 0 -> 7936 bytes
+|  2 files changed, 0 insertions(+), 0 deletions(-)
+| 
+* commit 5a4f559f41b9cdc2b60a153309633b27db8fb485
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Sun Apr 13 19:57:57 2025 +0100
+| 
+|     added Gold state diagram
+| 
+|  Reports/FinalReport/GoldStateDiagram.png | Bin 0 -> 31639 bytes
+|  Reports/FinalReport/GoldStateDiagram.uxf | 231 +++++++++++++++++++++++++++++
+|  2 files changed, 231 insertions(+)
+| 
+* commit 50bf1362742face5bb7d6c554d5b27645bc3da97
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Sun Apr 13 18:31:48 2025 +0100
+| 
+|     Update SIlver state diagram
+| 
+|  Reports/FinalReport/SilverStateDiagram.png | Bin 22019 -> 24797 bytes
+|  Reports/FinalReport/SilverStateDiagram.uxf |  53 ++++++++++++++++++++++-----
+|  2 files changed, 43 insertions(+), 10 deletions(-)
+| 
+* commit dbdc27af3a0dd2e3d8d9deb5d5a5117050829243
+| Author: Johannes Halbach <johannes@halbachnet.de>
+| Date:   Sun Apr 13 18:10:38 2025 +0100
+| 
+|     Added Packet strcture graph
+| 
+|  Reports/FinalReport/SilverStateDiagram.png | Bin 2688 -> 22019 bytes
+|  1 file changed, 0 insertions(+), 0 deletions(-)
+| 
+* commit 33a95b072b5ce9e899f8acc295bf9961e56e4185
+| Author: Johannes Halbach <johannes@halbachnet.de>
+| Date:   Sun Apr 13 18:10:38 2025 +0100
+| 
+|     Added Packet strcture graph
+| 
+|  Reports/FinalReport/PacketStructure.png | Bin 0 -> 56759 bytes
+|  Reports/FinalReport/PacketStructure.svg | 202 ++++++++++++++++++++++++++++++
+|  2 files changed, 202 insertions(+)
+| 
+* commit e44e05d53e25d534a396193b0be6e503b1f9c015
+| Author: Johannes Halbach <johannes@halbachnet.de>
+| Date:   Sun Apr 13 15:16:37 2025 +0100
+| 
+|     Updated git log with tags
+| 
+|  Reports/FinalReport/git-log.txt | 38 +++++++++++++++++++++++++++++---------
+|  1 file changed, 29 insertions(+), 9 deletions(-)
+| 
+* commit 2b566562ba468353e655871f1c416fb1889ece2f
+| Author: johannes@halbachnet.de <johannes@halbachnet.de>
+| Date:   Sun Apr 13 18:08:44 2025 +0100
+| 
+|     Added report relevant diagrams and files
+| 
+|  .../{ => Silver_Processing}/SecondWindow.pde      |   0
+|  .../{ => Silver_Processing}/Silver_Processing.pde |   2 +-
+|  Reports/FinalReport/SilverStateDiagram.png        | Bin 0 -> 2688 bytes
+|  Reports/FinalReport/SilverStateDiagram.uxf        | 154 ++++++++++++++++++++
+|  4 files changed, 155 insertions(+), 1 deletion(-)
+| 
+* commit eee17e53cee0691e3964883e45e436670284da5f
 | Author: Johannes Halbach <johannes@halbachnet.de>
 | Date:   Sun Apr 13 01:38:27 2025 +0100
 | 
