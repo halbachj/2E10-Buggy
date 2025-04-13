@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 SecondWindow remoteWindow;
 float deadZoneRadius = 30;
 float xOutput = 0;
-float yOutput = 0;
+float yOutput = 0; 
 ControlP5 cp5; // UI Control variables
 float pi = 3.14159265359;
 float r = 0.03;
